@@ -112,12 +112,13 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
   flex: 1;
   margin-left: var(--sidebar-width);
   min-height: 100dvh;
+  min-width: 0;             /* flex items need this to not overflow their parent */
   display: flex; flex-direction: column;
   transition: margin-left var(--transition-base);
 }
 .app-sidebar.collapsed ~ .app-main { margin-left: var(--sidebar-collapsed-width); }
 
-.page-content { flex: 1; padding: var(--space-6); }
+.page-content { flex: 1; padding: var(--space-6); overflow-x: hidden; }
 
 /* ── Glass Card ──────────────────────────────────────────── */
 .glass-card {

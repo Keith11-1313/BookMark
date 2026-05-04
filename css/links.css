@@ -67,7 +67,7 @@
 .combobox-option:hover,
 .combobox-option.focused { background: var(--accent-light); color: var(--text-primary); }
 .combobox-option.selected { color: var(--accent); font-weight: 500; }
-.combobox-option mark { background: rgba(88,101,242,0.2); color: var(--accent); border-radius: 2px; padding: 0 2px; font-weight: 600; font-style: normal; }
+.combobox-option mark { background: rgba(88,101,242,0.2); color: var(--accent); border-radius: 2px; padding: 0; font-weight: 600; font-style: normal; }
 .combobox-no-results { padding: var(--space-3); font-size: var(--text-sm); color: var(--text-muted); text-align: center; }
 .combobox-create { color: var(--accent); font-style: italic; }
 
@@ -145,12 +145,13 @@
   gap: var(--space-3);
   margin-bottom: var(--space-5);
   flex-wrap: wrap;
+  min-width: 0;             /* prevent flex item from overflowing parent */
 }
 
 /* ── Search bar with icon inside ─────────────────────────── */
 .links-toolbar .search-bar {
   flex: 1;
-  min-width: 200px;
+  min-width: 0;             /* critical: allows flex item to shrink below content size */
   position: relative;
   display: flex;
   align-items: center;
@@ -167,7 +168,8 @@
   z-index: 1;
 }
 .links-toolbar .search-bar #links-search {
-  width: 100%;
+  flex: 1;                  /* fill remaining space without overflow */
+  min-width: 0;             /* allow input to shrink */
   padding-left: 34px;
 }
 
