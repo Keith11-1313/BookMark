@@ -12,9 +12,12 @@ const App = (() => {
   let currentRoute = null;
   let currentUser  = null;
   let deferredInstallPrompt = null;
+  let _initialized = false;
 
   // ── Init ────────────────────────────────────────────────
   function init(user) {
+    if (_initialized) return;
+    _initialized = true;
     currentUser = user;
     Sidebar.init();
     CommandPalette.init();
@@ -72,8 +75,8 @@ const App = (() => {
         }
       }
 
-      // Escape → close palette
-      if (e.key === 'Escape') CommandPalette.close();
+      // Escape → close palette (only when open)
+      if (e.key === 'Escape' && CommandPalette.isOpen()) CommandPalette.close();
     });
   }
 
@@ -124,9 +127,10 @@ const App = (() => {
     const backdrop = document.getElementById(id);
     if (!backdrop) return;
     backdrop.classList.add('open');
-    backdrop.addEventListener('click', e => {
-      if (e.target === backdrop) closeModal(id);
-    }, { once: true });
+    // Remove any prior handler before adding a new one (prevents stacking)
+    if (backdrop._closeHandler) backdrop.removeEventListener('click', backdrop._closeHandler);
+    backdrop._closeHandler = e => { if (e.target === backdrop) closeModal(id); };
+    backdrop.addEventListener('click', backdrop._closeHandler);
     // Focus first input
     setTimeout(() => backdrop.querySelector('input, textarea, select')?.focus(), 100);
   }
@@ -135,6 +139,10 @@ const App = (() => {
     const backdrop = document.getElementById(id);
     if (!backdrop) return;
     backdrop.classList.remove('open');
+    if (backdrop._closeHandler) {
+      backdrop.removeEventListener('click', backdrop._closeHandler);
+      backdrop._closeHandler = null;
+    }
   }
 
   // ── Format date ──────────────────────────────────────────
@@ -173,10 +181,17 @@ const App = (() => {
     if (main) main.innerHTML = '';
   }
 
-  function getRoute()    { return currentRoute; }
-  function getUser()     { return currentUser; }
+  // ── Reset (called on sign-out so re-login re-initializes cleanly) ──
+  function reset() {
+    unmountCurrent();
+    _initialized  = false;
+    currentUser   = null;
+  }
 
-  return { init, navigate, toast, openModal, closeModal, formatDate, formatDateFull, getRoute, getUser, unmountCurrent };
+  function getRoute() { return currentRoute; }
+  function getUser()  { return currentUser; }
+
+  return { init, reset, navigate, toast, openModal, closeModal, formatDate, formatDateFull, getRoute, getUser, unmountCurrent };
 })();
 
 // ── Pinned Bar ────────────────────────────────────────────

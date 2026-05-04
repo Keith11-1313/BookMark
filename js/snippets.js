@@ -21,13 +21,15 @@ const Snippets = (() => {
           <div><div class="page-title">Snippets</div><div class="page-subtitle">Reusable code & text blocks</div></div>
         </div>
         <div class="page-actions">
-          <div class="search-bar" style="width:220px">
-            <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
-            <input class="input" id="snippets-search" type="search" placeholder="Search snippets…">
-          </div>
-          <select class="input" id="snippets-lang-filter" style="width:auto"><option value="all">All Languages</option>${LANGUAGES.map(l=>`<option>${l}</option>`).join('')}</select>
           <button class="btn btn-primary" id="btn-new-snippet"><i data-lucide="plus" width="16" height="16"></i> New Snippet</button>
         </div>
+      </div>
+      <div class="page-toolbar">
+        <div class="search-bar">
+          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <input class="input" id="snippets-search" type="search" placeholder="Search snippets…">
+        </div>
+        <select class="input" id="snippets-lang-filter" style="width:auto"><option value="all">All Languages</option>${LANGUAGES.map(l=>`<option>${l}</option>`).join('')}</select>
       </div>
       <div id="snippets-grid" class="snippets-grid"></div>
 
@@ -106,7 +108,7 @@ const Snippets = (() => {
             <button class="btn-ghost btn-icon btn-sm" data-action="delete" aria-label="Delete snippet" data-tooltip="Delete"><i data-lucide="trash-2" width="13" height="13"></i></button>
           </div>
           <button class="snippet-star${s.starred?' active':''}" data-action="star" aria-label="${s.starred?'Unstar':'Star'}" data-tooltip="${s.starred?'Unstar':'Star'}">
-            <i data-lucide="${s.starred?'star':'star'}" width="15" height="15" ${s.starred?'style="fill:var(--warning)"':''}></i>
+            <i data-lucide="star" width="15" height="15" style="${s.starred?'fill:var(--warning);color:var(--warning)':'fill:none'}"></i>
           </button>
         </div>
         <div class="snippet-code-wrap">

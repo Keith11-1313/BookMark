@@ -20,11 +20,13 @@ const Notes = (() => {
           <div><div class="page-title">Notes</div><div class="page-subtitle">Your personal notepad</div></div>
         </div>
         <div class="page-actions">
-          <div class="search-bar" style="width:220px">
-            <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
-            <input class="input" id="notes-search" type="search" placeholder="Search notes…">
-          </div>
           <button class="btn btn-primary" id="btn-new-note"><i data-lucide="plus" width="16" height="16"></i> New Note</button>
+        </div>
+      </div>
+      <div class="page-toolbar">
+        <div class="search-bar">
+          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <input class="input" id="notes-search" type="search" placeholder="Search notes…">
         </div>
       </div>
       <div class="notes-layout" id="notes-layout">
@@ -79,6 +81,11 @@ const Notes = (() => {
 
   function openEditor(id, container) {
     const note = allNotes.find(n=>n.id===id); if (!note) return;
+
+    // Cancel any pending auto-save from the previously open note
+    clearTimeout(saveTimer);
+    saveTimer = null;
+
     activeId = id;
     const layout = container.querySelector('#notes-layout');
     layout.classList.add('has-editor');

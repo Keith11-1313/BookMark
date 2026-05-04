@@ -3,8 +3,9 @@
 const Store = (() => {
   const COLLECTIONS = { links: 'bookmarks', notes: 'notes', snippets: 'snippets', dirs: 'directories', settings: 'settings' };
   const LS_PREFIX   = 'bookmark_';
-  const listeners   = {};
-  let unsubscribes  = {};
+  const listeners   = {};   // col → [callback, ...]
+  let unsubscribes  = {};   // col → firestore unsubscribe fn
+  let cbUnsubscribes = [];  // [{col, cb, unsub}] — per-callback cleanup tracking
 
   // ── Helpers ─────────────────────────────────────────────
   function uid()       { return Auth.getUid(); }
@@ -32,7 +33,7 @@ const Store = (() => {
     const cached = lsGet(col);
     if (cached.length) callback(cached);
 
-    // Firestore live listener
+    // Firestore live listener — only one per collection
     if (!unsubscribes[col]) {
       const unsub = ref(col).orderBy('createdAt', 'desc')
         .onSnapshot(snap => {
@@ -43,15 +44,22 @@ const Store = (() => {
       unsubscribes[col] = unsub;
     }
 
-    return () => {
+    // Return a per-callback unsubscribe so callers can cleanly detach
+    const cbUnsub = () => {
       listeners[col] = (listeners[col] || []).filter(fn => fn !== callback);
     };
+    cbUnsubscribes.push({ col, cb: callback, unsub: cbUnsub });
+    return cbUnsub;
   }
 
   function stopListeners() {
+    // Tear down all Firestore listeners
     Object.values(unsubscribes).forEach(fn => fn && fn());
     unsubscribes = {};
+    // Clear all callback lists
     Object.keys(listeners).forEach(k => { listeners[k] = []; });
+    // Clear per-callback tracking
+    cbUnsubscribes = [];
   }
 
   // ── CRUD ─────────────────────────────────────────────────

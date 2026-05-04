@@ -60,6 +60,7 @@ const Directory = (() => {
   async function loadTree(container) {
     try {
       const uid  = Auth.getUid();
+      if (!uid) { renderTree(container); lucide.createIcons({el:container}); bindEvents(container); return; }
       const doc  = await db.collection('users').doc(uid).collection('directories').doc('tree').get();
       if (doc.exists && doc.data().tree) tree = doc.data().tree;
     } catch {}
@@ -70,6 +71,7 @@ const Directory = (() => {
 
   async function saveTree() {
     const uid = Auth.getUid();
+    if (!uid) return;
     await db.collection('users').doc(uid).collection('directories').doc('tree').set({ tree });
   }
 
@@ -210,8 +212,14 @@ const Directory = (() => {
   }
 
   function bindEvents(container) {
-    container.querySelector('#btn-new-folder')?.addEventListener('click', () => openNameDialog('folder', selectedPath||'', null, container));
-    container.querySelector('#btn-new-file')?.addEventListener('click', () => openNameDialog('file', selectedPath||'', null, container));
+    // If selectedPath points to a file, use its parent folder as target
+    function resolveParent() {
+      if (!selectedPath) return '';
+      const node = findNode(selectedPath);
+      return (node && node.type === 'folder') ? selectedPath : getParentPath(selectedPath);
+    }
+    container.querySelector('#btn-new-folder')?.addEventListener('click', () => openNameDialog('folder', resolveParent(), null, container));
+    container.querySelector('#btn-new-file')?.addEventListener('click',   () => openNameDialog('file',   resolveParent(), null, container));
     container.querySelector('#btn-collapse-all')?.addEventListener('click', () => { expandedPaths.clear(); renderTree(container); });
   }
 
@@ -256,7 +264,14 @@ const Directory = (() => {
   }
 
   function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-  function unmount() {}
+
+  function unmount() {
+    // Reset all module-scoped state so stale selections don't persist across navigation
+    tree          = { name:'root', type:'folder', children:[] };
+    selectedPath  = null;
+    expandedPaths = new Set();
+    contextMenu   = null;
+  }
 
   return { render, unmount };
 })();

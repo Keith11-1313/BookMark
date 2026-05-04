@@ -51,6 +51,7 @@ const Auth = (() => {
   }
 
   function onSignedIn(user) {
+    authScreen.classList.remove('visible'); // remove before hiding
     authScreen.classList.add('hidden');     // fade out auth
     appEl.style.opacity = '0';
     appEl.style.display = 'flex';
@@ -63,11 +64,12 @@ const Auth = (() => {
   }
 
   function onSignedOut() {
-    App.unmountCurrent?.();
+    App.reset?.();                          // resets _initialized so re-login works
     appEl.style.transition = 'opacity 0.3s ease';
     appEl.style.opacity = '0';
     setTimeout(() => { appEl.style.display = 'none'; }, 300);
-    authScreen.classList.remove('hidden'); // fade in auth
+    authScreen.classList.remove('hidden');
+    authScreen.classList.add('visible');    // restore for next sign-in
     Store.clear();
   }
 

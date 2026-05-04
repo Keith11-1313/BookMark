@@ -1,7 +1,7 @@
 // command-palette.js — Universal search overlay (Ctrl+K)
 
 const CommandPalette = (() => {
-  let isOpen    = false;
+  let _isOpen   = false;
   let focusIdx  = -1;
   let debounce  = null;
   let recentSearches = [];
@@ -30,7 +30,7 @@ const CommandPalette = (() => {
     if (!backdrop || !input) return;
 
     backdrop.classList.add('open');
-    isOpen = true;
+    _isOpen = true;
     focusIdx = -1;
     input.value = '';
     input.focus();
@@ -41,7 +41,7 @@ const CommandPalette = (() => {
     const backdrop = document.getElementById('command-palette-backdrop');
     if (!backdrop) return;
     backdrop.classList.remove('open');
-    isOpen = false;
+    _isOpen = false;
     focusIdx = -1;
   }
 
@@ -177,5 +177,7 @@ const CommandPalette = (() => {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  return { init, open, close };
+  function isOpen() { return _isOpen; }
+
+  return { init, open, close, isOpen };
 })();

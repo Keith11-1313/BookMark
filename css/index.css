@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Fonts loaded via <link> in index.html for non-blocking loading */
 
 /* ── Color Tokens ─────────────────────────────────────────── */
 :root {
@@ -92,7 +92,7 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
 
 /* ── App Shell ───────────────────────────────────────────── */
 #app { display: none; min-height: 100dvh; }
-#app.visible { display: flex; }
+/* App visibility is controlled via inline style in auth.js (display:flex / none) */
 
 .app-sidebar {
   flex-shrink: 0;
@@ -306,9 +306,11 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   .page-content { padding: var(--space-4); }
   .modal { max-width: 100%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; position: fixed; bottom: 0; left: 0; right: 0; max-height: 90dvh; }
   .modal-backdrop { align-items: flex-end; }
-  #toast-container { bottom: calc(var(--bottom-nav-height) + var(--space-4)); right: var(--space-4); left: var(--space-4); }
+  #toast-container { bottom: calc(var(--bottom-nav-height) + var(--space-4) + env(safe-area-inset-bottom, 0px)); right: var(--space-4); left: var(--space-4); }
   .page-title { font-size: var(--text-xl); }
   .pinned-bar { padding: var(--space-2) var(--space-4); }
+  .page-header { flex-direction: column; align-items: stretch; gap: var(--space-3); }
+  .page-actions { flex-wrap: wrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {
