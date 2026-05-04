@@ -106,7 +106,7 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
   transition: width var(--transition-base);
   overflow: hidden;
 }
-.app-sidebar.collapsed { width: var(--sidebar-collapsed-width); }
+.app-sidebar.collapsed { width: var(--sidebar-collapsed-width); overflow: visible; }
 
 .app-main {
   flex: 1;

@@ -52,9 +52,18 @@
 .app-sidebar.collapsed .sidebar-collapse-btn { transform: rotate(180deg); }
 
 /* Collapsed state */
-.app-sidebar.collapsed .sidebar-brand { opacity: 0; width: 0; pointer-events: none; }
-.app-sidebar.collapsed .sidebar-collapse-btn { margin-left: 0; display: none; }
-.app-sidebar.collapsed .sidebar-header { justify-content: center; }
+.app-sidebar.collapsed .sidebar-brand { display: none; }
+.app-sidebar.collapsed .sidebar-header {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2);
+}
+.app-sidebar.collapsed .sidebar-collapse-btn {
+  margin-left: 0;
+  transform: rotate(180deg);
+}
 
 /* Nav */
 .sidebar-nav {
@@ -228,8 +237,8 @@
 .user-name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .user-email { font-size: var(--text-xs); color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.app-sidebar.collapsed .user-info { opacity: 0; width: 0; pointer-events: none; }
-.app-sidebar.collapsed .sidebar-user { justify-content: center; }
+.app-sidebar.collapsed .user-info { display: none; }
+.app-sidebar.collapsed .sidebar-user { justify-content: center; padding: var(--space-2); }
 
 /* Collapsed: footer buttons — icon only */
 .app-sidebar.collapsed .btn-signout span,

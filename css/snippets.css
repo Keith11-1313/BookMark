@@ -38,11 +38,13 @@
   font-family: var(--font-mono);
   flex-shrink: 0;
 }
-.snippet-star { color: var(--text-muted); transition: color var(--transition-fast); cursor: pointer; flex-shrink: 0; }
+.snippet-star { color: var(--text-muted); background: none; border: none; padding: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color var(--transition-fast); border-radius: var(--radius-sm); }
 .snippet-star.active { color: var(--warning); }
-.snippet-star:hover { color: var(--warning); }
+.snippet-star:hover { color: var(--warning); background: var(--bg-hover); }
 
 .snippet-actions { display: flex; gap: 2px; opacity: 0; transition: opacity var(--transition-fast); }
+.snippet-actions .btn-ghost { color: var(--text-muted); }
+.snippet-actions .btn-ghost:hover { color: var(--text-primary); background: var(--bg-hover); }
 .snippet-card:hover .snippet-actions { opacity: 1; }
 
 /* Code block */
