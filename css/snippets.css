@@ -9,11 +9,11 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
   transition: border-color var(--transition-fast), transform var(--transition-fast);
   animation: scaleIn 0.2s ease;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .snippet-card:hover { border-color: var(--bg-hover); transform: translateY(-2px); }
 .snippet-card.starred { border-color: rgba(240,178,50,0.4); }
@@ -25,6 +25,7 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border);
   background: var(--bg-tertiary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 .snippet-title { font-size: var(--text-sm); font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .snippet-lang {
@@ -89,6 +90,7 @@
   justify-content: space-between;
   padding: var(--space-2) var(--space-4);
   border-top: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 .snippet-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
 .snippet-tag {
@@ -118,7 +120,7 @@
 .lang-text       { background: var(--bg-hover); color: var(--text-muted); }
 
 /* Highlight.js dark theme override */
-.hljs { background: var(--bg-darkest) !important; color: var(--text-primary); }
+.hljs { background: var(--bg-darkest) !important; color: var(--text-secondary); }
 
 @media (max-width: 640px) {
   .snippets-grid { grid-template-columns: 1fr; }

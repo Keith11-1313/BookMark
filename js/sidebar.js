@@ -108,6 +108,18 @@ const Sidebar = (() => {
       sidebar.classList.toggle('collapsed');
       localStorage.setItem('bookmark_sidebar_collapsed', sidebar.classList.contains('collapsed'));
     });
+
+    // Click logo to expand when collapsed
+    const logo = document.querySelector('.sidebar-logo');
+    if (logo) {
+      logo.addEventListener('click', () => {
+        if (sidebar.classList.contains('collapsed')) {
+          sidebar.classList.remove('collapsed');
+          localStorage.setItem('bookmark_sidebar_collapsed', 'false');
+        }
+      });
+      logo.style.cursor = 'pointer';
+    }
   }
 
   function setActive(route) {

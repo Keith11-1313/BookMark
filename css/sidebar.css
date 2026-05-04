@@ -53,7 +53,7 @@
 
 /* Collapsed state */
 .app-sidebar.collapsed .sidebar-brand { opacity: 0; width: 0; pointer-events: none; }
-.app-sidebar.collapsed .sidebar-collapse-btn { margin-left: 0; }
+.app-sidebar.collapsed .sidebar-collapse-btn { margin-left: 0; display: none; }
 .app-sidebar.collapsed .sidebar-header { justify-content: center; }
 
 /* Nav */
@@ -138,8 +138,9 @@
 }
 
 .app-sidebar.collapsed .nav-item-label,
-.app-sidebar.collapsed .nav-item-badge { opacity: 0; width: 0; pointer-events: none; }
+.app-sidebar.collapsed .nav-item-badge { display: none; }
 .app-sidebar.collapsed .nav-item { justify-content: center; padding: var(--space-2); }
+.app-sidebar.collapsed .sidebar-nav { padding: var(--space-3) var(--space-1); align-items: center; }
 .app-sidebar.collapsed .nav-item.active::before {
   content: '';
   position: absolute;
@@ -233,10 +234,7 @@
 /* Collapsed: footer buttons — icon only */
 .app-sidebar.collapsed .btn-signout span,
 .app-sidebar.collapsed #btn-install-pwa span {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
-  pointer-events: none;
+  display: none;
 }
 .app-sidebar.collapsed .btn-signout,
 .app-sidebar.collapsed #btn-install-pwa {
@@ -294,6 +292,38 @@
   flex-shrink: 0;
 }
 .app-sidebar.collapsed .sidebar-search-btn { display: none; }
+
+/* ── Collapsed sidebar: right-side tooltips (Discord/VS Code style) ── */
+.app-sidebar.collapsed [data-tooltip]::after {
+  bottom: auto;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.app-sidebar.collapsed .nav-item::after {
+  content: attr(aria-label);
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: var(--z-toast);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+.app-sidebar.collapsed .nav-item:hover::after {
+  opacity: 1;
+}
 
 /* ── Bottom Nav (Mobile) ─────────────────────────────────── */
 #bottom-nav {
