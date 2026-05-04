@@ -17,18 +17,18 @@
 // ─────────────────────────────────────────────────────────────
 
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey: "AIzaSyCQcKVt-nzWgYYQ3eblrFtMOOf69m34hjA",
+  authDomain: "personal-bookmark-hub.firebaseapp.com",
+  projectId: "personal-bookmark-hub",
+  storageBucket: "personal-bookmark-hub.firebasestorage.app",
+  messagingSenderId: "898261014471",
+  appId: "1:898261014471:web:6830b96339d36eee306be2"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-window.db   = firebase.firestore();
+window.db = firebase.firestore();
 window.auth = firebase.auth();
 
 // Enable offline persistence
