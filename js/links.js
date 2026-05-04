@@ -555,6 +555,7 @@ const Links = (() => {
   }
 
   function openAddModal(container) {
+    container = container || document.getElementById('page-content');
     editingId = null;
     container.querySelector('#link-modal-title').textContent = 'Add Bookmark';
     container.querySelector('#link-url').value = '';

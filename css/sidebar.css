@@ -230,6 +230,23 @@
 .app-sidebar.collapsed .user-info { opacity: 0; width: 0; pointer-events: none; }
 .app-sidebar.collapsed .sidebar-user { justify-content: center; }
 
+/* Collapsed: footer buttons — icon only */
+.app-sidebar.collapsed .btn-signout span,
+.app-sidebar.collapsed #btn-install-pwa span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.app-sidebar.collapsed .btn-signout,
+.app-sidebar.collapsed #btn-install-pwa {
+  justify-content: center;
+  padding: var(--space-2);
+}
+.app-sidebar.collapsed .sidebar-footer {
+  padding: var(--space-3) var(--space-1);
+}
+
 .btn-signout {
   display: flex;
   align-items: center;
@@ -315,6 +332,7 @@
   transition: color var(--transition-fast);
   touch-action: manipulation;
   padding: var(--space-1);
+  position: relative;
 }
 .bottom-nav-item:hover,
 .bottom-nav-item.active { color: var(--accent); }

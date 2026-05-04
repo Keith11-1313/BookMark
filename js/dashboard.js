@@ -119,6 +119,22 @@ const Dashboard = (() => {
     const n = container.querySelector('#stat-notes');    if (n) n.textContent = notes.length;
     const sn= container.querySelector('#stat-snippets'); if (sn) sn.textContent = snippets.length;
 
+    // Directory count — fetched from its own Firestore doc
+    const sd = container.querySelector('#stat-dirs');
+    if (sd && sd.textContent === '—') {
+      try {
+        const uid = Auth.getUid();
+        db.collection('users').doc(uid).collection('directories').doc('tree').get()
+          .then(doc => {
+            if (doc.exists && doc.data().tree) {
+              sd.textContent = countNodes(doc.data().tree.children || []);
+            } else {
+              sd.textContent = '0';
+            }
+          }).catch(() => { sd.textContent = '—'; });
+      } catch { sd.textContent = '—'; }
+    }
+
     // Recent
     const recentEl = container.querySelector('#recent-list');
     if (!recentEl) return;
@@ -227,6 +243,15 @@ const Dashboard = (() => {
           <div class="skeleton" style="height:11px;width:35%;border-radius:4px"></div>
         </div>
       </div>`).join('');
+  }
+
+  function countNodes(nodes) {
+    let count = 0;
+    for (const node of (nodes || [])) {
+      count++;
+      if (node.children) count += countNodes(node.children);
+    }
+    return count;
   }
 
   function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }

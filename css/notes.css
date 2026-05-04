@@ -171,4 +171,5 @@
 }
 @media (max-width: 768px) {
   .notes-grid { columns: 1; }
+  .note-editor-panel { min-height: 400px; }
 }
