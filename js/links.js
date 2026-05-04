@@ -294,6 +294,50 @@ const Links = (() => {
     setupImport(container);
     initCombobox(container);
     initTagAutocomplete(container);
+    initFilterBarScroll(container);
+  }
+
+  function initFilterBarScroll(container) {
+    const bar = container.querySelector('.filter-bar');
+    if (!bar) return;
+
+    // Mouse wheel vertical → redirect as horizontal scroll
+    bar.addEventListener('wheel', e => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        bar.scrollLeft += e.deltaY * 1.5;
+      }
+    }, { passive: false });
+
+    // Click & drag to scroll
+    let isDown = false, startX = 0, scrollStart = 0, didDrag = false;
+    bar.addEventListener('mousedown', e => {
+      isDown = true;
+      didDrag = false;
+      startX = e.pageX - bar.offsetLeft;
+      scrollStart = bar.scrollLeft;
+      bar.style.cursor = 'grabbing';
+      bar.style.userSelect = 'none';
+    });
+    const stopDrag = () => {
+      isDown = false;
+      bar.style.cursor = '';
+      bar.style.userSelect = '';
+    };
+    bar.addEventListener('mouseleave', stopDrag);
+    bar.addEventListener('mouseup', stopDrag);
+    bar.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - bar.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      if (Math.abs(walk) > 4) didDrag = true;
+      bar.scrollLeft = scrollStart - walk;
+    });
+    // Block pill click if user was just dragging
+    bar.addEventListener('click', e => {
+      if (didDrag) { e.stopPropagation(); e.preventDefault(); didDrag = false; }
+    }, true);
   }
 
   function initCombobox(container) {
