@@ -62,10 +62,10 @@ const Links = (() => {
           <div><div class="page-title">Bookmarks</div><div class="page-subtitle">All your saved links</div></div>
         </div>
         <div class="page-actions">
+          <button class="btn btn-primary" id="btn-add-link"><i data-lucide="plus" width="16" height="16"></i> Add Bookmark</button>
           <button class="btn btn-secondary btn-sm" id="btn-health-check" data-tooltip="Check dead links"><i data-lucide="activity" width="14" height="14"></i><span>Health Check</span></button>
           <button class="btn btn-secondary btn-sm" id="btn-import-links"><i data-lucide="upload" width="14" height="14"></i><span>Import</span></button>
           <button class="btn btn-secondary btn-sm" id="btn-export-links"><i data-lucide="download" width="14" height="14"></i><span>Export</span></button>
-          <button class="btn btn-primary" id="btn-add-link"><i data-lucide="plus" width="16" height="16"></i> Add Bookmark</button>
         </div>
       </div>
 

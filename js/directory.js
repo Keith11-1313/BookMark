@@ -21,8 +21,8 @@ const Directory = (() => {
           <div><div class="page-title">Directory</div><div class="page-subtitle">Virtual file tree browser</div></div>
         </div>
         <div class="page-actions">
-          <button class="btn btn-secondary btn-sm" id="btn-new-folder"><i data-lucide="folder-plus" width="14" height="14"></i> New Folder</button>
           <button class="btn btn-primary" id="btn-new-file"><i data-lucide="file-plus" width="14" height="14"></i> New File</button>
+          <button class="btn btn-secondary btn-sm" id="btn-new-folder"><i data-lucide="folder-plus" width="14" height="14"></i> New Folder</button>
         </div>
       </div>
       <div class="dir-layout">
