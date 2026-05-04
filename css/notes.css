@@ -16,6 +16,9 @@
   columns: 2;
   column-gap: var(--space-4);
 }
+.notes-grid .empty-state {
+  column-span: all;
+}
 .notes-grid .note-card {
   break-inside: avoid;
   margin-bottom: var(--space-4);
