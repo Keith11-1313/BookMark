@@ -310,7 +310,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   .page-title { font-size: var(--text-xl); }
   .pinned-bar { padding: var(--space-2) var(--space-4); }
   .page-header { flex-direction: column; align-items: stretch; gap: var(--space-3); }
-  .page-actions { flex-wrap: wrap; }
+  .page-actions { flex-wrap: wrap; justify-content: flex-end; }
 }
 
 @media (prefers-reduced-motion: reduce) {
