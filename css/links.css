@@ -35,18 +35,17 @@
 .combobox-wrap.open .combobox-arrow { transform: translateY(-50%) rotate(180deg); }
 
 .combobox-dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0; right: 0;
+  position: fixed;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  z-index: var(--z-modal);
+  z-index: 9999;
   max-height: 220px;
   overflow-y: auto;
   display: none;
   padding: var(--space-1) 0;
+  min-width: 200px;
 }
 .combobox-wrap.open .combobox-dropdown { display: block; animation: slideUp 0.15s ease; }
 
@@ -68,7 +67,7 @@
 .combobox-option:hover,
 .combobox-option.focused { background: var(--accent-light); color: var(--text-primary); }
 .combobox-option.selected { color: var(--accent); font-weight: 500; }
-.combobox-option mark { background: rgba(88,101,242,0.3); color: var(--text-primary); border-radius: 2px; padding: 0 1px; }
+.combobox-option mark { background: rgba(88,101,242,0.2); color: var(--accent); border-radius: 2px; padding: 0 2px; font-weight: 600; font-style: normal; }
 .combobox-no-results { padding: var(--space-3); font-size: var(--text-sm); color: var(--text-muted); text-align: center; }
 .combobox-create { color: var(--accent); font-style: italic; }
 
@@ -110,18 +109,17 @@
 .tag-chip-remove:hover { opacity: 1; }
 
 .tag-suggestions {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0; right: 0;
+  position: fixed;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  z-index: var(--z-modal);
+  z-index: 9999;
   max-height: 160px;
   overflow-y: auto;
   display: none;
   padding: var(--space-1) 0;
+  min-width: 200px;
 }
 .tag-suggestions.open { display: block; animation: slideUp 0.15s ease; }
 .tag-suggestion-item {
@@ -148,16 +146,67 @@
   margin-bottom: var(--space-5);
   flex-wrap: wrap;
 }
-.links-toolbar .search-bar { flex: 1; min-width: 200px; }
 
-/* Filter pills */
+/* ── Search bar with icon inside ─────────────────────────── */
+.links-toolbar .search-bar {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.links-toolbar .search-bar .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.links-toolbar .search-bar #links-search {
+  width: 100%;
+  padding-left: 34px;
+}
+
+/* ── Filter bar — horizontal scroll carousel ─────────────── */
+.filter-bar-wrap {
+  position: relative;
+  margin-bottom: var(--space-5);
+  overflow: hidden;         /* clipping context so filter-bar can actually scroll */
+}
+.filter-bar-wrap::before,
+.filter-bar-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  z-index: 1;
+}
+.filter-bar-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+.filter-bar-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
 .filter-bar {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-5);
+  width: 100%;              /* force it to be exactly the wrapper's width */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
 }
+.filter-bar::-webkit-scrollbar { display: none; }
 .filter-pill {
   display: flex;
   align-items: center;
@@ -172,6 +221,8 @@
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
 .filter-pill.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }

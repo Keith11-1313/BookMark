@@ -33,6 +33,9 @@ const Links = (() => {
   ];
 
   let allLinks = [], unsub = null, selectedIds = new Set(), currentFilter = 'all', currentView = 'card', searchQuery = '';
+  let _docListeners = [];   // tracked so we can clean up on unmount
+  let _teleportedEls = [];  // dropdown portals moved to document.body
+
 
   function autoCategory(url) {
     try {
@@ -92,9 +95,11 @@ const Links = (() => {
         </div>
       </div>
 
-      <div class="filter-bar" id="filter-bar">
-        <button class="filter-pill active" data-cat="all">All <span class="filter-pill-count" id="count-all">0</span></button>
-        ${DEFAULT_CATEGORIES.map(c=>`<button class="filter-pill" data-cat="${c}">${c} <span class="filter-pill-count" id="count-${c.replace(/[^a-z0-9]/gi,'_')}">0</span></button>`).join('')}
+      <div class="filter-bar-wrap">
+        <div class="filter-bar" id="filter-bar">
+          <button class="filter-pill active" data-cat="all">All <span class="filter-pill-count" id="count-all">0</span></button>
+          ${DEFAULT_CATEGORIES.map(c=>`<button class="filter-pill" data-cat="${c}">${c} <span class="filter-pill-count" id="count-${c.replace(/[^a-z0-9]/gi,'_')}">0</span></button>`).join('')}
+        </div>
       </div>
 
       <div id="links-grid" class="links-grid"></div>
@@ -298,6 +303,11 @@ const Links = (() => {
     if (!wrap || !input || !drop) return;
     let focusedIndex = -1;
 
+    // ── Portal: move dropdown to body so it escapes the modal's
+    //    transform containing block (which traps position:fixed children)
+    document.body.appendChild(drop);
+    _teleportedEls.push(drop);
+
     function getOptions() {
       const q = input.value.trim().toLowerCase();
       const custom = allLinks.map(l=>l.category).filter(Boolean);
@@ -328,20 +338,36 @@ const Links = (() => {
       drop.querySelectorAll('.combobox-option').forEach(btn => {
         btn.addEventListener('mousedown', e => {
           e.preventDefault();
-          input.value = btn.dataset.create || btn.textContent.replace(/\+.*$/, '').trim() || (btn.querySelector('mark')?.parentElement?.textContent||btn.textContent);
-          // cleaner: read from opts
           const i = Number(btn.dataset.i);
           if (!btn.dataset.create && opts[i]) input.value = opts[i];
+          else if (btn.dataset.create) input.value = btn.dataset.create;
           closeDropdown();
         });
       });
     }
 
-    function openDropdown()  { wrap.classList.add('open'); renderDrop(); }
-    function closeDropdown() { wrap.classList.remove('open'); }
+    function positionDrop() {
+      const rect = input.getBoundingClientRect();
+      drop.style.top   = (rect.bottom + 4) + 'px';
+      drop.style.left  = rect.left + 'px';
+      drop.style.width = rect.width + 'px';
+    }
+
+    // Since drop is now in body, CSS .combobox-wrap.open selector no longer
+    // matches it — control display directly via JS
+    function openDropdown() {
+      positionDrop();
+      drop.style.display = 'block';
+      wrap.classList.add('open'); // only for arrow rotation
+      renderDrop();
+    }
+    function closeDropdown() {
+      drop.style.display = 'none';
+      wrap.classList.remove('open');
+    }
 
     input.addEventListener('focus',  openDropdown);
-    input.addEventListener('input',  () => { wrap.classList.add('open'); renderDrop(); });
+    input.addEventListener('input',  () => { positionDrop(); drop.style.display = 'block'; wrap.classList.add('open'); renderDrop(); });
     input.addEventListener('keydown', e => {
       const btns = [...drop.querySelectorAll('.combobox-option')];
       if (e.key === 'ArrowDown') { e.preventDefault(); focusedIndex = Math.min(focusedIndex+1, btns.length-1); btns.forEach((b,i)=>b.classList.toggle('focused',i===focusedIndex)); btns[focusedIndex]?.scrollIntoView({block:'nearest'}); }
@@ -349,7 +375,9 @@ const Links = (() => {
       else if (e.key === 'Enter') { e.preventDefault(); if(focusedIndex>=0) btns[focusedIndex]?.dispatchEvent(new MouseEvent('mousedown',{bubbles:true})); else closeDropdown(); }
       else if (e.key === 'Escape') closeDropdown();
     });
-    document.addEventListener('click', e => { if(!wrap.contains(e.target)) closeDropdown(); });
+    const _comboClickHandler = e => { if(!wrap.contains(e.target) && !drop.contains(e.target)) closeDropdown(); };
+    document.addEventListener('click', _comboClickHandler);
+    _docListeners.push(_comboClickHandler);
   }
 
   function initTagAutocomplete(container) {
@@ -358,18 +386,32 @@ const Links = (() => {
     if (!input || !sugg) return;
     let focusedIndex = -1;
 
+    // ── Portal: same reason as combobox dropdown
+    document.body.appendChild(sugg);
+    _teleportedEls.push(sugg);
+
     function getAllTags() {
       const counts = {};
       allLinks.forEach(l => (l.tags||[]).forEach(t => { counts[t] = (counts[t]||0)+1; }));
       return Object.entries(counts).sort((a,b)=>b[1]-a[1]);
     }
 
+    function positionSugg() {
+      const rect = input.getBoundingClientRect();
+      sugg.style.top   = (rect.bottom + 4) + 'px';
+      sugg.style.left  = rect.left + 'px';
+      sugg.style.width = rect.width + 'px';
+    }
+
+    function showSugg() { positionSugg(); sugg.style.display = 'block'; }
+    function hideSugg() { sugg.style.display = 'none'; }
+
     function renderSugg() {
       const q = input.value.trim().toLowerCase();
-      if (!q) { sugg.classList.remove('open'); return; }
+      if (!q) { hideSugg(); return; }
       const matches = getAllTags().filter(([t]) => t.toLowerCase().includes(q) && !_currentTags.includes(t));
-      if (!matches.length) { sugg.classList.remove('open'); return; }
-      sugg.classList.add('open');
+      if (!matches.length) { hideSugg(); return; }
+      showSugg();
       sugg.innerHTML = matches.slice(0,10).map(([t,n],i) =>
         `<button class="tag-suggestion-item" data-tag="${escHtml(t)}" data-i="${i}" tabindex="-1">${escHtml(t)}<span class="tag-suggestion-count">${n}</span></button>`
       ).join('');
@@ -382,7 +424,7 @@ const Links = (() => {
     function addTag(tag, container) {
       const t = tag.trim(); if (!t || _currentTags.includes(t)) return;
       _currentTags.push(t); renderTagChips(container);
-      input.value = ''; sugg.classList.remove('open');
+      input.value = ''; hideSugg();
     }
 
     input.addEventListener('input', renderSugg);
@@ -394,9 +436,11 @@ const Links = (() => {
         e.preventDefault();
         if (focusedIndex >= 0 && btns[focusedIndex]) addTag(btns[focusedIndex].dataset.tag, container);
         else if (input.value.trim()) addTag(input.value, container);
-      } else if (e.key === 'Escape') { sugg.classList.remove('open'); }
+      } else if (e.key === 'Escape') { hideSugg(); }
     });
-    document.addEventListener('click', e => { if(!sugg.contains(e.target)&&e.target!==input) sugg.classList.remove('open'); });
+    const _tagsClickHandler = e => { if(!sugg.contains(e.target)&&e.target!==input) hideSugg(); };
+    document.addEventListener('click', _tagsClickHandler);
+    _docListeners.push(_tagsClickHandler);
   }
 
   async function onUrlBlur(url, container) {
@@ -607,7 +651,14 @@ const Links = (() => {
   function langColor(lang) { const map={JavaScript:'f1e05a',TypeScript:'3178c6',Python:'3572a5',HTML:'e34c26',CSS:'563d7c',Go:'00add8',Rust:'dea584',Java:'b07219',Ruby:'701516'}; return map[lang]||'5865f2'; }
   function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-  function unmount() { unsub?.(); selectedIds.clear(); }
+  function unmount() {
+    unsub?.();
+    selectedIds.clear();
+    _docListeners.forEach(fn => document.removeEventListener('click', fn));
+    _docListeners = [];
+    _teleportedEls.forEach(el => { try { document.body.removeChild(el); } catch {} });
+    _teleportedEls = [];
+  }
 
   return { render, unmount, autoCategory, openAddModal };
 })();
