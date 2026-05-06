@@ -25,6 +25,8 @@ const Auth = (() => {
   async function signIn() {
     try {
       signInBtn.classList.add('loading');
+      signInBtn.setAttribute('aria-busy', 'true');
+      signInBtn.disabled = true;
       signInBtn.querySelector('.btn-google-text').textContent = 'Signing in…';
       authError.classList.remove('visible');
 
@@ -38,6 +40,8 @@ const Auth = (() => {
           ? 'Sign-in popup was closed. Please try again.'
           : 'Sign-in failed. Please try again.';
       signInBtn.classList.remove('loading');
+      signInBtn.removeAttribute('aria-busy');
+      signInBtn.disabled = false;
       signInBtn.querySelector('.btn-google-text').textContent = 'Continue with Google';
     }
   }
@@ -61,6 +65,10 @@ const Auth = (() => {
     });
     App.init(user);
     Sidebar.setUser(user);
+    signInBtn.classList.remove('loading');
+    signInBtn.removeAttribute('aria-busy');
+    signInBtn.disabled = false;
+    signInBtn.querySelector('.btn-google-text').textContent = 'Continue with Google';
   }
 
   function onSignedOut() {

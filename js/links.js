@@ -88,7 +88,7 @@ const Links = (() => {
       <div id="bulk-bar" class="bulk-bar">
         <span class="bulk-count" id="bulk-count">0 selected</span>
         <div class="bulk-actions">
-          <select class="input input" id="bulk-move-cat" style="width:auto"><option value="">Move to…</option>${DEFAULT_CATEGORIES.map(c=>`<option>${c}</option>`).join('')}</select>
+          <select class="input input" id="bulk-move-cat" style="width:auto"><option value="">Move to…</option>${DEFAULT_CATEGORIES.map(c=>`<option>${escHtml(c)}</option>`).join('')}</select>
           <button class="btn btn-secondary btn-sm" id="bulk-tag-btn"><i data-lucide="tag" width="13" height="13"></i> Add Tag</button>
           <button class="btn btn-danger btn-sm" id="bulk-delete-btn"><i data-lucide="trash-2" width="13" height="13"></i> Delete</button>
           <button class="btn btn-ghost btn-sm" id="bulk-cancel-btn">Cancel</button>
@@ -98,7 +98,7 @@ const Links = (() => {
       <div class="filter-bar-wrap">
         <div class="filter-bar" id="filter-bar">
           <button class="filter-pill active" data-cat="all">All <span class="filter-pill-count" id="count-all">0</span></button>
-          ${DEFAULT_CATEGORIES.map(c=>`<button class="filter-pill" data-cat="${c}">${c} <span class="filter-pill-count" id="count-${c.replace(/[^a-z0-9]/gi,'_')}">0</span></button>`).join('')}
+          ${DEFAULT_CATEGORIES.map(c=>`<button class="filter-pill" data-cat="${escAttr(c)}">${escHtml(c)} <span class="filter-pill-count" id="count-${c.replace(/[^a-z0-9]/gi,'_')}">0</span></button>`).join('')}
         </div>
       </div>
 
@@ -215,17 +215,18 @@ const Links = (() => {
   }
 
   function renderCard(b) {
-    const domain = getDomain(b.url);
-    const favicon = b.favicon || `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+    const url = safeUrl(b.url);
+    const domain = getDomain(url);
+    const favicon = safeImageUrl(b.favicon, App.faviconFor(url));
     const tags = (b.tags||[]).map(t=>`<span class="bookmark-tag">${escHtml(t)}</span>`).join('');
-    const ghMeta = b.githubMeta ? `<div class="github-meta"><span class="github-stat"><i data-lucide="star" width="11" height="11"></i> ${b.githubMeta.stars||0}</span><span class="github-stat"><i data-lucide="git-fork" width="11" height="11"></i> ${b.githubMeta.forks||0}</span>${b.githubMeta.language?`<span class="github-lang"><span class="lang-dot" style="background:#${langColor(b.githubMeta.language)}"></span>${b.githubMeta.language}</span>`:''}</div>` : '';
+    const ghMeta = b.githubMeta ? `<div class="github-meta"><span class="github-stat"><i data-lucide="star" width="11" height="11"></i> ${Number(b.githubMeta.stars)||0}</span><span class="github-stat"><i data-lucide="git-fork" width="11" height="11"></i> ${Number(b.githubMeta.forks)||0}</span>${b.githubMeta.language?`<span class="github-lang"><span class="lang-dot" style="background:#${langColor(b.githubMeta.language)}"></span>${escHtml(b.githubMeta.language)}</span>`:''}</div>` : '';
     return `
-      <div class="bookmark-card${b.pinned?' pinned':''}" data-id="${b.id}">
+      <div class="bookmark-card${b.pinned?' pinned':''}" data-id="${escAttr(b.id)}">
         <input type="checkbox" class="checkbox bookmark-select" aria-label="Select bookmark">
         ${b.pinned?'<span class="pin-icon"><i data-lucide="pin" width="12" height="12"></i></span>':''}
         ${b.deadLink?'<span class="dead-link-badge" style="position:absolute;top:8px;right:8px"><i data-lucide="wifi-off" width="10" height="10"></i>Dead</span>':''}
         <div class="bookmark-card-header">
-          <div class="bookmark-favicon"><img src="${favicon}" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22%3E%3C/svg%3E'"></div>
+          <div class="bookmark-favicon">${favicon ? `<img src="${escAttr(favicon)}" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22%3E%3C/svg%3E'">` : ''}</div>
           <div class="bookmark-card-meta">
             <div class="bookmark-title">${escHtml(b.title||domain)}</div>
             <div class="bookmark-category">${escHtml(b.category||'Other')}</div>
@@ -236,13 +237,13 @@ const Links = (() => {
             <button class="btn-ghost btn-icon btn-sm" data-action="delete" aria-label="Delete" data-tooltip="Delete"><i data-lucide="trash-2" width="13" height="13"></i></button>
           </div>
         </div>
-        <a class="bookmark-url" href="${b.url}" target="_blank" rel="noopener">${b.url}</a>
+        <a class="bookmark-url" href="${escAttr(url)}" target="_blank" rel="noopener">${escHtml(b.url || url)}</a>
         ${ghMeta}
         ${b.notes?`<div class="bookmark-desc">${escHtml(b.notes)}</div>`:''}
         ${tags?`<div class="bookmark-tags">${tags}</div>`:''}
         <div class="bookmark-footer">
           <span class="bookmark-date">${App.formatDate(b.createdAt)}</span>
-          <a class="bookmark-open-btn" href="${b.url}" target="_blank" rel="noopener"><i data-lucide="external-link" width="12" height="12"></i> Open</a>
+          <a class="bookmark-open-btn" href="${escAttr(url)}" target="_blank" rel="noopener"><i data-lucide="external-link" width="12" height="12"></i> Open</a>
         </div>
       </div>`;
   }
@@ -375,7 +376,7 @@ const Links = (() => {
         `<button class="combobox-option${c===input.value?' selected':''}" data-i="${i}" tabindex="-1">${highlight(c, q)}</button>`
       ).join('');
       if (q && !DEFAULT_CATEGORIES.map(x=>x.toLowerCase()).includes(q.toLowerCase()) && !allLinks.some(l=>(l.category||'').toLowerCase()===q.toLowerCase())) {
-        html += `<button class="combobox-option combobox-create" data-i="${opts.length}" data-create="${escHtml(q)}" tabindex="-1"><i data-lucide="plus" width="12" height="12"></i> Create "${escHtml(q)}"</button>`;
+        html += `<button class="combobox-option combobox-create" data-i="${opts.length}" data-create="${escAttr(q)}" tabindex="-1"><i data-lucide="plus" width="12" height="12"></i> Create "${escHtml(q)}"</button>`;
       }
       drop.innerHTML = html;
       lucide.createIcons({el:drop});
@@ -391,10 +392,7 @@ const Links = (() => {
     }
 
     function positionDrop() {
-      const rect = input.getBoundingClientRect();
-      drop.style.top   = (rect.bottom + 4) + 'px';
-      drop.style.left  = rect.left + 'px';
-      drop.style.width = rect.width + 'px';
+      positionPortalElement(input, drop, 220);
     }
 
     // Since drop is now in body, CSS .combobox-wrap.open selector no longer
@@ -421,7 +419,9 @@ const Links = (() => {
     });
     const _comboClickHandler = e => { if(!wrap.contains(e.target) && !drop.contains(e.target)) closeDropdown(); };
     document.addEventListener('click', _comboClickHandler);
-    _docListeners.push(_comboClickHandler);
+    _docListeners.push(() => document.removeEventListener('click', _comboClickHandler));
+    const _comboRepositionHandler = () => { if (drop.style.display === 'block') positionDrop(); };
+    addViewportListener(_comboRepositionHandler);
   }
 
   function initTagAutocomplete(container) {
@@ -441,10 +441,7 @@ const Links = (() => {
     }
 
     function positionSugg() {
-      const rect = input.getBoundingClientRect();
-      sugg.style.top   = (rect.bottom + 4) + 'px';
-      sugg.style.left  = rect.left + 'px';
-      sugg.style.width = rect.width + 'px';
+      positionPortalElement(input, sugg, 160);
     }
 
     function showSugg() { positionSugg(); sugg.style.display = 'block'; }
@@ -457,7 +454,7 @@ const Links = (() => {
       if (!matches.length) { hideSugg(); return; }
       showSugg();
       sugg.innerHTML = matches.slice(0,10).map(([t,n],i) =>
-        `<button class="tag-suggestion-item" data-tag="${escHtml(t)}" data-i="${i}" tabindex="-1">${escHtml(t)}<span class="tag-suggestion-count">${n}</span></button>`
+        `<button class="tag-suggestion-item" data-tag="${escAttr(t)}" data-i="${i}" tabindex="-1">${escHtml(t)}<span class="tag-suggestion-count">${n}</span></button>`
       ).join('');
       sugg.querySelectorAll('.tag-suggestion-item').forEach(btn => {
         btn.addEventListener('mousedown', e => { e.preventDefault(); addTag(btn.dataset.tag, container); });
@@ -484,7 +481,43 @@ const Links = (() => {
     });
     const _tagsClickHandler = e => { if(!sugg.contains(e.target)&&e.target!==input) hideSugg(); };
     document.addEventListener('click', _tagsClickHandler);
-    _docListeners.push(_tagsClickHandler);
+    _docListeners.push(() => document.removeEventListener('click', _tagsClickHandler));
+    const _tagsRepositionHandler = () => { if (sugg.style.display === 'block') positionSugg(); };
+    addViewportListener(_tagsRepositionHandler);
+  }
+
+  function positionPortalElement(anchor, portal, maxHeight) {
+    const rect = anchor.getBoundingClientRect();
+    const vv = window.visualViewport;
+    const viewportWidth = vv?.width || window.innerWidth;
+    const viewportHeight = vv?.height || window.innerHeight;
+    const viewportTop = vv?.offsetTop || 0;
+    const viewportLeft = vv?.offsetLeft || 0;
+    const gutter = 8;
+    const width = Math.min(rect.width, viewportWidth - gutter * 2);
+    const left = Math.min(Math.max(rect.left, viewportLeft + gutter), viewportLeft + viewportWidth - width - gutter);
+    const spaceBelow = viewportTop + viewportHeight - rect.bottom - gutter;
+    const spaceAbove = rect.top - viewportTop - gutter;
+    const openAbove = spaceBelow < 120 && spaceAbove > spaceBelow;
+    const height = Math.max(96, Math.min(maxHeight, openAbove ? spaceAbove : spaceBelow));
+
+    portal.style.left = left + 'px';
+    portal.style.width = width + 'px';
+    portal.style.maxHeight = height + 'px';
+    portal.style.top = (openAbove ? rect.top - height - 4 : rect.bottom + 4) + 'px';
+  }
+
+  function addViewportListener(handler) {
+    window.addEventListener('resize', handler);
+    window.addEventListener('scroll', handler, true);
+    window.visualViewport?.addEventListener('resize', handler);
+    window.visualViewport?.addEventListener('scroll', handler);
+    _docListeners.push(() => {
+      window.removeEventListener('resize', handler);
+      window.removeEventListener('scroll', handler, true);
+      window.visualViewport?.removeEventListener('resize', handler);
+      window.visualViewport?.removeEventListener('scroll', handler);
+    });
   }
 
   async function onUrlBlur(url, container) {
@@ -494,7 +527,7 @@ const Links = (() => {
     const dupEl = container.querySelector('#dup-warning');
     if (dup && dupEl) {
       dupEl.style.display = 'flex';
-      container.querySelector('#dup-warning-msg').textContent = `Already saved as "${dup.title}" in ${dup.category}`;
+      container.querySelector('#dup-warning-msg').textContent = `Already saved as "${dup.title || dup.url}" in ${dup.category || 'Other'}`;
     } else if (dupEl) { dupEl.style.display = 'none'; }
 
     const cat = autoCategory(url);
@@ -512,7 +545,7 @@ const Links = (() => {
           if (!container.querySelector('#link-notes').value)
             container.querySelector('#link-notes').value = data.description || '';
           const ghEl = container.querySelector('#github-preview');
-          if (ghEl) { ghEl.style.display = 'flex'; ghEl.innerHTML = `<span class="github-stat"><i data-lucide="star" width="11" height="11"></i> ${data.stargazers_count}</span><span class="github-stat"><i data-lucide="git-fork" width="11" height="11"></i> ${data.forks_count}</span>${data.language?`<span>${data.language}</span>`:''}`; lucide.createIcons({el:ghEl}); container.dataset.githubMeta = JSON.stringify({stars:data.stargazers_count,forks:data.forks_count,language:data.language}); }
+          if (ghEl) { ghEl.style.display = 'flex'; ghEl.innerHTML = `<span class="github-stat"><i data-lucide="star" width="11" height="11"></i> ${Number(data.stargazers_count)||0}</span><span class="github-stat"><i data-lucide="git-fork" width="11" height="11"></i> ${Number(data.forks_count)||0}</span>${data.language?`<span>${escHtml(data.language)}</span>`:''}`; lucide.createIcons({el:ghEl}); container.dataset.githubMeta = JSON.stringify({stars:data.stargazers_count,forks:data.forks_count,language:data.language}); }
         }
       }
     } catch {}
@@ -600,7 +633,7 @@ const Links = (() => {
   }
 
   async function deleteLink(id) {
-    if (!confirm('Delete this bookmark?')) return;
+    if (!await App.confirm('Delete this bookmark?')) return;
     await Store.remove(COL, id);
     App.toast('Deleted','info');
   }
@@ -614,7 +647,7 @@ const Links = (() => {
 
   async function bulkDelete(container) {
     if (!selectedIds.size) return;
-    if (!confirm(`Delete ${selectedIds.size} bookmark(s)?`)) return;
+    if (!await App.confirm(`Delete ${selectedIds.size} bookmark(s)?`)) return;
     await Promise.all([...selectedIds].map(id => Store.remove(COL, id)));
     selectedIds.clear();
     updateBulkBar(container);
@@ -692,14 +725,17 @@ const Links = (() => {
     onReady(items);
   }
 
+  function safeUrl(url) { return App.safeUrl(url); }
+  function safeImageUrl(url, fallback) { return App.safeImageUrl(url, fallback); }
   function getDomain(url) { try { return new URL(url).hostname.replace('www.',''); } catch { return ''; } }
   function langColor(lang) { const map={JavaScript:'f1e05a',TypeScript:'3178c6',Python:'3572a5',HTML:'e34c26',CSS:'563d7c',Go:'00add8',Rust:'dea584',Java:'b07219',Ruby:'701516'}; return map[lang]||'5865f2'; }
-  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
 
   function unmount() {
     unsub?.();
     selectedIds.clear();
-    _docListeners.forEach(fn => document.removeEventListener('click', fn));
+    _docListeners.forEach(cleanup => cleanup());
     _docListeners = [];
     _teleportedEls.forEach(el => { try { document.body.removeChild(el); } catch {} });
     _teleportedEls = [];

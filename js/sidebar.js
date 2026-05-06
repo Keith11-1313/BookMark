@@ -141,7 +141,7 @@ const Sidebar = (() => {
     if (user.photoURL && avatarEl) {
       // Request 96px version from Google (default is tiny ~32px)
       const photoUrl = user.photoURL.replace(/=s\d+-c$/, '').replace(/=s\d+$/, '') + '=s96-c';
-      avatarEl.src = photoUrl;
+      avatarEl.src = App.safeImageUrl(photoUrl, '');
       avatarEl.style.display = 'block';
       if (initEl) initEl.style.display = 'none';
     } else if (initEl) {

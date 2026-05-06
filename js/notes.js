@@ -52,7 +52,7 @@ const Notes = (() => {
       lucide.createIcons({el:grid}); return;
     }
     grid.innerHTML = data.map(n => `
-      <div class="note-card${n.pinned?' pinned':''}${n.id===activeId?' active':''}" data-id="${n.id}" tabindex="0" role="button" aria-label="Open note: ${escHtml(n.title||'Untitled')}">
+      <div class="note-card${n.pinned?' pinned':''}${n.id===activeId?' active':''}" data-id="${escAttr(n.id)}" tabindex="0" role="button" aria-label="Open note: ${escAttr(n.title||'Untitled')}">
         ${n.color?`<div class="note-card-accent" style="background:${n.color}"></div>`:''}
         <div class="note-card-header">
           <div class="note-card-title">${escHtml(n.title||'Untitled')}</div>
@@ -61,7 +61,7 @@ const Notes = (() => {
             <button class="btn-ghost btn-icon btn-sm" data-action="delete" aria-label="Delete note"><i data-lucide="trash-2" width="13" height="13"></i></button>
           </div>
         </div>
-        <div class="note-card-preview">${(n.body||'').replace(/<[^>]+>/g,'').slice(0,120)}</div>
+        <div class="note-card-preview">${escHtml((n.body||'').replace(/<[^>]+>/g,'').slice(0,120))}</div>
         <div class="note-card-footer">
           <span class="note-date">${App.formatDate(n.updatedAt||n.createdAt)}</span>
           ${n.pinned?'<span class="note-pin-icon"><i data-lucide="pin" width="11" height="11"></i></span>':''}
@@ -74,7 +74,7 @@ const Notes = (() => {
       card.addEventListener('click', () => openEditor(id, container));
       card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') openEditor(id, container); });
       card.querySelector('[data-action="pin"]')?.addEventListener('click', async e => { e.stopPropagation(); const n=allNotes.find(x=>x.id===id); await Store.update(COL,id,{pinned:!n?.pinned}); App.toast(n?.pinned?'Unpinned':'Pinned!','success'); });
-      card.querySelector('[data-action="delete"]')?.addEventListener('click', async e => { e.stopPropagation(); if(!confirm('Delete this note?')) return; if(activeId===id) closeEditor(container); await Store.remove(COL,id); App.toast('Note deleted','info'); });
+      card.querySelector('[data-action="delete"]')?.addEventListener('click', async e => { e.stopPropagation(); if(!await App.confirm('Delete this note?')) return; if(activeId===id) closeEditor(container); await Store.remove(COL,id); App.toast('Note deleted','info'); });
     });
     lucide.createIcons({el:grid});
   }
@@ -100,7 +100,10 @@ const Notes = (() => {
     const links = Store.lsGet(Store.COLLECTIONS.links);
     const linkedChips = (note.linkedBookmarks||[]).map(lid => {
       const b = links.find(l=>l.id===lid);
-      return b ? `<a class="linked-chip" href="${b.url}" target="_blank" rel="noopener"><img src="${b.favicon||''}" alt="" onerror="this.style.display='none'"><span>${escHtml(b.title||b.url)}</span><span class="linked-chip-remove" data-lid="${lid}"><i data-lucide="x" width="10" height="10"></i></span></a>` : '';
+      if (!b) return '';
+      const url = App.safeUrl(b.url);
+      const favicon = App.safeImageUrl(b.favicon, App.faviconFor(url));
+      return `<a class="linked-chip" href="${escAttr(url)}" target="_blank" rel="noopener">${favicon ? `<img src="${escAttr(favicon)}" alt="" onerror="this.style.display='none'">` : ''}<span>${escHtml(b.title||b.url)}</span><span class="linked-chip-remove" data-lid="${escAttr(lid)}"><i data-lucide="x" width="10" height="10"></i></span></a>`;
     }).join('');
 
     editorPanel.innerHTML = `
@@ -118,10 +121,10 @@ const Notes = (() => {
         <button class="btn-ghost btn-sm btn-icon" id="btn-close-editor" style="margin-left:auto" aria-label="Close editor"><i data-lucide="x" width="16" height="16"></i></button>
       </div>
       <div class="editor-meta">
-        <input class="editor-title-input" id="editor-title" type="text" value="${escHtml(note.title||'')}" placeholder="Untitled" aria-label="Note title">
+        <input class="editor-title-input" id="editor-title" type="text" value="${escAttr(note.title||'')}" placeholder="Untitled" aria-label="Note title">
         <span class="editor-save-status" id="save-status">Saved</span>
       </div>
-      <div class="note-body" id="note-body" contenteditable="true" data-placeholder="Start writing…">${note.body||''}</div>
+      <div class="note-body" id="note-body" contenteditable="true" data-placeholder="Start writing…">${sanitizeNoteHtml(note.body||'')}</div>
       <div class="editor-linked">
         <div class="linked-header"><span><i data-lucide="link" width="12" height="12"></i> Linked Bookmarks</span></div>
         <div class="linked-chips" id="linked-chips">${linkedChips}</div>
@@ -138,7 +141,7 @@ const Notes = (() => {
       const statusEl = editorPanel.querySelector('#save-status');
       if (statusEl) { statusEl.textContent='Saving…'; statusEl.className='editor-save-status saving'; }
       saveTimer = setTimeout(async () => {
-        await Store.update(COL, activeId, { title: titleEl.value, body: bodyEl.innerHTML });
+        await Store.update(COL, activeId, { title: titleEl.value, body: sanitizeNoteHtml(bodyEl.innerHTML) });
         if (statusEl) { statusEl.textContent='Saved'; statusEl.className='editor-save-status saved'; }
       }, 600);
     }
@@ -175,7 +178,7 @@ const Notes = (() => {
     const modal = document.createElement('div');
     modal.id = 'link-picker-modal';
     modal.className = 'modal-backdrop open';
-    modal.innerHTML = `<div class="modal" style="max-width:400px"><div class="modal-header"><span class="modal-title">Link a Bookmark</span><button class="btn-ghost btn-icon btn-sm" id="close-picker"><i data-lucide="x" width="16" height="16"></i></button></div><div class="modal-body" style="gap:8px;max-height:300px;overflow-y:auto">${links.map(b=>`<button class="palette-item" data-bid="${b.id}" style="border-radius:8px;border:1px solid var(--border)"><div class="palette-item-icon"><img src="${b.favicon||''}" width="16" height="16" onerror="this.style.display='none'"></div><div class="palette-item-body"><div class="palette-item-title">${escHtml(b.title||b.url)}</div><div class="palette-item-sub">${escHtml(b.category||'')}</div></div></button>`).join('')}</div></div>`;
+    modal.innerHTML = `<div class="modal" style="max-width:400px"><div class="modal-header"><span class="modal-title">Link a Bookmark</span><button class="btn-ghost btn-icon btn-sm" id="close-picker" aria-label="Close"><i data-lucide="x" width="16" height="16"></i></button></div><div class="modal-body" style="gap:8px;max-height:300px;overflow-y:auto">${links.map(b=>{ const safeFav = App.safeImageUrl(b.favicon, App.faviconFor(b.url)); return `<button class="palette-item" data-bid="${escAttr(b.id)}" style="border-radius:8px;border:1px solid var(--border)"><div class="palette-item-icon">${safeFav ? `<img src="${escAttr(safeFav)}" width="16" height="16" onerror="this.style.display='none'">` : '<i data-lucide="bookmark" width="16" height="16"></i>'}</div><div class="palette-item-body"><div class="palette-item-title">${escHtml(b.title||b.url)}</div><div class="palette-item-sub">${escHtml(b.category||'')}</div></div></button>`; }).join('')}</div></div>`;
     document.body.appendChild(modal);
     lucide.createIcons({el:modal});
     modal.querySelector('#close-picker')?.addEventListener('click', () => modal.remove());
@@ -208,7 +211,21 @@ const Notes = (() => {
     container.querySelector('#notes-search')?.addEventListener('input', () => renderNotesList(container));
   }
 
-  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
+  function sanitizeNoteHtml(html) {
+    const template = document.createElement('template');
+    template.innerHTML = String(html || '');
+    template.content.querySelectorAll('script, style, iframe, object, embed, link, meta').forEach(el => el.remove());
+    template.content.querySelectorAll('*').forEach(el => {
+      [...el.attributes].forEach(attr => {
+        const name = attr.name.toLowerCase();
+        if (name.startsWith('on') || name === 'style') el.removeAttribute(attr.name);
+        if ((name === 'href' || name === 'src') && App.safeUrl(attr.value, '') === '') el.removeAttribute(attr.name);
+      });
+    });
+    return template.innerHTML;
+  }
   function unmount() { unsub?.(); clearTimeout(saveTimer); }
 
   return { render, unmount };

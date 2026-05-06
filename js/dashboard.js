@@ -165,10 +165,11 @@ const Dashboard = (() => {
     recentEl.innerHTML = allItems.map(item => {
       const isLink    = item._type === 'link';
       const iconHtml  = isLink && item.favicon
-        ? `<img src="${item.favicon}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
+        ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
         : `<i data-lucide="${icons[item._type]}" width="16" height="16"></i>`;
+      const url = isLink ? App.safeUrl(item.url, '') : '';
       return `
-        <button class="recent-item" data-route="${routes[item._type]}" data-url="${isLink ? item.url : ''}">
+        <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}">
           <div class="recent-item-icon">${iconHtml}</div>
           <div class="recent-item-body">
             <div class="recent-item-title">${escHtml(item.title || 'Untitled')}</div>
@@ -180,7 +181,7 @@ const Dashboard = (() => {
 
     recentEl.querySelectorAll('.recent-item').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.url) window.open(btn.dataset.url, '_blank', 'noopener');
+        if (btn.dataset.url) window.open(App.safeUrl(btn.dataset.url), '_blank', 'noopener');
         else App.navigate(btn.dataset.route);
       });
     });
@@ -254,7 +255,8 @@ const Dashboard = (() => {
     return count;
   }
 
-  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
 
   function unmount() {
     clearTimeout(refreshTimer);

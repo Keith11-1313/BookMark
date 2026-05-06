@@ -74,13 +74,14 @@ const CommandPalette = (() => {
       html += `<div class="palette-group-label">${cfg.label}</div>`;
       grouped[type].slice(0, 5).forEach(({ item }) => {
         const favicon = type === 'link' && item.favicon
-          ? `<img src="${item.favicon}" alt="" onerror="this.style.display='none'">`
+          ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" onerror="this.style.display='none'">`
           : `<i data-lucide="${cfg.icon}" width="16" height="16"></i>`;
         const sub = type === 'link'    ? item.url
                   : type === 'note'    ? (item.body || '').replace(/<[^>]+>/g, '').slice(0, 80)
                   : item.language;
+        const safeItemUrl = type === 'link' ? App.safeUrl(item.url, '') : '';
         html += `
-          <button class="palette-item" data-type="${type}" data-id="${item.id}" data-route="${cfg.route}" data-url="${type === 'link' ? item.url : ''}">
+          <button class="palette-item" data-type="${type}" data-id="${escAttr(item.id)}" data-route="${cfg.route}" data-url="${escAttr(safeItemUrl)}">
             <div class="palette-item-icon">${favicon}</div>
             <div class="palette-item-body">
               <div class="palette-item-title">${highlight(item.title || item.url || 'Untitled', query)}</div>
@@ -110,7 +111,7 @@ const CommandPalette = (() => {
     }
 
     if (type === 'link' && url) {
-      window.open(url, '_blank', 'noopener');
+      window.open(App.safeUrl(url), '_blank', 'noopener');
     } else {
       App.navigate(route);
     }
@@ -130,7 +131,7 @@ const CommandPalette = (() => {
     results.innerHTML = `
       <div class="palette-recent-label">Recent Searches</div>
       ${recentSearches.map(q => `
-        <button class="palette-item" data-recent="${q}">
+        <button class="palette-item" data-recent="${escAttr(q)}">
           <div class="palette-item-icon"><i data-lucide="history" width="16" height="16"></i></div>
           <div class="palette-item-body"><div class="palette-item-title">${escHtml(q)}</div></div>
         </button>`).join('')}
@@ -173,9 +174,8 @@ const CommandPalette = (() => {
     return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + query.length)) + '</mark>' + escHtml(text.slice(idx + query.length));
   }
 
-  function escHtml(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
 
   function isOpen() { return _isOpen; }
 

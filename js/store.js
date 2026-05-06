@@ -184,12 +184,14 @@ const Store = (() => {
         const dl = dt.querySelector(':scope > dl');
 
         if (a) {
+          let url;
+          try { url = new URL(a.href); } catch { return; }
           result.push({
-            url:      a.href,
-            title:    a.textContent.trim() || a.href,
+            url:      url.href,
+            title:    a.textContent.trim() || url.href,
             category: category || 'Other',
             tags:     [],
-            favicon:  `https://www.google.com/s2/favicons?domain=${new URL(a.href).hostname}&sz=32`,
+            favicon:  `https://www.google.com/s2/favicons?domain=${encodeURIComponent(url.hostname)}&sz=32`,
             pinned:   false,
             notes:    ''
           });

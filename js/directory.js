@@ -95,11 +95,11 @@ const Directory = (() => {
       const hasChildren = isFolder && (node.children||[]).length > 0;
       return `
         <div class="tree-node">
-          <div class="tree-row${isSelected?' selected':''}" data-path="${path}" data-type="${node.type}" data-name="${escHtml(node.name)}" role="treeitem" aria-expanded="${isExpanded}" tabindex="0">
+          <div class="tree-row${isSelected?' selected':''}" data-path="${escAttr(path)}" data-type="${escAttr(node.type)}" data-name="${escAttr(node.name)}" role="treeitem" aria-expanded="${isExpanded}" tabindex="0">
             <span class="tree-toggle${isFolder?(isExpanded?' open':''):' leaf'}">${isFolder?'<i data-lucide="chevron-right" width="12" height="12"></i>':''}</span>
             <span class="tree-icon"><i data-lucide="${icon}" width="16" height="16" style="color:${color}"></i></span>
             <span class="tree-label">${escHtml(node.name)}</span>
-            ${node.size?`<span class="tree-meta">${node.size}</span>`:''}
+            ${node.size?`<span class="tree-meta">${escHtml(node.size)}</span>`:''}
           </div>
           ${isFolder ? `<div class="tree-children" style="${isExpanded?'':'display:none'}"><div class="tree-children-inner">${renderNode(node.children||[], path)}</div></div>` : ''}
         </div>`;
@@ -134,14 +134,17 @@ const Directory = (() => {
     closeContextMenu();
     const menu = container.querySelector('#dir-context-menu'); if (!menu) return;
     menu.style.display = 'block';
-    menu.style.left = x + 'px';
-    menu.style.top  = y + 'px';
     menu.innerHTML = `
-      ${type==='folder'?`<button class="context-item" data-action="new-folder" data-path="${path}"><i data-lucide="folder-plus" width="14" height="14"></i> New Folder</button><button class="context-item" data-action="new-file" data-path="${path}"><i data-lucide="file-plus" width="14" height="14"></i> New File</button><div class="context-sep"></div>`:''}
-      <button class="context-item" data-action="rename" data-path="${path}" data-name="${name}" data-type="${type}"><i data-lucide="pencil" width="14" height="14"></i> Rename</button>
+      ${type==='folder'?`<button class="context-item" data-action="new-folder" data-path="${escAttr(path)}"><i data-lucide="folder-plus" width="14" height="14"></i> New Folder</button><button class="context-item" data-action="new-file" data-path="${escAttr(path)}"><i data-lucide="file-plus" width="14" height="14"></i> New File</button><div class="context-sep"></div>`:''}
+      <button class="context-item" data-action="rename" data-path="${escAttr(path)}" data-name="${escAttr(name)}" data-type="${escAttr(type)}"><i data-lucide="pencil" width="14" height="14"></i> Rename</button>
       <div class="context-sep"></div>
-      <button class="context-item danger" data-action="delete" data-path="${path}"><i data-lucide="trash-2" width="14" height="14"></i> Delete</button>`;
+      <button class="context-item danger" data-action="delete" data-path="${escAttr(path)}"><i data-lucide="trash-2" width="14" height="14"></i> Delete</button>`;
     lucide.createIcons({el:menu});
+    const rect = menu.getBoundingClientRect();
+    const left = Math.min(x, window.innerWidth - rect.width - 8);
+    const top = Math.min(y, window.innerHeight - rect.height - 8);
+    menu.style.left = Math.max(8, left) + 'px';
+    menu.style.top = Math.max(8, top) + 'px';
     menu.querySelectorAll('.context-item').forEach(btn => {
       btn.addEventListener('click', () => { handleContextAction(btn.dataset.action, btn.dataset.path, btn.dataset.name, btn.dataset.type, container); closeContextMenu(); });
     });
@@ -155,7 +158,7 @@ const Directory = (() => {
     if (action==='new-folder') openNameDialog('folder', path, null, container);
     else if (action==='new-file') openNameDialog('file', path, null, container);
     else if (action==='rename') openNameDialog(type, getParentPath(path), name, container, path);
-    else if (action==='delete') { if(confirm(`Delete "${name}"?`)) { deleteNode(path); renderTree(container); saveTree(); } }
+    else if (action==='delete') { App.confirm(`Delete "${name}"?`).then(ok => { if(ok) { deleteNode(path); renderTree(container); saveTree(); } }); }
   }
 
   function openNameDialog(type, parentPath, existingName, container, renamePath=null) {
@@ -190,7 +193,7 @@ const Directory = (() => {
       </div>
       <div class="dir-meta-grid">
         <div class="dir-meta-item"><label>Type</label><span>${node.type==='folder'?'Folder':'File'}</span></div>
-        ${node.size?`<div class="dir-meta-item"><label>Size</label><span>${node.size}</span></div>`:''}
+        ${node.size?`<div class="dir-meta-item"><label>Size</label><span>${escHtml(node.size)}</span></div>`:''}
         ${node.type==='folder'?`<div class="dir-meta-item"><label>Items</label><span>${(node.children||[]).length}</span></div>`:''}
         ${node.notes?`<div class="dir-meta-item" style="grid-column:1/-1"><label>Notes</label><span>${escHtml(node.notes)}</span></div>`:''}
       </div>`;
@@ -204,7 +207,7 @@ const Directory = (() => {
     bc.innerHTML = `<span class="breadcrumb-item" data-path="">root</span>` +
       parts.map((p,i) => {
         const path = parts.slice(0,i+1).join('/');
-        return `<span class="breadcrumb-sep">/</span><span class="breadcrumb-item${i===parts.length-1?' current':''}" data-path="${path}">${escHtml(p)}</span>`;
+        return `<span class="breadcrumb-sep">/</span><span class="breadcrumb-item${i===parts.length-1?' current':''}" data-path="${escAttr(path)}">${escHtml(p)}</span>`;
       }).join('');
     bc.querySelectorAll('.breadcrumb-item:not(.current)').forEach(el => {
       el.addEventListener('click', () => { selectedPath = el.dataset.path||null; renderTree(container); });
@@ -263,7 +266,8 @@ const Directory = (() => {
     if (selectedPath===path) selectedPath = null;
   }
 
-  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
 
   function unmount() {
     // Reset all module-scoped state so stale selections don't persist across navigation

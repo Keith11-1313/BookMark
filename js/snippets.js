@@ -29,7 +29,7 @@ const Snippets = (() => {
           <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
           <input class="input" id="snippets-search" type="search" placeholder="Search snippets…">
         </div>
-        <select class="input" id="snippets-lang-filter" style="width:auto"><option value="all">All Languages</option>${LANGUAGES.map(l=>`<option>${l}</option>`).join('')}</select>
+        <select class="input" id="snippets-lang-filter" style="width:auto"><option value="all">All Languages</option>${LANGUAGES.map(l=>`<option>${escHtml(l)}</option>`).join('')}</select>
       </div>
       <div id="snippets-grid" class="snippets-grid"></div>
 
@@ -41,14 +41,14 @@ const Snippets = (() => {
             <button class="btn-ghost btn-icon btn-sm" onclick="App.closeModal('snippet-modal')"><i data-lucide="x" width="16" height="16"></i></button>
           </div>
           <div class="modal-body">
-            <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-4)">
+            <div class="snippet-modal-grid">
               <div class="form-field">
                 <label class="form-label" for="snippet-title">Title *</label>
                 <input class="input" id="snippet-title" type="text" placeholder="e.g. useDebounce hook">
               </div>
               <div class="form-field">
                 <label class="form-label" for="snippet-lang">Language</label>
-                <select class="input" id="snippet-lang">${LANGUAGES.map(l=>`<option>${l}</option>`).join('')}</select>
+                <select class="input" id="snippet-lang">${LANGUAGES.map(l=>`<option>${escHtml(l)}</option>`).join('')}</select>
               </div>
             </div>
             <div class="form-field">
@@ -99,7 +99,7 @@ const Snippets = (() => {
     const tags = (s.tags||[]).map(t=>`<span class="snippet-tag">${escHtml(t)}</span>`).join('');
     const preview = escHtml((s.code||'').slice(0,500));
     return `
-      <div class="snippet-card${s.starred?' starred':''}" data-id="${s.id}">
+      <div class="snippet-card${s.starred?' starred':''}" data-id="${escAttr(s.id)}">
         <div class="snippet-header">
           <span class="snippet-title">${escHtml(s.title||'Untitled')}</span>
           <span class="snippet-lang lang-${langKey}">${escHtml(s.language||'Text')}</span>
@@ -181,7 +181,7 @@ const Snippets = (() => {
   }
 
   async function deleteSnippet(id) {
-    if (!confirm('Delete this snippet?')) return;
+    if (!await App.confirm('Delete this snippet?')) return;
     await Store.remove(COL, id);
     App.toast('Deleted','info');
   }
@@ -193,7 +193,8 @@ const Snippets = (() => {
     container.querySelector('#snippets-lang-filter')?.addEventListener('change', () => refreshList(container));
   }
 
-  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function escHtml(s) { return App.escapeHtml(s); }
+  function escAttr(s) { return App.escapeAttr(s); }
   function unmount() { unsub?.(); }
 
   return { render, unmount };
