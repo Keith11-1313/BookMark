@@ -1,9 +1,9 @@
 // dashboard.js — Home page with stats, recent activity, quick-add
 
 const Dashboard = (() => {
-  let unsubLinks, unsubNotes, unsubSnippets;
-  let links = [], notes = [], snippets = [];
-  let loaded = { links: false, notes: false, snippets: false };
+  let unsubLinks, unsubNotes, unsubSnippets, unsubPrompts;
+  let links = [], notes = [], snippets = [], prompts = [];
+  let loaded = { links: false, notes: false, snippets: false, prompts: false };
   let refreshTimer = null;
 
   function scheduleRefresh(container) {
@@ -16,10 +16,11 @@ const Dashboard = (() => {
     links    = Store.lsGet(Store.COLLECTIONS.links)    || [];
     notes    = Store.lsGet(Store.COLLECTIONS.notes)    || [];
     snippets = Store.lsGet(Store.COLLECTIONS.snippets) || [];
+    prompts  = Store.lsGet(Store.COLLECTIONS.prompts)  || [];
 
     // Only show skeleton if truly no cached data at all
-    const hasCached = links.length || notes.length || snippets.length;
-    loaded = { links: hasCached, notes: hasCached, snippets: hasCached };
+    const hasCached = links.length || notes.length || snippets.length || prompts.length;
+    loaded = { links: hasCached, notes: hasCached, snippets: hasCached, prompts: hasCached };
 
     container.innerHTML = buildHTML();
     lucide.createIcons({ el: container });
@@ -29,6 +30,7 @@ const Dashboard = (() => {
     unsubLinks    = Store.subscribe(Store.COLLECTIONS.links,    data => { links    = data; loaded.links    = true; scheduleRefresh(container); });
     unsubNotes    = Store.subscribe(Store.COLLECTIONS.notes,    data => { notes    = data; loaded.notes    = true; scheduleRefresh(container); });
     unsubSnippets = Store.subscribe(Store.COLLECTIONS.snippets, data => { snippets = data; loaded.snippets = true; scheduleRefresh(container); });
+    unsubPrompts  = Store.subscribe(Store.COLLECTIONS.prompts,  data => { prompts  = data; loaded.prompts  = true; scheduleRefresh(container); });
   }
 
   function buildHTML() {
@@ -61,6 +63,10 @@ const Dashboard = (() => {
         <a class="stat-card" href="#directory" onclick="App.navigate('directory')">
           <div class="stat-icon stat-icon-cyan"><i data-lucide="folder-tree" width="22" height="22"></i></div>
           <div class="stat-body"><div class="stat-value" id="stat-dirs">—</div><div class="stat-label">Directories</div></div>
+        </a>
+        <a class="stat-card" href="#prompts" onclick="App.navigate('prompts')">
+          <div class="stat-icon stat-icon-purple"><i data-lucide="sparkles" width="22" height="22"></i></div>
+          <div class="stat-body"><div class="stat-value" id="stat-prompts">—</div><div class="stat-label">Prompts</div></div>
         </a>
       </div>
 
@@ -118,6 +124,7 @@ const Dashboard = (() => {
     const s = container.querySelector('#stat-links');    if (s) s.textContent = links.length;
     const n = container.querySelector('#stat-notes');    if (n) n.textContent = notes.length;
     const sn= container.querySelector('#stat-snippets'); if (sn) sn.textContent = snippets.length;
+    const sp= container.querySelector('#stat-prompts'); if (sp) sp.textContent = prompts.length;
 
     // Directory count — fetched from its own Firestore doc
     const sd = container.querySelector('#stat-dirs');
@@ -140,13 +147,14 @@ const Dashboard = (() => {
     if (!recentEl) return;
 
     // Still waiting on first Firestore response — keep skeleton
-    const allLoaded = loaded.links && loaded.notes && loaded.snippets;
+    const allLoaded = loaded.links && loaded.notes && loaded.snippets && loaded.prompts;
     if (!allLoaded) return;
 
     const allItems = [
       ...links.map(i => ({ ...i, _type: 'link' })),
       ...notes.map(i => ({ ...i, _type: 'note' })),
-      ...snippets.map(i => ({ ...i, _type: 'snippet' }))
+      ...snippets.map(i => ({ ...i, _type: 'snippet' })),
+      ...prompts.map(i => ({ ...i, _type: 'prompt' }))
     ].sort((a, b) => {
       const ta = a.createdAt?.seconds || 0;
       const tb = b.createdAt?.seconds || 0;
@@ -159,8 +167,8 @@ const Dashboard = (() => {
       return;
     }
 
-    const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2' };
-    const routes= { link: 'links',    note: 'notes',        snippet: 'snippets' };
+    const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2', prompt: 'sparkles' };
+    const routes= { link: 'links',    note: 'notes',        snippet: 'snippets', prompt: 'prompts' };
 
     recentEl.innerHTML = allItems.map(item => {
       const isLink    = item._type === 'link';
@@ -263,6 +271,7 @@ const Dashboard = (() => {
     unsubLinks?.();
     unsubNotes?.();
     unsubSnippets?.();
+    unsubPrompts?.();
   }
 
   return { render, unmount };

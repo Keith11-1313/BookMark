@@ -50,6 +50,7 @@
 .stat-icon-green  { background: var(--success-light);  color: var(--success); }
 .stat-icon-yellow { background: var(--warning-light);  color: var(--warning); }
 .stat-icon-cyan   { background: rgba(0,168,252,0.15);  color: var(--text-link); }
+.stat-icon-purple { background: rgba(235,69,158,0.15);  color: #eb459e; }
 
 .stat-body {}
 .stat-value { font-size: var(--text-2xl); font-weight: 700; line-height: 1; }

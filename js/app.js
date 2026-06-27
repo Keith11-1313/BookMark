@@ -6,7 +6,8 @@ const App = (() => {
     links:     { label: 'Bookmarks', module: () => Links     },
     notes:     { label: 'Notes',     module: () => Notes     },
     directory: { label: 'Directory', module: () => Directory },
-    snippets:  { label: 'Snippets',  module: () => Snippets  }
+    snippets:  { label: 'Snippets',  module: () => Snippets  },
+    prompts:   { label: 'Prompts',   module: () => Prompts   }
   };
 
   let currentRoute = null;
@@ -68,7 +69,7 @@ const App = (() => {
 
       // Number shortcuts (not while editing)
       if (!editing && !e.ctrlKey && !e.metaKey && !e.altKey) {
-        const routeKeys = { '1': 'dashboard', '2': 'links', '3': 'notes', '4': 'directory', '5': 'snippets' };
+        const routeKeys = { '1': 'dashboard', '2': 'links', '3': 'notes', '4': 'directory', '5': 'snippets', '6': 'prompts' };
         if (routeKeys[e.key]) {
           e.preventDefault();
           navigate(routeKeys[e.key]);

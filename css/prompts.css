@@ -1,0 +1,116 @@
+/* ── Prompts ──────────────────────────────────────────────── */
+.prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.prompt-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  animation: scaleIn 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.prompt-card:hover,
+.prompt-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
+.prompt-card.favorite { border-color: rgba(240,178,50,0.4); }
+
+.prompt-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.prompt-title { font-size: var(--text-sm); font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prompt-cat {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.prompt-star { color: var(--text-muted); background: none; border: none; padding: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color var(--transition-fast); border-radius: var(--radius-sm); }
+.prompt-star.active { color: var(--warning); }
+.prompt-star:hover { color: var(--warning); background: var(--bg-hover); }
+
+.prompt-actions { display: flex; gap: 2px; opacity: 0; transition: opacity var(--transition-fast); }
+.prompt-actions .btn-ghost { color: var(--text-muted); }
+.prompt-actions .btn-ghost:hover { color: var(--text-primary); background: var(--bg-hover); }
+.prompt-card:hover .prompt-actions,
+.prompt-card:focus-within .prompt-actions { opacity: 1; }
+
+/* Body preview */
+.prompt-body-wrap { position: relative; min-width: 0; }
+.prompt-body {
+  overflow: auto;
+  max-height: 200px;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: var(--space-4);
+  background: var(--bg-darkest);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.prompt-modal-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); }
+
+/* Copy button overlay (shared style with snippets) */
+.prompt-card:hover .copy-btn-overlay,
+.prompt-card:focus-within .copy-btn-overlay { opacity: 1; }
+
+/* Footer */
+.prompt-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.prompt-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.prompt-tag {
+  padding: 1px var(--space-2);
+  background: var(--bg-hover);
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.prompt-date { font-size: 11px; color: var(--text-muted); }
+
+/* Category colors */
+.cat-writing    { background: rgba(88,101,242,0.15);  color: #8b97ff; }
+.cat-coding     { background: rgba(247,223,30,0.15);  color: #f7df1e; }
+.cat-analysis   { background: rgba(0,168,252,0.15);   color: var(--text-link); }
+.cat-creative   { background: rgba(235,69,158,0.15);  color: #eb459e; }
+.cat-business   { background: rgba(35,165,89,0.15);   color: #3ec17a; }
+.cat-marketing  { background: rgba(240,178,50,0.15);  color: var(--warning); }
+.cat-education  { background: rgba(0,173,216,0.15);   color: #00add8; }
+.cat-personal   { background: rgba(149,149,149,0.15); color: #949ba4; }
+.cat-other      { background: var(--bg-hover); color: var(--text-muted); }
+
+@media (max-width: 640px) {
+  .prompts-grid { grid-template-columns: minmax(0, 1fr); }
+  .prompt-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
+  .prompt-title { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; }
+  .prompt-actions,
+  .copy-btn-overlay { opacity: 1; }
+  .copy-btn-overlay { position: sticky; top: var(--space-2); float: right; }
+  .prompt-footer { align-items: flex-start; flex-direction: column; gap: var(--space-2); }
+  .prompt-modal-grid { grid-template-columns: 1fr; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .prompt-actions,
+  .copy-btn-overlay { opacity: 1; }
+  .prompt-card:hover { transform: none; }
+}

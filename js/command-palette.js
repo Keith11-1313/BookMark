@@ -58,17 +58,18 @@ const CommandPalette = (() => {
       return;
     }
 
-    const grouped = { link: [], note: [], snippet: [] };
+    const grouped = { link: [], note: [], snippet: [], prompt: [] };
     matches.forEach(m => (grouped[m.type] || []).push(m));
 
     const groupConfig = {
       link:    { label: 'Bookmarks', icon: 'bookmark',     route: 'links' },
       note:    { label: 'Notes',     icon: 'notebook-pen', route: 'notes' },
-      snippet: { label: 'Snippets',  icon: 'code-2',       route: 'snippets' }
+      snippet: { label: 'Snippets',  icon: 'code-2',       route: 'snippets' },
+      prompt:  { label: 'Prompts',   icon: 'sparkles',     route: 'prompts' }
     };
 
     let html = '';
-    ['link', 'note', 'snippet'].forEach(type => {
+    ['link', 'note', 'snippet', 'prompt'].forEach(type => {
       if (!grouped[type].length) return;
       const cfg = groupConfig[type];
       html += `<div class="palette-group-label">${cfg.label}</div>`;
@@ -78,7 +79,8 @@ const CommandPalette = (() => {
           : `<i data-lucide="${cfg.icon}" width="16" height="16"></i>`;
         const sub = type === 'link'    ? item.url
                   : type === 'note'    ? (item.body || '').replace(/<[^>]+>/g, '').slice(0, 80)
-                  : item.language;
+                  : type === 'snippet' ? item.language
+                  : item.category;
         const safeItemUrl = type === 'link' ? App.safeUrl(item.url, '') : '';
         html += `
           <button class="palette-item" data-type="${type}" data-id="${escAttr(item.id)}" data-route="${cfg.route}" data-url="${escAttr(safeItemUrl)}">
@@ -123,7 +125,7 @@ const CommandPalette = (() => {
     if (!results) return;
 
     if (!recentSearches.length) {
-      results.innerHTML = `<div class="palette-empty"><i data-lucide="search" width="28" height="28" style="opacity:.4"></i><span>Search bookmarks, notes, snippets…</span></div>`;
+      results.innerHTML = `<div class="palette-empty"><i data-lucide="search" width="28" height="28" style="opacity:.4"></i><span>Search bookmarks, notes, snippets, prompts…</span></div>`;
       lucide.createIcons({ el: results });
       return;
     }

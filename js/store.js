@@ -1,7 +1,7 @@
 // store.js — Firestore + localStorage dual-write layer
 
 const Store = (() => {
-  const COLLECTIONS = { links: 'bookmarks', notes: 'notes', snippets: 'snippets', dirs: 'directories', settings: 'settings' };
+  const COLLECTIONS = { links: 'bookmarks', notes: 'notes', snippets: 'snippets', prompts: 'prompts', dirs: 'directories', settings: 'settings' };
   const LS_PREFIX   = 'bookmark_';
   const listeners   = {};   // col → [callback, ...]
   let unsubscribes  = {};   // col → firestore unsubscribe fn
@@ -139,18 +139,27 @@ const Store = (() => {
       (s.tags     || []).some(t => t.toLowerCase().includes(q))
     ).forEach(s => results.push({ type: 'snippet', item: s }));
 
+    const prompts = lsGet(COLLECTIONS.prompts);
+    prompts.filter(p =>
+      (p.title    || '').toLowerCase().includes(q) ||
+      (p.body     || '').toLowerCase().includes(q) ||
+      (p.category || '').toLowerCase().includes(q) ||
+      (p.tags     || []).some(t => t.toLowerCase().includes(q))
+    ).forEach(p => results.push({ type: 'prompt', item: p }));
+
     return results;
   }
 
   // ── Import / Export ──────────────────────────────────────
   async function exportAll() {
-    const [links, notes, snippets, settings] = await Promise.all([
+    const [links, notes, snippets, prompts, settings] = await Promise.all([
       getAll(COLLECTIONS.links),
       getAll(COLLECTIONS.notes),
       getAll(COLLECTIONS.snippets),
+      getAll(COLLECTIONS.prompts),
       getSettings()
     ]);
-    const payload = { exportedAt: new Date().toISOString(), version: 1, links, notes, snippets, settings };
+    const payload = { exportedAt: new Date().toISOString(), version: 1, links, notes, snippets, prompts, settings };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url  = URL.createObjectURL(blob);
     const a    = Object.assign(document.createElement('a'), { href: url, download: 'bookmark-export.json' });
@@ -166,9 +175,10 @@ const Store = (() => {
     (data.links    || []).forEach(item => { const d = ref(COLLECTIONS.links).doc();    batch.set(d, { ...item, createdAt: now, updatedAt: now }); });
     (data.notes    || []).forEach(item => { const d = ref(COLLECTIONS.notes).doc();    batch.set(d, { ...item, createdAt: now, updatedAt: now }); });
     (data.snippets || []).forEach(item => { const d = ref(COLLECTIONS.snippets).doc(); batch.set(d, { ...item, createdAt: now, updatedAt: now }); });
+    (data.prompts  || []).forEach(item => { const d = ref(COLLECTIONS.prompts).doc();  batch.set(d, { ...item, createdAt: now, updatedAt: now }); });
 
     await batch.commit();
-    return { links: (data.links || []).length, notes: (data.notes || []).length, snippets: (data.snippets || []).length };
+    return { links: (data.links || []).length, notes: (data.notes || []).length, snippets: (data.snippets || []).length, prompts: (data.prompts || []).length };
   }
 
   // ── Parse Chrome/Firefox HTML bookmark export ────────────
