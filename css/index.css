@@ -134,7 +134,7 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
 }
 .app-sidebar.collapsed ~ .app-main { margin-left: var(--sidebar-collapsed-width); }
 
-.page-content { flex: 1; padding: var(--space-6); overflow-x: hidden; }
+.page-content { flex: 1; padding: var(--space-6) var(--space-8); overflow-x: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
 
 /* ── Glass Card ──────────────────────────────────────────── */
 .glass-card {
@@ -351,7 +351,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 
 /* Home search */
 .home-search {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 .home-search-bar {
   display: flex;
@@ -415,6 +415,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 .liked-card-body { flex: 1; min-width: 0; }
 .liked-card-title { font-size: var(--text-sm); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .liked-card-cat { font-size: var(--text-xs); color: var(--text-muted); }
+.liked-grid .empty-state { grid-column: 1 / -1; }
 
 /* Like button */
 .like-btn {
@@ -460,6 +461,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   line-height: 1.5;
   max-height: 120px;
   overflow: hidden;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 .featured-snippet .copy-btn-overlay {
   position: absolute;
@@ -469,8 +471,8 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 
 /* Categories */
 .categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
 }
 .category-card {
@@ -501,13 +503,17 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
 .export-btn {
   display: flex;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  background: var(--bg-secondary);
+  background: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   color: var(--text-secondary);
@@ -517,17 +523,30 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 }
 .export-btn:hover { border-color: var(--accent); color: var(--text-primary); }
 
-/* Section header with action */
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 @media (max-width: 640px) {
   .liked-grid { grid-template-columns: 1fr; }
   .featured-snippets-grid { grid-template-columns: 1fr; }
   .home-search-kbd { display: none; }
+  .featured-snippet .copy-btn-overlay {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    align-self: flex-end;
+    margin: var(--space-2);
+  }
+  .featured-snippet { display: flex; flex-direction: column; }
+  .dashboard-section .empty-state { padding: var(--space-5) var(--space-4); }
+  .export-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .export-btn { justify-content: center; }
+}
+
+/* ── Utility ────────────────────────────────────────────── */
+.animate-slide-up {
+  animation: slideUp 0.3s ease forwards;
 }
 
 /* ── Print styles ───────────────────────────────────────── */

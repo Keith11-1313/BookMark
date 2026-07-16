@@ -41,7 +41,13 @@
 }
 
 /* Code block */
-.snippet-code-wrap { position: relative; min-width: 0; }
+.snippet-code-wrap {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .snippet-code {
   overflow: auto;
   max-height: 200px;
@@ -52,6 +58,7 @@
   padding: var(--space-4);
   background: var(--bg-darkest);
   margin: 0;
+  flex: 1;
 }
 .snippet-code code { font-family: var(--font-mono); background: none; padding: 0; }
 .snippet-modal-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); }

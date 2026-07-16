@@ -40,7 +40,13 @@
 }
 
 /* Body preview */
-.prompt-body-wrap { position: relative; min-width: 0; }
+.prompt-body-wrap {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .prompt-body {
   overflow: auto;
   max-height: 200px;
@@ -52,6 +58,7 @@
   background: var(--bg-darkest);
   white-space: pre-wrap;
   word-break: break-word;
+  flex: 1;
 }
 .prompt-modal-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); }
 

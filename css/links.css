@@ -284,6 +284,8 @@
   position: relative;
   animation: scaleIn 0.2s ease forwards;
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 .bookmark-card:hover,
 .bookmark-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
@@ -381,7 +383,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--space-3);
+  margin-top: auto;
   padding-top: var(--space-3);
   border-top: 1px solid var(--border);
 }
