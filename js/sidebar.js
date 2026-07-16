@@ -32,7 +32,7 @@ const Sidebar = (() => {
 
       <button class="sidebar-search-btn" id="sidebar-search-btn" aria-label="Search everything">
         <i data-lucide="search" width="15" height="15"></i>
-        <span>Search everything…</span>
+        <span>Search</span>
         <span class="sidebar-search-shortcut">Ctrl K</span>
       </button>
 

@@ -14,6 +14,7 @@ const App = (() => {
   // ── Init ────────────────────────────────────────────────
   async function init() {
     await Store.loadAll();
+    document.getElementById('app').style.display = 'flex';
     Sidebar.init();
     CommandPalette.init();
     setupKeyboardShortcuts();

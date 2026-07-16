@@ -8,10 +8,10 @@ const Dashboard = (() => {
     const prompts   = Store.get('prompts');
 
     const stats = [
-      { label: 'Bookmarks', value: bookmarks.length, icon: 'bookmark',     route: 'links' },
-      { label: 'Notes',     value: notes.length,     icon: 'notebook-pen', route: 'notes' },
-      { label: 'Snippets',  value: snippets.length,  icon: 'code-2',       route: 'snippets' },
-      { label: 'Prompts',   value: prompts.length,    icon: 'sparkles',     route: 'prompts' },
+      { label: 'Bookmarks', value: bookmarks.length, icon: 'bookmark',     route: 'links',     colorClass: 'stat-bookmarks' },
+      { label: 'Notes',     value: notes.length,     icon: 'notebook-pen', route: 'notes',     colorClass: 'stat-notes' },
+      { label: 'Snippets',  value: snippets.length,  icon: 'code-2',       route: 'snippets', colorClass: 'stat-snippets' },
+      { label: 'Prompts',   value: prompts.length,    icon: 'sparkles',     route: 'prompts',  colorClass: 'stat-prompts' },
     ];
 
     const categories = {};
@@ -45,7 +45,7 @@ const Dashboard = (() => {
       <div class="stats-grid" id="stats-grid">
         ${stats.map(s => `
           <button class="stat-card" data-route="${s.route}">
-            <div class="stat-card-icon"><i data-lucide="${s.icon}" width="20" height="20"></i></div>
+            <div class="stat-card-icon ${s.colorClass}"><i data-lucide="${s.icon}" width="20" height="20"></i></div>
             <div class="stat-card-body">
               <div class="stat-value">${s.value}</div>
               <div class="stat-label">${s.label}</div>
@@ -71,7 +71,7 @@ const Dashboard = (() => {
                 </div>
                 <i data-lucide="external-link" width="14" height="14" style="color:var(--text-muted);flex-shrink:0"></i>
               </a>`;
-          }).join('') : `<div class="empty-state" style="padding:var(--space-8)"><i data-lucide="heart" width="28" height="28"></i><p>Like bookmarks to see them here</p><button class="btn btn-secondary btn-sm" id="go-bookmarks">Browse Bookmarks</button></div>`}
+          }).join('') : `<div class="empty-state" style="padding:var(--space-6)"><i data-lucide="heart" width="28" height="28"></i><p>Like bookmarks to see them here</p><button class="btn btn-secondary btn-sm" id="go-bookmarks">Browse Bookmarks</button></div>`}
         </div>
       </div>
 
