@@ -414,17 +414,6 @@
 .bookmark-card:hover .bookmark-select,
 .bookmark-card:focus-within .bookmark-select { opacity: 1; }
 
-/* Pin indicator */
-.pin-icon {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
-  color: var(--warning);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-.bookmark-card.pinned .pin-icon { opacity: 1; }
-
 /* Import dropzone */
 .import-dropzone {
   border: 2px dashed var(--border);

@@ -1,185 +1,102 @@
-// command-palette.js — Universal search overlay (Ctrl+K)
+// command-palette.js — Ctrl+K global search
 
 const CommandPalette = (() => {
-  let _isOpen   = false;
-  let focusIdx  = -1;
-  let debounce  = null;
-  let recentSearches = [];
+  let isOpen_ = false;
+  let focusedIndex = -1;
 
   function init() {
     const backdrop = document.getElementById('command-palette-backdrop');
-    const input    = document.getElementById('palette-input');
-    if (!backdrop || !input) return;
+    const input = document.getElementById('palette-input');
 
-    recentSearches = JSON.parse(localStorage.getItem('bookmark_recent_searches') || '[]');
-
-    input.addEventListener('input', () => {
-      clearTimeout(debounce);
-      debounce = setTimeout(() => search(input.value.trim()), 200);
-    });
-
-    input.addEventListener('keydown', handleKeyNav);
     backdrop.addEventListener('click', e => { if (e.target === backdrop) close(); });
-
-    showRecent();
+    input.addEventListener('input', () => renderResults(input.value));
+    input.addEventListener('keydown', handleKeydown);
   }
 
   function open() {
     const backdrop = document.getElementById('command-palette-backdrop');
-    const input    = document.getElementById('palette-input');
-    if (!backdrop || !input) return;
-
+    const input = document.getElementById('palette-input');
     backdrop.classList.add('open');
-    _isOpen = true;
-    focusIdx = -1;
+    isOpen_ = true;
     input.value = '';
-    input.focus();
-    showRecent();
+    focusedIndex = -1;
+    renderResults('');
+    setTimeout(() => input.focus(), 50);
   }
 
   function close() {
     const backdrop = document.getElementById('command-palette-backdrop');
-    if (!backdrop) return;
     backdrop.classList.remove('open');
-    _isOpen = false;
-    focusIdx = -1;
+    isOpen_ = false;
   }
 
-  function search(query) {
-    const results = document.getElementById('palette-results');
-    if (!query) { showRecent(); return; }
+  function isOpen() { return isOpen_; }
 
-    const matches = Store.searchAll(query);
-    focusIdx = -1;
-
-    if (!matches.length) {
-      results.innerHTML = `<div class="palette-empty"><i data-lucide="search-x" width="32" height="32"></i><span>No results for "${escHtml(query)}"</span></div>`;
-      lucide.createIcons({ el: results });
+  function renderResults(query) {
+    const container = document.getElementById('palette-results');
+    if (!query.trim()) {
+      container.innerHTML = `<div class="palette-empty"><i data-lucide="search" width="24" height="24" style="opacity:.4"></i><p>Search bookmarks, notes, snippets, prompts…</p></div>`;
+      lucide.createIcons({ el: container });
       return;
     }
 
-    const grouped = { link: [], note: [], snippet: [], prompt: [] };
-    matches.forEach(m => (grouped[m.type] || []).push(m));
-
-    const groupConfig = {
-      link:    { label: 'Bookmarks', icon: 'bookmark',     route: 'links' },
-      note:    { label: 'Notes',     icon: 'notebook-pen', route: 'notes' },
-      snippet: { label: 'Snippets',  icon: 'code-2',       route: 'snippets' },
-      prompt:  { label: 'Prompts',   icon: 'sparkles',     route: 'prompts' }
-    };
-
-    let html = '';
-    ['link', 'note', 'snippet', 'prompt'].forEach(type => {
-      if (!grouped[type].length) return;
-      const cfg = groupConfig[type];
-      html += `<div class="palette-group-label">${cfg.label}</div>`;
-      grouped[type].slice(0, 5).forEach(({ item }) => {
-        const favicon = type === 'link' && item.favicon
-          ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" onerror="this.style.display='none'">`
-          : `<i data-lucide="${cfg.icon}" width="16" height="16"></i>`;
-        const sub = type === 'link'    ? item.url
-                  : type === 'note'    ? (item.body || '').replace(/<[^>]+>/g, '').slice(0, 80)
-                  : type === 'snippet' ? item.language
-                  : item.category;
-        const safeItemUrl = type === 'link' ? App.safeUrl(item.url, '') : '';
-        html += `
-          <button class="palette-item" data-type="${type}" data-id="${escAttr(item.id)}" data-route="${cfg.route}" data-url="${escAttr(safeItemUrl)}">
-            <div class="palette-item-icon">${favicon}</div>
-            <div class="palette-item-body">
-              <div class="palette-item-title">${highlight(item.title || item.url || 'Untitled', query)}</div>
-              ${sub ? `<div class="palette-item-sub">${escHtml(sub.slice(0, 80))}</div>` : ''}
-            </div>
-            <span class="palette-item-type">${cfg.label.slice(0,-1)}</span>
-          </button>`;
-      });
-    });
-
-    results.innerHTML = html;
-    lucide.createIcons({ el: results });
-
-    results.querySelectorAll('.palette-item').forEach(btn => {
-      btn.addEventListener('click', () => selectItem(btn, query));
-    });
-  }
-
-  function selectItem(btn, query) {
-    const type  = btn.dataset.type;
-    const route = btn.dataset.route;
-    const url   = btn.dataset.url;
-
-    if (query) {
-      recentSearches = [query, ...recentSearches.filter(r => r !== query)].slice(0, 6);
-      localStorage.setItem('bookmark_recent_searches', JSON.stringify(recentSearches));
-    }
-
-    if (type === 'link' && url) {
-      window.open(App.safeUrl(url), '_blank', 'noopener');
-    } else {
-      App.navigate(route);
-    }
-    close();
-  }
-
-  function showRecent() {
-    const results = document.getElementById('palette-results');
-    if (!results) return;
-
-    if (!recentSearches.length) {
-      results.innerHTML = `<div class="palette-empty"><i data-lucide="search" width="28" height="28" style="opacity:.4"></i><span>Search bookmarks, notes, snippets, prompts…</span></div>`;
-      lucide.createIcons({ el: results });
+    const results = Store.searchAll(query.trim());
+    if (!results.length) {
+      container.innerHTML = `<div class="palette-empty"><i data-lucide="search-x" width="24" height="24" style="opacity:.4"></i><p>No results for "${App.escapeHtml(query)}"</p></div>`;
+      lucide.createIcons({ el: container });
       return;
     }
 
-    results.innerHTML = `
-      <div class="palette-recent-label">Recent Searches</div>
-      ${recentSearches.map(q => `
-        <button class="palette-item" data-recent="${escAttr(q)}">
-          <div class="palette-item-icon"><i data-lucide="history" width="16" height="16"></i></div>
-          <div class="palette-item-body"><div class="palette-item-title">${escHtml(q)}</div></div>
-        </button>`).join('')}
-    `;
-    lucide.createIcons({ el: results });
+    const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2', prompt: 'sparkles' };
+    const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
 
-    results.querySelectorAll('.palette-item[data-recent]').forEach(btn => {
+    container.innerHTML = results.slice(0, 20).map((r, i) => {
+      const item = r.item;
+      const isLink = r.type === 'link';
+      const url = isLink ? App.safeUrl(item.url, '') : '';
+      const favicon = isLink && item.favicon ? App.safeImageUrl(item.favicon, '') : '';
+      const iconHtml = favicon
+        ? `<img src="${App.escapeAttr(favicon)}" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
+        : `<i data-lucide="${icons[r.type]}" width="16" height="16"></i>`;
+      return `
+        <button class="palette-item${i === focusedIndex ? ' focused' : ''}" data-route="${routes[r.type]}" data-url="${App.escapeAttr(url)}" data-i="${i}">
+          <div class="palette-item-icon">${iconHtml}</div>
+          <div class="palette-item-body">
+            <div class="palette-item-title">${App.escapeHtml(item.title || 'Untitled')}</div>
+            <div class="palette-item-sub">${App.escapeHtml(item.category || item.language || r.type)}</div>
+          </div>
+          <span class="palette-item-type">${r.type}</span>
+        </button>`;
+    }).join('');
+
+    lucide.createIcons({ el: container });
+
+    container.querySelectorAll('.palette-item').forEach(btn => {
       btn.addEventListener('click', () => {
-        const input = document.getElementById('palette-input');
-        input.value = btn.dataset.recent;
-        search(btn.dataset.recent);
+        if (btn.dataset.url) window.open(btn.dataset.url, '_blank');
+        else App.navigate(btn.dataset.route);
+        close();
       });
     });
   }
 
-  function handleKeyNav(e) {
-    const items = document.querySelectorAll('#palette-results .palette-item');
-    if (!items.length) return;
-
+  function handleKeydown(e) {
+    const items = document.querySelectorAll('.palette-item');
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      focusIdx = Math.min(focusIdx + 1, items.length - 1);
+      focusedIndex = Math.min(focusedIndex + 1, items.length - 1);
+      items.forEach((el, i) => el.classList.toggle('focused', i === focusedIndex));
+      items[focusedIndex]?.scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      focusIdx = Math.max(focusIdx - 1, -1);
+      focusedIndex = Math.max(focusedIndex - 1, 0);
+      items.forEach((el, i) => el.classList.toggle('focused', i === focusedIndex));
+      items[focusedIndex]?.scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      if (focusIdx >= 0) items[focusIdx]?.click();
-      return;
-    } else { return; }
-
-    items.forEach((el, i) => el.classList.toggle('focused', i === focusIdx));
-    if (focusIdx >= 0) items[focusIdx]?.scrollIntoView({ block: 'nearest' });
+      if (focusedIndex >= 0 && items[focusedIndex]) items[focusedIndex].click();
+    }
   }
-
-  function highlight(text, query) {
-    if (!query) return escHtml(text);
-    const idx = text.toLowerCase().indexOf(query.toLowerCase());
-    if (idx === -1) return escHtml(text);
-    return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + query.length)) + '</mark>' + escHtml(text.slice(idx + query.length));
-  }
-
-  function escHtml(s) { return App.escapeHtml(s); }
-  function escAttr(s) { return App.escapeAttr(s); }
-
-  function isOpen() { return _isOpen; }
 
   return { init, open, close, isOpen };
 })();

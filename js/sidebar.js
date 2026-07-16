@@ -1,13 +1,13 @@
 // sidebar.js — Sidebar (desktop) + bottom nav (mobile)
 
 const Sidebar = (() => {
+  const GITHUB_REPO = 'https://github.com/Keith11-1313/BookMark'; // Update with your repo URL
   const NAV_ITEMS = [
-    { route: 'dashboard', label: 'Dashboard', icon: 'layout-dashboard', shortcut: '1' },
-    { route: 'links',     label: 'Bookmarks', icon: 'bookmark',         shortcut: '2' },
-    { route: 'notes',     label: 'Notes',     icon: 'notebook-pen',     shortcut: '3' },
-    { route: 'directory', label: 'Directory', icon: 'folder-tree',      shortcut: '4' },
-    { route: 'snippets',  label: 'Snippets',  icon: 'code-2',           shortcut: '5' },
-    { route: 'prompts',   label: 'Prompts',   icon: 'sparkles',         shortcut: '6' },
+    { route: 'dashboard', label: 'Home',       icon: 'layout-dashboard', shortcut: '1' },
+    { route: 'links',     label: 'Bookmarks',  icon: 'bookmark',         shortcut: '2' },
+    { route: 'notes',     label: 'Notes',       icon: 'notebook-pen',     shortcut: '3' },
+    { route: 'snippets',  label: 'Snippets',    icon: 'code-2',           shortcut: '4' },
+    { route: 'prompts',   label: 'Prompts',     icon: 'sparkles',         shortcut: '5' },
   ];
 
   function init() {
@@ -22,7 +22,7 @@ const Sidebar = (() => {
     sidebar.innerHTML = `
       <div class="sidebar-header">
         <div class="sidebar-logo">
-          <i data-lucide="bookmark" width="20" height="20"></i>
+          <img src="assets/icons/logo.png" alt="BookMark" width="28" height="28">
         </div>
         <span class="sidebar-brand">BookMark</span>
         <button class="sidebar-collapse-btn" id="sidebar-collapse-btn" aria-label="Collapse sidebar" data-tooltip="Collapse">
@@ -37,7 +37,7 @@ const Sidebar = (() => {
       </button>
 
       <nav class="sidebar-nav" role="navigation" aria-label="Main navigation">
-        <span class="nav-section-label">Navigation</span>
+        <span class="nav-section-label">Browse</span>
         ${NAV_ITEMS.map(item => `
           <button class="nav-item" data-route="${item.route}" id="nav-${item.route}" aria-label="${item.label}">
             <span class="nav-item-icon"><i data-lucide="${item.icon}" width="18" height="18"></i></span>
@@ -48,35 +48,22 @@ const Sidebar = (() => {
       </nav>
 
       <div class="sidebar-footer">
-        <div class="sidebar-user" id="sidebar-user">
-          <div class="user-avatar-placeholder" id="user-avatar-placeholder">?</div>
-          <img class="user-avatar" id="user-avatar" src="" alt="Avatar" style="display:none">
-          <div class="user-info">
-            <div class="user-name" id="user-name">Loading…</div>
-            <div class="user-email" id="user-email"></div>
-          </div>
-        </div>
-        <button class="btn-signout" id="btn-signout" aria-label="Sign out">
-          <i data-lucide="log-out" width="15" height="15"></i>
-          <span>Sign out</span>
-        </button>
-        <button class="btn-ghost btn-sm w-full" id="btn-install-pwa" style="display:none; gap:8px; margin-top:4px;" aria-label="Install app">
-          <i data-lucide="download" width="14" height="14"></i>
-          <span>Install App</span>
-        </button>
+        <a class="sidebar-link" href="${GITHUB_REPO}/issues/new?title=Site+Request:+&body=URL:%0ACategory:%0AWhy+this+should+be+added:%0A&labels=site-request" target="_blank" rel="noopener">
+          <i data-lucide="plus-circle" width="15" height="15"></i>
+          <span>Request a Site</span>
+        </a>
+        <a class="sidebar-link" href="${GITHUB_REPO}" target="_blank" rel="noopener">
+          <i data-lucide="github" width="15" height="15"></i>
+          <span>GitHub</span>
+        </a>
       </div>
     `;
 
-    // Nav click
     sidebar.querySelectorAll('.nav-item[data-route]').forEach(btn => {
       btn.addEventListener('click', () => App.navigate(btn.dataset.route));
     });
 
-    // Search
     sidebar.querySelector('#sidebar-search-btn').addEventListener('click', () => CommandPalette.open());
-
-    // Sign out
-    sidebar.querySelector('#btn-signout').addEventListener('click', () => Auth.signOut());
   }
 
   function renderBottomNav() {
@@ -110,7 +97,6 @@ const Sidebar = (() => {
       localStorage.setItem('bookmark_sidebar_collapsed', sidebar.classList.contains('collapsed'));
     });
 
-    // Click logo to expand when collapsed
     const logo = document.querySelector('.sidebar-logo');
     if (logo) {
       logo.addEventListener('click', () => {
@@ -130,25 +116,5 @@ const Sidebar = (() => {
     });
   }
 
-  function setUser(user) {
-    const nameEl    = document.getElementById('user-name');
-    const emailEl   = document.getElementById('user-email');
-    const avatarEl  = document.getElementById('user-avatar');
-    const initEl    = document.getElementById('user-avatar-placeholder');
-
-    if (nameEl)  nameEl.textContent  = user.displayName || 'User';
-    if (emailEl) emailEl.textContent = user.email || '';
-
-    if (user.photoURL && avatarEl) {
-      // Request 96px version from Google (default is tiny ~32px)
-      const photoUrl = user.photoURL.replace(/=s\d+-c$/, '').replace(/=s\d+$/, '') + '=s96-c';
-      avatarEl.src = App.safeImageUrl(photoUrl, '');
-      avatarEl.style.display = 'block';
-      if (initEl) initEl.style.display = 'none';
-    } else if (initEl) {
-      initEl.textContent = (user.displayName || 'U')[0].toUpperCase();
-    }
-  }
-
-  return { init, setActive, setUser };
+  return { init, setActive };
 })();

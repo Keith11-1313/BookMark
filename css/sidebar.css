@@ -15,12 +15,13 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: var(--accent-light);
-  border: 1px solid rgba(88,101,242,0.3);
-  border-radius: var(--radius-lg);
-  color: var(--accent);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
+}
+.sidebar-logo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 .sidebar-logo:hover { transform: scale(1.05); }
 
@@ -192,85 +193,30 @@
   flex-shrink: 0;
   border-top: 1px solid var(--border);
   padding: var(--space-3) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.sidebar-user {
+.sidebar-link {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-2) var(--space-2);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background var(--transition-fast);
-  min-height: 48px;
-}
-.sidebar-user:hover { background: var(--bg-hover); }
-
-.user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid var(--border);
-}
-
-.user-avatar-placeholder {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.user-info {
-  flex: 1;
-  min-width: 0;
-  transition: opacity var(--transition-base);
-}
-.user-name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.user-email { font-size: var(--text-xs); color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-.app-sidebar.collapsed .user-info { display: none; }
-.app-sidebar.collapsed .sidebar-user { justify-content: center; padding: var(--space-2); }
-
-/* Collapsed: footer buttons — icon only */
-.app-sidebar.collapsed .btn-signout span,
-.app-sidebar.collapsed #btn-install-pwa span {
-  display: none;
-}
-.app-sidebar.collapsed .btn-signout,
-.app-sidebar.collapsed #btn-install-pwa {
-  justify-content: center;
-  padding: var(--space-2);
-}
-.app-sidebar.collapsed .sidebar-footer {
-  padding: var(--space-3) var(--space-1);
-}
-
-.btn-signout {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  width: 100%;
   padding: var(--space-2) var(--space-3);
-  background: transparent;
-  border: none;
   color: var(--text-muted);
   font-size: var(--text-sm);
-  cursor: pointer;
+  text-decoration: none;
   border-radius: var(--radius-md);
   transition: background var(--transition-fast), color var(--transition-fast);
-  margin-top: 2px;
   min-height: 36px;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.btn-signout:hover { background: var(--danger-light); color: var(--danger); }
+.sidebar-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.app-sidebar.collapsed .sidebar-link span { display: none; }
+.app-sidebar.collapsed .sidebar-link { justify-content: center; padding: var(--space-2); }
+.app-sidebar.collapsed .sidebar-footer { padding: var(--space-3) var(--space-1); }
 
 /* ── Command Palette Trigger ─────────────────────────────── */
 .sidebar-search-btn {
@@ -392,6 +338,9 @@
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .bottom-nav-dot {
@@ -407,4 +356,9 @@
 
 @media (max-width: 768px) {
   #bottom-nav { display: flex; }
+}
+
+@media (max-width: 380px) {
+  .bottom-nav-label { display: none; }
+  .bottom-nav-item { gap: 0; }
 }
