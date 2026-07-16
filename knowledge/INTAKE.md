@@ -25,7 +25,7 @@ If ambiguous, ask me to clarify.
 ### Bookmark
 ```json
 {
-  "id": "<unique-short-id>",
+  "id": "<unique ID — see ID Generation>",
   "url": "<full URL>",
   "title": "<site name or page title>",
   "category": "<one of the categories below>",
@@ -54,7 +54,7 @@ Web Dev, Frontend, Backend, Full Stack, Mobile Dev, Desktop Dev, DevOps, Deploym
 ### Snippet
 ```json
 {
-  "id": "<unique-short-id>",
+  "id": "<unique ID — see ID Generation>",
   "title": "<descriptive title>",
   "language": "<one of: JavaScript, TypeScript, HTML, CSS, Python, JSON, Bash, SQL, Java, C#, Go, Rust, PHP, Ruby, YAML, Plain Text>",
   "code": "<the code, with proper escaping>",
@@ -66,7 +66,7 @@ Web Dev, Frontend, Backend, Full Stack, Mobile Dev, Desktop Dev, DevOps, Deploym
 ### Note
 ```json
 {
-  "id": "<unique-short-id>",
+  "id": "<unique ID — see ID Generation>",
   "title": "<note title>",
   "body": "<HTML content — use <p>, <ul>, <li>, <b>, <i>, <code> tags>",
   "color": "<one of: #5865f2, #23a559, #f0b232, #da373c, #00a8fc, #eb459e, #949ba4, or null>",
@@ -79,7 +79,7 @@ Web Dev, Frontend, Backend, Full Stack, Mobile Dev, Desktop Dev, DevOps, Deploym
 ### Prompt
 ```json
 {
-  "id": "<unique-short-id>",
+  "id": "<unique ID — see ID Generation>",
   "title": "<prompt name>",
   "category": "<one of: Writing, Coding, Analysis, Creative, Business, Marketing, Education, Personal, Other>",
   "body": "<the full prompt text>",
@@ -90,13 +90,12 @@ Web Dev, Frontend, Backend, Full Stack, Mobile Dev, Desktop Dev, DevOps, Deploym
 
 ## ID Generation
 
-Use a short, readable, unique ID. Format: `<type-prefix><number>`.
-- Bookmarks: `b1`, `b2`, `b3`...
-- Notes: `n1`, `n2`, `n3`...
-- Snippets: `s1`, `s2`, `s3`...
-- Prompts: `p1`, `p2`, `p3`...
+IDs are **plain sequential numeric strings** — `"1"`, `"2"`, `"3"`... — with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `["1", "2"]`); a prefixed ID would break that reference.
 
-When I tell you "start from ID X", use that as the next number.
+- Each data file keeps its own independent counter — `bookmarks.json`, `notes.json`, `snippets.json`, and `prompts.json` all number from 1 separately
+- Use the highest existing `id` in the target file, plus one, as the next ID
+- Example: if `notes.json` currently ends at `"3"`, the next note is `"4"`
+- If I tell you "start from ID X," use that as the next number instead
 
 ## Timestamp
 
@@ -115,7 +114,7 @@ Type: bookmark
 File: data/bookmarks.json
 
 {
-  "id": "b9",
+  "id": "9",
   "url": "https://react.dev",
   "title": "React",
   "category": "Libraries/Frameworks",
