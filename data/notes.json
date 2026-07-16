@@ -1,29 +1,11 @@
 [
   {
     "id": "1",
-    "title": "Getting Started with Web Development",
-    "body": "<p>A roadmap for learning web development in 2025:</p><ul><li><b>HTML & CSS</b> — Start with structure and styling</li><li><b>JavaScript</b> — Learn the language of the web</li><li><b>Git & GitHub</b> — Version control is essential</li><li><b>React or Vue</b> — Pick a framework</li><li><b>Node.js</b> — Backend JavaScript</li></ul><p>Focus on building projects, not just watching tutorials.</p>",
-    "color": "#5865f2",
-    "linkedBookmarks": ["1", "2"],
-    "createdAt": "2025-01-20T10:00:00Z",
-    "updatedAt": "2025-02-15T14:30:00Z"
-  },
-  {
-    "id": "2",
-    "title": "Useful VS Code Extensions",
-    "body": "<p>Must-have extensions for productivity:</p><ul><li>Prettier — Code formatting</li><li>ESLint — Linting</li><li>GitLens — Git supercharged</li><li>Thunder Client — API testing</li><li>Auto Rename Tag — HTML quality of life</li></ul>",
-    "color": "#23a559",
+    "title": "Git & GitHub Tutorial",
+    "body": "<p><b>Git &amp; GitHub Tutorial</b></p>\n<p>Practical reference covering setup, cloning, committing, branching, restoring files, and CI/CD with GitHub Actions.</p>\n<p><b>1. Connecting a New Project via HTTPS</b></p>\n<p>Create an empty repo on GitHub (skip README/gitignore if your local folder already has files, to avoid a conflict on first push). Then inside your project folder:</p>\n<ul><li><code>git init</code></li><li><code>git add .</code></li><li><code>git commit -m \"Initial commit\"</code></li><li><code>git branch -M main</code></li><li><code>git remote add origin https://github.com/username/repo-name.git</code></li><li><code>git push -u origin main</code></li></ul>\n<p><i>Authentication note:</i> GitHub no longer accepts your account password for HTTPS git operations. Git Credential Manager (bundled with Git for Windows) opens a browser login popup on first push and remembers you. Alternatively, generate a Personal Access Token under GitHub Settings, Developer settings, Personal access tokens, and paste it in place of your password when prompted.</p>\n<p><b>2. Connecting to an Existing Project (Clone &amp; Pull)</b></p>\n<p>To clone a repo you don't have locally yet:</p>\n<ul><li><code>git clone https://github.com/username/repo-name.git</code></li><li><code>cd repo-name</code></li></ul>\n<p>To pull the latest changes into a repo you already have:</p>\n<ul><li><code>git pull origin main</code></li></ul>\n<p>If you already have a local folder not yet linked to the GitHub repo:</p>\n<ul><li><code>git remote add origin https://github.com/username/repo-name.git</code></li><li><code>git fetch origin</code></li><li><code>git checkout main</code></li></ul>\n<p>If your local folder has commits with no shared history, add <code>--allow-unrelated-histories</code> to the pull command.</p>\n<p><b>3. Committing to GitHub</b></p>\n<ul><li><code>git status</code> — see what's changed</li><li><code>git add &lt;file&gt;</code> — stage a specific file</li><li><code>git add .</code> — stage everything in the current directory</li><li><code>git commit -m \"message\"</code> — commit staged changes</li><li><code>git push origin &lt;branch&gt;</code> — push to GitHub</li></ul>\n<p><i>Commit message convention:</i> <code>feat:</code> new feature, <code>fix:</code> bug fix, <code>chore:</code> maintenance/cleanup, <code>docs:</code> documentation only, <code>refactor:</code> code change that isn't a fix or feature, <code>style:</code> formatting only, <code>test:</code> adding or updating tests.</p>\n<p><b>4. Branching</b></p>\n<ul><li><code>git checkout -b branch-name</code> — create and switch in one step</li><li><code>git branch</code> — list local branches</li><li><code>git checkout branch-name</code> — switch to an existing branch</li><li><code>git push -u origin branch-name</code> — push new branch, set upstream</li></ul>\n<p>Merge back via GitHub PR (recommended): push the branch, open a pull request into <code>main</code>, review the diff, then merge through the UI.</p>\n<p>Or merge locally:</p>\n<ul><li><code>git checkout main</code></li><li><code>git pull origin main</code></li><li><code>git merge branch-name</code></li><li><code>git push origin main</code></li></ul>\n<p>Clean up after merge:</p>\n<ul><li><code>git branch -d branch-name</code></li><li><code>git push origin --delete branch-name</code></li></ul>\n<p><b>5. git restore</b></p>\n<ul><li><code>git restore &lt;file&gt;</code> — discards uncommitted edits, reverts to last commit (also undoes an uncommitted deletion)</li><li><code>git restore --staged &lt;file&gt;</code> — unstages a file, keeps the edits</li><li><code>git restore --source=&lt;commit&gt; &lt;file&gt;</code> — restores a file's contents from a specific past commit</li></ul>\n<p>Only works on uncommitted changes. For already-committed/pushed changes, use <code>git revert &lt;commit&gt;</code> (safe for shared branches) or <code>git reset</code> (rewrites history, local-only commits).</p>\n<p><b>Advanced: CI/CD with GitHub Actions</b></p>\n<p>Workflows live in <code>.github/workflows/*.yml</code>. Basic example — lint and build on every push/PR to main:</p>\n<ul><li><code>on: push / pull_request, branches: [main]</code></li><li><code>jobs.build.runs-on: ubuntu-latest</code></li><li><code>steps: actions/checkout@v4</code></li><li><code>steps: actions/setup-node@v4 (node-version 20)</code></li><li><code>run: npm ci</code></li><li><code>run: npm run lint</code></li><li><code>run: npm run build</code></li></ul>\n<p>Secrets (API keys, DB URLs) go under repo Settings, Secrets and variables, Actions, referenced as <code>${{ secrets.YOUR_SECRET_NAME }}</code> — never hardcoded in the YAML.</p>\n<p>Branch protection (Settings, Branches) can require this workflow to pass before a PR merges into <code>main</code>, turning CI into an actual gate.</p>\n<p>Deployment: on Vercel, connecting the GitHub repo auto-deploys every push and generates preview URLs per PR — no deploy step needed in Actions. For other hosts, add a final job gated to <code>main</code> using SSH/rsync/FTP actions, with <code>needs: build</code> so it waits for the build job to succeed first.</p>",
+    "color": "#00a8fc",
     "linkedBookmarks": [],
-    "createdAt": "2025-02-01T09:00:00Z",
-    "updatedAt": "2025-02-01T09:00:00Z"
-  },
-  {
-    "id": "3",
-    "title": "Design Resources Collection",
-    "body": "<p>Free design resources for developers:</p><ul><li>Unsplash — Free photos</li><li>Heroicons — SVG icons</li><li>Coolors — Color palette generator</li><li>Google Fonts — Typography</li><li>Figma — Free tier for design</li></ul>",
-    "color": "#eb459e",
-    "linkedBookmarks": ["7"],
-    "createdAt": "2025-03-01T11:00:00Z",
-    "updatedAt": "2025-03-01T11:00:00Z"
+    "createdAt": "2026-07-16T00:00:00Z",
+    "updatedAt": "2026-07-16T00:00:00Z"
   }
 ]
