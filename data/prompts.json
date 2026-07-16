@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Code Review Assistant",
+    "category": "Coding",
+    "body": "You are an expert code reviewer. Review the following code for:\n1. Bugs and logical errors\n2. Performance issues\n3. Security vulnerabilities\n4. Code style and readability\n5. Potential edge cases\n\nProvide specific, actionable feedback with code examples where appropriate. Be constructive and explain why each change matters.",
+    "tags": ["code-review", "development"],
+    "createdAt": "2025-01-30T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Technical Blog Post Writer",
+    "category": "Writing",
+    "body": "Write a technical blog post about [TOPIC]. The post should:\n- Start with a hook that explains why this matters\n- Include code examples with explanations\n- Use clear, concise language (no jargon without definitions)\n- Include a practical use case\n- End with next steps or further reading\n\nTarget audience: intermediate developers who know the basics but want to level up.",
+    "tags": ["writing", "blog", "technical"],
+    "createdAt": "2025-02-10T09:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Summarize & Extract Key Points",
+    "category": "Analysis",
+    "body": "Analyze the following text and provide:\n1. A 2-3 sentence summary\n2. 5 key takeaways as bullet points\n3. Any action items mentioned\n4. Questions that remain unanswered\n\nBe concise and factual. Do not add information that isn't in the source text.",
+    "tags": ["analysis", "summarization"],
+    "createdAt": "2025-03-01T15:00:00Z"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Getting Started with Web Development",
+    "body": "<p>A roadmap for learning web development in 2025:</p><ul><li><b>HTML & CSS</b> — Start with structure and styling</li><li><b>JavaScript</b> — Learn the language of the web</li><li><b>Git & GitHub</b> — Version control is essential</li><li><b>React or Vue</b> — Pick a framework</li><li><b>Node.js</b> — Backend JavaScript</li></ul><p>Focus on building projects, not just watching tutorials.</p>",
+    "color": "#5865f2",
+    "linkedBookmarks": ["1", "2"],
+    "createdAt": "2025-01-20T10:00:00Z",
+    "updatedAt": "2025-02-15T14:30:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Useful VS Code Extensions",
+    "body": "<p>Must-have extensions for productivity:</p><ul><li>Prettier — Code formatting</li><li>ESLint — Linting</li><li>GitLens — Git supercharged</li><li>Thunder Client — API testing</li><li>Auto Rename Tag — HTML quality of life</li></ul>",
+    "color": "#23a559",
+    "linkedBookmarks": [],
+    "createdAt": "2025-02-01T09:00:00Z",
+    "updatedAt": "2025-02-01T09:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Design Resources Collection",
+    "body": "<p>Free design resources for developers:</p><ul><li>Unsplash — Free photos</li><li>Heroicons — SVG icons</li><li>Coolors — Color palette generator</li><li>Google Fonts — Typography</li><li>Figma — Free tier for design</li></ul>",
+    "color": "#eb459e",
+    "linkedBookmarks": ["7"],
+    "createdAt": "2025-03-01T11:00:00Z",
+    "updatedAt": "2025-03-01T11:00:00Z"
+  }
+]

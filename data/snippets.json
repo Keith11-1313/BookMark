@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "useDebounce Hook",
+    "language": "JavaScript",
+    "code": "function useDebounce(value, delay = 300) {\n  const [debounced, setDebounced] = useState(value);\n  useEffect(() => {\n    const timer = setTimeout(() => setDebounced(value), delay);\n    return () => clearTimeout(timer);\n  }, [value, delay]);\n  return debounced;\n}",
+    "tags": ["react", "hook", "performance"],
+    "createdAt": "2025-01-25T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "CSS Grid Auto-Fill Responsive",
+    "language": "CSS",
+    "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\n  gap: 1rem;\n}",
+    "tags": ["css", "grid", "responsive"],
+    "createdAt": "2025-02-05T14:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Fetch with Timeout",
+    "language": "JavaScript",
+    "code": "async function fetchWithTimeout(url, options = {}, timeout = 5000) {\n  const controller = new AbortController();\n  const timer = setTimeout(() => controller.abort(), timeout);\n  try {\n    const res = await fetch(url, { ...options, signal: controller.signal });\n    clearTimeout(timer);\n    return res;\n  } catch (err) {\n    clearTimeout(timer);\n    throw err;\n  }\n}",
+    "tags": ["javascript", "fetch", "utility"],
+    "createdAt": "2025-02-20T16:00:00Z"
+  }
+]
