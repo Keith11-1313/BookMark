@@ -1,0 +1,101 @@
+[
+  {
+    "id": "1",
+    "url": "https://manus.im/",
+    "title": "Manus",
+    "category": "AI Skills",
+    "tags": ["ai-agent", "automation", "productivity"],
+    "notes": "Autonomous AI agent that researches, plans, writes, and completes complex tasks.",
+    "favicon": "https://www.google.com/s2/favicons?domain=manus.im&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "2",
+    "url": "https://www.unicorn.studio/",
+    "title": "Unicorn Studio",
+    "category": "Design",
+    "tags": ["webgl", "animation", "landing-pages"],
+    "notes": "No-code platform for creating interactive WebGL animations and modern websites.",
+    "favicon": "https://www.google.com/s2/favicons?domain=unicorn.studio&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "3",
+    "url": "https://spline.design/",
+    "title": "Spline",
+    "category": "Design",
+    "tags": ["3d", "web-design", "interactive"],
+    "notes": "Collaborative browser-based 3D design tool for interactive web experiences.",
+    "favicon": "https://www.google.com/s2/favicons?domain=spline.design&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "4",
+    "url": "https://www.10x.app/",
+    "title": "10x",
+    "category": "AI Skills",
+    "tags": ["ai-coding", "developer-tools", "productivity"],
+    "notes": "AI-powered development workspace that helps engineers build software faster.",
+    "favicon": "https://www.google.com/s2/favicons?domain=10x.app&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "5",
+    "url": "https://componentry.dev/",
+    "title": "Componentry",
+    "category": "Libraries/Frameworks",
+    "tags": ["react", "components", "ui-library"],
+    "notes": "Curated collection of production-ready React components and UI patterns.",
+    "favicon": "https://www.google.com/s2/favicons?domain=componentry.dev&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "6",
+    "url": "https://21st.dev/",
+    "title": "21st.dev",
+    "category": "Libraries/Frameworks",
+    "tags": ["react", "tailwindcss", "shadcn-ui"],
+    "notes": "Community registry of modern React and Tailwind UI components.",
+    "favicon": "https://www.google.com/s2/favicons?domain=21st.dev&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "7",
+    "url": "https://refero.design/",
+    "title": "Refero",
+    "category": "UI/UX",
+    "tags": ["design-inspiration", "ui-patterns", "ux"],
+    "notes": "Searchable library of UI screenshots and design patterns from real products.",
+    "favicon": "https://www.google.com/s2/favicons?domain=refero.design&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "8",
+    "url": "https://ui.shadcn.com/",
+    "title": "shadcn/ui",
+    "category": "Libraries/Frameworks",
+    "tags": ["react", "shadcn-ui", "tailwindcss"],
+    "notes": "Open-source, customizable React components built with Tailwind CSS and Radix UI.",
+    "favicon": "https://www.google.com/s2/favicons?domain=ui.shadcn.com&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  },
+  {
+    "id": "9",
+    "url": "https://getdesign.md/",
+    "title": "getdesign.md",
+    "category": "AI Skills",
+    "tags": ["design", "ai-context", "documentation"],
+    "notes": "Generates AI-ready DESIGN.md files from websites for better design-aware prompting.",
+    "favicon": "https://www.google.com/s2/favicons?domain=getdesign.md&sz=32",
+    "githubMeta": null,
+    "createdAt": "2026-07-16T03:00:00Z"
+  }
+]

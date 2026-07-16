@@ -40,16 +40,11 @@
 .note-card:focus-within,
 .note-card:focus-visible { border-color: var(--bg-hover); transform: translateY(-1px); }
 .note-card.active { border-color: var(--accent); }
-.note-card.pinned { border-top: 3px solid var(--warning); }
 
 .note-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
 
 .note-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
 .note-card-title { font-size: var(--text-sm); font-weight: 600; line-height: 1.4; flex: 1; }
-.note-card-actions { display: flex; gap: 2px; opacity: 0; transition: opacity var(--transition-fast); }
-.note-card:hover .note-card-actions,
-.note-card:focus-within .note-card-actions,
-.note-card:focus-visible .note-card-actions { opacity: 1; }
 
 .note-card-preview {
   font-size: var(--text-xs);
@@ -63,7 +58,6 @@
 }
 .note-card-footer { display: flex; align-items: center; justify-content: space-between; }
 .note-date { font-size: 11px; color: var(--text-muted); }
-.note-pin-icon { color: var(--warning); }
 .linked-bookmarks-count { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-muted); }
 
 /* Editor */
@@ -188,11 +182,9 @@
   .editor-title-input { font-size: var(--text-lg); }
   .note-body { padding: var(--space-4); min-height: 260px; }
   .linked-chips { align-items: flex-start; }
-  .note-card-actions { opacity: 1; }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .note-card-actions { opacity: 1; }
   .note-card:hover { transform: none; }
   .toolbar-btn,
   .color-swatch {

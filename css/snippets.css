@@ -17,7 +17,7 @@
 }
 .snippet-card:hover,
 .snippet-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
-.snippet-card.starred { border-color: rgba(240,178,50,0.4); }
+
 
 .snippet-header {
   display: flex;
@@ -39,18 +39,15 @@
   font-family: var(--font-mono);
   flex-shrink: 0;
 }
-.snippet-star { color: var(--text-muted); background: none; border: none; padding: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color var(--transition-fast); border-radius: var(--radius-sm); }
-.snippet-star.active { color: var(--warning); }
-.snippet-star:hover { color: var(--warning); background: var(--bg-hover); }
-
-.snippet-actions { display: flex; gap: 2px; opacity: 0; transition: opacity var(--transition-fast); }
-.snippet-actions .btn-ghost { color: var(--text-muted); }
-.snippet-actions .btn-ghost:hover { color: var(--text-primary); background: var(--bg-hover); }
-.snippet-card:hover .snippet-actions,
-.snippet-card:focus-within .snippet-actions { opacity: 1; }
 
 /* Code block */
-.snippet-code-wrap { position: relative; min-width: 0; }
+.snippet-code-wrap {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .snippet-code {
   overflow: auto;
   max-height: 200px;
@@ -61,6 +58,7 @@
   padding: var(--space-4);
   background: var(--bg-darkest);
   margin: 0;
+  flex: 1;
 }
 .snippet-code code { font-family: var(--font-mono); background: none; padding: 0; }
 .snippet-modal-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); }
@@ -133,15 +131,12 @@
   .snippets-grid { grid-template-columns: minmax(0, 1fr); }
   .snippet-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
   .snippet-title { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; }
-  .snippet-actions,
   .copy-btn-overlay { opacity: 1; }
-  .copy-btn-overlay { position: sticky; top: var(--space-2); float: right; }
   .snippet-footer { align-items: flex-start; flex-direction: column; gap: var(--space-2); }
   .snippet-modal-grid { grid-template-columns: 1fr; }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .snippet-actions,
   .copy-btn-overlay {
     opacity: 1;
   }

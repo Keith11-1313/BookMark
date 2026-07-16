@@ -1,278 +1,214 @@
-// dashboard.js — Home page with stats, recent activity, quick-add
+// dashboard.js — Public home page
 
 const Dashboard = (() => {
-  let unsubLinks, unsubNotes, unsubSnippets, unsubPrompts;
-  let links = [], notes = [], snippets = [], prompts = [];
-  let loaded = { links: false, notes: false, snippets: false, prompts: false };
-  let refreshTimer = null;
-
-  function scheduleRefresh(container) {
-    clearTimeout(refreshTimer);
-    refreshTimer = setTimeout(() => refresh(container), 60);
-  }
-
   function render(container) {
-    // Pre-load from localStorage cache so there's no skeleton flash on navigation
-    links    = Store.lsGet(Store.COLLECTIONS.links)    || [];
-    notes    = Store.lsGet(Store.COLLECTIONS.notes)    || [];
-    snippets = Store.lsGet(Store.COLLECTIONS.snippets) || [];
-    prompts  = Store.lsGet(Store.COLLECTIONS.prompts)  || [];
+    const bookmarks = Store.get('bookmarks');
+    const notes     = Store.get('notes');
+    const snippets  = Store.get('snippets');
+    const prompts   = Store.get('prompts');
 
-    // Only show skeleton if truly no cached data at all
-    const hasCached = links.length || notes.length || snippets.length || prompts.length;
-    loaded = { links: hasCached, notes: hasCached, snippets: hasCached, prompts: hasCached };
+    const stats = [
+      { label: 'Bookmarks', value: bookmarks.length, icon: 'bookmark',     route: 'links',     colorClass: 'stat-bookmarks' },
+      { label: 'Notes',     value: notes.length,     icon: 'notebook-pen', route: 'notes',     colorClass: 'stat-notes' },
+      { label: 'Snippets',  value: snippets.length,  icon: 'code-2',       route: 'snippets', colorClass: 'stat-snippets' },
+      { label: 'Prompts',   value: prompts.length,    icon: 'sparkles',     route: 'prompts',  colorClass: 'stat-prompts' },
+    ];
 
-    container.innerHTML = buildHTML();
-    lucide.createIcons({ el: container });
-    if (hasCached) refresh(container); // render immediately from cache
-    setupQuickAdd(container);
+    const categories = {};
+    bookmarks.forEach(b => { const c = b.category || 'Other'; categories[c] = (categories[c] || 0) + 1; });
+    const topCats = Object.entries(categories).sort((a, b) => b[1] - a[1]).slice(0, 8);
 
-    unsubLinks    = Store.subscribe(Store.COLLECTIONS.links,    data => { links    = data; loaded.links    = true; scheduleRefresh(container); });
-    unsubNotes    = Store.subscribe(Store.COLLECTIONS.notes,    data => { notes    = data; loaded.notes    = true; scheduleRefresh(container); });
-    unsubSnippets = Store.subscribe(Store.COLLECTIONS.snippets, data => { snippets = data; loaded.snippets = true; scheduleRefresh(container); });
-    unsubPrompts  = Store.subscribe(Store.COLLECTIONS.prompts,  data => { prompts  = data; loaded.prompts  = true; scheduleRefresh(container); });
-  }
+    const liked = Store.getLiked('bookmarks');
 
-  function buildHTML() {
-    const hour = new Date().getHours();
-    const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
-    const user = App.getUser();
-    const name = user?.displayName?.split(' ')[0] || 'there';
-    const now  = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    const featuredSnippets = snippets.slice(0, 3);
+    const LANG_MAP = { JavaScript:'js',TypeScript:'ts',HTML:'html',CSS:'css',Python:'python',JSON:'json',Bash:'bash',SQL:'sql',Java:'java','C#':'cs',Go:'go',Rust:'rust',PHP:'php',Ruby:'ruby',YAML:'yaml','Plain Text':'plaintext' };
 
-    return `
-      <div class="dashboard-greeting animate-slide-up">
-        <div class="greeting-time">${now}</div>
-        <h1 class="greeting-title">${greeting}, ${name}</h1>
-        <p class="greeting-sub">Here's your personal command center.</p>
-      </div>
-
-      <div class="stats-grid" id="stats-grid">
-        <a class="stat-card" href="#links" onclick="App.navigate('links')">
-          <div class="stat-icon stat-icon-blue"><i data-lucide="bookmark" width="22" height="22"></i></div>
-          <div class="stat-body"><div class="stat-value" id="stat-links">—</div><div class="stat-label">Bookmarks</div></div>
-        </a>
-        <a class="stat-card" href="#notes" onclick="App.navigate('notes')">
-          <div class="stat-icon stat-icon-green"><i data-lucide="notebook-pen" width="22" height="22"></i></div>
-          <div class="stat-body"><div class="stat-value" id="stat-notes">—</div><div class="stat-label">Notes</div></div>
-        </a>
-        <a class="stat-card" href="#snippets" onclick="App.navigate('snippets')">
-          <div class="stat-icon stat-icon-yellow"><i data-lucide="code-2" width="22" height="22"></i></div>
-          <div class="stat-body"><div class="stat-value" id="stat-snippets">—</div><div class="stat-label">Snippets</div></div>
-        </a>
-        <a class="stat-card" href="#directory" onclick="App.navigate('directory')">
-          <div class="stat-icon stat-icon-cyan"><i data-lucide="folder-tree" width="22" height="22"></i></div>
-          <div class="stat-body"><div class="stat-value" id="stat-dirs">—</div><div class="stat-label">Directories</div></div>
-        </a>
-        <a class="stat-card" href="#prompts" onclick="App.navigate('prompts')">
-          <div class="stat-icon stat-icon-purple"><i data-lucide="sparkles" width="22" height="22"></i></div>
-          <div class="stat-body"><div class="stat-value" id="stat-prompts">—</div><div class="stat-label">Prompts</div></div>
-        </a>
-      </div>
-
-      <div class="dashboard-grid">
-        <div class="recent-card">
-          <div class="recent-card-header">
-            <span class="recent-card-title"><i data-lucide="clock" width="15" height="15"></i> Recent Activity</span>
-          </div>
-          <div class="recent-list" id="recent-list">
-            ${skeletonRows(5)}
-          </div>
-        </div>
-
-        <div class="quick-add-card">
-          <div class="quick-add-card-header"><i data-lucide="plus-circle" width="15" height="15"></i> Quick Add</div>
-          <div class="quick-add-tabs">
-            <button class="quick-add-tab active" data-tab="link">Bookmark</button>
-            <button class="quick-add-tab" data-tab="note">Note</button>
-          </div>
-          <div class="quick-add-body">
-            <div class="quick-add-panel active" id="qa-link">
-              <div class="form-field">
-                <label class="form-label" for="qa-url">URL</label>
-                <input class="input" id="qa-url" type="url" placeholder="https://…" autocomplete="off">
-              </div>
-              <div class="form-field">
-                <label class="form-label" for="qa-title">Title (optional)</label>
-                <input class="input" id="qa-title" type="text" placeholder="Auto-fetched from URL">
-              </div>
-              <button class="btn btn-primary w-full" id="qa-link-submit">
-                <i data-lucide="plus" width="15" height="15"></i> Add Bookmark
-              </button>
-            </div>
-            <div class="quick-add-panel" id="qa-note">
-              <div class="form-field">
-                <label class="form-label" for="qa-note-title">Title</label>
-                <input class="input" id="qa-note-title" type="text" placeholder="Note title…">
-              </div>
-              <div class="form-field">
-                <label class="form-label" for="qa-note-body">Content</label>
-                <textarea class="input" id="qa-note-body" rows="4" placeholder="Write something…"></textarea>
-              </div>
-              <button class="btn btn-primary w-full" id="qa-note-submit">
-                <i data-lucide="plus" width="15" height="15"></i> Add Note
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  function refresh(container) {
-    // Stats
-    const s = container.querySelector('#stat-links');    if (s) s.textContent = links.length;
-    const n = container.querySelector('#stat-notes');    if (n) n.textContent = notes.length;
-    const sn= container.querySelector('#stat-snippets'); if (sn) sn.textContent = snippets.length;
-    const sp= container.querySelector('#stat-prompts'); if (sp) sp.textContent = prompts.length;
-
-    // Directory count — fetched from its own Firestore doc
-    const sd = container.querySelector('#stat-dirs');
-    if (sd && sd.textContent === '—') {
-      try {
-        const uid = Auth.getUid();
-        db.collection('users').doc(uid).collection('directories').doc('tree').get()
-          .then(doc => {
-            if (doc.exists && doc.data().tree) {
-              sd.textContent = countNodes(doc.data().tree.children || []);
-            } else {
-              sd.textContent = '0';
-            }
-          }).catch(() => { sd.textContent = '—'; });
-      } catch { sd.textContent = '—'; }
-    }
-
-    // Recent
-    const recentEl = container.querySelector('#recent-list');
-    if (!recentEl) return;
-
-    // Still waiting on first Firestore response — keep skeleton
-    const allLoaded = loaded.links && loaded.notes && loaded.snippets && loaded.prompts;
-    if (!allLoaded) return;
-
-    const allItems = [
-      ...links.map(i => ({ ...i, _type: 'link' })),
+    const recentItems = [
+      ...bookmarks.map(i => ({ ...i, _type: 'link' })),
       ...notes.map(i => ({ ...i, _type: 'note' })),
       ...snippets.map(i => ({ ...i, _type: 'snippet' })),
       ...prompts.map(i => ({ ...i, _type: 'prompt' }))
-    ].sort((a, b) => {
-      const ta = a.createdAt?.seconds || 0;
-      const tb = b.createdAt?.seconds || 0;
-      return tb - ta;
-    }).slice(0, 8);
-
-    if (!allItems.length) {
-      recentEl.innerHTML = `<div class="empty-state" style="padding:40px"><i data-lucide="inbox" width="32" height="32"></i><p>No items yet. Add your first bookmark!</p></div>`;
-      lucide.createIcons({ el: recentEl });
-      return;
-    }
+    ].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0)).slice(0, 5);
 
     const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2', prompt: 'sparkles' };
-    const routes= { link: 'links',    note: 'notes',        snippet: 'snippets', prompt: 'prompts' };
+    const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
 
-    recentEl.innerHTML = allItems.map(item => {
-      const isLink    = item._type === 'link';
-      const iconHtml  = isLink && item.favicon
-        ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
-        : `<i data-lucide="${icons[item._type]}" width="16" height="16"></i>`;
-      const url = isLink ? App.safeUrl(item.url, '') : '';
-      return `
-        <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}">
-          <div class="recent-item-icon">${iconHtml}</div>
-          <div class="recent-item-body">
-            <div class="recent-item-title">${escHtml(item.title || 'Untitled')}</div>
-            <div class="recent-item-meta">${App.formatDate(item.createdAt)}</div>
-          </div>
-          <span class="recent-item-type">${item._type}</span>
-        </button>`;
-    }).join('');
+    container.innerHTML = `
+      <div class="home-search animate-slide-up">
+        <div class="home-search-bar">
+          <i data-lucide="search" width="20" height="20"></i>
+          <input class="home-search-input" id="home-search" type="text" placeholder="Search bookmarks, notes, snippets, prompts…" autocomplete="off">
+          <kbd class="home-search-kbd">Ctrl K</kbd>
+        </div>
+      </div>
 
-    recentEl.querySelectorAll('.recent-item').forEach(btn => {
+      <div class="stats-grid" id="stats-grid">
+        ${stats.map(s => `
+          <button class="stat-card" data-route="${s.route}">
+            <div class="stat-card-icon ${s.colorClass}"><i data-lucide="${s.icon}" width="20" height="20"></i></div>
+            <div class="stat-card-body">
+              <div class="stat-value">${s.value}</div>
+              <div class="stat-label">${s.label}</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+
+      <div class="dashboard-section animate-slide-up">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="heart" width="18" height="18"></i> Your Liked Sites</h2>
+        </div>
+        <div class="liked-grid" id="liked-grid">
+          ${liked.length ? liked.map(b => {
+            const url = App.safeUrl(b.url);
+            const favicon = App.safeImageUrl(b.favicon, App.faviconFor(url));
+            return `
+              <a class="liked-card" href="${escAttr(url)}" target="_blank" rel="noopener">
+                <div class="liked-card-icon">${favicon ? `<img src="${escAttr(favicon)}" alt="" width="20" height="20" onerror="this.style.display='none'">` : '<i data-lucide="bookmark" width="16" height="16"></i>'}</div>
+                <div class="liked-card-body">
+                  <div class="liked-card-title">${escHtml(b.title || 'Untitled')}</div>
+                  <div class="liked-card-cat">${escHtml(b.category || '')}</div>
+                </div>
+                <i data-lucide="external-link" width="14" height="14" style="color:var(--text-muted);flex-shrink:0"></i>
+              </a>`;
+          }).join('') : `<div class="empty-state" style="padding:var(--space-6)"><i data-lucide="heart" width="28" height="28"></i><p>Like bookmarks to see them here</p><button class="btn btn-secondary btn-sm" id="go-bookmarks">Browse Bookmarks</button></div>`}
+        </div>
+      </div>
+
+      ${topCats.length ? `
+      <div class="dashboard-section animate-slide-up">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="layers" width="18" height="18"></i> Top Categories</h2>
+        </div>
+        <div class="categories-grid">
+          ${topCats.map(([cat, count]) => `
+            <button class="category-card" data-cat="${escAttr(cat)}">
+              <span class="category-name">${escHtml(cat)}</span>
+              <span class="category-count">${count}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>` : ''}
+
+      ${featuredSnippets.length ? `
+      <div class="dashboard-section animate-slide-up">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="code-2" width="18" height="18"></i> Featured Snippets</h2>
+          <button class="btn btn-ghost btn-sm" id="go-snippets">View all</button>
+        </div>
+        <div class="featured-snippets-grid">
+          ${featuredSnippets.map(s => {
+            const langKey = LANG_MAP[s.language] || 'plaintext';
+            return `
+              <div class="featured-snippet" data-id="${escAttr(s.id)}">
+                <div class="featured-snippet-header">
+                  <span class="snippet-title">${escHtml(s.title)}</span>
+                  <span class="snippet-lang lang-${langKey}">${escHtml(s.language || 'Text')}</span>
+                </div>
+                <pre class="snippet-code"><code class="language-${langKey}">${escHtml((s.code || '').slice(0, 200))}</code></pre>
+                <button class="copy-btn-overlay" data-action="copy-snippet" data-code="${escAttr(s.code || '')}">
+                  <i data-lucide="copy" width="12" height="12"></i> Copy
+                </button>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>` : ''}
+
+      <div class="dashboard-section animate-slide-up">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="clock" width="18" height="18"></i> Recently Added</h2>
+        </div>
+        <div class="recent-activity" id="recent-activity">
+          ${recentItems.length ? recentItems.map(item => {
+            const isLink = item._type === 'link';
+            const url = isLink ? App.safeUrl(item.url, '') : '';
+            const iconHtml = isLink && item.favicon
+              ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
+              : `<i data-lucide="${icons[item._type]}" width="16" height="16"></i>`;
+            return `
+              <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}">
+                <div class="recent-item-icon">${iconHtml}</div>
+                <div class="recent-item-body">
+                  <div class="recent-item-title">${escHtml(item.title || 'Untitled')}</div>
+                  <div class="recent-item-meta">${App.formatDate(item.createdAt)}</div>
+                </div>
+                <span class="recent-item-type">${item._type}</span>
+              </button>`;
+          }).join('') : `<div class="empty-state" style="padding:32px"><i data-lucide="inbox" width="28" height="28"></i><p>No items yet.</p></div>`}
+        </div>
+      </div>
+
+      <div class="dashboard-section animate-slide-up">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="download" width="18" height="18"></i> Export</h2>
+        </div>
+        <div class="export-grid">
+          <button class="export-btn" data-key="bookmarks" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Bookmarks JSON</button>
+          <button class="export-btn" data-key="bookmarks" data-fmt="csv"><i data-lucide="file-spreadsheet" width="16" height="16"></i> Bookmarks CSV</button>
+          <button class="export-btn" data-key="snippets" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Snippets JSON</button>
+          <button class="export-btn" data-key="prompts" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Prompts JSON</button>
+          <button class="export-btn" id="btn-print"><i data-lucide="printer" width="16" height="16"></i> Print / PDF</button>
+        </div>
+      </div>
+    `;
+
+    lucide.createIcons({ el: container });
+
+    // Syntax highlight featured snippets
+    container.querySelectorAll('pre code').forEach(block => { if (window.hljs) hljs.highlightElement(block); });
+
+    // Event bindings
+    container.querySelector('#home-search')?.addEventListener('focus', () => {
+      CommandPalette.open();
+      container.querySelector('#home-search')?.blur();
+    });
+
+    container.querySelector('#go-bookmarks')?.addEventListener('click', () => App.navigate('links'));
+    container.querySelector('#go-snippets')?.addEventListener('click', () => App.navigate('snippets'));
+
+    container.querySelectorAll('.stat-card[data-route]').forEach(btn => {
+      btn.addEventListener('click', () => App.navigate(btn.dataset.route));
+    });
+
+    container.querySelectorAll('.category-card[data-cat]').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.url) window.open(App.safeUrl(btn.dataset.url), '_blank', 'noopener');
+        App.navigate('links');
+        setTimeout(() => Links.filterByCategory?.(btn.dataset.cat), 100);
+      });
+    });
+
+    container.querySelectorAll('.recent-item[data-route]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.url) window.open(btn.dataset.url, '_blank');
         else App.navigate(btn.dataset.route);
       });
     });
 
-    lucide.createIcons({ el: recentEl });
-  }
-
-  function setupQuickAdd(container) {
-    // Tabs
-    container.querySelectorAll('.quick-add-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        container.querySelectorAll('.quick-add-tab').forEach(t => t.classList.remove('active'));
-        container.querySelectorAll('.quick-add-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        container.querySelector('#qa-' + tab.dataset.tab)?.classList.add('active');
+    container.querySelectorAll('[data-action="copy-snippet"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(btn.dataset.code || '').then(() => {
+          btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
+          lucide.createIcons({ el: btn });
+          setTimeout(() => { btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+        }).catch(() => App.toast('Copy failed', 'error'));
       });
     });
 
-    // Bookmark submit
-    container.querySelector('#qa-link-submit')?.addEventListener('click', async () => {
-      const url   = container.querySelector('#qa-url').value.trim();
-      const title = container.querySelector('#qa-title').value.trim();
-      if (!url) { App.toast('Please enter a URL', 'error'); return; }
-      try {
-        new URL(url);
-      } catch { App.toast('Invalid URL', 'error'); return; }
-
-      const dup = Store.checkDuplicate(url);
-      if (dup) { App.toast(`Already saved: "${dup.title}"`, 'info'); return; }
-
-      const domain = new URL(url).hostname;
-      await Store.add(Store.COLLECTIONS.links, {
-        url, title: title || domain, category: Links.autoCategory(url),
-        favicon: `https://www.google.com/s2/favicons?domain=${domain}&sz=32`,
-        tags: [], notes: '', pinned: false
+    container.querySelectorAll('.export-btn[data-key]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const { key, fmt } = btn.dataset;
+        if (fmt === 'csv') Store.exportCSV(key);
+        else Store.exportJSON(key);
+        App.toast(`Exported ${key} as ${fmt.toUpperCase()}`, 'success');
       });
-      container.querySelector('#qa-url').value = '';
-      container.querySelector('#qa-title').value = '';
-      App.toast('Bookmark added!', 'success');
     });
 
-    // Note submit
-    container.querySelector('#qa-note-submit')?.addEventListener('click', async () => {
-      const title = container.querySelector('#qa-note-title').value.trim();
-      const body  = container.querySelector('#qa-note-body').value.trim();
-      if (!title) { App.toast('Please enter a title', 'error'); return; }
-      await Store.add(Store.COLLECTIONS.notes, { title, body, pinned: false, color: null, linkedBookmarks: [] });
-      container.querySelector('#qa-note-title').value = '';
-      container.querySelector('#qa-note-body').value  = '';
-      App.toast('Note added!', 'success');
-    });
-  }
-
-  function skeletonRows(n) {
-    return Array(n).fill(`
-      <div class="recent-item" style="pointer-events:none">
-        <div class="recent-item-icon skeleton" style="width:32px;height:32px;border-radius:8px;flex-shrink:0"></div>
-        <div class="recent-item-body">
-          <div class="skeleton" style="height:13px;width:60%;border-radius:4px;margin-bottom:6px"></div>
-          <div class="skeleton" style="height:11px;width:35%;border-radius:4px"></div>
-        </div>
-      </div>`).join('');
-  }
-
-  function countNodes(nodes) {
-    let count = 0;
-    for (const node of (nodes || [])) {
-      count++;
-      if (node.children) count += countNodes(node.children);
-    }
-    return count;
+    container.querySelector('#btn-print')?.addEventListener('click', () => window.print());
   }
 
   function escHtml(s) { return App.escapeHtml(s); }
   function escAttr(s) { return App.escapeAttr(s); }
-
-  function unmount() {
-    clearTimeout(refreshTimer);
-    unsubLinks?.();
-    unsubNotes?.();
-    unsubSnippets?.();
-    unsubPrompts?.();
-  }
+  function unmount() {}
 
   return { render, unmount };
 })();
