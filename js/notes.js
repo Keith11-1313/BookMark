@@ -36,7 +36,6 @@ const Notes = (() => {
           <button class="btn btn-primary hide-on-mobile" id="btn-new-note">
             <i data-lucide="plus" width="15" height="15"></i><span>New Note</span>
           </button>
-          <button class="btn btn-secondary btn-sm" id="btn-export-notes"><i data-lucide="download" width="14" height="14"></i><span>Export JSON</span></button>
         </div>
       </div>
       <div class="page-toolbar">
@@ -316,7 +315,6 @@ const Notes = (() => {
     container.querySelector('#btn-new-note')?.addEventListener('click', () => createNewNote(container));
     container.querySelector('#notes-search')?.addEventListener('input', () => renderNotesList(container));
     container.querySelector('#notes-sort')?.addEventListener('change', () => renderNotesList(container));
-    container.querySelector('#btn-export-notes')?.addEventListener('click', () => { Store.exportJSON('notes'); App.toast('Exported notes as JSON', 'success'); });
   }
 
   function escHtml(s) { return App.escapeHtml(s); }

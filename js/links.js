@@ -104,8 +104,6 @@ const Links = (() => {
           <button class="btn btn-primary hide-on-mobile" id="btn-add-bookmark">
             <i data-lucide="plus" width="15" height="15"></i><span>Add Bookmark</span>
           </button>
-          <button class="btn btn-secondary btn-sm" id="btn-export-json"><i data-lucide="download" width="14" height="14"></i><span>JSON</span></button>
-          <button class="btn btn-secondary btn-sm" id="btn-export-csv"><i data-lucide="file-spreadsheet" width="14" height="14"></i><span>CSV</span></button>
         </div>
       </div>
 
@@ -182,7 +180,7 @@ const Links = (() => {
             </div>
             <div class="inline-notice">
               <i data-lucide="info" width="13" height="13"></i>
-              <span>Saved in browser localStorage only. Use Export JSON to back up.</span>
+              <span>Saved in browser localStorage only. Clearing browser data removes it.</span>
             </div>
           </div>
           <div class="modal-footer">

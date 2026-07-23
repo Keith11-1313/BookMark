@@ -30,7 +30,6 @@ const Snippets = (() => {
           <button class="btn btn-primary hide-on-mobile" id="btn-new-snippet">
             <i data-lucide="plus" width="15" height="15"></i><span>New Snippet</span>
           </button>
-          <button class="btn btn-secondary btn-sm" id="btn-export-snippets"><i data-lucide="download" width="14" height="14"></i><span>Export JSON</span></button>
         </div>
       </div>
       <div class="page-toolbar">
@@ -58,7 +57,7 @@ const Snippets = (() => {
               <span class="modal-title" id="sn-modal-title">New Snippet</span>
               <div class="info-tooltip-wrap">
                 <span class="info-icon"><i data-lucide="info" width="14" height="14"></i></span>
-                <span class="info-tip">Snippets you add are saved in your browser's local storage. Use Export JSON to back them up.</span>
+                <span class="info-tip">Snippets you add are saved in your browser's local storage. Clearing browser data removes them.</span>
               </div>
             </div>
             <button class="btn-ghost btn-sm btn-icon" id="sn-modal-close" aria-label="Close"><i data-lucide="x" width="16" height="16"></i></button>
@@ -288,7 +287,6 @@ const Snippets = (() => {
     container.querySelector('#snippets-search')?.addEventListener('input', () => refreshList(container));
     container.querySelector('#snippets-lang-filter')?.addEventListener('change', () => refreshList(container));
     container.querySelector('#snippets-sort')?.addEventListener('change', () => refreshList(container));
-    container.querySelector('#btn-export-snippets')?.addEventListener('click', () => { Store.exportJSON('snippets'); App.toast('Exported snippets as JSON', 'success'); });
     container.querySelector('#sn-modal-close')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#sn-modal-cancel')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#sn-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#sn-modal-backdrop')) closeModal(container); });

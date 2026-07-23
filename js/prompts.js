@@ -72,7 +72,6 @@ const Prompts = (() => {
           <button class="btn btn-primary hide-on-mobile" id="btn-new-prompt">
             <i data-lucide="plus" width="15" height="15"></i><span>New Prompt</span>
           </button>
-          <button class="btn btn-secondary btn-sm" id="btn-export-prompts"><i data-lucide="download" width="14" height="14"></i><span>Export JSON</span></button>
         </div>
       </div>
       <div class="page-toolbar">
@@ -126,7 +125,7 @@ const Prompts = (() => {
             </div>
             <div class="inline-notice">
               <i data-lucide="info" width="13" height="13"></i>
-              <span>Saved in browser localStorage only. Use Export JSON to back up.</span>
+              <span>Saved in browser localStorage only. Clearing browser data removes it.</span>
             </div>
           </div>
           <div class="modal-footer">
@@ -355,7 +354,6 @@ const Prompts = (() => {
     container.querySelector('#prompts-search')?.addEventListener('input', () => refreshList(container));
     container.querySelector('#prompts-cat-filter')?.addEventListener('change', () => refreshList(container));
     container.querySelector('#prompts-sort')?.addEventListener('change', () => refreshList(container));
-    container.querySelector('#btn-export-prompts')?.addEventListener('click', () => { Store.exportJSON('prompts'); App.toast('Exported prompts as JSON', 'success'); });
     container.querySelector('#pr-modal-close')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#pr-modal-cancel')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#pr-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#pr-modal-backdrop')) closeModal(container); });

@@ -153,54 +153,6 @@ const Store = (() => {
     return results;
   }
 
-  // ── Export ─────────────────────────────────────────────────
-  function toCSV(items, columns) {
-    const header = columns.map(c => c.label).join(',');
-    const rows = items.map(item =>
-      columns.map(c => {
-        let val = typeof c.get === 'function' ? c.get(item) : (item[c.key] ?? '');
-        return `"${String(val).replace(/"/g, '""')}"`;
-      }).join(',')
-    );
-    return header + '\n' + rows.join('\n');
-  }
-
-  function downloadFile(content, filename, type) {
-    const blob = new Blob([content], { type });
-    const url = URL.createObjectURL(blob);
-    Object.assign(document.createElement('a'), { href: url, download: filename }).click();
-    URL.revokeObjectURL(url);
-  }
-
-  // exportJSON exports merged (JSON + user) items
-  function exportJSON(key) {
-    downloadFile(JSON.stringify(get(key), null, 2), `bookmark-${key}.json`, 'application/json');
-  }
-
-  const CSV_COLUMNS = {
-    bookmarks: [
-      { label: 'Title', key: 'title' }, { label: 'URL', key: 'url' },
-      { label: 'Category', key: 'category' }, { label: 'Tags', get: i => (i.tags || []).join('; ') },
-      { label: 'Notes', key: 'notes' }
-    ],
-    notes: [
-      { label: 'Title', key: 'title' }, { label: 'Body', get: i => (i.body || '').replace(/<[^>]+>/g, '') }
-    ],
-    snippets: [
-      { label: 'Title', key: 'title' }, { label: 'Language', key: 'language' },
-      { label: 'Code', key: 'code' }, { label: 'Tags', get: i => (i.tags || []).join('; ') }
-    ],
-    prompts: [
-      { label: 'Title', key: 'title' }, { label: 'Category', key: 'category' },
-      { label: 'Body', key: 'body' }, { label: 'Tags', get: i => (i.tags || []).join('; ') }
-    ]
-  };
-
-  function exportCSV(key) {
-    if (!CSV_COLUMNS[key]) return;
-    downloadFile(toCSV(get(key), CSV_COLUMNS[key]), `bookmark-${key}.csv`, 'text/csv');
-  }
-
   // ── Clear user data ────────────────────────────────────────
   // scope: 'likes' | 'bm_notes' | 'user' | 'cats' | 'all'
   // After clearing, re-merges cache from JSON so Store.get() returns clean data.
@@ -254,7 +206,7 @@ const Store = (() => {
   return {
     load, loadAll, get, getUserItems,
     addUser, updateUser, removeUser,
-    searchAll, exportJSON, exportCSV,
+    searchAll,
     isLiked, toggleLike, getLiked,
     clearUserData
   };
