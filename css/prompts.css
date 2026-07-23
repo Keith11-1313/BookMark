@@ -1,4 +1,50 @@
 /* ── Prompts ──────────────────────────────────────────────── */
+
+/* Layout: list panel + optional side viewer (mirrors Notes layout) */
+.prompts-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+.prompts-layout.has-viewer {
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-5);
+}
+.prompts-list-panel { min-width: 0; }
+
+/* Viewer panel — reuses note-editor-panel visual style */
+.prompt-viewer-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  overflow: hidden;
+  position: sticky;
+  top: var(--space-4);
+  max-height: calc(100vh - 120px);
+}
+
+/* Full-body display in the viewer (no height cap, scrollable) */
+.viewer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--bg-darkest);
+}
+
+/* Full-body prompt text label for accessibility / copy target */
+.prompt-body-full {
+  /* intentionally unstyled beyond .viewer-body — the panel is the container */
+}
+
 .prompts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -14,9 +60,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 .prompt-card:hover,
 .prompt-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
+.prompt-card.active { border-color: var(--accent); }
 
 
 .prompt-header {
@@ -98,6 +146,8 @@
 
 @media (max-width: 640px) {
   .prompts-grid { grid-template-columns: minmax(0, 1fr); }
+  .prompts-layout.has-viewer { grid-template-columns: 1fr; }
+  .prompt-viewer-panel { min-height: 420px; position: static; max-height: none; }
   .prompt-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
   .prompt-title { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; }
   .copy-btn-overlay { opacity: 1; }

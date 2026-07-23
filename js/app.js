@@ -6,7 +6,8 @@ const App = (() => {
     links:     { label: 'Bookmarks',  module: () => Links     },
     notes:     { label: 'Notes',      module: () => Notes     },
     snippets:  { label: 'Snippets',   module: () => Snippets  },
-    prompts:   { label: 'Prompts',    module: () => Prompts   }
+    prompts:   { label: 'Prompts',    module: () => Prompts   },
+    settings:  { label: 'Settings',   module: () => Settings  }
   };
 
   let currentRoute = null;

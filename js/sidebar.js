@@ -1,13 +1,20 @@
 // sidebar.js — Sidebar (desktop) + bottom nav (mobile)
 
 const Sidebar = (() => {
-  const GITHUB_REPO = 'https://github.com/Keith11-1313/BookMark'; // Update with your repo URL
+  const GITHUB_REPO = 'https://github.com/Keith11-1313/BookMark';
+
   const NAV_ITEMS = [
     { route: 'dashboard', label: 'Home',       icon: 'layout-dashboard', shortcut: '1' },
     { route: 'links',     label: 'Bookmarks',  icon: 'bookmark',         shortcut: '2' },
-    { route: 'notes',     label: 'Notes',       icon: 'notebook-pen',     shortcut: '3' },
-    { route: 'snippets',  label: 'Snippets',    icon: 'code-2',           shortcut: '4' },
-    { route: 'prompts',   label: 'Prompts',     icon: 'sparkles',         shortcut: '5' },
+    { route: 'notes',     label: 'Notes',      icon: 'notebook-pen',     shortcut: '3' },
+    { route: 'snippets',  label: 'Snippets',   icon: 'code-2',           shortcut: '4' },
+    { route: 'prompts',   label: 'Prompts',    icon: 'sparkles',         shortcut: '5' },
+  ];
+
+  // Settings is in the footer, not the main nav, but still a route
+  const BOTTOM_NAV_ITEMS = [
+    ...NAV_ITEMS,
+    { route: 'settings', label: 'Settings', icon: 'settings', shortcut: '6' },
   ];
 
   function init() {
@@ -48,6 +55,11 @@ const Sidebar = (() => {
       </nav>
 
       <div class="sidebar-footer">
+        <span class="nav-section-label" style="padding-top:var(--space-2)">System</span>
+        <button class="sidebar-link" id="nav-settings" data-route="settings" aria-label="Settings">
+          <i data-lucide="settings" width="15" height="15"></i>
+          <span>Settings</span>
+        </button>
         <a class="sidebar-link" href="${GITHUB_REPO}/issues/new?title=Site+Request:+&body=URL:%0ACategory:%0AWhy+this+should+be+added:%0A&labels=site-request" target="_blank" rel="noopener">
           <i data-lucide="plus-circle" width="15" height="15"></i>
           <span>Request a Site</span>
@@ -59,7 +71,7 @@ const Sidebar = (() => {
       </div>
     `;
 
-    sidebar.querySelectorAll('.nav-item[data-route]').forEach(btn => {
+    sidebar.querySelectorAll('.nav-item[data-route], .sidebar-link[data-route]').forEach(btn => {
       btn.addEventListener('click', () => App.navigate(btn.dataset.route));
     });
 
@@ -70,7 +82,7 @@ const Sidebar = (() => {
     const nav = document.getElementById('bottom-nav');
     nav.innerHTML = `
       <div class="bottom-nav-items">
-        ${NAV_ITEMS.map(item => `
+        ${BOTTOM_NAV_ITEMS.map(item => `
           <button class="bottom-nav-item" data-route="${item.route}" aria-label="${item.label}">
             <i data-lucide="${item.icon}" width="22" height="22"></i>
             <span class="bottom-nav-label">${item.label}</span>
@@ -110,7 +122,7 @@ const Sidebar = (() => {
   }
 
   function setActive(route) {
-    document.querySelectorAll('.nav-item[data-route], .bottom-nav-item[data-route]').forEach(el => {
+    document.querySelectorAll('.nav-item[data-route], .bottom-nav-item[data-route], .sidebar-link[data-route]').forEach(el => {
       el.classList.toggle('active', el.dataset.route === route);
       el.setAttribute('aria-current', el.dataset.route === route ? 'page' : 'false');
     });

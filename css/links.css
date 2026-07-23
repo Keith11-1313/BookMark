@@ -363,11 +363,11 @@
   margin-bottom: var(--space-3);
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
-.bookmark-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.bookmark-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-3); }
 .bookmark-tag {
   padding: 2px var(--space-2);
   background: var(--bg-hover);
@@ -434,6 +434,31 @@
 .import-dropzone.drag-over { border-color: var(--accent); background: var(--accent-light); color: var(--text-secondary); }
 .import-dropzone h3 { font-size: var(--text-lg); color: var(--text-secondary); }
 .import-dropzone p  { font-size: var(--text-sm); }
+
+/* Inline note editing per bookmark card */
+.bookmark-note-wrap { margin-bottom: var(--space-3); }
+
+.bookmark-note-display {
+  cursor: text;
+  border-radius: var(--radius-sm);
+  padding: 2px 4px;
+  margin: -2px -4px;
+  transition: background var(--transition-fast);
+  min-height: 18px;
+}
+.bookmark-note-display:hover { background: var(--bg-hover); }
+
+.bookmark-note-empty {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.bookmark-note-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
 
 /* Duplicate warning */
 .dup-warning {

@@ -549,12 +549,101 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   animation: slideUp 0.3s ease forwards;
 }
 
-/* ── Print styles ───────────────────────────────────────── */
+/* ── User badge — distinguishes user-created items from curated JSON ── */
+.user-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  background: rgba(35,165,89,0.18);
+  border: 1px solid rgba(35,165,89,0.35);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  color: #3ec17a;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Info tooltip (localStorage disclaimer) ───────────────── */
+.info-tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.info-tooltip-wrap .info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: help;
+  border-radius: 50%;
+  padding: 2px;
+  transition: color var(--transition-fast);
+}
+.info-tooltip-wrap .info-icon:hover { color: var(--text-secondary); }
+.info-tooltip-wrap .info-tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  white-space: normal;
+  max-width: 260px;
+  line-height: 1.5;
+  z-index: var(--z-toast);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+.info-tooltip-wrap:hover .info-tip,
+.info-tooltip-wrap:focus-within .info-tip { opacity: 1; }
+
+/* ── FAB — Floating Action Button (mobile only) ───────────── */
+.fab {
+  display: none; /* shown only at ≤768px */
+  position: fixed;
+  bottom: calc(var(--bottom-nav-height) + var(--space-4) + var(--safe-bottom));
+  right: calc(var(--space-4) + var(--safe-right));
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: var(--z-sticky);
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: background var(--transition-fast), transform var(--transition-spring), box-shadow var(--transition-fast);
+  animation: scaleIn 0.25s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  touch-action: manipulation;
+}
+.fab:hover { background: var(--accent-hover); transform: scale(1.08); }
+.fab:active { transform: scale(0.94); }
+
+@media (max-width: 768px) {
+  .fab { display: flex; }
+  /* Hide header "Add" button on mobile — FAB replaces it */
+  .page-actions .btn-primary.hide-on-mobile { display: none; }
+}
+
+/* ── Print update — include fab in hidden list ────────────── */
 @media print {
   .app-sidebar, #bottom-nav, #command-palette-backdrop, #toast-container,
   .page-actions, .page-toolbar, .links-toolbar,
   .filter-bar-wrap, .view-toggle, .copy-btn-overlay,
-  .like-btn, .home-search, .export-grid { display: none !important; }
+  .like-btn, .home-search, .export-grid, .fab { display: none !important; }
   .app-main { margin-left: 0 !important; }
   .page-content { padding: 0 !important; }
   body { background: #fff; color: #000; }

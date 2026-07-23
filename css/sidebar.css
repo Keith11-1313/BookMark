@@ -205,18 +205,31 @@
   padding: var(--space-2) var(--space-3);
   color: var(--text-muted);
   font-size: var(--text-sm);
+  font-family: var(--font-sans);
   text-decoration: none;
   border-radius: var(--radius-md);
   transition: background var(--transition-fast), color var(--transition-fast);
   min-height: 36px;
   white-space: nowrap;
   overflow: hidden;
+  /* button resets */
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }
 .sidebar-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+/* Settings link can be active like a nav item */
+.sidebar-link.active {
+  background: var(--accent-light);
+  color: var(--accent);
+}
 
 .app-sidebar.collapsed .sidebar-link span { display: none; }
 .app-sidebar.collapsed .sidebar-link { justify-content: center; padding: var(--space-2); }
 .app-sidebar.collapsed .sidebar-footer { padding: var(--space-3) var(--space-1); }
+.app-sidebar.collapsed .sidebar-footer .nav-section-label { display: none; }
 
 /* ── Command Palette Trigger ─────────────────────────────── */
 .sidebar-search-btn {

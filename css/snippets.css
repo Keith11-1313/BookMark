@@ -1,4 +1,45 @@
 /* ── Snippets ─────────────────────────────────────────────── */
+
+/* Layout: list panel + optional side viewer (mirrors Notes layout) */
+.snippets-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+.snippets-layout.has-viewer {
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-5);
+}
+.snippets-list-panel { min-width: 0; }
+
+/* Viewer panel */
+.snippet-viewer-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  overflow: hidden;
+  position: sticky;
+  top: var(--space-4);
+  max-height: calc(100vh - 120px);
+}
+
+/* Full-code block in viewer — scrollable, no height cap */
+.viewer-code {
+  margin: 0;
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: auto;
+  flex: 1;
+  background: var(--bg-darkest);
+  white-space: pre;
+}
+.viewer-code code { font-family: var(--font-mono); background: none; padding: 0; }
+
 .snippets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -14,9 +55,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 .snippet-card:hover,
 .snippet-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
+.snippet-card.active { border-color: var(--accent); }
 
 
 .snippet-header {
@@ -129,6 +172,8 @@
 
 @media (max-width: 640px) {
   .snippets-grid { grid-template-columns: minmax(0, 1fr); }
+  .snippets-layout.has-viewer { grid-template-columns: 1fr; }
+  .snippet-viewer-panel { min-height: 420px; position: static; max-height: none; }
   .snippet-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
   .snippet-title { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; }
   .copy-btn-overlay { opacity: 1; }

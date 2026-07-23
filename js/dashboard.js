@@ -140,14 +140,40 @@ const Dashboard = (() => {
 
       <div class="dashboard-section animate-slide-up">
         <div class="section-header">
-          <h2 class="section-title"><i data-lucide="download" width="18" height="18"></i> Export</h2>
+          <h2 class="section-title"><i data-lucide="download" width="18" height="18"></i> Export Data</h2>
         </div>
-        <div class="export-grid">
-          <button class="export-btn" data-key="bookmarks" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Bookmarks JSON</button>
-          <button class="export-btn" data-key="bookmarks" data-fmt="csv"><i data-lucide="file-spreadsheet" width="16" height="16"></i> Bookmarks CSV</button>
-          <button class="export-btn" data-key="snippets" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Snippets JSON</button>
-          <button class="export-btn" data-key="prompts" data-fmt="json"><i data-lucide="file-json" width="16" height="16"></i> Prompts JSON</button>
-          <button class="export-btn" id="btn-print"><i data-lucide="printer" width="16" height="16"></i> Print / PDF</button>
+        <div class="export-section">
+          <div class="export-group">
+            <div class="export-group-label">Bookmarks</div>
+            <div class="export-group-btns">
+              <button class="export-btn" data-key="bookmarks" data-fmt="json"><i data-lucide="file-json" width="15" height="15"></i> JSON</button>
+              <button class="export-btn" data-key="bookmarks" data-fmt="csv"><i data-lucide="file-spreadsheet" width="15" height="15"></i> CSV</button>
+            </div>
+          </div>
+          <div class="export-group">
+            <div class="export-group-label">Notes</div>
+            <div class="export-group-btns">
+              <button class="export-btn" data-key="notes" data-fmt="json"><i data-lucide="file-json" width="15" height="15"></i> JSON</button>
+            </div>
+          </div>
+          <div class="export-group">
+            <div class="export-group-label">Snippets</div>
+            <div class="export-group-btns">
+              <button class="export-btn" data-key="snippets" data-fmt="json"><i data-lucide="file-json" width="15" height="15"></i> JSON</button>
+            </div>
+          </div>
+          <div class="export-group">
+            <div class="export-group-label">Prompts</div>
+            <div class="export-group-btns">
+              <button class="export-btn" data-key="prompts" data-fmt="json"><i data-lucide="file-json" width="15" height="15"></i> JSON</button>
+            </div>
+          </div>
+          <div class="export-group">
+            <div class="export-group-label">Print</div>
+            <div class="export-group-btns">
+              <button class="export-btn" id="btn-print"><i data-lucide="printer" width="15" height="15"></i> PDF</button>
+            </div>
+          </div>
         </div>
       </div>
     `;
