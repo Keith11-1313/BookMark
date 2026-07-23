@@ -211,11 +211,12 @@ const Snippets = (() => {
     card.querySelector('[data-action="edit"]')?.addEventListener('click', e => { e.stopPropagation(); if (s) openModal(container, s); });
     card.querySelector('[data-action="delete"]')?.addEventListener('click', e => {
       e.stopPropagation();
-      if (!confirm('Delete this snippet?')) return;
-      Store.removeUser('snippets', card.dataset.id);
-      if (activeId === card.dataset.id) closeViewer(container);
-      App.toast('Snippet deleted', 'success');
-      refreshList(container);
+      App.confirm('Delete this snippet?', () => {
+        Store.removeUser('snippets', card.dataset.id);
+        if (activeId === card.dataset.id) closeViewer(container);
+        App.toast('Snippet deleted', 'success');
+        refreshList(container);
+      });
     });
     card.addEventListener('click', e => { if (e.target.closest('[data-action]')) return; openViewer(card.dataset.id, container); });
   }

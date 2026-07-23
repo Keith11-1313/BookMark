@@ -280,11 +280,12 @@ const Prompts = (() => {
     card.querySelector('[data-action="edit"]')?.addEventListener('click', e => { e.stopPropagation(); if (p) openModal(container, p); });
     card.querySelector('[data-action="delete"]')?.addEventListener('click', e => {
       e.stopPropagation();
-      if (!confirm('Delete this prompt?')) return;
-      Store.removeUser('prompts', card.dataset.id);
-      if (activeId === card.dataset.id) closeViewer(container);
-      App.toast('Prompt deleted', 'success');
-      refreshList(container);
+      App.confirm('Delete this prompt?', () => {
+        Store.removeUser('prompts', card.dataset.id);
+        if (activeId === card.dataset.id) closeViewer(container);
+        App.toast('Prompt deleted', 'success');
+        refreshList(container);
+      });
     });
     card.addEventListener('click', e => { if (e.target.closest('[data-action]')) return; openViewer(card.dataset.id, container); });
   }

@@ -420,12 +420,13 @@ const Links = (() => {
 
     card.querySelector('[data-action="delete"]')?.addEventListener('click', e => {
       e.stopPropagation();
-      if (!confirm('Delete this bookmark?')) return;
-      Store.removeUser('bookmarks', card.dataset.id);
-      App.toast('Bookmark deleted', 'success');
-      allLinks = Store.get('bookmarks');
-      renderDuplicateWarning(container);
-      refreshList(container);
+      App.confirm('Delete this bookmark?', () => {
+        Store.removeUser('bookmarks', card.dataset.id);
+        App.toast('Bookmark deleted', 'success');
+        allLinks = Store.get('bookmarks');
+        renderDuplicateWarning(container);
+        refreshList(container);
+      });
     });
 
     // Inline note editing

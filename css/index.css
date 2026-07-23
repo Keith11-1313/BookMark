@@ -253,9 +253,9 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   animation: toastIn 0.25s ease forwards;
 }
 .toast.removing { animation: toastOut 0.2s ease forwards; }
-.toast-success { border-left: 3px solid var(--success); }
-.toast-error   { border-left: 3px solid var(--danger); }
-.toast-info    { border-left: 3px solid var(--accent); }
+.toast-success { border-left: 3px solid var(--success); background: rgba(35,165,89,0.12); }
+.toast-error   { border-left: 3px solid var(--danger);  background: rgba(218,55,60,0.12); color: #f2a0a2; }
+.toast-info    { border-left: 3px solid var(--accent);  background: rgba(88,101,242,0.1); }
 
 /* ── Page Layout ─────────────────────────────────────────── */
 .page-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); flex-wrap: wrap; min-width: 0; }

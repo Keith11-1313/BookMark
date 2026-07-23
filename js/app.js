@@ -145,8 +145,64 @@ const App = (() => {
 
   function getRoute() { return currentRoute; }
 
+  // ── Confirm modal (replaces window.confirm everywhere) ────
+  // Usage: App.confirm('Are you sure?', () => doTheThing());
+  // Injects a modal into document.body, removes itself on close.
+  function confirm(message, onConfirm) {
+    // Remove any stale instance
+    document.getElementById('app-confirm-backdrop')?.remove();
+
+    const backdrop = document.createElement('div');
+    backdrop.id = 'app-confirm-backdrop';
+    backdrop.className = 'modal-backdrop';
+    backdrop.setAttribute('role', 'dialog');
+    backdrop.setAttribute('aria-modal', 'true');
+    backdrop.innerHTML = `
+      <div class="modal" style="max-width:380px">
+        <div class="modal-header">
+          <span class="modal-title" style="display:flex;align-items:center;gap:var(--space-2)">
+            <i data-lucide="alert-triangle" width="18" height="18" style="color:var(--danger)"></i>
+            Confirm
+          </span>
+        </div>
+        <div class="modal-body" style="gap:var(--space-3)">
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6">${escapeHtml(message)}</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="app-confirm-cancel">Cancel</button>
+          <button class="btn btn-danger" id="app-confirm-ok">Delete</button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(backdrop);
+    lucide.createIcons({ el: backdrop });
+    // Trigger open animation next frame
+    requestAnimationFrame(() => backdrop.classList.add('open'));
+
+    function close() {
+      backdrop.classList.remove('open');
+      backdrop.addEventListener('transitionend', () => backdrop.remove(), { once: true });
+    }
+
+    backdrop.querySelector('#app-confirm-ok').addEventListener('click', () => {
+      close();
+      onConfirm();
+    });
+    backdrop.querySelector('#app-confirm-cancel').addEventListener('click', close);
+    backdrop.addEventListener('click', e => { if (e.target === backdrop) close(); });
+
+    // Escape key
+    function onEsc(e) {
+      if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onEsc); }
+    }
+    document.addEventListener('keydown', onEsc);
+
+    // Focus the cancel button by default (safer)
+    setTimeout(() => backdrop.querySelector('#app-confirm-cancel')?.focus(), 50);
+  }
+
   return {
-    init, navigate, toast,
+    init, navigate, toast, confirm,
     formatDate, formatDateFull, getRoute,
     escapeHtml, escapeAttr, safeUrl, safeImageUrl, faviconFor
   };

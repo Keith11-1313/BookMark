@@ -245,11 +245,12 @@ const Notes = (() => {
 
       // Delete
       panel.querySelector('#btn-delete-note')?.addEventListener('click', () => {
-        if (!confirm('Delete this note? This cannot be undone.')) return;
-        clearTimeout(_saveTimer);
-        Store.removeUser('notes', id);
-        closeViewer(container);
-        App.toast('Note deleted', 'success');
+        App.confirm('Delete this note? This cannot be undone.', () => {
+          clearTimeout(_saveTimer);
+          Store.removeUser('notes', id);
+          closeViewer(container);
+          App.toast('Note deleted', 'success');
+        });
       });
     }
 
