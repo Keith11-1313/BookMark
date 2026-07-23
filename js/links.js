@@ -6,7 +6,7 @@
 //   user_bookmarks       — user-added bookmarks (managed by Store)
 //   bm_note_<id>         — inline note overrides per bookmark
 //
-// User bookmarks display a "Mine" badge and have Edit/Delete actions.
+// User bookmarks display a "Local" badge and have Edit/Delete actions.
 // Duplicate URL warning scans all bookmarks on render.
 
 const Links = (() => {
@@ -365,7 +365,7 @@ const Links = (() => {
           <div class="bookmark-card-meta">
             <div class="bookmark-title" style="display:flex;align-items:center;gap:var(--space-1);flex-wrap:wrap">
               <span>${escHtml(b.title || domain)}</span>
-              ${isUser ? '<span class="user-badge">Mine</span>' : ''}
+              ${isUser ? '<span class="user-badge">Local</span>' : ''}
             </div>
             <div class="bookmark-category">${escHtml(b.category || 'Other')}</div>
           </div>

@@ -1,7 +1,7 @@
 // snippets.js — Code snippet viewer with likes, side-panel viewer,
 //   and user CRUD (add/edit/delete) backed by localStorage.
 //
-// User snippets display a "Mine" badge and have Edit/Delete actions.
+// User snippets display a "Local" badge and have Edit/Delete actions.
 // Copy always uses the full code (never truncated in DOM).
 
 const Snippets = (() => {
@@ -170,7 +170,7 @@ const Snippets = (() => {
       <div class="snippet-card${s.id === activeId ? ' active' : ''}" data-id="${escAttr(s.id)}">
         <div class="snippet-header">
           <span class="snippet-title">${escHtml(s.title || 'Untitled')}</span>
-          ${isUser ? '<span class="user-badge">Mine</span>' : ''}
+          ${isUser ? '<span class="user-badge">Local</span>' : ''}
           <span class="snippet-lang lang-${langKey}">${escHtml(s.language || 'Text')}</span>
           <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
             ${isUser ? `
@@ -244,7 +244,7 @@ const Snippets = (() => {
     const tags = (snippet.tags || []).map(t => `<span class="snippet-tag">${escHtml(t)}</span>`).join('');
     panel.innerHTML = `
       <div class="editor-toolbar">
-        <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Snippet Viewer${snippet._isUser ? ' <span class="user-badge" style="margin-left:6px">Mine</span>' : ''}</span>
+        <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Snippet Viewer${snippet._isUser ? ' <span class="user-badge" style="margin-left:6px">Local</span>' : ''}</span>
         <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;margin-left:auto;margin-right:var(--space-2)">
           <i data-lucide="copy" width="12" height="12"></i> Copy
         </button>

@@ -1,7 +1,7 @@
 // prompts.js — Prompt library with likes, side-panel viewer,
 //   and user CRUD (add/edit/delete) backed by localStorage.
 //
-// User prompts display a "Mine" badge and have Edit/Delete actions.
+// User prompts display a "Local" badge and have Edit/Delete actions.
 // Copy always uses the full body (never truncated in DOM).
 
 const Prompts = (() => {
@@ -239,7 +239,7 @@ const Prompts = (() => {
       <div class="prompt-card${p.id === activeId ? ' active' : ''}" data-id="${escAttr(p.id)}">
         <div class="prompt-header">
           <span class="prompt-title">${escHtml(p.title || 'Untitled')}</span>
-          ${isUser ? '<span class="user-badge">Mine</span>' : ''}
+          ${isUser ? '<span class="user-badge">Local</span>' : ''}
           <span class="prompt-cat cat-${catKey}">${escHtml(p.category || 'Other')}</span>
           <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
             ${isUser ? `
@@ -313,7 +313,7 @@ const Prompts = (() => {
     const tags = (prompt.tags || []).map(t => `<span class="prompt-tag">${escHtml(t)}</span>`).join('');
     panel.innerHTML = `
       <div class="editor-toolbar">
-        <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Prompt Viewer${prompt._isUser ? ' <span class="user-badge" style="margin-left:6px">Mine</span>' : ''}</span>
+        <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Prompt Viewer${prompt._isUser ? ' <span class="user-badge" style="margin-left:6px">Local</span>' : ''}</span>
         <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;margin-left:auto;margin-right:var(--space-2)">
           <i data-lucide="copy" width="12" height="12"></i> Copy
         </button>

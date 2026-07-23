@@ -96,7 +96,7 @@ const Notes = (() => {
         <div class="note-card-header">
           <div class="note-card-title">${escHtml(n.title || 'Untitled')}</div>
           <div style="display:flex;align-items:center;gap:4px;flex-shrink:0">
-            ${n._isUser ? '<span class="user-badge">Mine</span>' : ''}
+            ${n._isUser ? '<span class="user-badge">Local</span>' : ''}
             <button class="like-btn${liked ? ' liked' : ''}" data-action="like" aria-label="${liked ? 'Unlike' : 'Like'}">
               <i data-lucide="heart" width="14" height="14" style="${liked ? 'fill:var(--danger);color:var(--danger)' : ''}"></i>
             </button>
@@ -170,7 +170,7 @@ const Notes = (() => {
       <div class="editor-toolbar">
         <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">
           ${isUser ? 'Edit Note' : 'Note Viewer'}
-          ${isUser ? '<span class="user-badge" style="margin-left:6px">Mine</span>' : ''}
+          ${isUser ? '<span class="user-badge" style="margin-left:6px">Local</span>' : ''}
         </span>
         <div style="display:flex;align-items:center;gap:var(--space-1);margin-left:auto">
           ${isUser ? `
