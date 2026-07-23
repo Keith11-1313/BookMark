@@ -5,7 +5,7 @@
     "title": "Manus",
     "category": "Design",
     "tags": ["motion-design", "animation", "ui-design"],
-    "notes": "Motion design and animation tool for creating interactive prototypes.",
+    "notes": "General-purpose AI agent (\"action engine\") that executes tasks and automates workflows \u2014 not a motion-design tool. Now part of Meta.",
     "favicon": "https://www.google.com/s2/favicons?domain=manus.im&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -16,7 +16,7 @@
     "title": "Unicorn Studio",
     "category": "Design",
     "tags": ["animation", "motion-graphics", "web-design"],
-    "notes": "Web-based animation and motion graphics editor for interactive content.",
+    "notes": "No-code WebGL design tool for creating interactive motion/effects, embeddable in Framer, Webflow, Wix, or Figma Sites.",
     "favicon": "https://www.google.com/s2/favicons?domain=unicorn.studio&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -27,7 +27,7 @@
     "title": "Spline",
     "category": "Design",
     "tags": ["3d-design", "web-design", "interactive"],
-    "notes": "Collaborative 3D design and animation tool for web experiences.",
+    "notes": "Browser-based, real-time collaborative platform for 3D design, modeling, animation, and interactive web experiences.",
     "favicon": "https://www.google.com/s2/favicons?domain=spline.design&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -38,7 +38,7 @@
     "title": "10x",
     "category": "Productivity",
     "tags": ["productivity", "workflow", "tools"],
-    "notes": "AI-powered productivity tool for accelerating development workflows.",
+    "notes": "AI-powered native iOS app builder for macOS \u2014 describe an app and it generates SwiftUI code, an Xcode project, and a simulator preview, plus App Store submission and marketing content.",
     "favicon": "https://www.google.com/s2/favicons?domain=10x.app&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -49,7 +49,7 @@
     "title": "Componentry",
     "category": "Libraries/Frameworks",
     "tags": ["components", "ui-library", "web-dev"],
-    "notes": "Curated showcase and documentation of reusable UI components.",
+    "notes": "Free, copy-paste library of animated React UI components (Tailwind CSS, TypeScript, Framer Motion), installable via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=componentry.dev&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -60,7 +60,7 @@
     "title": "21st",
     "category": "Tools",
     "tags": ["development", "toolkit", "web-dev"],
-    "notes": "Developer tools and resources for modern web application development.",
+    "notes": "Community registry of 10,000+ hand-crafted React/Tailwind components and templates; each ships as a prompt you paste into Cursor, Claude Code, v0, or Lovable to drop into your project, or install via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=21st.dev&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -82,7 +82,7 @@
     "title": "shadcn/ui",
     "category": "Libraries/Frameworks",
     "tags": ["react", "components", "ui-library"],
-    "notes": "Beautifully designed React components with Radix UI and Tailwind CSS.",
+    "notes": "Open-code, customizable React components you copy into your project rather than install as a dependency; foundation for many design systems.",
     "favicon": "https://www.google.com/s2/favicons?domain=ui.shadcn.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -93,7 +93,7 @@
     "title": "GetDesign",
     "category": "Design",
     "tags": ["design-tools", "markdown", "documentation"],
-    "notes": "Design documentation and markdown-based design system management.",
+    "notes": "Catalog of DESIGN.md files \u2014 written design-system analyses of popular websites (colors, type, spacing, components) that you drop into a project as a style reference for an AI coding agent.",
     "favicon": "https://www.google.com/s2/favicons?domain=getdesign.md&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -104,7 +104,7 @@
     "title": "CasaOS",
     "category": "Open Source",
     "tags": ["linux", "operating-system", "open-source"],
-    "notes": "Open-source desktop operating system for home and personal computing.",
+    "notes": "Open-source \"personal cloud\" system that turns a home server (e.g. Raspberry Pi, NUC) into an easy Docker-app dashboard for self-hosting \u2014 not a general desktop OS.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -115,7 +115,7 @@
     "title": "Dareful",
     "category": "Icons & Assets",
     "tags": ["design-assets", "graphics", "resources"],
-    "notes": "Collection of design assets, graphics, and creative resources.",
+    "notes": "Completely free 4K & HD stock video footage (nature, aerial, travel, etc.) under a Creative Commons Attribution license.",
     "favicon": "https://www.google.com/s2/favicons?domain=dareful.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -126,7 +126,7 @@
     "title": "Coverr",
     "category": "Icons & Assets",
     "tags": ["stock-video", "free-video", "assets"],
-    "notes": "Free stock video footage for websites and multimedia projects.",
+    "notes": "Free stock video (plus stock photos and music); also offers AI video/image/music generation and tools to \"recreate\" library clips with AI.",
     "favicon": "https://www.google.com/s2/favicons?domain=coverr.co&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -137,7 +137,7 @@
     "title": "Pexels",
     "category": "Icons & Assets",
     "tags": ["stock-photos", "free-images", "assets"],
-    "notes": "Free stock photos and images for any creative project.",
+    "notes": "Free stock photos and videos for any creative project, no attribution required.",
     "favicon": "https://www.google.com/s2/favicons?domain=pexels.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -148,7 +148,7 @@
     "title": "Pixabay",
     "category": "Icons & Assets",
     "tags": ["stock-photos", "free-images", "assets"],
-    "notes": "High-quality free stock photos, videos, and music.",
+    "notes": "Large library of free royalty-free photos, illustrations, vectors, videos, music, sound effects, and 3D models.",
     "favicon": "https://www.google.com/s2/favicons?domain=pixabay.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -159,7 +159,7 @@
     "title": "Mixkit",
     "category": "Icons & Assets",
     "tags": ["stock-assets", "free-video", "audio"],
-    "notes": "Free stock video clips, audio tracks, and visual effects.",
+    "notes": "Free stock video clips, music, sound effects, and video editing templates (Premiere Pro, After Effects, Final Cut Pro, DaVinci Resolve), by Envato.",
     "favicon": "https://www.google.com/s2/favicons?domain=mixkit.co&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -170,7 +170,7 @@
     "title": "Freesound",
     "category": "Icons & Assets",
     "tags": ["free-audio", "sound-effects", "music"],
-    "notes": "Community database of free sound effects and audio samples.",
+    "notes": "Community-driven, Creative Commons-licensed sound effect database run by Universitat Pompeu Fabra, with 700,000+ sounds.",
     "favicon": "https://www.google.com/s2/favicons?domain=freesound.org&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -181,7 +181,7 @@
     "title": "Zapsplat",
     "category": "Icons & Assets",
     "tags": ["free-audio", "sound-effects", "music"],
-    "notes": "Free sound effects, music, and audio samples for creators.",
+    "notes": "Over 160,000 free sound effects plus royalty-free music tracks; free tier requires a login and attribution (premium removes both).",
     "favicon": "https://www.google.com/s2/favicons?domain=zapsplat.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -192,7 +192,7 @@
     "title": "Uppbeat",
     "category": "Icons & Assets",
     "tags": ["royalty-free-music", "audio-licensing", "music"],
-    "notes": "Royalty-free music and sound effects for creators and businesses.",
+    "notes": "Royalty-free music and sound effects for videos/podcasts/streams, pre-cleared with Content ID to avoid copyright strikes.",
     "favicon": "https://www.google.com/s2/favicons?domain=uppbeat.io&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -203,7 +203,7 @@
     "title": "NCS",
     "category": "Icons & Assets",
     "tags": ["royalty-free-music", "copyright-free", "music"],
-    "notes": "No Copyright Sounds: free royalty-free music for creators.",
+    "notes": "No Copyright Sounds: record label providing free music (mostly EDM/electronic) for creators, requires crediting the artist per their usage terms.",
     "favicon": "https://www.google.com/s2/favicons?domain=ncs.io&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -214,7 +214,7 @@
     "title": "Bensound",
     "category": "Icons & Assets",
     "tags": ["royalty-free-music", "free-music", "audio"],
-    "notes": "Free royalty-free music for commercial and personal use.",
+    "notes": "Royalty-free music for commercial and personal use, free under a Creative Commons license with attribution (or a paid license to skip crediting).",
     "favicon": "https://www.google.com/s2/favicons?domain=bensound.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -225,7 +225,7 @@
     "title": "Chosic",
     "category": "Tools",
     "tags": ["music-tools", "audio", "playlist"],
-    "notes": "Music tools, playlist curators, and audio utilities for creators.",
+    "notes": "Free music-discovery toolkit built on the Spotify API \u2014 similar-songs finder, playlist generator/analyzer, genre/BPM finder \u2014 plus a small library of free royalty-free music downloads.",
     "favicon": "https://www.google.com/s2/favicons?domain=chosic.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -236,7 +236,7 @@
     "title": "Texture Labs",
     "category": "Icons & Assets",
     "tags": ["textures", "3d-materials", "design-assets"],
-    "notes": "High-quality 3D textures and materials for design and graphics.",
+    "notes": "Free, original 2D texture images (grunge, film, paper, brick, etc.) and tutorials/tools for art and design \u2014 not 3D materials.",
     "favicon": "https://www.google.com/s2/favicons?domain=texturelabs.org&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -247,7 +247,7 @@
     "title": "Textures.com",
     "category": "Icons & Assets",
     "tags": ["textures", "3d-materials", "design-assets"],
-    "notes": "Professional 3D textures and materials library for designers.",
+    "notes": "Large library of seamless, high-resolution textures/PBR materials (metal, wood, fabric, stone, etc.) for 3D and design work; free with daily download limits, paid for more.",
     "favicon": "https://www.google.com/s2/favicons?domain=textures.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -258,7 +258,7 @@
     "title": "Texture Ninja",
     "category": "Icons & Assets",
     "tags": ["textures", "design-assets", "graphics"],
-    "notes": "Free seamless textures and patterns for creative projects.",
+    "notes": "Free, CC0 (public-domain) library of thousands of high-resolution texture and reference photos (brick, wood, metal, blood splatters, etc.) by 3D artist Joost Vanhoutte.",
     "favicon": "https://www.google.com/s2/favicons?domain=texture.ninja&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -280,7 +280,7 @@
     "title": "Jitter",
     "category": "Design",
     "tags": ["animation", "video-creation", "motion-design"],
-    "notes": "AI-powered video creation and animation tool for creators.",
+    "notes": "Browser-based motion-design tool for creating animations and short videos, similar to a lightweight After Effects.",
     "favicon": "https://www.google.com/s2/favicons?domain=jitter.video&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -302,7 +302,7 @@
     "title": "Haikei",
     "category": "Design",
     "tags": ["background-generator", "shape-generation", "design-tool"],
-    "notes": "Beautiful random shape and gradient background generator.",
+    "notes": "Beautiful random shape and gradient background generator (SVG blobs, waves, patterns) for design projects.",
     "favicon": "https://www.google.com/s2/favicons?domain=haikei.app&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -313,7 +313,7 @@
     "title": "FontJoy",
     "category": "Design",
     "tags": ["font-pairing", "typography", "design-tool"],
-    "notes": "Intelligent font pairing generator using deep learning.",
+    "notes": "Deep-learning font pairing generator for finding complementary typeface combinations.",
     "favicon": "https://www.google.com/s2/favicons?domain=fontjoy.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -324,7 +324,7 @@
     "title": "VidIQ",
     "category": "Tools",
     "tags": ["video-analytics", "seo-tools", "youtube-tools"],
-    "notes": "Video analytics and optimization platform for content creators.",
+    "notes": "YouTube analytics, keyword research, and optimization platform for video content creators.",
     "favicon": "https://www.google.com/s2/favicons?domain=vidiq.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -335,7 +335,7 @@
     "title": "Drive & Listen",
     "category": "QoL Apps",
     "tags": ["ambient", "relaxation", "web-app"],
-    "notes": "Experience different cities through ambient drive sounds and music.",
+    "notes": "Experience different cities through synced dashcam driving footage and a local radio station playing in the background.",
     "favicon": "https://www.google.com/s2/favicons?domain=driveandlisten.app&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -346,7 +346,7 @@
     "title": "iFixit",
     "category": "Documentation",
     "tags": ["repair-guides", "technical-docs", "reference"],
-    "notes": "Community-powered repair guides and teardowns for devices.",
+    "notes": "Community-powered repair guides, teardowns, and spare parts for electronics and devices.",
     "favicon": "https://www.google.com/s2/favicons?domain=ifixit.com&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -357,7 +357,7 @@
     "title": "ZType",
     "category": "QoL Apps",
     "tags": ["typing-game", "web-app", "font-tool"],
-    "notes": "Interactive typing game and font exploration tool.",
+    "notes": "Space-shooter typing game where you destroy enemies by typing the words attached to them.",
     "favicon": "https://www.google.com/s2/favicons?domain=zty.pe&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -379,7 +379,7 @@
     "title": "Origin Kit",
     "category": "Design",
     "tags": ["design-system", "design-kit", "ui-design"],
-    "notes": "Comprehensive design system and development kit for designers.",
+    "notes": "Free library of animated components for building modern websites \u2014 copy the code, use in Framer, or connect via MCP.",
     "favicon": "https://www.google.com/s2/favicons?domain=originkit.dev&sz=32",
     "githubMeta": null,
     "createdAt": "2025-07-16T10:00:00Z"
@@ -390,7 +390,7 @@
     "title": "Spec Kit",
     "category": "AI Skills",
     "tags": ["spec-driven-development", "ai-tools", "workflow"],
-    "notes": "Toolkit for spec-driven development workflows with AI coding agents.",
+    "notes": "AI SaaS tool that turns a plain-language app idea into production-ready spec docs (PRD, requirements, architecture, API, database schema, roadmap) as exportable Markdown. Distinct from GitHub's open-source \"Spec Kit\" CLI toolkit (github.com/github/spec-kit), which is a different, similarly-named project for spec-driven AI coding.",
     "favicon": "https://www.google.com/s2/favicons?domain=speckit.tech&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -401,7 +401,7 @@
     "title": "Layers",
     "category": "Design",
     "tags": ["ai-design", "ui-design", "design-tool"],
-    "notes": "AI-powered design tool for creating UI mockups and layouts.",
+    "notes": "Curated library of AI prompts, 3D scenes, and templates (by Textura Agency) \u2014 copy a prompt and paste it into your AI coding tool to generate a cinematic, non-generic-looking website section.",
     "favicon": "https://www.google.com/s2/favicons?domain=getlayers.ai&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -412,7 +412,7 @@
     "title": "Motion Sites",
     "category": "Design",
     "tags": ["ai-website-builder", "motion-design", "web-design"],
-    "notes": "AI website builder focused on motion and animated web experiences.",
+    "notes": "Library of premium AI website prompts for building animated 3D sites \u2014 copy and paste into Lovable, Bolt, Cursor, or Claude (not itself a website builder).",
     "favicon": "https://www.google.com/s2/favicons?domain=motionsites.ai&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -423,7 +423,7 @@
     "title": "Perler Beads",
     "category": "Tools",
     "tags": ["craft", "pattern-generator", "hobby"],
-    "notes": "Perler bead pattern resources and generator for craft projects.",
+    "notes": "Free tool that converts uploaded photos into printable Perler/Hama/Artkal bead patterns with color matching and bead counts.",
     "favicon": "https://www.google.com/s2/favicons?domain=perlerbeads.net&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -434,7 +434,7 @@
     "title": "Blueprint",
     "category": "Productivity",
     "tags": ["planning", "workflow", "tools"],
-    "notes": "Productivity and planning tool for organizing projects and workflows.",
+    "notes": "AI hardware design tool \u2014 generates wiring diagrams, bills of materials, and step-by-step assembly guides for electronics/hardware projects (Arduino, Raspberry Pi, etc.) from a prompt.",
     "favicon": "https://www.google.com/s2/favicons?domain=blueprint.io&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -445,7 +445,7 @@
     "title": "Kuku Kube",
     "category": "Tools",
     "tags": ["kubernetes", "devops", "cluster-management"],
-    "notes": "Tool for managing and visualizing Kubernetes clusters.",
+    "notes": "An online browser game (\"Kuku Kube\") \u2014 unrelated to Kubernetes despite the similar name.",
     "favicon": "https://www.google.com/s2/favicons?domain=kuku-kube.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -456,7 +456,7 @@
     "title": "Open SEO",
     "category": "Open Source",
     "tags": ["seo", "open-source", "web-dev"],
-    "notes": "Open-source SEO toolkit for websites and applications.",
+    "notes": "Open-source, self-hostable alternative to Semrush/Ahrefs \u2014 keyword research, rank tracking, backlinks, and site audits, pay-as-you-go via the DataForSEO API, with an MCP server and AI agent skills.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -467,7 +467,7 @@
     "title": "Omniget",
     "category": "Open Source",
     "tags": ["downloader", "open-source", "utility"],
-    "notes": "Release page for Omniget, a multi-source download utility.",
+    "notes": "Open-source cross-platform desktop app (Tauri/Rust/Svelte) for downloading, organizing, and studying media \u2014 yt-dlp-based downloads from 1,800+ sites plus a PDF/EPUB reader with focus mode and spaced repetition.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -478,7 +478,7 @@
     "title": "SpotiFLAC",
     "category": "Open Source",
     "tags": ["music-downloader", "flac", "open-source"],
-    "notes": "Open-source tool for downloading lossless FLAC audio.",
+    "notes": "Open-source desktop app that fetches Spotify tracks in true lossless FLAC from Tidal, Qobuz, or Amazon Music \u2014 no account required.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -489,7 +489,7 @@
     "title": "OSINT4All",
     "category": "Documentation",
     "tags": ["osint", "research", "resource-list"],
-    "notes": "Curated start.me page of OSINT tools and research resources.",
+    "notes": "Curated start.me page providing a practical, easy OSINT toolkit for researchers of any skill level.",
     "favicon": "https://www.google.com/s2/favicons?domain=start.me&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -500,7 +500,7 @@
     "title": "FMHY",
     "category": "Documentation",
     "tags": ["free-resources", "media", "resource-list"],
-    "notes": "Free Media Heck Yeah: large curated list of free internet resources.",
+    "notes": "Free Media Heck Yeah: large curated wiki of free internet resources (streaming, downloading, gaming, reading, AI, privacy tools, and more).",
     "favicon": "https://www.google.com/s2/favicons?domain=fmhy.net&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -511,7 +511,7 @@
     "title": "InvoApp",
     "category": "Productivity",
     "tags": ["invoicing", "business", "productivity"],
-    "notes": "Invoicing app for freelancers and small businesses.",
+    "notes": "Social crypto-futures copy-trading app (\"Invo\"/Involio) \u2014 follow top traders and mimic their positions; not an invoicing tool.",
     "favicon": "https://www.google.com/s2/favicons?domain=invoapp.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -522,7 +522,7 @@
     "title": "ModsNation",
     "category": "QoL Apps",
     "tags": ["mods", "gaming", "community"],
-    "notes": "Community hub for game mods and modding resources.",
+    "notes": "AI-powered 3D car configurator and aftermarket-parts marketplace for car enthusiasts (visualize mods, check fitment, buy parts) \u2014 not related to video game mods.",
     "favicon": "https://www.google.com/s2/favicons?domain=modsnation.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -533,7 +533,7 @@
     "title": "Flicker Gallery",
     "category": "Design",
     "tags": ["animation", "gallery", "web-design"],
-    "notes": "Gallery showcasing flicker/motion-based web design experiments.",
+    "notes": "Library of flip-dot-display-inspired loading spinners; browse the collection or build your own and export to SVG, React, or Flutter.",
     "favicon": "https://www.google.com/s2/favicons?domain=laurie.fyi&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -577,7 +577,7 @@
     "title": "Textlab",
     "category": "Tools",
     "tags": ["text-tool", "utility", "web-app"],
-    "notes": "Text manipulation and formatting utility tool.",
+    "notes": "Generator for realistic messaging/social-media mockup screenshots (iMessage, WhatsApp, Instagram DM, TikTok/Instagram/YouTube comments, notifications, etc.) with transparent PNG export \u2014 not a general text tool.",
     "favicon": "https://www.google.com/s2/favicons?domain=javii.tools&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -654,7 +654,7 @@
     "title": "Bklit",
     "category": "Tools",
     "tags": ["analytics", "web-tools", "monitoring"],
-    "notes": "Web analytics and monitoring tool for site owners.",
+    "notes": "Bklit UI \u2014 a shadcn/ui-based component library specifically for charts and data visualization (area/bar/candlestick/heatmap/sankey charts, etc.), not a web analytics/monitoring product.",
     "favicon": "https://www.google.com/s2/favicons?domain=bklit.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -665,7 +665,7 @@
     "title": "Skiper UI",
     "category": "Libraries/Frameworks",
     "tags": ["ui-components", "react", "design-system"],
-    "notes": "Collection of animated, ready-made UI components for React.",
+    "notes": "Library of 100+ \"un-common\" animated components for shadcn/ui and Next.js, free and premium tiers, installable via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=skiper-ui.com&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
@@ -687,7 +687,7 @@
     "title": "Watermelon UI",
     "category": "Libraries/Frameworks",
     "tags": ["ui-components", "design-system", "web-dev"],
-    "notes": "UI component library for building modern web interfaces.",
+    "notes": "Registry of high-quality React components, dashboards, and UI blocks \u2014 copy-and-paste, built on Tailwind/shadcn conventions.",
     "favicon": "https://www.google.com/s2/favicons?domain=watermelon.sh&sz=32",
     "githubMeta": null,
     "createdAt": "2026-07-23T00:00:00Z"
