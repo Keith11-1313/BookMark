@@ -19,16 +19,18 @@ const Prompts = (() => {
     const cats = readCustomCats();
     if (!cats.includes(name)) { cats.push(name); localStorage.setItem('user_custom_cats', JSON.stringify(cats)); }
   }
-  // Merged: known categories (minus 'Other') + custom + 'Other' last
+  // Merged: CATEGORIES + JSON data categories + custom + 'Other' last, deduped
   function buildCatOptions(selected) {
+    const fromData = Store.get('prompts').map(p => p.category).filter(Boolean);
     const custom = readCustomCats();
-    const all = [...CATEGORIES.filter(c => c !== 'Other'), ...custom, 'Other'];
+    const all = [...new Set([...CATEGORIES.filter(c => c !== 'Other'), ...fromData, ...custom, 'Other'])];
     return all.map(c => `<option value="${escAttr(c)}"${c === selected ? ' selected' : ''}>${escHtml(c)}</option>`).join('');
   }
-  // Also merges custom cats into the filter dropdown
+  // Filter dropdown also includes JSON data categories
   function buildFilterOptions() {
+    const fromData = Store.get('prompts').map(p => p.category).filter(Boolean);
     const custom = readCustomCats();
-    const all = [...CATEGORIES.filter(c => c !== 'Other'), ...custom, 'Other'];
+    const all = [...new Set([...CATEGORIES.filter(c => c !== 'Other'), ...fromData, ...custom, 'Other'])];
     return all.map(c => `<option value="${escHtml(c)}">${escHtml(c)}</option>`).join('');
   }
   function resolveCategory(container) {
@@ -161,7 +163,7 @@ const Prompts = (() => {
     const sel = container.querySelector('#pr-category');
     const customInput = container.querySelector('#pr-custom-cat');
     const savedCat = prompt?.category || 'Other';
-    const allCats = [...CATEGORIES.filter(c => c !== 'Other'), ...readCustomCats(), 'Other'];
+    const allCats = [...new Set([...CATEGORIES.filter(c => c !== 'Other'), ...Store.get('prompts').map(p => p.category).filter(Boolean), ...readCustomCats(), 'Other'])];
     const isKnown = allCats.includes(savedCat);
     sel.innerHTML = buildCatOptions(isKnown ? savedCat : 'Other');
     if (!isKnown) {

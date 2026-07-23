@@ -24,10 +24,11 @@ const Links = (() => {
     const cats = readCustomCats();
     if (!cats.includes(name)) { cats.push(name); localStorage.setItem('user_custom_cats', JSON.stringify(cats)); }
   }
-  // Merged list: defaults (minus 'Other') + custom cats + 'Other' always last
+  // Merged list: JSON data categories + DEFAULT_CATS + custom cats — deduped, 'Other' always last
   function buildCatOptions(selected) {
+    const fromData = Store.get('bookmarks').map(b => b.category).filter(Boolean);
     const custom = readCustomCats();
-    const all = [...DEFAULT_CATS.filter(c => c !== 'Other'), ...custom, 'Other'];
+    const all = [...new Set([...DEFAULT_CATS.filter(c => c !== 'Other'), ...fromData, ...custom, 'Other'])];
     return all.map(c => `<option value="${escAttr(c)}"${c === selected ? ' selected' : ''}>${escHtml(c)}</option>`).join('');
   }
   // Returns the final category string from the select + optional custom input
@@ -242,7 +243,7 @@ const Links = (() => {
     const sel = container.querySelector('#bm-category');
     const customInput = container.querySelector('#bm-custom-cat');
     const savedCat = bookmark?.category || DEFAULT_CATS[0];
-    const allCats = [...DEFAULT_CATS.filter(c => c !== 'Other'), ...readCustomCats(), 'Other'];
+    const allCats = [...new Set([...DEFAULT_CATS.filter(c => c !== 'Other'), ...Store.get('bookmarks').map(b => b.category).filter(Boolean), ...readCustomCats(), 'Other'])];
     const isKnown = allCats.includes(savedCat);
     sel.innerHTML = buildCatOptions(isKnown ? savedCat : 'Other');
     // If the saved category is a custom one not in the list yet, show it in the input
