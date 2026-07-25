@@ -375,7 +375,7 @@
     "title": "Motion Sites",
     "category": "AI",
     "tags": ["ai-prompts", "web-design", "animation"],
-    "notes": "Library of premium AI website prompts for building animated 3D sites — copy and paste into Lovable, Bolt, Cursor, or Claude.",
+    "notes": "Library of ready-to-use AI design prompts for building animated landing pages, sections, backgrounds, and app interfaces.",
     "favicon": "https://www.google.com/s2/favicons?domain=motionsites.ai&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
   },
@@ -628,5 +628,325 @@
     "notes": "Registry of high-quality React components, dashboards, and UI blocks — copy-and-paste, built on Tailwind/shadcn conventions.",
     "favicon": "https://www.google.com/s2/favicons?domain=watermelon.sh&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
+  },
+  {
+    "id": "https://amoshuke.github.io/flutter_tilt_book/en/v4/",
+    "url": "https://amoshuke.github.io/flutter_tilt_book/en/v4/",
+    "title": "Flutter Tilt",
+    "category": "Design Tools",
+    "tags": ["flutter", "3d-effect", "ui-animation"],
+    "notes": "Flutter package documentation and demos for creating tilt-based 3D card and book interactions.",
+    "favicon": "https://www.google.com/s2/favicons?domain=amoshuke.github.io&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://studio.getstanley.ai/",
+    "url": "https://studio.getstanley.ai/",
+    "title": "Stanley Studio",
+    "category": "AI",
+    "tags": ["ai-video", "video-editing", "prompt-based"],
+    "notes": "AI video-editing studio for editing entire videos with a single prompt.",
+    "favicon": "https://www.google.com/s2/favicons?domain=studio.getstanley.ai&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://10minutemail.com/",
+    "url": "https://10minutemail.com/",
+    "title": "10 Minute Mail",
+    "category": "Utilities",
+    "tags": ["temporary-email", "privacy", "no-signup"],
+    "notes": "Temporary email service for disposable inboxes and short-lived verification addresses.",
+    "favicon": "https://www.google.com/s2/favicons?domain=10minutemail.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://opensky-network.org/",
+    "url": "https://opensky-network.org/",
+    "title": "OpenSky Network",
+    "category": "APIs",
+    "tags": ["aircraft", "flight-tracking", "api"],
+    "notes": "Live aircraft state data including positions, altitude, velocity, and transponder details for aircraft currently in the sky.",
+    "favicon": "https://www.google.com/s2/favicons?domain=opensky-network.org&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://api.artic.edu/",
+    "url": "https://api.artic.edu/",
+    "title": "Art Institute of Chicago API",
+    "category": "APIs",
+    "tags": ["art", "museum", "no-api-key"],
+    "notes": "REST API for Art Institute of Chicago public collection data, artwork metadata, search, and IIIF image URLs with anonymous access.",
+    "favicon": "https://www.google.com/s2/favicons?domain=api.artic.edu&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://world.openfoodfacts.org/",
+    "url": "https://world.openfoodfacts.org/",
+    "title": "Open Food Facts",
+    "category": "APIs",
+    "tags": ["food-data", "barcode", "nutrition"],
+    "notes": "Open food-products database and API for barcode lookups, ingredients, nutrition values, brands, and product metadata.",
+    "favicon": "https://www.google.com/s2/favicons?domain=world.openfoodfacts.org&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://opentdb.com/",
+    "url": "https://opentdb.com/",
+    "title": "Open Trivia DB",
+    "category": "APIs",
+    "tags": ["trivia", "quiz", "no-api-key"],
+    "notes": "Free trivia-question API with categories, difficulty levels, multiple-choice and true/false questions, no API key required.",
+    "favicon": "https://www.google.com/s2/favicons?domain=opentdb.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://lrclib.net/",
+    "url": "https://lrclib.net/",
+    "title": "LRCLIB",
+    "category": "APIs",
+    "tags": ["lyrics", "music", "json-api"],
+    "notes": "Open lyrics database with plain and synced lyrics served as clean JSON, no signup required.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lrclib.net&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://ui.unlumen.com/",
+    "url": "https://ui.unlumen.com/",
+    "title": "unlumen UI",
+    "category": "UI Libraries",
+    "tags": ["react", "ui-components", "tailwind"],
+    "notes": "React component collection with polished interface blocks and effects for modern web projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=ui.unlumen.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://smoothui.dev/",
+    "url": "https://smoothui.dev/",
+    "title": "SmoothUI",
+    "category": "UI Libraries",
+    "tags": ["react", "shadcn", "animation"],
+    "notes": "Animated React components built for shadcn/ui, Tailwind CSS, and Motion.",
+    "favicon": "https://www.google.com/s2/favicons?domain=smoothui.dev&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://animmasterlib.dev/",
+    "url": "https://animmasterlib.dev/",
+    "title": "Animmaster Lib",
+    "category": "UI Libraries",
+    "tags": ["animated-components", "web-ui", "templates"],
+    "notes": "Library of animated web components and product UI sections for modern websites.",
+    "favicon": "https://www.google.com/s2/favicons?domain=animmasterlib.dev&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://funes.world/",
+    "url": "https://funes.world/",
+    "title": "FUNES",
+    "category": "Culture",
+    "tags": ["3d-archive", "cultural-heritage", "design-reference"],
+    "notes": "3D cultural heritage archive for browsing preserved digital objects and historical artifacts.",
+    "favicon": "https://www.google.com/s2/favicons?domain=funes.world&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.uilora.com/",
+    "url": "https://www.uilora.com/",
+    "title": "Uilora",
+    "category": "UI Libraries",
+    "tags": ["next-js", "react-native", "ui-components"],
+    "notes": "Premium UI components and templates for Next.js and React Native projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=uilora.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://wokwi.com/",
+    "url": "https://wokwi.com/",
+    "title": "Wokwi",
+    "category": "Developer Tools",
+    "tags": ["electronics", "esp32", "simulator"],
+    "notes": "Browser-based electronics simulator for ESP32, Arduino, Raspberry Pi Pico, and embedded projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=wokwi.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.cta.gallery/",
+    "url": "https://www.cta.gallery/",
+    "title": "CTA.gallery",
+    "category": "Design Inspiration",
+    "tags": ["cta", "conversion", "design-gallery"],
+    "notes": "Gallery of call-to-action examples for landing pages, product sites, and conversion-focused design.",
+    "favicon": "https://www.google.com/s2/favicons?domain=cta.gallery&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://fontshare.com/",
+    "url": "https://fontshare.com/",
+    "title": "Fontshare",
+    "category": "Assets",
+    "tags": ["fonts", "typography", "free"],
+    "notes": "Free font platform from Indian Type Foundry with quality typefaces for personal and commercial design work.",
+    "favicon": "https://www.google.com/s2/favicons?domain=fontshare.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.footer.design/",
+    "url": "https://www.footer.design/",
+    "title": "Footer Design",
+    "category": "Design Inspiration",
+    "tags": ["footer", "web-design", "gallery"],
+    "notes": "Curated gallery of website footer designs for layout, navigation, and content inspiration.",
+    "favicon": "https://www.google.com/s2/favicons?domain=footer.design&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://shadergradient.co/",
+    "url": "https://shadergradient.co/",
+    "title": "Shader Gradient",
+    "category": "Design Tools",
+    "tags": ["shader", "gradient", "3d"],
+    "notes": "Interactive shader-gradient generator for creating animated 3D gradient backgrounds.",
+    "favicon": "https://www.google.com/s2/favicons?domain=shadergradient.co&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://app.paper.design/",
+    "url": "https://app.paper.design/",
+    "title": "Paper",
+    "category": "Design Tools",
+    "tags": ["canvas", "design-tool", "web-app"],
+    "notes": "Browser-based visual design app for creating and editing graphic layouts on a canvas.",
+    "favicon": "https://www.google.com/s2/favicons?domain=app.paper.design&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://r3f.docs.pmnd.rs/",
+    "url": "https://r3f.docs.pmnd.rs/",
+    "title": "React Three Fiber Docs",
+    "category": "Developer Tools",
+    "tags": ["react", "three-js", "documentation"],
+    "notes": "Official documentation for React Three Fiber, the React renderer for Three.js maintained by Poimandres.",
+    "favicon": "https://www.google.com/s2/favicons?domain=r3f.docs.pmnd.rs&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.landing.love/",
+    "url": "https://www.landing.love/",
+    "title": "Landing Love",
+    "category": "Design Inspiration",
+    "tags": ["landing-pages", "animation", "web-design"],
+    "notes": "Showcase of animated landing pages and high-polish website interactions for design inspiration.",
+    "favicon": "https://www.google.com/s2/favicons?domain=landing.love&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://howlongtobeat.com/",
+    "url": "https://howlongtobeat.com/",
+    "title": "HowLongToBeat",
+    "category": "Games",
+    "tags": ["game-length", "backlog", "planning"],
+    "notes": "Crowdsourced database for estimating video game completion times, backlogs, and playthrough lengths.",
+    "favicon": "https://www.google.com/s2/favicons?domain=howlongtobeat.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://lordicon.com/",
+    "url": "https://lordicon.com/",
+    "title": "Lordicon",
+    "category": "Assets",
+    "tags": ["animated-icons", "icons", "lottie"],
+    "notes": "Large library of animated icons for websites, apps, presentations, and motion-based interface details.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lordicon.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.removepaywall.com/",
+    "url": "https://www.removepaywall.com/",
+    "title": "RemovePaywall",
+    "category": "Utilities",
+    "tags": ["paywall", "articles", "utility"],
+    "notes": "Online utility for finding accessible versions of article pages blocked by paywalls.",
+    "favicon": "https://www.google.com/s2/favicons?domain=removepaywall.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://colorflow.ls.graphics/",
+    "url": "https://colorflow.ls.graphics/",
+    "title": "ColorFlow",
+    "category": "Design Tools",
+    "tags": ["mesh-gradient", "color", "generator"],
+    "notes": "Advanced mesh-gradient generator and editor for creating colorful abstract backgrounds.",
+    "favicon": "https://www.google.com/s2/favicons?domain=colorflow.ls.graphics&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://namethatui.com/",
+    "url": "https://namethatui.com/",
+    "title": "NameThatUI",
+    "category": "Reference",
+    "tags": ["ui-patterns", "terminology", "reference"],
+    "notes": "Reference site for identifying what UI elements and interface patterns are called.",
+    "favicon": "https://www.google.com/s2/favicons?domain=namethatui.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.termcn.dev/",
+    "url": "https://www.termcn.dev/",
+    "title": "termcn",
+    "category": "UI Libraries",
+    "tags": ["terminal-ui", "components", "developer-tools"],
+    "notes": "Component system for building polished terminal-style interfaces.",
+    "favicon": "https://www.google.com/s2/favicons?domain=termcn.dev&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://nosignups.net/",
+    "url": "https://nosignups.net/",
+    "title": "NoSignups",
+    "category": "Utilities",
+    "tags": ["open-source", "no-signup", "tools"],
+    "notes": "Directory of open-source web tools that work without accounts or signups.",
+    "favicon": "https://www.google.com/s2/favicons?domain=nosignups.net&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://www.swissted.com/",
+    "url": "https://www.swissted.com/",
+    "title": "Swissted",
+    "category": "Design Inspiration",
+    "tags": ["poster-design", "swiss-style", "music"],
+    "notes": "Typographic poster project remixing punk, hardcore, and indie rock show flyers in Swiss modernist style.",
+    "favicon": "https://www.google.com/s2/favicons?domain=swissted.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://designspells.com/",
+    "url": "https://designspells.com/",
+    "title": "Design Spells",
+    "category": "Design Inspiration",
+    "tags": ["microinteractions", "web-design", "inspiration"],
+    "notes": "Collection of delightful interaction details, animations, and design touches from real websites.",
+    "favicon": "https://www.google.com/s2/favicons?domain=designspells.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://viewport-ui.design/",
+    "url": "https://viewport-ui.design/",
+    "title": "Viewport UI",
+    "category": "Design Inspiration",
+    "tags": ["ui-inspiration", "web-design", "gallery"],
+    "notes": "Curated UI and web-design experiences for interface inspiration.",
+    "favicon": "https://www.google.com/s2/favicons?domain=viewport-ui.design&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://wigglypaint.com/",
+    "url": "https://wigglypaint.com/",
+    "title": "WigglyPaint",
+    "category": "Design Tools",
+    "tags": ["drawing", "animated-gif", "creative-tool"],
+    "notes": "Free animated drawing tool for creating wiggly illustrations and exporting them as GIFs.",
+    "favicon": "https://www.google.com/s2/favicons?domain=wigglypaint.com&sz=32",
+    "createdAt": "2026-07-25T22:13:00"
   }
 ]
