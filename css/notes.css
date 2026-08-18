@@ -32,13 +32,12 @@
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   cursor: pointer;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
   position: relative;
-  animation: scaleIn 0.2s ease;
 }
 .note-card:hover,
 .note-card:focus-within,
-.note-card:focus-visible { border-color: var(--bg-hover); transform: translateY(-1px); }
+.note-card:focus-visible { border-color: var(--bg-hover); background: var(--bg-tertiary); }
 .note-card.active { border-color: var(--accent); }
 
 .note-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
@@ -188,7 +187,6 @@
 }
 
 @media (hover: none), (pointer: coarse) {
-  .note-card:hover { transform: none; }
   .toolbar-btn,
   .color-swatch {
     min-width: 44px;

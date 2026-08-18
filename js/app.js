@@ -14,13 +14,26 @@ const App = (() => {
 
   // ── Init ────────────────────────────────────────────────
   async function init() {
+    const app = document.getElementById('app');
+    const main = document.getElementById('page-content');
+    app.style.display = 'flex';
+    main.innerHTML = loadingShell();
     await Store.loadAll();
-    document.getElementById('app').style.display = 'flex';
     Sidebar.init();
     CommandPalette.init();
     setupKeyboardShortcuts();
     navigate(location.hash.slice(1) || 'dashboard');
     window.addEventListener('hashchange', () => navigate(location.hash.slice(1) || 'dashboard'));
+  }
+
+  function loadingShell() {
+    return `
+      <div class="home-search">
+        <div class="home-search-bar"><span class="skeleton" style="width:20px;height:20px;border-radius:50%"></span><span class="skeleton" style="height:18px;flex:1"></span><span class="skeleton" style="width:54px;height:22px"></span></div>
+      </div>
+      <div class="stats-grid">
+        ${Array.from({ length: 4 }, () => '<div class="stat-card"><span class="skeleton" style="width:44px;height:44px;border-radius:12px"></span><div class="stat-card-body"><div class="skeleton" style="width:58px;height:24px;margin-bottom:8px"></div><div class="skeleton" style="width:92px;height:12px"></div></div></div>').join('')}
+      </div>`;
   }
 
   // ── Router ───────────────────────────────────────────────
@@ -71,17 +84,16 @@ const App = (() => {
 
   // ── Toast ─────────────────────────────────────────────────
   function toast(message, type = 'info', duration = 3500) {
-    const icons = { info: 'info', success: 'check-circle', error: 'x-circle' };
+    const icons = { info: 'info', success: 'check', error: 'warning' };
     const container = document.getElementById('toast-container');
     const el = document.createElement('div');
     el.className = `toast toast-${type}`;
     el.setAttribute('role', 'status');
     el.innerHTML = `
-      <i data-lucide="${icons[type] || 'info'}" width="16" height="16"></i>
+      ${Icons.svg(icons[type] || 'info', 16)}
       <span>${escapeHtml(message)}</span>
     `;
     container.appendChild(el);
-    lucide.createIcons({ el });
     setTimeout(() => {
       el.classList.add('removing');
       el.addEventListener('animationend', () => el.remove());
@@ -161,7 +173,7 @@ const App = (() => {
       <div class="modal" style="max-width:380px">
         <div class="modal-header">
           <span class="modal-title" style="display:flex;align-items:center;gap:var(--space-2)">
-            <i data-lucide="alert-triangle" width="18" height="18" style="color:var(--danger)"></i>
+            ${Icons.svg('warning', 18)}
             Confirm
           </span>
         </div>
@@ -175,7 +187,6 @@ const App = (() => {
       </div>`;
 
     document.body.appendChild(backdrop);
-    lucide.createIcons({ el: backdrop });
     // Trigger open animation next frame
     requestAnimationFrame(() => backdrop.classList.add('open'));
 

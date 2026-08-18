@@ -50,15 +50,14 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
-  animation: scaleIn 0.2s ease;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: pointer;
 }
 .snippet-card:hover,
-.snippet-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
+.snippet-card:focus-within { border-color: var(--bg-hover); background: var(--bg-tertiary); }
 .snippet-card.active { border-color: var(--accent); }
 
 
@@ -74,11 +73,12 @@
 .snippet-title { font-size: var(--text-sm); font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .snippet-lang {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   font-family: var(--font-mono);
   flex-shrink: 0;
 }
@@ -150,22 +150,10 @@
 }
 .snippet-date { font-size: 11px; color: var(--text-muted); }
 
-/* Language colors */
-.lang-js         { background: rgba(247,223,30,0.15); color: #f7df1e; }
-.lang-ts         { background: rgba(49,120,198,0.15); color: #3178c6; }
-.lang-html       { background: rgba(227,76,38,0.15);  color: #e34c26; }
-.lang-css        { background: rgba(38,77,228,0.15);  color: #264de4; }
-.lang-python     { background: rgba(53,114,165,0.15); color: #3572a5; }
-.lang-json       { background: rgba(35,165,89,0.15);  color: var(--success); }
-.lang-bash       { background: rgba(149,149,149,0.15);color: #949ba4; }
-.lang-sql        { background: rgba(0,168,252,0.15);  color: var(--text-link); }
-.lang-java       { background: rgba(176,114,25,0.15); color: #b07219; }
-.lang-cs         { background: rgba(23,134,0,0.15);   color: #178600; }
-.lang-go         { background: rgba(0,173,216,0.15);  color: #00add8; }
-.lang-rust       { background: rgba(222,165,132,0.15);color: #dea584; }
-.lang-php        { background: rgba(79,93,149,0.15);  color: #4f5d95; }
-.lang-yaml       { background: rgba(203,50,44,0.15);  color: #cb322c; }
-.lang-text       { background: var(--bg-hover); color: var(--text-muted); }
+/* Language chip: single neutral tone, no per-language colors */
+.lang-js, .lang-ts, .lang-html, .lang-css, .lang-python, .lang-json, .lang-bash,
+.lang-sql, .lang-java, .lang-cs, .lang-go, .lang-rust, .lang-php, .lang-yaml,
+.lang-text, .lang-plaintext { background: var(--bg-hover); color: var(--text-secondary); }
 
 /* Highlight.js dark theme override */
 .hljs { background: var(--bg-darkest) !important; color: var(--text-secondary); }
@@ -184,8 +172,5 @@
 @media (hover: none), (pointer: coarse) {
   .copy-btn-overlay {
     opacity: 1;
-  }
-  .snippet-card:hover {
-    transform: none;
   }
 }

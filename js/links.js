@@ -80,7 +80,6 @@ const Links = (() => {
   function render(container) {
     allLinks = Store.get('bookmarks');
     container.innerHTML = buildShell();
-    lucide.createIcons({ el: container });
     bindEvents(container);
     renderDuplicateWarning(container);
     refreshList(container);
@@ -98,12 +97,12 @@ const Links = (() => {
     return `
       <div class="page-header">
         <div class="page-header-left">
-          <i data-lucide="bookmark" width="24" height="24" style="color:var(--accent)"></i>
+          ${Icons.svg('bookmark', 24, 'ui-icon icon-accent')}
           <div><div class="page-title">Bookmarks</div><div class="page-subtitle">Curated links &amp; resources</div></div>
         </div>
         <div class="page-actions">
           <button class="btn btn-primary hide-on-mobile" id="btn-add-bookmark">
-            <i data-lucide="plus" width="15" height="15"></i><span>Add Bookmark</span>
+            ${Icons.svg('plus', 15)}<span>Add Bookmark</span>
           </button>
         </div>
       </div>
@@ -112,12 +111,12 @@ const Links = (() => {
 
       <div class="links-toolbar">
         <div class="search-bar flex-1" style="min-width:200px">
-          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <span class="search-icon">${Icons.svg('search', 15)}</span>
           <input class="input" id="links-search" type="search" placeholder="Search bookmarks…">
         </div>
         <div class="view-toggle">
-          <button class="view-toggle-btn active" id="view-card" data-tooltip="Card view"><i data-lucide="layout-grid" width="15" height="15"></i></button>
-          <button class="view-toggle-btn" id="view-list" data-tooltip="List view"><i data-lucide="list" width="15" height="15"></i></button>
+          <button class="view-toggle-btn active" id="view-card" data-tooltip="Card view">${Icons.svg('grid', 15)}</button>
+          <button class="view-toggle-btn" id="view-list" data-tooltip="List view">${Icons.svg('list', 15)}</button>
         </div>
         <select class="input" id="links-sort" style="width:auto">
           <option value="newest">Newest</option>
@@ -129,8 +128,8 @@ const Links = (() => {
 
       <div class="filter-bar-wrap">
         <div class="filter-bar" id="filter-bar">
-          <button class="filter-pill active" data-cat="all">All <span class="filter-pill-count">${allLinks.length}</span></button>
-          ${getCategories().map(([c, n]) => `<button class="filter-pill" data-cat="${escAttr(c)}">${escHtml(c)} <span class="filter-pill-count">${n}</span></button>`).join('')}
+          <button class="filter-pill active" data-cat="all">${Icons.svg('layers', 13)} All <span class="filter-pill-count">${allLinks.length}</span></button>
+          ${getCategories().map(([c, n]) => `<button class="filter-pill" data-cat="${escAttr(c)}">${Icons.category(c, 13)} ${escHtml(c)} <span class="filter-pill-count">${n}</span></button>`).join('')}
         </div>
       </div>
 
@@ -147,7 +146,7 @@ const Links = (() => {
         <div class="modal">
           <div class="modal-header">
             <span class="modal-title" id="bm-modal-title">Add Bookmark</span>
-            <button class="btn-ghost btn-sm btn-icon" id="bm-modal-close" aria-label="Close"><i data-lucide="x" width="16" height="16"></i></button>
+            <button class="btn-ghost btn-sm btn-icon" id="bm-modal-close" aria-label="Close">${Icons.svg('close', 16)}</button>
           </div>
           <div class="modal-body">
             <input type="hidden" id="bm-edit-id">
@@ -176,11 +175,11 @@ const Links = (() => {
               <textarea class="input" id="bm-notes" rows="3" placeholder="Optional notes…"></textarea>
             </div>
             <div id="bm-dup-warning" style="display:none" class="dup-warning">
-              <i data-lucide="alert-triangle" width="14" height="14"></i>
+              ${Icons.svg('warning', 14)}
               <span id="bm-dup-msg"></span>
             </div>
             <div class="inline-notice">
-              <i data-lucide="info" width="13" height="13"></i>
+              ${Icons.svg('info', 13)}
               <span>Saved in browser localStorage only. Clearing browser data removes it.</span>
             </div>
           </div>
@@ -204,15 +203,14 @@ const Links = (() => {
     area.innerHTML = `
       <div class="dup-warning" id="dup-warning" style="margin-bottom:var(--space-4);flex-direction:column;align-items:flex-start;gap:var(--space-2)">
         <div style="display:flex;align-items:center;gap:var(--space-2);width:100%">
-          <i data-lucide="alert-triangle" width="16" height="16" style="flex-shrink:0"></i>
+          ${Icons.svg('warning', 16)}
           <strong>Duplicate URLs detected (${dupes.size})</strong>
           <button style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--warning);display:flex;align-items:center" id="btn-dismiss-dupes" aria-label="Dismiss">
-            <i data-lucide="x" width="14" height="14"></i>
+            ${Icons.svg('close', 14)}
           </button>
         </div>
         <ul style="margin:0;padding-left:var(--space-5);font-size:var(--text-xs);line-height:1.8">${list}</ul>
       </div>`;
-    lucide.createIcons({ el: area });
     area.querySelector('#btn-dismiss-dupes')?.addEventListener('click', () => { area.innerHTML = ''; });
   }
 
@@ -224,9 +222,8 @@ const Links = (() => {
     fab.id = 'page-fab';
     fab.className = 'fab';
     fab.setAttribute('aria-label', 'Add Bookmark');
-    fab.innerHTML = '<i data-lucide="plus" width="24" height="24"></i>';
+    fab.innerHTML = Icons.svg('plus', 24);
     document.body.appendChild(fab);
-    lucide.createIcons({ el: fab });
     fab.addEventListener('click', () => openModal(container));
   }
 
@@ -298,7 +295,6 @@ const Links = (() => {
       const w = container.querySelector('#bm-dup-warning');
       const m = container.querySelector('#bm-dup-msg');
       if (w && m) { m.textContent = `"${existing.title || existing.url}" already uses this URL.`; w.style.display = 'flex'; }
-      lucide.createIcons({ el: container.querySelector('#bm-dup-warning') });
       // allow save anyway — just warn
     }
 
@@ -341,12 +337,11 @@ const Links = (() => {
     const grid = container.querySelector('#links-grid');
     if (!grid) return;
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><i data-lucide="bookmark-x" width="40" height="40"></i><h3>No bookmarks found</h3><p>${searchQuery ? 'Try a different search term' : 'No bookmarks in this category'}</p></div>`;
-      lucide.createIcons({ el: grid }); return;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('searchX', 40)}<h3>No bookmarks found</h3><p>${searchQuery ? 'Try a different search term' : 'No bookmarks in this category'}</p></div>`;
+      return;
     }
     grid.innerHTML = data.map(b => renderCard(b)).join('');
     grid.querySelectorAll('.bookmark-card').forEach(card => bindCardEvents(card, container));
-    lucide.createIcons({ el: grid });
   }
 
   function renderCard(b) {
@@ -358,7 +353,7 @@ const Links = (() => {
     const noteText = getNote(b);
     const hasLocalNote = localStorage.getItem('bm_note_' + b.id) !== null;
     const isUser = !!b._isUser;
-    const ghMeta = b.githubMeta ? `<div class="github-meta"><span class="github-stat"><i data-lucide="star" width="11" height="11"></i> ${Number(b.githubMeta.stars)||0}</span><span class="github-stat"><i data-lucide="git-fork" width="11" height="11"></i> ${Number(b.githubMeta.forks)||0}</span>${b.githubMeta.language?`<span class="github-lang"><span class="lang-dot" style="background:#${langColor(b.githubMeta.language)}"></span>${escHtml(b.githubMeta.language)}</span>`:''}</div>` : '';
+    const ghMeta = b.githubMeta ? `<div class="github-meta"><span class="github-stat">${Icons.svg('star', 11)} ${Number(b.githubMeta.stars)||0}</span><span class="github-stat">${Icons.svg('fork', 11)} ${Number(b.githubMeta.forks)||0}</span>${b.githubMeta.language?`<span class="github-lang"><span class="lang-dot" style="background:#${langColor(b.githubMeta.language)}"></span>${escHtml(b.githubMeta.language)}</span>`:''}</div>` : '';
     return `
       <div class="bookmark-card" data-id="${escAttr(b.id)}">
         <div class="bookmark-card-header">
@@ -368,18 +363,18 @@ const Links = (() => {
               <span>${escHtml(b.title || domain)}</span>
               ${isUser ? '<span class="user-badge">Local</span>' : ''}
             </div>
-            <div class="bookmark-category">${escHtml(b.category || 'Other')}</div>
+             <div class="bookmark-category">${Icons.category(b.category || 'Other', 12)} ${escHtml(b.category || 'Other')}</div>
           </div>
           <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
             ${isUser ? `
               <button class="toolbar-btn" data-action="edit" data-tooltip="Edit" aria-label="Edit bookmark" style="width:28px;height:28px">
-                <i data-lucide="pencil" width="13" height="13"></i>
+                ${Icons.svg('edit', 13)}
               </button>
               <button class="toolbar-btn" data-action="delete" data-tooltip="Delete" aria-label="Delete bookmark" style="width:28px;height:28px;color:var(--danger)">
-                <i data-lucide="trash-2" width="13" height="13"></i>
+                ${Icons.svg('delete', 13)}
               </button>` : ''}
             <button class="like-btn${liked ? ' liked' : ''}" data-action="like" aria-label="${liked ? 'Unlike' : 'Like'}">
-              <i data-lucide="heart" width="16" height="16" style="${liked ? 'fill:var(--danger);color:var(--danger)' : ''}"></i>
+              ${Icons.svg('heart', 16, liked ? 'ui-icon liked-heart' : 'ui-icon')}
             </button>
           </div>
         </div>
@@ -399,7 +394,7 @@ const Links = (() => {
         ${tags ? `<div class="bookmark-tags">${tags}</div>` : ''}
         <div class="bookmark-footer">
           <span class="bookmark-date">${App.formatDate(b.createdAt)}</span>
-          <a class="bookmark-open-btn" href="${escAttr(url)}" target="_blank" rel="noopener"><i data-lucide="external-link" width="12" height="12"></i> Open</a>
+          <a class="bookmark-open-btn" href="${escAttr(url)}" target="_blank" rel="noopener">${Icons.svg('external', 12)} Open</a>
         </div>
       </div>`;
   }
@@ -499,7 +494,6 @@ const Links = (() => {
     container.querySelector('#bm-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') saveBookmark(container); });
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#bm-category')?.addEventListener('change', () => syncCustomCatInput(container));
-    lucide.createIcons({ el: container.querySelector('#bm-modal-backdrop') });
 
     initFilterBarScroll(container);
   }

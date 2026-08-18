@@ -17,6 +17,10 @@ const Dashboard = (() => {
     const categories = {};
     bookmarks.forEach(b => { const c = b.category || 'Other'; categories[c] = (categories[c] || 0) + 1; });
     const topCats = Object.entries(categories).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const usefulSites = bookmarks
+      .filter(b => ['UI Libraries', 'Design Tools', 'Design Inspiration', 'Assets', 'Design'].includes(b.category))
+      .slice(-8)
+      .reverse();
 
     const liked = Store.getLiked('bookmarks');
 
@@ -30,13 +34,12 @@ const Dashboard = (() => {
       ...prompts.map(i => ({ ...i, _type: 'prompt' }))
     ].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0)).slice(0, 5);
 
-    const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2', prompt: 'sparkles' };
     const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
 
     container.innerHTML = `
-      <div class="home-search animate-slide-up">
+      <div class="home-search">
         <div class="home-search-bar">
-          <i data-lucide="search" width="20" height="20"></i>
+          ${Icons.svg('search', 20)}
           <input class="home-search-input" id="home-search" type="text" placeholder="Search bookmarks, notes, snippets, prompts…" autocomplete="off">
           <kbd class="home-search-kbd">Ctrl K</kbd>
         </div>
@@ -45,7 +48,7 @@ const Dashboard = (() => {
       <div class="stats-grid" id="stats-grid">
         ${stats.map(s => `
           <button class="stat-card" data-route="${s.route}">
-            <div class="stat-card-icon ${s.colorClass}"><i data-lucide="${s.icon}" width="20" height="20"></i></div>
+            <div class="stat-card-icon ${s.colorClass}">${Icons.route(s.route, 20)}</div>
             <div class="stat-card-body">
               <div class="stat-value">${s.value}</div>
               <div class="stat-label">${s.label}</div>
@@ -54,9 +57,9 @@ const Dashboard = (() => {
         `).join('')}
       </div>
 
-      <div class="dashboard-section animate-slide-up">
+      <div class="dashboard-section">
         <div class="section-header">
-          <h2 class="section-title"><i data-lucide="heart" width="18" height="18"></i> Your Liked Sites</h2>
+          <h2 class="section-title">${Icons.svg('heart', 18)} Your Liked Sites</h2>
         </div>
         <div class="liked-grid" id="liked-grid">
           ${liked.length ? liked.map(b => {
@@ -64,36 +67,55 @@ const Dashboard = (() => {
             const favicon = App.safeImageUrl(b.favicon, App.faviconFor(url));
             return `
               <a class="liked-card" href="${escAttr(url)}" target="_blank" rel="noopener">
-                <div class="liked-card-icon">${favicon ? `<img src="${escAttr(favicon)}" alt="" width="20" height="20" onerror="this.style.display='none'">` : '<i data-lucide="bookmark" width="16" height="16"></i>'}</div>
+                <div class="liked-card-icon">${favicon ? `<img src="${escAttr(favicon)}" alt="" width="20" height="20" onerror="this.style.display='none'">` : Icons.svg('bookmark', 16)}</div>
                 <div class="liked-card-body">
                   <div class="liked-card-title">${escHtml(b.title || 'Untitled')}</div>
                   <div class="liked-card-cat">${escHtml(b.category || '')}</div>
                 </div>
-                <i data-lucide="external-link" width="14" height="14" style="color:var(--text-muted);flex-shrink:0"></i>
+                ${Icons.svg('external', 14, 'ui-icon text-muted')}
               </a>`;
-          }).join('') : `<div class="empty-state" style="padding:var(--space-6)"><i data-lucide="heart" width="28" height="28"></i><p>Like bookmarks to see them here</p><button class="btn btn-secondary btn-sm" id="go-bookmarks">Browse Bookmarks</button></div>`}
+          }).join('') : `<div class="empty-state" style="padding:var(--space-6)">${Icons.svg('heart', 28)}<p>Like bookmarks to see them here</p><button class="btn btn-secondary btn-sm" id="go-bookmarks">Browse Bookmarks</button></div>`}
         </div>
       </div>
 
       ${topCats.length ? `
-      <div class="dashboard-section animate-slide-up">
+      <div class="dashboard-section">
         <div class="section-header">
-          <h2 class="section-title"><i data-lucide="layers" width="18" height="18"></i> Top Categories</h2>
+          <h2 class="section-title">${Icons.svg('layers', 18)} Top Categories</h2>
         </div>
         <div class="categories-grid">
           ${topCats.map(([cat, count]) => `
             <button class="category-card" data-cat="${escAttr(cat)}">
-              <span class="category-name">${escHtml(cat)}</span>
+              <span class="category-name">${Icons.category(cat, 14)} ${escHtml(cat)}</span>
               <span class="category-count">${count}</span>
             </button>
           `).join('')}
         </div>
       </div>` : ''}
 
-      ${featuredSnippets.length ? `
-      <div class="dashboard-section animate-slide-up">
+      ${usefulSites.length ? `
+      <div class="dashboard-section">
         <div class="section-header">
-          <h2 class="section-title"><i data-lucide="code-2" width="18" height="18"></i> Featured Snippets</h2>
+          <h2 class="section-title">${Icons.svg('design', 18)} Design resources</h2>
+          <button class="btn btn-ghost btn-sm" id="go-design-tools">Design tools</button>
+        </div>
+        <div class="useful-grid">
+          ${usefulSites.map(b => {
+            const url = App.safeUrl(b.url);
+            const favicon = App.safeImageUrl(b.favicon, App.faviconFor(url));
+            return `
+              <a class="useful-card" href="${escAttr(url)}" target="_blank" rel="noopener">
+                <span class="useful-icon">${favicon ? `<img src="${escAttr(favicon)}" alt="" width="20" height="20" onerror="this.style.display='none'">` : Icons.category(b.category, 16)}</span>
+                <span class="useful-body"><strong>${escHtml(b.title || 'Untitled')}</strong><small>${escHtml((b.tags || []).slice(0, 2).join(' / ') || b.category || '')}</small></span>
+              </a>`;
+          }).join('')}
+        </div>
+      </div>` : ''}
+
+      ${featuredSnippets.length ? `
+      <div class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">${Icons.svg('code', 18)} Featured Snippets</h2>
           <button class="btn btn-ghost btn-sm" id="go-snippets">View all</button>
         </div>
         <div class="featured-snippets-grid">
@@ -107,24 +129,24 @@ const Dashboard = (() => {
                 </div>
                 <pre class="snippet-code"><code class="language-${langKey}">${escHtml((s.code || '').slice(0, 200))}</code></pre>
                 <button class="copy-btn-overlay" data-action="copy-snippet" data-code="${escAttr(s.code || '')}">
-                  <i data-lucide="copy" width="12" height="12"></i> Copy
+                  ${Icons.svg('copy', 12)} Copy
                 </button>
               </div>`;
           }).join('')}
         </div>
       </div>` : ''}
 
-      <div class="dashboard-section animate-slide-up">
+      <div class="dashboard-section">
         <div class="section-header">
-          <h2 class="section-title"><i data-lucide="clock" width="18" height="18"></i> Recently Added</h2>
+          <h2 class="section-title">${Icons.svg('clock', 18)} Recently Added</h2>
         </div>
         <div class="recent-activity" id="recent-activity">
           ${recentItems.length ? recentItems.map(item => {
             const isLink = item._type === 'link';
             const url = isLink ? App.safeUrl(item.url, '') : '';
             const iconHtml = isLink && item.favicon
-              ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
-              : `<i data-lucide="${icons[item._type]}" width="16" height="16"></i>`;
+              ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.style.display='none'">`
+              : Icons.type(item._type, 16);
             return `
               <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}">
                 <div class="recent-item-icon">${iconHtml}</div>
@@ -134,14 +156,10 @@ const Dashboard = (() => {
                 </div>
                 <span class="recent-item-type">${item._type}</span>
               </button>`;
-          }).join('') : `<div class="empty-state" style="padding:32px"><i data-lucide="inbox" width="28" height="28"></i><p>No items yet.</p></div>`}
+          }).join('') : `<div class="empty-state" style="padding:32px">${Icons.svg('inbox', 28)}<p>No items yet.</p></div>`}
         </div>
       </div>
     `;
-
-    lucide.createIcons({ el: container });
-
-    lucide.createIcons({ el: container });
 
     // Syntax highlight featured snippets
     container.querySelectorAll('pre code').forEach(block => { if (window.hljs) hljs.highlightElement(block); });
@@ -154,6 +172,10 @@ const Dashboard = (() => {
 
     container.querySelector('#go-bookmarks')?.addEventListener('click', () => App.navigate('links'));
     container.querySelector('#go-snippets')?.addEventListener('click', () => App.navigate('snippets'));
+    container.querySelector('#go-design-tools')?.addEventListener('click', () => {
+      App.navigate('links');
+      setTimeout(() => Links.filterByCategory?.('Design Tools'), 100);
+    });
 
     container.querySelectorAll('.stat-card[data-route]').forEach(btn => {
       btn.addEventListener('click', () => App.navigate(btn.dataset.route));
@@ -176,9 +198,8 @@ const Dashboard = (() => {
     container.querySelectorAll('[data-action="copy-snippet"]').forEach(btn => {
       btn.addEventListener('click', () => {
         navigator.clipboard.writeText(btn.dataset.code || '').then(() => {
-          btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
-          lucide.createIcons({ el: btn });
-          setTimeout(() => { btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+          btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
+          setTimeout(() => { btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
         }).catch(() => App.toast('Copy failed', 'error'));
       });
     });

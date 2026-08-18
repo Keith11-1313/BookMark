@@ -948,5 +948,285 @@
     "notes": "Free animated drawing tool for creating wiggly illustrations and exporting them as GIFs.",
     "favicon": "https://www.google.com/s2/favicons?domain=wigglypaint.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
+  },
+  {
+    "id": "https://tinywow.com/",
+    "url": "https://tinywow.com/",
+    "title": "TinyWow",
+    "category": "Utilities",
+    "tags": ["pdf-tools", "image-tools", "ai-writing"],
+    "notes": "Free online tools for PDF, image, video, file conversion, and AI writing tasks.",
+    "favicon": "https://www.google.com/s2/favicons?domain=tinywow.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://learn-anything.xyz/",
+    "url": "https://learn-anything.xyz/",
+    "title": "Learn Anything",
+    "category": "Education",
+    "tags": ["learning", "knowledge-map", "resources"],
+    "notes": "Free platform for discovering learning resources and topic maps across many subjects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=learn-anything.xyz&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://wifispc.com/",
+    "url": "https://wifispc.com/",
+    "title": "WiFi Space",
+    "category": "Utilities",
+    "tags": ["wifi-map", "passwords", "travel"],
+    "notes": "Map-based service for finding shared WiFi passwords nearby.",
+    "favicon": "https://www.google.com/s2/favicons?domain=wifispc.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://www.desktophut.com/",
+    "url": "https://www.desktophut.com/",
+    "title": "DesktopHut",
+    "category": "Assets",
+    "tags": ["live-wallpapers", "animated-backgrounds", "desktop"],
+    "notes": "Library of free live and animated wallpapers for Windows PC, Mac, and mobile.",
+    "favicon": "https://www.google.com/s2/favicons?domain=desktophut.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://geospy.ai/",
+    "url": "https://geospy.ai/",
+    "title": "GeoSpy",
+    "category": "AI",
+    "tags": ["image-geolocation", "osint", "investigation"],
+    "notes": "AI tool for estimating photo locations from image intelligence.",
+    "favicon": "https://www.google.com/s2/favicons?domain=geospy.ai&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://www.turbo.ai/",
+    "url": "https://www.turbo.ai/",
+    "title": "Turbo AI",
+    "category": "AI",
+    "tags": ["ai-notes", "flashcards", "study-tools"],
+    "notes": "AI study tool for generating notes, flashcards, quizzes, and related learning materials.",
+    "favicon": "https://www.google.com/s2/favicons?domain=turbo.ai&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://3dicons.co/",
+    "url": "https://3dicons.co/",
+    "title": "3dicons",
+    "category": "Assets",
+    "tags": ["3d-icons", "open-source", "free"],
+    "notes": "Open-source library of free 3D icons for personal and commercial projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=3dicons.co&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://animate-ui.com/",
+    "url": "https://animate-ui.com/",
+    "title": "Animate UI",
+    "category": "UI Libraries",
+    "tags": ["react", "animated-components", "shadcn"],
+    "notes": "Open-source animated React components built with TypeScript, Tailwind CSS, Motion, and shadcn CLI.",
+    "favicon": "https://www.google.com/s2/favicons?domain=animate-ui.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://www.untitledui.com/",
+    "url": "https://www.untitledui.com/",
+    "title": "Untitled UI",
+    "category": "UI Libraries",
+    "tags": ["figma-kit", "react", "ui-components"],
+    "notes": "Large Figma UI kit and React component library for product design and development.",
+    "favicon": "https://www.google.com/s2/favicons?domain=untitledui.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://phosphoricons.com/",
+    "url": "https://phosphoricons.com/",
+    "title": "Phosphor Icons",
+    "category": "Assets",
+    "tags": ["icons", "svg", "interface"],
+    "notes": "Flexible icon family for interfaces, diagrams, presentations, and other visual projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=phosphoricons.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://heroicons.com/",
+    "url": "https://heroicons.com/",
+    "title": "Heroicons",
+    "category": "Assets",
+    "tags": ["svg-icons", "tailwind", "interface"],
+    "notes": "Hand-crafted SVG icon set from the makers of Tailwind CSS.",
+    "favicon": "https://www.google.com/s2/favicons?domain=heroicons.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://lucide.dev/",
+    "url": "https://lucide.dev/",
+    "title": "Lucide",
+    "category": "Assets",
+    "tags": ["icons", "svg", "open-source"],
+    "notes": "Community-made icon toolkit focused on consistent, clean interface icons.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lucide.dev&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://yout.com/",
+    "url": "https://yout.com/",
+    "title": "Yout",
+    "category": "Utilities",
+    "tags": ["video-tools", "format-shift", "clipping"],
+    "notes": "Internet DVR for format-shifting and clipping videos from sites including YouTube, TikTok, and Instagram.",
+    "favicon": "https://www.google.com/s2/favicons?domain=yout.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://terraink.app/",
+    "url": "https://terraink.app/",
+    "title": "Terraink",
+    "category": "Design Tools",
+    "tags": ["map-poster", "wallpaper", "generator"],
+    "notes": "Free map poster and wallpaper generator with PNG, PDF, and SVG export.",
+    "favicon": "https://www.google.com/s2/favicons?domain=terraink.app&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://uiverse.io/",
+    "url": "https://uiverse.io/",
+    "title": "Uiverse",
+    "category": "Blocked",
+    "tags": ["automation-blocked", "http-403"],
+    "notes": "Automation verification blocked with HTTP 403.",
+    "favicon": "https://www.google.com/s2/favicons?domain=uiverse.io&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://spacetypegenerator.com/",
+    "url": "https://spacetypegenerator.com/",
+    "title": "Space Type Generator",
+    "category": "Design Tools",
+    "tags": ["typography", "text-effects", "generator"],
+    "notes": "Browser-based typography generator for animated space-style text experiments.",
+    "favicon": "https://www.google.com/s2/favicons?domain=spacetypegenerator.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://www.napkin.ai/",
+    "url": "https://www.napkin.ai/",
+    "title": "Napkin AI",
+    "category": "AI",
+    "tags": ["ai-visuals", "presentations", "storytelling"],
+    "notes": "AI tool that transforms text into visuals for business storytelling and communication.",
+    "favicon": "https://www.google.com/s2/favicons?domain=napkin.ai&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://glint.trade/",
+    "url": "https://glint.trade/",
+    "title": "Glint",
+    "category": "Finance",
+    "tags": ["trading", "finance", "web-app"],
+    "notes": "Trading web app branded as Glint.",
+    "favicon": "https://www.google.com/s2/favicons?domain=glint.trade&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://app.paperanimator.com/",
+    "url": "https://app.paperanimator.com/",
+    "title": "Paperanimator",
+    "category": "Design Tools",
+    "tags": ["photo-effects", "paper-animation", "export"],
+    "notes": "Web app for applying paper effects to photos and exporting animated results with green-screen backgrounds.",
+    "favicon": "https://www.google.com/s2/favicons?domain=app.paperanimator.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://freesewing.eu/",
+    "url": "https://freesewing.eu/",
+    "title": "FreeSewing",
+    "category": "Craft",
+    "tags": ["sewing-patterns", "open-source", "bespoke"],
+    "notes": "Open-source software for generating bespoke sewing patterns.",
+    "favicon": "https://www.google.com/s2/favicons?domain=freesewing.eu&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://nextcloud.com/",
+    "url": "https://nextcloud.com/",
+    "title": "Nextcloud",
+    "category": "Open Source",
+    "tags": ["collaboration", "self-hosted", "cloud"],
+    "notes": "Open-source content collaboration platform for file sync, sharing, and organizational cloud workflows.",
+    "favicon": "https://www.google.com/s2/favicons?domain=nextcloud.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://annas-archive.gl/",
+    "url": "https://annas-archive.gl/",
+    "title": "Anna's Archive",
+    "category": "Digital Libraries",
+    "tags": ["books", "papers", "archive"],
+    "notes": "Searchable digital archive for books, papers, magazines, comics, library records, and metadata.",
+    "favicon": "https://www.google.com/s2/favicons?domain=annas-archive.gl&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://archive.org/",
+    "url": "https://archive.org/",
+    "title": "Internet Archive",
+    "category": "Digital Libraries",
+    "tags": ["digital-library", "wayback-machine", "media"],
+    "notes": "Digital library of free and borrowable texts, movies, music, software, and archived web pages.",
+    "favicon": "https://www.google.com/s2/favicons?domain=archive.org&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://cobalt.tools/",
+    "url": "https://cobalt.tools/",
+    "title": "cobalt",
+    "category": "Utilities",
+    "tags": ["media-downloader", "no-ads", "privacy"],
+    "notes": "Web tool for saving media links without ads, tracking, paywalls, or other extra steps.",
+    "favicon": "https://www.google.com/s2/favicons?domain=cobalt.tools&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://www.photopea.com/",
+    "url": "https://www.photopea.com/",
+    "title": "Photopea",
+    "category": "Design Tools",
+    "tags": ["photo-editor", "browser-app", "image-editing"],
+    "notes": "Browser-based photo editor for editing images, applying effects, adding text, cropping, and resizing.",
+    "favicon": "https://www.google.com/s2/favicons?domain=photopea.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://syncthing.net/",
+    "url": "https://syncthing.net/",
+    "title": "Syncthing",
+    "category": "Open Source",
+    "tags": ["file-sync", "peer-to-peer", "privacy"],
+    "notes": "Open-source continuous file synchronization between devices.",
+    "favicon": "https://www.google.com/s2/favicons?domain=syncthing.net&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://ninite.com/",
+    "url": "https://ninite.com/",
+    "title": "Ninite",
+    "category": "Utilities",
+    "tags": ["app-installer", "windows", "updates"],
+    "notes": "Windows utility for installing or updating multiple apps automatically in the background.",
+    "favicon": "https://www.google.com/s2/favicons?domain=ninite.com&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://boneyard.vercel.app/",
+    "url": "https://boneyard.vercel.app/",
+    "title": "boneyard",
+    "category": "Developer Tools",
+    "tags": ["skeleton-screens", "ui-loading", "dom"],
+    "notes": "Tool for auto-extracting pixel-perfect skeleton loading screens from real DOM layouts.",
+    "favicon": "https://www.google.com/s2/favicons?domain=boneyard.vercel.app&sz=32",
+    "createdAt": "2026-07-30T21:51:33"
   }
 ]

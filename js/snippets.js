@@ -12,7 +12,6 @@ const Snippets = (() => {
   function render(container) {
     allSnippets = Store.get('snippets');
     container.innerHTML = buildShell();
-    lucide.createIcons({ el: container });
     bindEvents(container);
     refreshList(container);
     renderFab(container);
@@ -23,18 +22,18 @@ const Snippets = (() => {
     return `
       <div class="page-header">
         <div class="page-header-left">
-          <i data-lucide="code-2" width="24" height="24" style="color:var(--accent)"></i>
+          ${Icons.svg('code2', 24, 'ui-icon icon-accent')}
           <div><div class="page-title">Snippets</div><div class="page-subtitle">Reusable code &amp; text blocks</div></div>
         </div>
         <div class="page-actions">
           <button class="btn btn-primary hide-on-mobile" id="btn-new-snippet">
-            <i data-lucide="plus" width="15" height="15"></i><span>New Snippet</span>
+            ${Icons.svg('plus', 15)}<span>New Snippet</span>
           </button>
         </div>
       </div>
       <div class="page-toolbar">
         <div class="search-bar">
-          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <span class="search-icon">${Icons.svg('search', 15)}</span>
           <input class="input" id="snippets-search" type="search" placeholder="Search snippets…">
         </div>
         <select class="input" id="snippets-lang-filter" style="width:auto"><option value="all">All Languages</option>${LANGUAGES.map(l => `<option>${escHtml(l)}</option>`).join('')}</select>
@@ -56,11 +55,11 @@ const Snippets = (() => {
             <div style="display:flex;align-items:center;gap:var(--space-2)">
               <span class="modal-title" id="sn-modal-title">New Snippet</span>
               <div class="info-tooltip-wrap">
-                <span class="info-icon"><i data-lucide="info" width="14" height="14"></i></span>
+                <span class="info-icon">${Icons.svg('info', 14)}</span>
                 <span class="info-tip">Snippets you add are saved in your browser's local storage. Clearing browser data removes them.</span>
               </div>
             </div>
-            <button class="btn-ghost btn-sm btn-icon" id="sn-modal-close" aria-label="Close"><i data-lucide="x" width="16" height="16"></i></button>
+            <button class="btn-ghost btn-sm btn-icon" id="sn-modal-close" aria-label="Close">${Icons.svg('x', 16)}</button>
           </div>
           <div class="modal-body">
             <input type="hidden" id="sn-edit-id">
@@ -97,9 +96,8 @@ const Snippets = (() => {
     fab.id = 'page-fab';
     fab.className = 'fab';
     fab.setAttribute('aria-label', 'New Snippet');
-    fab.innerHTML = '<i data-lucide="plus" width="24" height="24"></i>';
+    fab.innerHTML = Icons.svg('plus', 24);
     document.body.appendChild(fab);
-    lucide.createIcons({ el: fab });
     fab.addEventListener('click', () => openModal(container));
   }
 
@@ -152,13 +150,12 @@ const Snippets = (() => {
 
     const grid = container.querySelector('#snippets-grid'); if (!grid) return;
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><i data-lucide="code" width="40" height="40"></i><h3>No snippets found</h3><p>${q ? 'Try a different search term' : 'Click New Snippet to add one'}</p></div>`;
-      lucide.createIcons({ el: grid }); return;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('code', 40)}<h3>No snippets found</h3><p>${q ? 'Try a different search term' : 'Click New Snippet to add one'}</p></div>`;
+      return;
     }
     grid.innerHTML = data.map(s => renderCard(s)).join('');
     grid.querySelectorAll('.snippet-card').forEach(card => bindCardEvents(card, container));
     grid.querySelectorAll('pre code').forEach(block => { if (window.hljs) hljs.highlightElement(block); });
-    lucide.createIcons({ el: grid });
   }
 
   function renderCard(s) {
@@ -174,17 +171,17 @@ const Snippets = (() => {
           <span class="snippet-lang lang-${langKey}">${escHtml(s.language || 'Text')}</span>
           <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
             ${isUser ? `
-              <button class="toolbar-btn" data-action="edit" data-tooltip="Edit" style="width:26px;height:26px"><i data-lucide="pencil" width="13" height="13"></i></button>
-              <button class="toolbar-btn" data-action="delete" data-tooltip="Delete" style="width:26px;height:26px;color:var(--danger)"><i data-lucide="trash-2" width="13" height="13"></i></button>` : ''}
+              <button class="toolbar-btn" data-action="edit" data-tooltip="Edit" style="width:26px;height:26px">${Icons.svg('pencil', 13)}</button>
+              <button class="toolbar-btn" data-action="delete" data-tooltip="Delete" style="width:26px;height:26px;color:var(--danger)">${Icons.svg('trash', 13)}</button>` : ''}
             <button class="like-btn${liked ? ' liked' : ''}" data-action="like" aria-label="${liked ? 'Unlike' : 'Like'}">
-              <i data-lucide="heart" width="14" height="14" style="${liked ? 'fill:var(--danger);color:var(--danger)' : ''}"></i>
+              ${Icons.svg('heart', 14, liked ? 'ui-icon liked-heart' : 'ui-icon')}
             </button>
           </div>
         </div>
         <div class="snippet-code-wrap">
           <pre class="snippet-code"><code class="language-${langKey}">${escHtml(s.code || '')}</code></pre>
           <button class="copy-btn-overlay" data-action="copy" aria-label="Copy code">
-            <i data-lucide="copy" width="12" height="12"></i> Copy
+            ${Icons.svg('copy', 12)} Copy
           </button>
         </div>
         <div class="snippet-footer">
@@ -225,9 +222,8 @@ const Snippets = (() => {
     const code = card.querySelector('code')?.textContent || '';
     navigator.clipboard.writeText(code).then(() => {
       btn.classList.add('copied');
-      btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
-      lucide.createIcons({ el: btn });
-      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+      btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
     }).catch(() => App.toast('Copy failed', 'error'));
   }
 
@@ -246,9 +242,9 @@ const Snippets = (() => {
       <div class="editor-toolbar">
         <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Snippet Viewer${snippet._isUser ? ' <span class="user-badge" style="margin-left:6px">Local</span>' : ''}</span>
         <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;margin-left:auto;margin-right:var(--space-2)">
-          <i data-lucide="copy" width="12" height="12"></i> Copy
+          ${Icons.svg('copy', 12)} Copy
         </button>
-        <button class="btn-ghost btn-sm btn-icon" id="btn-close-viewer" aria-label="Close viewer"><i data-lucide="x" width="16" height="16"></i></button>
+        <button class="btn-ghost btn-sm btn-icon" id="btn-close-viewer" aria-label="Close viewer">${Icons.svg('x', 16)}</button>
       </div>
       <div class="editor-meta" style="flex-direction:column;align-items:flex-start;gap:var(--space-2)">
         <div style="font-weight:700;font-size:var(--text-lg);color:var(--text-primary)">${escHtml(snippet.title || 'Untitled')}</div>
@@ -260,7 +256,6 @@ const Snippets = (() => {
       </div>
       <div class="viewer-body"><pre class="viewer-code"><code class="language-${langKey}" id="viewer-snippet-code">${escHtml(snippet.code || '')}</code></pre></div>
     `;
-    lucide.createIcons({ el: panel });
     const codeEl = panel.querySelector('#viewer-snippet-code');
     if (codeEl && window.hljs) hljs.highlightElement(codeEl);
     panel.querySelector('#btn-close-viewer')?.addEventListener('click', () => closeViewer(container));
@@ -268,9 +263,8 @@ const Snippets = (() => {
       const btn = e.currentTarget;
       const code = panel.querySelector('#viewer-snippet-code')?.textContent || '';
       navigator.clipboard.writeText(code).then(() => {
-        btn.classList.add('copied'); btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
-        lucide.createIcons({ el: btn });
-        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+        btn.classList.add('copied'); btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
       }).catch(() => App.toast('Copy failed', 'error'));
     });
     refreshList(container);
@@ -292,7 +286,6 @@ const Snippets = (() => {
     container.querySelector('#sn-modal-cancel')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#sn-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#sn-modal-backdrop')) closeModal(container); });
     container.querySelector('#sn-modal-save')?.addEventListener('click', () => saveSnippet(container));
-    lucide.createIcons({ el: container.querySelector('#sn-modal-backdrop') });
   }
 
   function escHtml(s) { return App.escapeHtml(s); }

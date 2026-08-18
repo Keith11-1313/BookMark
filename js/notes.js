@@ -18,7 +18,6 @@ const Notes = (() => {
   function render(container) {
     allNotes = Store.get('notes');
     container.innerHTML = buildShell();
-    lucide.createIcons({ el: container });
     bindEvents(container);
     renderNotesList(container);
     renderFab(container);
@@ -29,18 +28,18 @@ const Notes = (() => {
     return `
       <div class="page-header">
         <div class="page-header-left">
-          <i data-lucide="notebook-pen" width="24" height="24" style="color:var(--accent)"></i>
+          ${Icons.svg('notebookPen', 24, 'ui-icon icon-accent')}
           <div><div class="page-title">Notes</div><div class="page-subtitle">Curated notes &amp; knowledge</div></div>
         </div>
         <div class="page-actions">
           <button class="btn btn-primary hide-on-mobile" id="btn-new-note">
-            <i data-lucide="plus" width="15" height="15"></i><span>New Note</span>
+            ${Icons.svg('plus', 15)}<span>New Note</span>
           </button>
         </div>
       </div>
       <div class="page-toolbar">
         <div class="search-bar">
-          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <span class="search-icon">${Icons.svg('search', 15)}</span>
           <input class="input" id="notes-search" type="search" placeholder="Search notes…">
         </div>
         <select class="input" id="notes-sort" style="width:auto">
@@ -64,9 +63,8 @@ const Notes = (() => {
     fab.id = 'page-fab';
     fab.className = 'fab';
     fab.setAttribute('aria-label', 'New Note');
-    fab.innerHTML = '<i data-lucide="plus" width="24" height="24"></i>';
+    fab.innerHTML = Icons.svg('plus', 24);
     document.body.appendChild(fab);
-    lucide.createIcons({ el: fab });
     fab.addEventListener('click', () => createNewNote(container));
   }
 
@@ -84,8 +82,8 @@ const Notes = (() => {
     else data.sort((a, b) => new Date(b.updatedAt || b.createdAt || 0) - new Date(a.updatedAt || a.createdAt || 0));
 
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state"><i data-lucide="notebook" width="40" height="40"></i><h3>No notes found</h3><p>${q ? 'Try a different search term' : 'Click New Note to get started'}</p></div>`;
-      lucide.createIcons({ el: grid }); return;
+      grid.innerHTML = `<div class="empty-state">${Icons.svg('notebook', 40)}<h3>No notes found</h3><p>${q ? 'Try a different search term' : 'Click New Note to get started'}</p></div>`;
+      return;
     }
 
     grid.innerHTML = data.map(n => {
@@ -98,14 +96,14 @@ const Notes = (() => {
           <div style="display:flex;align-items:center;gap:4px;flex-shrink:0">
             ${n._isUser ? '<span class="user-badge">Local</span>' : ''}
             <button class="like-btn${liked ? ' liked' : ''}" data-action="like" aria-label="${liked ? 'Unlike' : 'Like'}">
-              <i data-lucide="heart" width="14" height="14" style="${liked ? 'fill:var(--danger);color:var(--danger)' : ''}"></i>
+              ${Icons.svg('heart', 14, liked ? 'ui-icon liked-heart' : 'ui-icon')}
             </button>
           </div>
         </div>
         <div class="note-card-preview">${escHtml((n.body || '').replace(/<[^>]+>/g, '').slice(0, 120))}</div>
         <div class="note-card-footer">
           <span class="note-date">${App.formatDate(n.updatedAt || n.createdAt)}</span>
-          ${(n.linkedBookmarks || []).length ? `<span class="linked-bookmarks-count"><i data-lucide="link" width="10" height="10"></i>${n.linkedBookmarks.length}</span>` : ''}
+          ${(n.linkedBookmarks || []).length ? `<span class="linked-bookmarks-count">${Icons.svg('link', 10)}${n.linkedBookmarks.length}</span>` : ''}
         </div>
       </div>`;
     }).join('');
@@ -124,7 +122,6 @@ const Notes = (() => {
         renderNotesList(container);
       });
     });
-    lucide.createIcons({ el: grid });
   }
 
   // ── Create new note ────────────────────────────────────────
@@ -176,10 +173,10 @@ const Notes = (() => {
           ${isUser ? `
             <span class="editor-save-status" id="save-status" style="font-size:11px"></span>
             <button class="toolbar-btn" id="btn-delete-note" data-tooltip="Delete note" aria-label="Delete note" style="color:var(--danger)">
-              <i data-lucide="trash-2" width="15" height="15"></i>
+              ${Icons.svg('trash', 15)}
             </button>` : ''}
           <button class="btn-ghost btn-sm btn-icon" id="btn-close-editor" aria-label="Close">
-            <i data-lucide="x" width="16" height="16"></i>
+            ${Icons.svg('x', 16)}
           </button>
         </div>
       </div>
@@ -197,18 +194,16 @@ const Notes = (() => {
            ${isUser ? 'contenteditable="true" data-placeholder="Start writing your note…"' : ''}
            style="padding:var(--space-4);line-height:1.7;color:var(--text-secondary)"
       >${isUser ? (note.body || '') : (note.body || '<p style="color:var(--text-muted)">No content</p>')}</div>
-      ${linkedChips ? `<div class="editor-linked"><div class="linked-header"><span><i data-lucide="link" width="12" height="12"></i> Linked Bookmarks</span></div><div class="linked-chips">${linkedChips}</div></div>` : ''}
+      ${linkedChips ? `<div class="editor-linked"><div class="linked-header"><span>${Icons.svg('link', 12)} Linked Bookmarks</span></div><div class="linked-chips">${linkedChips}</div></div>` : ''}
       ${isUser ? `
         <div class="editor-linked" style="border-top:1px solid var(--border);padding:var(--space-3) var(--space-4);background:var(--bg-tertiary)">
           <div class="info-tooltip-wrap" style="display:inline-flex;gap:var(--space-2);align-items:center;font-size:var(--text-xs);color:var(--text-muted)">
-            <i data-lucide="info" width="13" height="13"></i>
+            ${Icons.svg('info', 13)}
             <span>Saved in browser localStorage</span>
             <span class="info-tip">Items you add are saved in your browser's local storage. Clearing browser data will remove them. Use Export JSON to back up your notes.</span>
           </div>
         </div>` : ''}
     `;
-
-    lucide.createIcons({ el: panel });
 
     panel.querySelector('#btn-close-editor')?.addEventListener('click', () => closeViewer(container));
 
@@ -260,24 +255,24 @@ const Notes = (() => {
   // ── Formatting toolbar HTML ────────────────────────────────
   function buildEditorToolbar() {
     const btn = (cmd, val, icon, tip) =>
-      `<button class="toolbar-btn" data-cmd="${cmd}" ${val ? `data-val="${escAttr(val)}"` : ''} data-tooltip="${tip}" aria-label="${tip}"><i data-lucide="${icon}" width="14" height="14"></i></button>`;
+      `<button class="toolbar-btn" data-cmd="${cmd}" ${val ? `data-val="${escAttr(val)}"` : ''} data-tooltip="${tip}" aria-label="${tip}">${Icons.svg(icon, 14)}</button>`;
     const sep = '<span class="toolbar-sep"></span>';
     return `
       <div class="editor-toolbar" style="flex-wrap:wrap;gap:2px;row-gap:4px">
         ${btn('bold','','bold','Bold')}
         ${btn('italic','','italic','Italic')}
         ${btn('underline','','underline','Underline')}
-        ${btn('strikeThrough','','strikethrough','Strikethrough')}
+        ${btn('strikeThrough','','strike','Strikethrough')}
         ${sep}
-        ${btn('formatBlock','h1','heading-1','Heading 1')}
-        ${btn('formatBlock','h2','heading-2','Heading 2')}
-        ${btn('formatBlock','h3','heading-3','Heading 3')}
+        ${btn('formatBlock','h1','heading1','Heading 1')}
+        ${btn('formatBlock','h2','heading2','Heading 2')}
+        ${btn('formatBlock','h3','heading3','Heading 3')}
         ${sep}
         ${btn('insertUnorderedList','','list','Bullet list')}
-        ${btn('insertOrderedList','','list-ordered','Numbered list')}
+        ${btn('insertOrderedList','','listOrdered','Numbered list')}
         ${btn('formatBlock','blockquote','quote','Blockquote')}
         ${sep}
-        ${btn('formatBlock','pre','code-2','Code block')}
+        ${btn('formatBlock','pre','code2','Code block')}
       </div>`;
   }
 

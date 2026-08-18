@@ -55,15 +55,14 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
-  animation: scaleIn 0.2s ease;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: pointer;
 }
 .prompt-card:hover,
-.prompt-card:focus-within { border-color: var(--bg-hover); transform: translateY(-2px); }
+.prompt-card:focus-within { border-color: var(--bg-hover); background: var(--bg-tertiary); }
 .prompt-card.active { border-color: var(--accent); }
 
 
@@ -79,11 +78,12 @@
 .prompt-title { font-size: var(--text-sm); font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .prompt-cat {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 
@@ -133,16 +133,12 @@
 }
 .prompt-date { font-size: 11px; color: var(--text-muted); }
 
-/* Category colors */
-.cat-writing    { background: rgba(88,101,242,0.15);  color: #8b97ff; }
-.cat-coding     { background: rgba(247,223,30,0.15);  color: #f7df1e; }
-.cat-analysis   { background: rgba(0,168,252,0.15);   color: var(--text-link); }
-.cat-creative   { background: rgba(235,69,158,0.15);  color: #eb459e; }
-.cat-business   { background: rgba(35,165,89,0.15);   color: #3ec17a; }
-.cat-marketing  { background: rgba(240,178,50,0.15);  color: var(--warning); }
-.cat-education  { background: rgba(0,173,216,0.15);   color: #00add8; }
-.cat-personal   { background: rgba(149,149,149,0.15); color: #949ba4; }
-.cat-other      { background: var(--bg-hover); color: var(--text-muted); }
+/* Category chip: single neutral tone, no per-category colors */
+.cat-writing, .cat-coding, .cat-analysis, .cat-creative, .cat-business,
+.cat-marketing, .cat-education, .cat-personal, .cat-other {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
 
 @media (max-width: 640px) {
   .prompts-grid { grid-template-columns: minmax(0, 1fr); }
@@ -156,5 +152,4 @@
 
 @media (hover: none), (pointer: coarse) {
   .copy-btn-overlay { opacity: 1; }
-  .prompt-card:hover { transform: none; }
 }

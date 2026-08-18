@@ -57,7 +57,6 @@ const Prompts = (() => {
   function render(container) {
     allPrompts = Store.get('prompts');
     container.innerHTML = buildShell();
-    lucide.createIcons({ el: container });
     bindEvents(container);
     refreshList(container);
     renderFab(container);
@@ -67,18 +66,18 @@ const Prompts = (() => {
     return `
       <div class="page-header">
         <div class="page-header-left">
-          <i data-lucide="sparkles" width="24" height="24" style="color:var(--accent)"></i>
+          ${Icons.svg('sparkles', 24, 'ui-icon icon-accent')}
           <div><div class="page-title">Prompts</div><div class="page-subtitle">Reusable prompts for AI &amp; automation</div></div>
         </div>
         <div class="page-actions">
           <button class="btn btn-primary hide-on-mobile" id="btn-new-prompt">
-            <i data-lucide="plus" width="15" height="15"></i><span>New Prompt</span>
+            ${Icons.svg('plus', 15)}<span>New Prompt</span>
           </button>
         </div>
       </div>
       <div class="page-toolbar">
         <div class="search-bar">
-          <span class="search-icon"><i data-lucide="search" width="15" height="15"></i></span>
+          <span class="search-icon">${Icons.svg('search', 15)}</span>
           <input class="input" id="prompts-search" type="search" placeholder="Search prompts…">
         </div>
         <select class="input" id="prompts-cat-filter" style="width:auto">
@@ -101,7 +100,7 @@ const Prompts = (() => {
         <div class="modal">
           <div class="modal-header">
             <span class="modal-title" id="pr-modal-title">New Prompt</span>
-            <button class="btn-ghost btn-sm btn-icon" id="pr-modal-close" aria-label="Close"><i data-lucide="x" width="16" height="16"></i></button>
+            <button class="btn-ghost btn-sm btn-icon" id="pr-modal-close" aria-label="Close">${Icons.svg('x', 16)}</button>
           </div>
           <div class="modal-body">
             <input type="hidden" id="pr-edit-id">
@@ -126,7 +125,7 @@ const Prompts = (() => {
               <input class="input" id="pr-tags" type="text" placeholder="system-prompt, coding">
             </div>
             <div class="inline-notice">
-              <i data-lucide="info" width="13" height="13"></i>
+              ${Icons.svg('info', 13)}
               <span>Saved in browser localStorage only. Clearing browser data removes it.</span>
             </div>
           </div>
@@ -146,9 +145,8 @@ const Prompts = (() => {
     fab.id = 'page-fab';
     fab.className = 'fab';
     fab.setAttribute('aria-label', 'New Prompt');
-    fab.innerHTML = '<i data-lucide="plus" width="24" height="24"></i>';
+    fab.innerHTML = Icons.svg('plus', 24);
     document.body.appendChild(fab);
-    lucide.createIcons({ el: fab });
     fab.addEventListener('click', () => openModal(container));
   }
 
@@ -224,12 +222,11 @@ const Prompts = (() => {
 
     const grid = container.querySelector('#prompts-grid'); if (!grid) return;
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><i data-lucide="sparkles" width="40" height="40"></i><h3>No prompts found</h3><p>${q ? 'Try a different search term' : 'Click New Prompt to add one'}</p></div>`;
-      lucide.createIcons({ el: grid }); return;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('sparkles', 40)}<h3>No prompts found</h3><p>${q ? 'Try a different search term' : 'Click New Prompt to add one'}</p></div>`;
+      return;
     }
     grid.innerHTML = data.map(p => renderCard(p)).join('');
     grid.querySelectorAll('.prompt-card').forEach(card => bindCardEvents(card, container));
-    lucide.createIcons({ el: grid });
   }
 
   function renderCard(p) {
@@ -245,17 +242,17 @@ const Prompts = (() => {
           <span class="prompt-cat cat-${catKey}">${escHtml(p.category || 'Other')}</span>
           <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
             ${isUser ? `
-              <button class="toolbar-btn" data-action="edit" data-tooltip="Edit" style="width:26px;height:26px"><i data-lucide="pencil" width="13" height="13"></i></button>
-              <button class="toolbar-btn" data-action="delete" data-tooltip="Delete" style="width:26px;height:26px;color:var(--danger)"><i data-lucide="trash-2" width="13" height="13"></i></button>` : ''}
+              <button class="toolbar-btn" data-action="edit" data-tooltip="Edit" style="width:26px;height:26px">${Icons.svg('pencil', 13)}</button>
+              <button class="toolbar-btn" data-action="delete" data-tooltip="Delete" style="width:26px;height:26px;color:var(--danger)">${Icons.svg('trash', 13)}</button>` : ''}
             <button class="like-btn${liked ? ' liked' : ''}" data-action="like" aria-label="${liked ? 'Unlike' : 'Like'}">
-              <i data-lucide="heart" width="14" height="14" style="${liked ? 'fill:var(--danger);color:var(--danger)' : ''}"></i>
+              ${Icons.svg('heart', 14, liked ? 'ui-icon liked-heart' : 'ui-icon')}
             </button>
           </div>
         </div>
         <div class="prompt-body-wrap">
           <div class="prompt-body">${escHtml(p.body || '')}</div>
           <button class="copy-btn-overlay" data-action="copy" aria-label="Copy prompt">
-            <i data-lucide="copy" width="12" height="12"></i> Copy
+            ${Icons.svg('copy', 12)} Copy
           </button>
         </div>
         <div class="prompt-footer">
@@ -296,9 +293,8 @@ const Prompts = (() => {
     const text = card.querySelector('.prompt-body')?.textContent || '';
     navigator.clipboard.writeText(text).then(() => {
       btn.classList.add('copied');
-      btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
-      lucide.createIcons({ el: btn });
-      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+      btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
     }).catch(() => App.toast('Copy failed', 'error'));
   }
 
@@ -317,9 +313,9 @@ const Prompts = (() => {
       <div class="editor-toolbar">
         <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Prompt Viewer${prompt._isUser ? ' <span class="user-badge" style="margin-left:6px">Local</span>' : ''}</span>
         <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;margin-left:auto;margin-right:var(--space-2)">
-          <i data-lucide="copy" width="12" height="12"></i> Copy
+          ${Icons.svg('copy', 12)} Copy
         </button>
-        <button class="btn-ghost btn-sm btn-icon" id="btn-close-viewer" aria-label="Close viewer"><i data-lucide="x" width="16" height="16"></i></button>
+        <button class="btn-ghost btn-sm btn-icon" id="btn-close-viewer" aria-label="Close viewer">${Icons.svg('x', 16)}</button>
       </div>
       <div class="editor-meta" style="flex-direction:column;align-items:flex-start;gap:var(--space-2)">
         <div style="font-weight:700;font-size:var(--text-lg);color:var(--text-primary)">${escHtml(prompt.title || 'Untitled')}</div>
@@ -331,15 +327,13 @@ const Prompts = (() => {
       </div>
       <div class="viewer-body prompt-body-full" id="viewer-prompt-body">${escHtml(prompt.body || '')}</div>
     `;
-    lucide.createIcons({ el: panel });
     panel.querySelector('#btn-close-viewer')?.addEventListener('click', () => closeViewer(container));
     panel.querySelector('#btn-copy-viewer')?.addEventListener('click', e => {
       const btn = e.currentTarget;
       const text = panel.querySelector('#viewer-prompt-body')?.textContent || '';
       navigator.clipboard.writeText(text).then(() => {
-        btn.classList.add('copied'); btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!';
-        lucide.createIcons({ el: btn });
-        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i data-lucide="copy" width="12" height="12"></i> Copy'; lucide.createIcons({ el: btn }); }, 2000);
+        btn.classList.add('copied'); btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
       }).catch(() => App.toast('Copy failed', 'error'));
     });
     refreshList(container);
@@ -363,7 +357,6 @@ const Prompts = (() => {
     container.querySelector('#pr-modal-save')?.addEventListener('click', () => savePrompt(container));
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#pr-category')?.addEventListener('change', () => syncCustomCatInput(container));
-    lucide.createIcons({ el: container.querySelector('#pr-modal-backdrop') });
   }
 
   function escHtml(s) { return App.escapeHtml(s); }

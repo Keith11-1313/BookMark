@@ -39,7 +39,6 @@ const Settings = (() => {
   // ── Render ────────────────────────────────────────────────
   function render(container) {
     container.innerHTML = buildShell();
-    lucide.createIcons({ el: container });
     bindEvents(container);
   }
 
@@ -57,7 +56,7 @@ const Settings = (() => {
         label: 'Inline Bookmark Notes',
         desc: 'Notes you have typed directly on bookmark cards.',
         btn: 'Clear Notes',
-        icon: 'sticky-note',
+        icon: 'stickyNote',
       },
       {
         scope: 'user',
@@ -78,7 +77,7 @@ const Settings = (() => {
     return `
       <div class="page-header">
         <div class="page-header-left">
-          <i data-lucide="settings" width="24" height="24" style="color:var(--accent)"></i>
+          ${Icons.svg('settings', 24, 'ui-icon icon-accent')}
           <div>
             <div class="page-title">Settings</div>
             <div class="page-subtitle">Manage your saved data</div>
@@ -97,7 +96,7 @@ const Settings = (() => {
             <div class="settings-row${i < rows.length - 1 ? '' : ' settings-row-last'}">
               <div class="settings-row-left">
                 <div class="settings-row-icon">
-                  <i data-lucide="${r.icon}" width="16" height="16"></i>
+                  ${Icons.svg(r.icon, 16)}
                 </div>
                 <div>
                   <div class="settings-row-label">${r.label}</div>
@@ -122,7 +121,7 @@ const Settings = (() => {
           <div class="settings-row settings-row-last">
             <div class="settings-row-left">
               <div class="settings-row-icon" style="background:var(--danger-light);color:var(--danger)">
-                <i data-lucide="trash-2" width="16" height="16"></i>
+                ${Icons.svg('trash', 16)}
               </div>
               <div>
                 <div class="settings-row-label">Restore to Default</div>
@@ -142,7 +141,7 @@ const Settings = (() => {
           <div class="modal-header">
             <span class="modal-title" id="settings-confirm-title">Confirm</span>
             <button class="btn-ghost btn-sm btn-icon" id="settings-confirm-close" aria-label="Close">
-              <i data-lucide="x" width="16" height="16"></i>
+              ${Icons.svg('x', 16)}
             </button>
           </div>
           <div class="modal-body" style="gap:var(--space-3)">
@@ -159,17 +158,17 @@ const Settings = (() => {
       <div class="modal-backdrop" id="settings-restore-backdrop" role="dialog" aria-modal="true" aria-label="Restore to Default">
         <div class="modal" style="max-width:480px">
           <div class="modal-header">
-            <span class="modal-title" style="color:var(--danger)">
-              <i data-lucide="alert-triangle" width="18" height="18" style="vertical-align:middle;margin-right:6px"></i>
+            <span class="modal-title" style="color:var(--danger);display:flex;align-items:center;gap:var(--space-2)">
+              ${Icons.svg('alert', 18)}
               Restore to Default
             </span>
             <button class="btn-ghost btn-sm btn-icon" id="settings-restore-close" aria-label="Close">
-              <i data-lucide="x" width="16" height="16"></i>
+              ${Icons.svg('x', 16)}
             </button>
           </div>
           <div class="modal-body" style="gap:var(--space-4)">
             <div class="inline-notice" style="border-color:rgba(218,55,60,0.35);background:var(--danger-light)">
-              <i data-lucide="alert-triangle" width="14" height="14" style="flex-shrink:0;margin-top:1px;color:var(--danger)"></i>
+              ${Icons.svg('alert', 14, 'ui-icon icon-danger')}
               <span style="color:var(--danger)">This action is permanent and cannot be undone.</span>
             </div>
             <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.7">
@@ -200,7 +199,6 @@ const Settings = (() => {
 
   // ── Events ─────────────────────────────────────────────────
   function bindEvents(container) {
-    lucide.createIcons({ el: container });
 
     // ── Scoped clear buttons ───────────────────────────────
     let pendingScope = null;

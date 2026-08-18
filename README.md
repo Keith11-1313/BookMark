@@ -35,7 +35,7 @@ All curated data lives in plain JSON files. User-created items (bookmarks, notes
 | Frontend         | Vanilla JavaScript (ES6+), Custom CSS   |
 | Data (curated)   | Static JSON files (`data/*.json`)       |
 | Data (user)      | Browser localStorage                    |
-| Icons            | Lucide Icons (CDN, pinned v0.460.0)     |
+| Icons            | Local inline SVG registry (`js/icons.js`) |
 | Fonts            | Inter + JetBrains Mono (Google Fonts)   |
 | Syntax Highlight | highlight.js 11.9.0                     |
 

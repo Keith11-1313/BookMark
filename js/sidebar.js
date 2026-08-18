@@ -21,7 +21,6 @@ const Sidebar = (() => {
     renderSidebar();
     renderBottomNav();
     setupCollapseToggle();
-    lucide.createIcons();
   }
 
   function renderSidebar() {
@@ -33,12 +32,12 @@ const Sidebar = (() => {
         </div>
         <span class="sidebar-brand">BookMark</span>
         <button class="sidebar-collapse-btn" id="sidebar-collapse-btn" aria-label="Collapse sidebar" data-tooltip="Collapse">
-          <i data-lucide="panel-left-close" width="16" height="16"></i>
+          ${Icons.svg('collapse', 16)}
         </button>
       </div>
 
       <button class="sidebar-search-btn" id="sidebar-search-btn" aria-label="Search everything">
-        <i data-lucide="search" width="15" height="15"></i>
+        ${Icons.svg('search', 15)}
         <span>Search</span>
         <span class="sidebar-search-shortcut">Ctrl K</span>
       </button>
@@ -47,7 +46,7 @@ const Sidebar = (() => {
         <span class="nav-section-label">Browse</span>
         ${NAV_ITEMS.map(item => `
           <button class="nav-item" data-route="${item.route}" id="nav-${item.route}" aria-label="${item.label}">
-            <span class="nav-item-icon"><i data-lucide="${item.icon}" width="18" height="18"></i></span>
+            <span class="nav-item-icon">${Icons.route(item.route, 18)}</span>
             <span class="nav-item-label">${item.label}</span>
             <span class="nav-shortcut">${item.shortcut}</span>
           </button>
@@ -57,15 +56,15 @@ const Sidebar = (() => {
       <div class="sidebar-footer">
         <span class="nav-section-label" style="padding-top:var(--space-2)">System</span>
         <button class="sidebar-link" id="nav-settings" data-route="settings" aria-label="Settings">
-          <i data-lucide="settings" width="15" height="15"></i>
+          ${Icons.route('settings', 15)}
           <span>Settings</span>
         </button>
         <a class="sidebar-link" href="${GITHUB_REPO}/issues/new?title=Site+Request:+&body=URL:%0ACategory:%0AWhy+this+should+be+added:%0A&labels=site-request" target="_blank" rel="noopener">
-          <i data-lucide="plus-circle" width="15" height="15"></i>
+          ${Icons.svg('plus', 15)}
           <span>Request a Site</span>
         </a>
         <a class="sidebar-link" href="${GITHUB_REPO}" target="_blank" rel="noopener">
-          <i data-lucide="github" width="15" height="15"></i>
+          ${Icons.svg('github', 15)}
           <span>GitHub</span>
         </a>
       </div>
@@ -84,7 +83,7 @@ const Sidebar = (() => {
       <div class="bottom-nav-items">
         ${BOTTOM_NAV_ITEMS.map(item => `
           <button class="bottom-nav-item" data-route="${item.route}" aria-label="${item.label}">
-            <i data-lucide="${item.icon}" width="22" height="22"></i>
+            ${Icons.route(item.route, 22)}
             <span class="bottom-nav-label">${item.label}</span>
           </button>
         `).join('')}

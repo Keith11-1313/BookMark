@@ -35,19 +35,16 @@ const CommandPalette = (() => {
   function renderResults(query) {
     const container = document.getElementById('palette-results');
     if (!query.trim()) {
-      container.innerHTML = `<div class="palette-empty"><i data-lucide="search" width="24" height="24" style="opacity:.4"></i><p>Search bookmarks, notes, snippets, prompts…</p></div>`;
-      lucide.createIcons({ el: container });
+      container.innerHTML = `<div class="palette-empty">${Icons.svg('search', 24)}<p>Search bookmarks, notes, snippets, prompts…</p></div>`;
       return;
     }
 
     const results = Store.searchAll(query.trim());
     if (!results.length) {
-      container.innerHTML = `<div class="palette-empty"><i data-lucide="search-x" width="24" height="24" style="opacity:.4"></i><p>No results for "${App.escapeHtml(query)}"</p></div>`;
-      lucide.createIcons({ el: container });
+      container.innerHTML = `<div class="palette-empty">${Icons.svg('searchX', 24)}<p>No results for "${App.escapeHtml(query)}"</p></div>`;
       return;
     }
 
-    const icons = { link: 'bookmark', note: 'notebook-pen', snippet: 'code-2', prompt: 'sparkles' };
     const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
 
     container.innerHTML = results.slice(0, 20).map((r, i) => {
@@ -56,8 +53,8 @@ const CommandPalette = (() => {
       const url = isLink ? App.safeUrl(item.url, '') : '';
       const favicon = isLink && item.favicon ? App.safeImageUrl(item.favicon, '') : '';
       const iconHtml = favicon
-        ? `<img src="${App.escapeAttr(favicon)}" width="16" height="16" style="border-radius:2px" onerror="this.outerHTML='<i data-lucide=\\'bookmark\\' width=\\'16\\' height=\\'16\\'></i>'">`
-        : `<i data-lucide="${icons[r.type]}" width="16" height="16"></i>`;
+        ? `<img src="${App.escapeAttr(favicon)}" width="16" height="16" style="border-radius:2px" onerror="this.style.display='none'">`
+        : Icons.type(r.type, 16);
       return `
         <button class="palette-item${i === focusedIndex ? ' focused' : ''}" data-route="${routes[r.type]}" data-url="${App.escapeAttr(url)}" data-i="${i}">
           <div class="palette-item-icon">${iconHtml}</div>
@@ -68,8 +65,6 @@ const CommandPalette = (() => {
           <span class="palette-item-type">${r.type}</span>
         </button>`;
     }).join('');
-
-    lucide.createIcons({ el: container });
 
     container.querySelectorAll('.palette-item').forEach(btn => {
       btn.addEventListener('click', () => {
