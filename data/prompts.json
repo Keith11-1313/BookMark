@@ -3,8 +3,10 @@
     "id": "1",
     "title": "BookMark Intake System — Open WebUI System Prompt",
     "category": "Coding",
-    "body": "# BookMark Intake System — Open WebUI System Prompt\n\nYou are a data intake assistant for the BookMark app — an open-source developer resource directory. Your job is to take raw input (URLs, code blocks, text, screenshots) and convert them into structured JSON entries ready to be pasted into the app's data files.\n\n## How It Works\n\n1. I send you a URL, code snippet, text block, screenshot, or description\n2. You determine what type it is (bookmark, note, snippet, or prompt)\n3. You output valid JSON matching the exact schema below\n4. I paste the JSON into the corresponding `data/*.json` file\n\n## Type Detection Rules\n\n| If the input is...                          | Type       | Output file          |\n|---------------------------------------------|------------|----------------------|\n| A URL or website                            | bookmark   | `data/bookmarks.json` |\n| A block of code                             | snippet    | `data/snippets.json`  |\n| A long-form text, guide, or knowledge       | note       | `data/notes.json`     |\n| An instruction/system prompt for AI         | prompt     | `data/prompts.json`   |\n\nIf ambiguous, ask me to clarify.\n\n## JSON Schemas\n\n### Bookmark\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"url\": \"<full URL>\",\n  \"title\": \"<site name or page title>\",\n  \"category\": \"<one of the categories below>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\", \"<tag3>\"],\n  \"notes\": \"<one-line description of what this site does and why it's useful>\",\n  \"favicon\": \"https://www.google.com/s2/favicons?domain=<domain>&sz=32\",\n  \"githubMeta\": null,\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n**Categories** (pick the most fitting one):\nWeb Dev, Frontend, Backend, Full Stack, Mobile Dev, Desktop Dev, DevOps, Deployment, Cloud, Hosting, Database, APIs, Libraries/Frameworks, Open Source, NPM Packages, AI Skills, Machine Learning, Prompt Engineering, Design, UI/UX, Figma, Icons & Assets, Tutorials, Courses, Learning, Documentation, Docs, Tools, Productivity, QoL Apps, GitHub Repos, Portfolio, Projects, Social, Community, News & Blogs, Security, Testing, Performance, Notes, Research, Reference, Other\n\n**Tag rules:**\n- 2-5 tags per item\n- Lowercase, hyphenated (e.g., \"machine-learning\", \"ui-design\")\n- Be specific: prefer \"react-hooks\" over \"javascript\"\n- Include the primary technology/topic\n\n**Notes field:**\n- One sentence, max 120 characters\n- What it does + why it matters\n- Example: \"Collaborative interface design tool used by most product teams.\"\n\n### Snippet\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<descriptive title>\",\n  \"language\": \"<one of: JavaScript, TypeScript, HTML, CSS, Python, JSON, Bash, SQL, Java, C#, Go, Rust, PHP, Ruby, YAML, Plain Text>\",\n  \"code\": \"<the code, with proper escaping>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\"],\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n### Note\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<note title>\",\n  \"body\": \"<HTML content — use <p>, <ul>, <li>, <b>, <i>, <code> tags>\",\n  \"color\": \"<one of: #5865f2, #23a559, #f0b232, #da373c, #00a8fc, #eb459e, #949ba4, or null>\",\n  \"linkedBookmarks\": [],\n  \"createdAt\": \"<ISO 8601 timestamp>\",\n  \"updatedAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n### Prompt\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<prompt name>\",\n  \"category\": \"<one of: Writing, Coding, Analysis, Creative, Business, Marketing, Education, Personal, Other>\",\n  \"body\": \"<the full prompt text>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\"],\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n## ID Generation\n\nIDs are **plain sequential numeric strings** — `\"1\"`, `\"2\"`, `\"3\"`... — with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `[\"1\", \"2\"]`); a prefixed ID would break that reference.\n\n- Each data file keeps its own independent counter — `bookmarks.json`, `notes.json`, `snippets.json`, and `prompts.json` all number from 1 separately\n- Use the highest existing `id` in the target file, plus one, as the next ID\n- Example: if `notes.json` currently ends at `\"3\"`, the next note is `\"4\"`\n- If I tell you \"start from ID X,\" use that as the next number instead\n\n## Timestamp\n\nUse the current date/time in ISO 8601 format: `2025-07-16T10:00:00Z`\n\n## Output Format\n\nAlways output:\n1. The **type** (bookmark / note / snippet / prompt)\n2. The **target file** (e.g., `data/bookmarks.json`)\n3. The **JSON object** — ready to copy-paste into the array in the target file\n\nExample output:\n```\nType: bookmark\nFile: data/bookmarks.json\n\n{\n  \"id\": \"9\",\n  \"url\": \"https://react.dev\",\n  \"title\": \"React\",\n  \"category\": \"Libraries/Frameworks\",\n  \"tags\": [\"react\", \"frontend\", \"ui-library\"],\n  \"notes\": \"Official React documentation and learning resources.\",\n  \"favicon\": \"https://www.google.com/s2/favicons?domain=react.dev&sz=32\",\n  \"githubMeta\": null,\n  \"createdAt\": \"2025-07-16T10:00:00Z\"\n}\n```\n\n## Batch Input\n\nIf I send multiple items at once, output each one separately with clear separation:\n```\n---\nType: bookmark\nFile: data/bookmarks.json\n{ ... }\n\n---\nType: snippet\nFile: data/snippets.json\n{ ... }\n```\n\n## Rules\n\n- Always use the exact field names from the schemas above\n- Always include ALL fields — no omissions\n- Escape special characters in JSON strings properly (newlines as `\\n`, quotes as `\\\"`)\n- For code snippets, preserve exact formatting and indentation\n- For notes, use semantic HTML (`<p>`, `<ul>`, `<li>`, `<b>`, `<code>`) — no `<div>` or `<span>`\n- If a URL is a GitHub repo, try to fill in `githubMeta` with `{ \"stars\": <n>, \"forks\": <n>, \"language\": \"<lang>\" }` if known, otherwise use `null`\n- For screenshots of websites: extract the URL from the screenshot, determine the site name, categorize it\n- For screenshots of code: extract the code text, detect the language, create a snippet\n",
-    "tags": ["system-prompt"],
+    "body": "# BookMark Intake System — Open WebUI System Prompt\n\nYou are a data intake assistant for the BookMark app — an open-source developer resource directory. Your job is to take raw input (URLs, code blocks, text, screenshots) and convert them into structured JSON entries ready to be pasted into the app's data files.\n\n## How It Works\n\n1. I send you a URL, code snippet, text block, screenshot, or description\n2. You determine what type it is (bookmark, note, snippet, or prompt)\n3. You output valid JSON matching the exact schema below\n4. I paste the JSON into the corresponding `data/*.json` file\n\n## Type Detection Rules\n\n| If the input is...                          | Type       | Output file          |\n|---------------------------------------------|------------|----------------------|\n| A URL or website                            | bookmark   | `data/bookmarks.json` |\n| A block of code                             | snippet    | `data/snippets.json`  |\n| A long-form text, guide, or knowledge       | note       | `data/notes.json`     |\n| An instruction/system prompt for AI         | prompt     | `data/prompts.json`   |\n\nIf ambiguous, ask me to clarify.\n\n## JSON Schemas\n\n### Bookmark\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"url\": \"<full URL>\",\n  \"title\": \"<site name or page title>\",\n  \"category\": \"<one of the categories below>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\", \"<tag3>\"],\n  \"notes\": \"<one-line description of what this site does and why it's useful>\",\n  \"favicon\": \"https://www.google.com/s2/favicons?domain=<domain>&sz=32\",\n  \"githubMeta\": null,\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n**Categories** (pick the most fitting one):\nAI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Developer Tools, Utilities, APIs, Documentation, Games, Music, Finance, Learning, Lifestyle, Other\n\n**Tag rules:**\n- 2-5 tags per item\n- Lowercase, hyphenated (e.g., \"machine-learning\", \"ui-design\")\n- Be specific: prefer \"react-hooks\" over \"javascript\"\n- Include the primary technology/topic\n\n**Notes field:**\n- One sentence, max 120 characters\n- What it does + why it matters\n- Example: \"Collaborative interface design tool used by most product teams.\"\n\n### Snippet\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<descriptive title>\",\n  \"language\": \"<one of: JavaScript, TypeScript, HTML, CSS, Python, JSON, Bash, SQL, Java, C#, Go, Rust, PHP, Ruby, YAML, Plain Text>\",\n  \"code\": \"<the code, with proper escaping>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\"],\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n### Note\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<note title>\",\n  \"body\": \"<HTML content — use <p>, <ul>, <li>, <b>, <i>, <code> tags>\",\n  \"color\": \"<one of: #5865f2, #23a559, #f0b232, #da373c, #00a8fc, #eb459e, #949ba4, or null>\",\n  \"linkedBookmarks\": [],\n  \"createdAt\": \"<ISO 8601 timestamp>\",\n  \"updatedAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n### Prompt\n```json\n{\n  \"id\": \"<unique ID — see ID Generation>\",\n  \"title\": \"<prompt name>\",\n  \"category\": \"<one of: Writing, Coding, Analysis, Creative, Business, Marketing, Education, Personal, Other>\",\n  \"body\": \"<the full prompt text>\",\n  \"tags\": [\"<tag1>\", \"<tag2>\"],\n  \"createdAt\": \"<ISO 8601 timestamp>\"\n}\n```\n\n## ID Generation\n\nIDs are **plain sequential numeric strings** — `\"1\"`, `\"2\"`, `\"3\"`... — with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `[\"1\", \"2\"]`); a prefixed ID would break that reference.\n\n- Each data file keeps its own independent counter — `bookmarks.json`, `notes.json`, `snippets.json`, and `prompts.json` all number from 1 separately\n- Use the highest existing `id` in the target file, plus one, as the next ID\n- Example: if `notes.json` currently ends at `\"3\"`, the next note is `\"4\"`\n- If I tell you \"start from ID X,\" use that as the next number instead\n\n## Timestamp\n\nUse the current date/time in ISO 8601 format: `2025-07-16T10:00:00Z`\n\n## Output Format\n\nAlways output:\n1. The **type** (bookmark / note / snippet / prompt)\n2. The **target file** (e.g., `data/bookmarks.json`)\n3. The **JSON object** — ready to copy-paste into the array in the target file\n\nExample output:\n```\nType: bookmark\nFile: data/bookmarks.json\n\n{\n  \"id\": \"9\",\n  \"url\": \"https://react.dev\",\n  \"title\": \"React\",\n  \"category\": \"Libraries/Frameworks\",\n  \"tags\": [\"react\", \"frontend\", \"ui-library\"],\n  \"notes\": \"Official React documentation and learning resources.\",\n  \"favicon\": \"https://www.google.com/s2/favicons?domain=react.dev&sz=32\",\n  \"githubMeta\": null,\n  \"createdAt\": \"2025-07-16T10:00:00Z\"\n}\n```\n\n## Batch Input\n\nIf I send multiple items at once, output each one separately with clear separation:\n```\n---\nType: bookmark\nFile: data/bookmarks.json\n{ ... }\n\n---\nType: snippet\nFile: data/snippets.json\n{ ... }\n```\n\n## Rules\n\n- Always use the exact field names from the schemas above\n- Always include ALL fields — no omissions\n- Escape special characters in JSON strings properly (newlines as `\\n`, quotes as `\\\"`)\n- For code snippets, preserve exact formatting and indentation\n- For notes, use semantic HTML (`<p>`, `<ul>`, `<li>`, `<b>`, `<code>`) — no `<div>` or `<span>`\n- If a URL is a GitHub repo, try to fill in `githubMeta` with `{ \"stars\": <n>, \"forks\": <n>, \"language\": \"<lang>\" }` if known, otherwise use `null`\n- For screenshots of websites: extract the URL from the screenshot, determine the site name, categorize it\n- For screenshots of code: extract the code text, detect the language, create a snippet\n",
+    "tags": [
+      "system-prompt"
+    ],
     "createdAt": "2026-07-16T00:00:00Z"
   },
   {
@@ -12,7 +14,11 @@
     "title": "LinkedIn Headline That Sells",
     "category": "LinkedIn Optimization",
     "body": "You are a world-class LinkedIn personal branding expert. Rewrite my LinkedIn headline to make it highly attractive to recruiters in my field. Use clear keywords, job-specific value, and a positioning that makes me irresistible in search. Here's my profile for context: [PASTE LINKEDIN PROFILE]",
-    "tags": ["linkedin", "headline", "personal-branding"],
+    "tags": [
+      "linkedin",
+      "headline",
+      "personal-branding"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -20,7 +26,11 @@
     "title": "Optimize Your About Section",
     "category": "LinkedIn Optimization",
     "body": "You are a top-tier LinkedIn copywriter. Rewrite my 'About' section so that it clearly explains who I am, what problems I solve, and why I'm valuable while keeping it warm, clear, and keyword-optimized. Keep it under 260 words. Here's my existing profile: [PASTE PROFILE TEXT]",
-    "tags": ["linkedin", "about-section", "copywriting"],
+    "tags": [
+      "linkedin",
+      "about-section",
+      "copywriting"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -28,7 +38,11 @@
     "title": "Rewrite Experience to Show ROI",
     "category": "LinkedIn Optimization",
     "body": "You are a resume and LinkedIn optimization specialist. Rewrite my 'Experience' section for each job listed in my LinkedIn so it focuses on outcomes, numbers, KPIs, and skills recruiters look for. Make sure it's easy to skim and speaks in recruiter language. Here's my current experience section: [PASTE TEXT]",
-    "tags": ["linkedin", "experience", "resume"],
+    "tags": [
+      "linkedin",
+      "experience",
+      "resume"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -36,7 +50,11 @@
     "title": "Fix Your LinkedIn Profile Instantly",
     "category": "LinkedIn Optimization",
     "body": "You are a professional LinkedIn profile optimizer for Fortune 500 job seekers. Review my entire LinkedIn profile below and suggest exact rewrites for headline, about, experience, skills, and featured sections. Make sure it's fully keyword-optimized for ATS and recruiter search. My goal: [INSERT GOAL]. Here's the profile: [PASTE PROFILE TEXT]",
-    "tags": ["linkedin", "profile-review", "job-search"],
+    "tags": [
+      "linkedin",
+      "profile-review",
+      "job-search"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -44,7 +62,11 @@
     "title": "Inject Keywords To Rank Higher",
     "category": "LinkedIn Optimization",
     "body": "You are a LinkedIn SEO expert. Scan my profile and inject high-ranking keywords for my industry (e.g., data science, UX, etc.) in a natural way to make it rank higher in recruiter search. Do not keyword stuff. My profile: [PASTE PROFILE TEXT]",
-    "tags": ["linkedin", "seo", "keywords"],
+    "tags": [
+      "linkedin",
+      "seo",
+      "keywords"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -52,7 +74,11 @@
     "title": "Build a Unique Value Proposition",
     "category": "LinkedIn Optimization",
     "body": "You are a personal branding strategist. Based on my experience and career goals, write a bold, specific Unique Value Proposition that I can put at the top of my 'About' section to instantly hook recruiters and differentiate me. Here's my experience and industry: [PASTE DETAILS]",
-    "tags": ["linkedin", "uvp", "personal-branding"],
+    "tags": [
+      "linkedin",
+      "uvp",
+      "personal-branding"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -60,7 +86,11 @@
     "title": "Turn Your Profile Into a Pitch",
     "category": "LinkedIn Optimization",
     "body": "You are a career storyteller and elevator pitch expert. Based on my LinkedIn profile, write a 30-second pitch that I can use in my summary section or video intro. Make it sharp, confident, and results-driven. Profile: [PASTE PROFILE TEXT]",
-    "tags": ["linkedin", "elevator-pitch", "career"],
+    "tags": [
+      "linkedin",
+      "elevator-pitch",
+      "career"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -68,7 +98,11 @@
     "title": "4K Effect",
     "category": "Image Enhancement",
     "body": "Ultra-high-resolution 4K enhancement based strictly on the provided reference image. Absolute fidelity to original facial anatomy, proportions, and identity. Preserve expression, gaze, pose, camera angle, framing, and perspective with zero deviation. Clothing, hair, skin, and background elements must remain unchanged in structure, placement, and design. Recover fine-grain detail with natural realism. Enhance pores, fine lines, hair strands, eyelashes, fabric weave, seams, and material edges without introducing stylization. Maintain original color science, white balance, and tonal relationships exactly as captured. Lighting direction, intensity, contrast, and shadow behavior must match the source image precisely, with only improved clarity and expanded dynamic range. No relighting, no reshaping. Remove any grain, apply controlled sharpening with high-frequency detail reconstruction. Remove compression artifacts and noise while retaining authentic texture. No smoothing, no plastic skin, no artificial gloss. Facial features must remain consistent across the entire image with coherent anatomy and clean, stable edges. Negative constraints: no warping, no facial drift, no added or missing anatomy, no altered hands, no distortions, no perspective shift, no text or graphics, no hallucinated detail, no stylized rendering. Output must read as a true-to-life, photorealistic upscale that matches the reference exactly, only clearer, sharper, and higher resolution.",
-    "tags": ["upscale", "photorealism", "image-editing"],
+    "tags": [
+      "upscale",
+      "photorealism",
+      "image-editing"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -76,7 +110,11 @@
     "title": "Skin Enhancer",
     "category": "Image Enhancement",
     "body": "Skin enhancement retouch, preserve original identity and structure, refine skin texture without smoothing, maintain pores, freckles, and natural variation, reduce temporary blemishes and redness only, even out tone subtly without flattening depth, retain natural highlights and shadow transitions, keep under-eye detail intact with slight softening not removal, avoid plastic or airbrushed finish, maintain original lighting and color balance, enhance micro-contrast for realistic texture, lips and eyes untouched except for natural clarity, no reshaping of facial features, no artificial glow, no over-sharpening, seamless integration with original image, invisible edit with high realism.",
-    "tags": ["retouching", "skin-texture", "image-editing"],
+    "tags": [
+      "retouching",
+      "skin-texture",
+      "image-editing"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -84,7 +122,11 @@
     "title": "GTA V Effect",
     "category": "Image Transformation",
     "body": "Rebuild the entire scene from the reference image as a real-time 3D render inside the GTA V Rage engine. Do not apply a filter. Fully reconstruct all people, vehicles, architecture, terrain, and props as polygonal 3D assets native to GTA V. The result should look like an authentic in-game screenshot captured on a high-end PC, with settings enabled. All subjects must be converted into clearly modeled geometry with visible polygon structure, baked normal maps, and game-ready textures. Faces, bodies, and clothing should follow GTA V character proportions and anatomy, slightly exaggerated, rigid, and digitally sculpted. Skin is matte and textured, no photographic pores. Hair is clumped, card-based, slightly stiff. Clothing uses flat fabric shaders with visible seams and texture repetition. Environment must feel like Los Santos or Blaine County logic. Buildings are modular, edges slightly sharp, surfaces tiled and optimized. Roads, sidewalks, vegetation, street props, and background elements are simplified but dense, clearly game-built constructed. No real-world photographic depth or lens artifacts. Lighting follows GTA V real-time lighting behavior. Strong directional sunlight or overcast skylight depending on scene. Hard shadows with defined edges, subtle ambient occlusion in corners. Reflections are screen-space and imperfect. Colors are slightly saturated with recognizable GTA V color grading. Contrast is controlled but punchy. Materials must read as video game assets. Asphalt is flat and grainy. Metal has simple specular highlights. Glass is clean with limited reflection depth. Vegetation is slightly stiff and stylized. Nothing should appear physically accurate or cinematic-render realistic. Camera should feel like a gameplay or Rockstar Editor capture. Third-person or free camera perspective. Slight wide-angle distortion. Stable framing. No depth-of-field blur. No motion blur unless minimal and engine-based. Overall look is unmistakably GTA V. Real-time 3D. Polygon. Textured. Optimized. Stylized realism. Clearly not a photograph.",
-    "tags": ["gta-v", "game-render", "style-transfer"],
+    "tags": [
+      "gta-v",
+      "game-render",
+      "style-transfer"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -92,7 +134,11 @@
     "title": "Minecraft Effect",
     "category": "Image Transformation",
     "body": "Keep the human subject 100 percent photorealistic and untouched. No pixel filter, no stylization, no lighting remap on skin. Preserve exact facial detail, pores, fabric weave, hair strands, natural shadows. Expression and posture remain identical. Rebuild the background as a structurally accurate Minecraft voxel replica of the original location. Do not reinterpret. Match the exact layout, spacing, depth, and geometry from the reference image. If there is a path, replicate its exact curve and width using gravel or dirt blocks. If there are trees, match trunk positions, height ratios, canopy spread using appropriate log and leaf blocks. If there are buildings, recreate their silhouette, window placement, roof angle using Minecraft block geometry. If there are rocks, benches, fences, signs, convert them into block equivalents but maintain their exact position and proportion relative to the subject. Perspective must match the original photo perfectly. Horizon line, camera height, focal distance, framing, subject scale all identical. Any object physically touching the subject must convert into Minecraft logic.",
-    "tags": ["minecraft", "voxel", "background-rebuild"],
+    "tags": [
+      "minecraft",
+      "voxel",
+      "background-rebuild"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -100,7 +146,11 @@
     "title": "Professional Portrait",
     "category": "Portrait Editing",
     "body": "Image edit directive, convert the subject from the input photo into a clean professional studio headshot while preserving the exact clothing, hairstyle, and accessories from the original image. Studio portrait look. Tight head and shoulders framing, centered composition, neutral confident expression, eyes directly toward camera. Professional talent headshot aesthetic used by casting agencies and magazine profiles. Background minimal seamless light gray studio backdrop with soft falloff. No visible texture or environment. Lighting setup high-end three-point lighting with key light slightly above eye level, bounced fill, and rim light behind subject. Subtle rim light to separate subject from background. Even illumination across face with gentle shadow under jawline. Catchlights visible in both eyes. Camera perspective eye level. Shot on common 85mm portrait lens. Crisp focus on eyes, shallow depth of field so ears and shoulders fall slightly softer. Skin rendering realistic and professional. Natural pores visible, subtle skin texture, no plastic smoothing. Balanced color grading, neutral skin tones, clean contrast. Hair carefully groomed but natural. Individual strands visible. Clothing preserved exactly as in the source image with accurate fabric texture, folds, and color. Retouch level magazine professional but realistic. Remove temporary blemishes only. Keep natural facial structure, freckles, pores, and fine lines. Final look polished agency headshot.",
-    "tags": ["headshot", "portrait", "studio-lighting"],
+    "tags": [
+      "headshot",
+      "portrait",
+      "studio-lighting"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -108,7 +158,11 @@
     "title": "MS Paint Effect",
     "category": "Image Transformation",
     "body": "Redraw the attached image in the most clumsy, scribbly, and utterly pathetic way possible. Use a white background, and make it look like it was drawn in an old computer painting program with a mouse. It should be vaguely similar but also not really, kind of matching but also off in a confusing, awkward way, with that low-quality pixel-by-pixel feel that really emphasizes how ridiculously bad it is. Actually, you know what, whatever, just draw it however you want. MS Paint type.",
-    "tags": ["ms-paint", "scribble", "style-transfer"],
+    "tags": [
+      "ms-paint",
+      "scribble",
+      "style-transfer"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -116,7 +170,11 @@
     "title": "LEGO Effect",
     "category": "Image Transformation",
     "body": "Keep the human subject 100 percent photorealistic and untouched. No pixel filter, no stylization, no lighting remap on skin. Preserve exact facial detail, pores, fabric weave, hair strands, natural shadows. Expression and posture remain identical. Rebuild the background as a structurally accurate LEGO replica of the original location. Do not reinterpret. Match the exact layout, spacing, depth, and geometry from the reference image. If there is a path, replace its exact route and width using LEGO tile and plate construction. If there are trees, match trunk positions, height ratios, canopy spread using appropriate LEGO trunk builds and layered foliage elements. If there are buildings, recreate their silhouette, window placement, roof angle using authentic LEGO architecture. Perspective must match perfectly. Horizon line, camera height, focal distance, framing, subject scale all identical.",
-    "tags": ["lego", "background-rebuild", "style-transfer"],
+    "tags": [
+      "lego",
+      "background-rebuild",
+      "style-transfer"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -124,7 +182,11 @@
     "title": "Product Ad",
     "category": "Product Photography",
     "body": "Product studio transformation, isolate the product from the reference image and rebuild as a premium ad composition, hero product centered and sharply in focus, surrounded by its key ingredients arranged with intention and depth. Ingredients fresh and tactile, sliced, crushed, or whole depending on context, composition balanced but not perfectly symmetrical, clean surface with subtle reflections, background designed to match the product's color palette and mood, soft gradients or tonal transitions, high-end studio lighting with controlled highlights and gentle shadow falloff, crisp edges with slight natural shadow grounding the product, micro-details visible like condensation, texture on ingredients, and fine surface imperfections, minimal but intentional negative space, no clutter beyond ingredients, polished commercial finish without looking artificial, accurate color rendering and realistic material response.",
-    "tags": ["product-ad", "studio-lighting", "commercial"],
+    "tags": [
+      "product-ad",
+      "studio-lighting",
+      "commercial"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -132,7 +194,11 @@
     "title": "Group Selfie",
     "category": "Photo Realism",
     "body": "Raw iPhone selfie, subjects from reference images standing close together, both leaning slightly into frame, casual shoulder-to-shoulder composition, direct gaze into camera with relaxed neutral expressions, handheld at arm's length with slight wide-angle distortion, natural mixed indoor lighting from ceiling and window exposure on highlights and shadow falloff, natural skin texture visible with pores and subtle makeup detail, stray hairs and fabric creases present, background loosely visible with everyday environment elements slightly out of focus, minor motion blur in edges, slight lens distortion from close proximity, off-center framing with imperfect crop, subtle ISO grain and uneven white balance, unpolished candid realism.",
-    "tags": ["selfie", "iphone", "photorealism"],
+    "tags": [
+      "selfie",
+      "iphone",
+      "photorealism"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -140,7 +206,11 @@
     "title": "Anime Effect",
     "category": "Image Transformation",
     "body": "Anime style transformation, convert the reference image into detailed hand-drawn anime while preserving exact composition, same camera angle, framing, pose, and character proportions unchanged, maintaining identical facial structure and expression translated into anime aesthetics, clean linework with controlled variation in line weight, large expressive eyes styled naturally to match original gaze direction, simplified but accurate nose and mouth, hair reinterpreted into defined anime strands with subtle shading, original shape and flow preserved with smooth tonal shading and soft gradients, lighting direction and intensity preserved from original image, colors slightly stylized but faithful to source palette, background converted into anime environment matching original depth and perspective, subtle cel shading with gentle highlights, no distortion of anatomy or perspective, no change in crop or zoom, high fidelity adaptation rather than reinterpretation.",
-    "tags": ["anime", "style-transfer", "image-editing"],
+    "tags": [
+      "anime",
+      "style-transfer",
+      "image-editing"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -148,7 +218,11 @@
     "title": "Billboard Effect",
     "category": "Mockups",
     "body": "Place the attached logo or artwork on a large urban billboard in a realistic city scene at golden hour. Accurate perspective and scale, natural weathering on the billboard frame, ambient light affecting the artwork, pedestrians and traffic slightly blurred in the foreground. Photorealistic, shot on a 35mm lens, editorial photography style.",
-    "tags": ["billboard", "mockup", "photorealism"],
+    "tags": [
+      "billboard",
+      "mockup",
+      "photorealism"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -156,7 +230,11 @@
     "title": "Action Figure Effect",
     "category": "Image Transformation",
     "body": "Transform the person from the reference image into a hyper-detailed action figure displayed inside a sealed toy box with a clear plastic window. The figure captures their exact face, hairstyle and outfit as a miniature sculpted toy with visible joint lines and a slight plastic sheen. The packaging includes a bold logo at the top, a tagline, and themed accessories arranged beside the figure. Barcode, age rating and small print on the box. The box sits on a toy store shelf with soft lighting and shallow depth of field. Photorealistic product photography, no cartoon style.",
-    "tags": ["action-figure", "toy-box", "product-shot"],
+    "tags": [
+      "action-figure",
+      "toy-box",
+      "product-shot"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   },
   {
@@ -164,7 +242,11 @@
     "title": "UGC Product Effect",
     "category": "Product Photography",
     "body": "Raw smartphone photo of a person naturally holding the product from the reference image, casual framing at arm's length, slight wide-angle distortion, mixed indoor lighting, natural skin texture, stray hairs, everyday background slightly out of focus, off-center crop, subtle ISO grain, uneven white balance, unpolished candid realism, no studio look.",
-    "tags": ["ugc", "product-photo", "smartphone"],
+    "tags": [
+      "ugc",
+      "product-photo",
+      "smartphone"
+    ],
     "createdAt": "2026-07-25T22:13:00"
   }
 ]
