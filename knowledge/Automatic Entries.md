@@ -105,37 +105,38 @@ Prompts to add:
 [paste prompts here]
 ```
 
-## 4. Snippets
+## 4. Slide sets
 
 ```text
-Add these as curated snippets in data/snippets.json.
+Add these as curated slide sets in data/slides.json. Each set is a folder
+under assets/slides/ — the folder name is the set id, and every image file in
+that folder becomes one slide of the set.
 
 Requirements:
-- Validate that each snippet is syntactically plausible for its language.
-- Do not add broken, unsafe, or placeholder code unless clearly labeled as pseudocode.
-- Prefer the smallest useful snippet. No scaffolding for future use.
-- Do not add dependencies unless the snippet explicitly needs an already-known library.
-- Do not rewrite old snippets unless explicitly requested or a verified bug exists.
+- Point each image path at the actual file under assets/slides/<folder>/.
+- One entry per folder. Never invent files that do not exist.
+- Do not duplicate an existing folder/set id.
+- Do not rewrite existing sets unless explicitly requested.
 
 Entry shape:
 {
-  "id": "next-sequential-string-id",
-  "title": "Snippet Title",
-  "language": "JavaScript",
-  "code": "console.log('hello');",
-  "tags": ["javascript", "logging"],
+  "id": "folder_name",
+  "title": "Deck Title",
+  "description": "One-line description of what the deck shows.",
+  "category": "Design",
+  "tags": ["fonts", "pairings"],
+  "images": ["assets/slides/folder_name/1.jpg", "assets/slides/folder_name/2.jpg"],
   "createdAt": "YYYY-MM-DDTHH:mm:ss"
 }
 
 Rules:
-- Use the next available numeric string id.
+- id must equal the folder name under assets/slides/ (e.g. "font_pairings").
+- images must list every file in the folder, in filename order.
 - Use local time for createdAt, e.g. "2026-07-25T22:13:00".
-- Use the actual language name format already used in data/snippets.json.
 - Use 2-3 lowercase kebab-case tags.
-- Keep code exactly escaped as valid JSON.
-- Run a syntax check when practical for the snippet language.
-- Verify JSON parse, unique ids, required fields, and duplicate title/language combos after editing.
+- Keep descriptions to one punchy sentence.
+- Verify JSON parse, unique ids, required fields, and that every image path exists.
 
-Snippets to add:
-[paste snippets here]
+Decks to add:
+[paste deck entries here]
 ```

@@ -312,7 +312,7 @@ const Prompts = (() => {
     panel.innerHTML = `
       <div class="editor-toolbar">
         <span style="font-weight:600;color:var(--text-primary);font-size:var(--text-sm)">Prompt Viewer${prompt._isUser ? ' <span class="user-badge" style="margin-left:6px">Local</span>' : ''}</span>
-        <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;margin-left:auto;margin-right:var(--space-2)">
+        <button class="copy-btn-overlay" id="btn-copy-viewer" style="position:static;opacity:1;pointer-events:auto;margin-left:auto;margin-right:var(--space-2)">
           ${Icons.svg('copy', 12)} Copy
         </button>
         <button class="btn-ghost btn-sm btn-icon" id="btn-close-viewer" aria-label="Close viewer">${Icons.svg('x', 16)}</button>

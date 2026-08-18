@@ -35,7 +35,7 @@ const CommandPalette = (() => {
   function renderResults(query) {
     const container = document.getElementById('palette-results');
     if (!query.trim()) {
-      container.innerHTML = `<div class="palette-empty">${Icons.svg('search', 24)}<p>Search bookmarks, notes, snippets, prompts…</p></div>`;
+      container.innerHTML = `<div class="palette-empty">${Icons.svg('search', 24)}<p>Search bookmarks, notes, prompts, slides…</p></div>`;
       return;
     }
 
@@ -45,7 +45,7 @@ const CommandPalette = (() => {
       return;
     }
 
-    const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
+    const routes = { link: 'links', note: 'notes', slides: 'slides', prompt: 'prompts' };
 
     container.innerHTML = results.slice(0, 20).map((r, i) => {
       const item = r.item;

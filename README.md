@@ -3,7 +3,7 @@
 
   # BookMark
 
-  **An open-source, curated directory of developer bookmarks, notes, code snippets, and AI prompts.**
+  **An open-source, curated directory of developer bookmarks, notes, AI prompts, and image decks.**
   No login required. Browse, search, and save your own items locally.
 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -20,11 +20,11 @@ BookMark is a static single-page app that serves as a personal developer resourc
 
 - **Bookmarks** — Curated links organized by category with search, filters, and auto-detected favicons
 - **Notes** — Rich-text notes with a `contenteditable` editor, color accents, and auto-save
-- **Snippets** — Code blocks with syntax highlighting (16 languages), copy-to-clipboard, and a full viewer panel
+- **Slides** — Image decks (one folder per deck under `assets/slides/`) shown as a notes-style grid; click a deck for a full-bleed TikTok-style slideshow with captions
 - **Prompts** — AI/text prompt library organized by category with a full viewer panel
 - **Settings** — Manage all locally saved data with granular clear controls and a safe "Restore to Default" flow
 
-All curated data lives in plain JSON files. User-created items (bookmarks, notes, snippets, prompts) are saved to **localStorage** — no database, no authentication, no server-side code.
+All curated data lives in plain JSON files. User-created items (bookmarks, notes, prompts, slide sets) are saved to **localStorage** — no database, no authentication, no server-side code.
 
 ---
 
@@ -51,11 +51,13 @@ BookMark/
 ├── data/
 │   ├── bookmarks.json        Curated bookmarks
 │   ├── notes.json            Curated notes
-│   ├── snippets.json         Curated code snippets
+│   ├── slides.json           Curated slide sets
 │   └── prompts.json          Curated AI prompts
 ├── assets/
-│   └── icons/
-│       └── logo.png          App logo
+│   ├── icons/
+│   │   └── logo.png          App logo
+│   └── slides/
+│       └── <folder>/         One deck = one folder (folder name = deck id)
 ├── css/
 │   ├── index.css             Design tokens, reset, layout, responsive
 │   ├── sidebar.css           Desktop sidebar + mobile bottom nav
@@ -63,7 +65,7 @@ BookMark/
 │   ├── dashboard.css         Home page styles
 │   ├── links.css             Bookmark cards, filters
 │   ├── notes.css             Note cards, rich editor, viewer
-│   ├── snippets.css          Code cards, syntax highlighting, viewer
+│   ├── slides.css            Deck grid, slideshow, captions
 │   ├── prompts.css           Prompt cards, categories, viewer
 │   └── settings.css          Settings page
 └── js/
@@ -74,7 +76,7 @@ BookMark/
     ├── dashboard.js          Home/overview page
     ├── links.js              Bookmark browser + add/edit modal
     ├── notes.js              Notes viewer + rich text editor
-    ├── snippets.js           Code snippet viewer + add/edit modal
+    ├── slides.js             Deck grid + full-bleed slideshow + add/edit modal
     ├── prompts.js            Prompt library + add/edit modal
     └── settings.js           Settings page — data management
 ```
@@ -118,18 +120,21 @@ Edit the JSON files in `data/` directly. Any new `category` value you add will a
 
 > `updatedAt` is used for sort order ("newest" sorts by last modified). Always set it.
 
-### Snippet (`data/snippets.json`)
+### Slide Set (`data/slides.json`)
 
 ```json
 {
-  "id": "1",
-  "title": "Snippet Title",
-  "language": "JavaScript",
-  "code": "console.log('hello');",
-  "tags": ["javascript", "logging"],
+  "id": "font_pairings",
+  "title": "Font Pairings",
+  "description": "Type combos that carry a layout",
+  "category": "Design",
+  "tags": ["fonts", "pairings"],
+  "images": ["assets/slides/font_pairings/1.jpg"],
   "createdAt": "2025-01-01T00:00:00Z"
 }
 ```
+
+> `id` is the folder name under `assets/slides/`. `images` lists every file in that folder, in order.
 
 ### Prompt (`data/prompts.json`)
 
@@ -148,7 +153,7 @@ Edit the JSON files in `data/` directly. Any new `category` value you add will a
 
 ## User-Created Items
 
-Visitors can add their own bookmarks, notes, snippets, and prompts directly in the UI. These are stored in **browser localStorage** under the keys `user_bookmarks`, `user_notes`, `user_snippets`, `user_prompts`.
+Visitors can add their own bookmarks, notes, prompts, and slide sets directly in the UI. These are stored in **browser localStorage** under the keys `user_bookmarks`, `user_notes`, `user_prompts`, `user_slides`.
 
 User items are visually marked with a **Local** badge and have Edit/Delete controls. They are merged with the curated JSON data at render time and appear together in lists and search.
 
@@ -189,10 +194,11 @@ Static site — deploy anywhere:
 | Feature | Description |
 |---|---|
 | **Ctrl+K search** | Command palette searches across all data types simultaneously |
-| **Category filters** | Filter pills on bookmarks; language filter on snippets; category filter on prompts |
-| **Side-panel viewer** | Full-content viewer for notes, snippets, and prompts — no truncation |
+| **Category filters** | Filter pills on bookmarks; category filter on prompts and slides |
+| **Side-panel viewer** | Full-content viewer for notes and prompts — no truncation |
+| **Slides slideshow** | Click a deck card to open a full-bleed slideshow with arrows, keyboard/tap/swipe navigation, and captions |
 | **Rich note editor** | `contenteditable` with Bold, Italic, Heading, Lists, Blockquote, Code block; auto-saves after 600ms |
-| **Add/Edit modals** | Create and edit your own bookmarks, snippets, and prompts via forms |
+| **Add/Edit modals** | Create and edit your own bookmarks, prompts, and slide sets via forms |
 | **Custom categories** | Type a new category name in any modal — it persists to localStorage and appears in all dropdowns |
 | **Duplicate URL warning** | Detects and surfaces duplicate bookmark URLs on the Bookmarks page |
 | **Inline bookmark notes** | Click the note area on any bookmark card to write/edit a note, saved locally |
@@ -207,7 +213,7 @@ Static site — deploy anywhere:
 | Shortcut | Action |
 |---|---|
 | `Ctrl+K` | Open command palette |
-| `1` – `6` | Navigate to each page (Home, Bookmarks, Notes, Snippets, Prompts, Settings) |
+| `1` – `6` | Navigate to each page (Home, Bookmarks, Notes, Slides, Prompts, Settings) |
 | `Escape` | Close palette / confirm modal |
 
 ---
@@ -223,3 +229,6 @@ Pull requests are welcome for new curated items in `data/*.json`.
 ## License
 
 MIT
+
+
+opencode -s ses_feb47c4fcffeWgNWcl3Ei5QJOK

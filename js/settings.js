@@ -10,9 +10,9 @@
 //      before the confirm button enables. Triggers a page reload after.
 //
 // All localStorage keys managed here:
-//   likes_bookmarks / likes_notes / likes_snippets / likes_prompts
+//   likes_bookmarks / likes_notes / likes_slides / likes_prompts
 //   bm_note_<id>          (inline note overrides — dynamic)
-//   user_bookmarks / user_notes / user_snippets / user_prompts
+//   user_bookmarks / user_notes / user_slides / user_prompts
 //   user_custom_cats
 //   bookmark_sidebar_collapsed  (cleared only on full restore)
 
@@ -22,12 +22,12 @@ const Settings = (() => {
   function countKeys(scope) {
     switch (scope) {
       case 'likes':
-        return ['bookmarks','notes','snippets','prompts']
+        return ['bookmarks','notes','slides','prompts']
           .reduce((n, t) => n + (JSON.parse(localStorage.getItem('likes_' + t)) || []).length, 0);
       case 'bm_notes':
         return Object.keys(localStorage).filter(k => k.startsWith('bm_note_')).length;
       case 'user':
-        return ['bookmarks','notes','snippets','prompts']
+        return ['bookmarks','notes','slides','prompts']
           .reduce((n, t) => n + (JSON.parse(localStorage.getItem('user_' + t)) || []).length, 0);
       case 'cats':
         return (JSON.parse(localStorage.getItem('user_custom_cats')) || []).length;
@@ -47,7 +47,7 @@ const Settings = (() => {
       {
         scope: 'likes',
         label: 'Liked Items',
-        desc: 'Bookmarks, notes, snippets, and prompts you have liked.',
+        desc: 'Bookmarks, notes, prompts, and slide sets you have liked.',
         btn: 'Clear Likes',
         icon: 'heart',
       },
@@ -61,7 +61,7 @@ const Settings = (() => {
       {
         scope: 'user',
         label: 'My Added Items',
-        desc: 'Bookmarks, notes, snippets, and prompts you have created.',
+        desc: 'Bookmarks, notes, prompts, and slide sets you have created.',
         btn: 'Clear Added Items',
         icon: 'package',
       },
@@ -174,7 +174,7 @@ const Settings = (() => {
             <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.7">
               The following will be permanently deleted:
               <ul style="margin:var(--space-2) 0 0 var(--space-5);display:flex;flex-direction:column;gap:4px">
-                <li>All items you have added (bookmarks, notes, snippets, prompts)</li>
+                <li>All items you have added (bookmarks, notes, prompts, slides)</li>
                 <li>All liked items</li>
                 <li>All inline bookmark notes</li>
                 <li>All custom categories</li>

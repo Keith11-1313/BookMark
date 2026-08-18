@@ -5,7 +5,7 @@ const App = (() => {
     dashboard: { label: 'Home',       module: () => Dashboard },
     links:     { label: 'Bookmarks',  module: () => Links     },
     notes:     { label: 'Notes',      module: () => Notes     },
-    snippets:  { label: 'Snippets',   module: () => Snippets  },
+    slides:   { label: 'Slides',    module: () => Slides   },
     prompts:   { label: 'Prompts',    module: () => Prompts   },
     settings:  { label: 'Settings',   module: () => Settings  }
   };
@@ -71,7 +71,7 @@ const App = (() => {
       }
 
       if (!editing && !e.ctrlKey && !e.metaKey && !e.altKey) {
-        const routeKeys = { '1': 'dashboard', '2': 'links', '3': 'notes', '4': 'snippets', '5': 'prompts' };
+        const routeKeys = { '1': 'dashboard', '2': 'links', '3': 'notes', '4': 'slides', '5': 'prompts' };
         if (routeKeys[e.key]) {
           e.preventDefault();
           navigate(routeKeys[e.key]);

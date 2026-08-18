@@ -7,7 +7,7 @@ const Sidebar = (() => {
     { route: 'dashboard', label: 'Home',       icon: 'layout-dashboard', shortcut: '1' },
     { route: 'links',     label: 'Bookmarks',  icon: 'bookmark',         shortcut: '2' },
     { route: 'notes',     label: 'Notes',      icon: 'notebook-pen',     shortcut: '3' },
-    { route: 'snippets',  label: 'Snippets',   icon: 'code-2',           shortcut: '4' },
+    { route: 'slides',  label: 'Slides',   icon: 'asset',          shortcut: '4' },
     { route: 'prompts',   label: 'Prompts',    icon: 'sparkles',         shortcut: '5' },
   ];
 

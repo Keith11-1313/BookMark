@@ -178,7 +178,7 @@
   min-width: 0;
 }
 
-/* ── Shared page toolbar (Notes, Snippets) ────────────────── */
+/* ── Shared page toolbar (Notes, Prompts, Slides) ─────────── */
 .page-toolbar {
   display: flex;
   align-items: center;

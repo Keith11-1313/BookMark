@@ -110,9 +110,9 @@
 }
 .prompt-modal-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); }
 
-/* Copy button overlay (shared style with snippets) */
+/* Copy button overlay (shared with other modules) */
 .prompt-card:hover .copy-btn-overlay,
-.prompt-card:focus-within .copy-btn-overlay { opacity: 1; }
+.prompt-card:focus-within .copy-btn-overlay { opacity: 1; pointer-events: auto; }
 
 /* Footer */
 .prompt-footer {
@@ -146,10 +146,10 @@
   .prompt-viewer-panel { min-height: 420px; position: static; max-height: none; }
   .prompt-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
   .prompt-title { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; }
-  .copy-btn-overlay { opacity: 1; }
+  .copy-btn-overlay { opacity: 1; pointer-events: auto; }
   .prompt-footer { align-items: flex-start; flex-direction: column; gap: var(--space-2); }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .copy-btn-overlay { opacity: 1; }
+  .copy-btn-overlay { opacity: 1; pointer-events: auto; }
 }

@@ -3,13 +3,13 @@
 // ID scheme per data type:
 //   bookmarks  — curated: id = full URL string; user: id = "u_" + uuid
 //   notes      — curated: sequential string; user: id = "u_" + uuid
-//   snippets   — curated: sequential string; user: id = "u_" + uuid
+//   slides     — curated: id = folder name under assets/slides/; user: id = "u_" + uuid
 //   prompts    — curated: sequential string; user: id = "u_" + uuid
 //
 // localStorage keys:
-//   user_bookmarks / user_notes / user_snippets / user_prompts
+//   user_bookmarks / user_notes / user_slides / user_prompts
 //     — JSON arrays of user-created items (each has _isUser: true flag)
-//   likes_bookmarks / likes_notes / likes_snippets / likes_prompts
+//   likes_bookmarks / likes_notes / likes_slides / likes_prompts
 //     — arrays of liked item IDs
 //   bm_note_<id>
 //     — per-bookmark inline note overrides (managed by links.js)
@@ -23,13 +23,13 @@ const Store = (() => {
   const PATHS = {
     bookmarks: 'data/bookmarks.json',
     notes:     'data/notes.json',
-    snippets:  'data/snippets.json',
+    slides:    'data/slides.json',
     prompts:   'data/prompts.json'
   };
   const USER_KEYS = {
     bookmarks: 'user_bookmarks',
     notes:     'user_notes',
-    snippets:  'user_snippets',
+    slides:    'user_slides',
     prompts:   'user_prompts'
   };
 
@@ -136,12 +136,12 @@ const Store = (() => {
       (n.body  || '').toLowerCase().includes(q)
     ).forEach(n => results.push({ type: 'note', item: n }));
 
-    (cache.snippets || []).filter(s =>
-      (s.title    || '').toLowerCase().includes(q) ||
-      (s.code     || '').toLowerCase().includes(q) ||
-      (s.language || '').toLowerCase().includes(q) ||
-      (s.tags     || []).some(t => t.toLowerCase().includes(q))
-    ).forEach(s => results.push({ type: 'snippet', item: s }));
+    (cache.slides || []).filter(d =>
+      (d.title    || '').toLowerCase().includes(q) ||
+      (d.description || '').toLowerCase().includes(q) ||
+      (d.category || '').toLowerCase().includes(q) ||
+      (d.tags     || []).some(t => t.toLowerCase().includes(q))
+    ).forEach(d => results.push({ type: 'slides', item: d }));
 
     (cache.prompts || []).filter(p =>
       (p.title    || '').toLowerCase().includes(q) ||
@@ -163,7 +163,7 @@ const Store = (() => {
     const doCats   = scope === 'cats'     || scope === 'all';
 
     if (doLikes) {
-      ['bookmarks','notes','snippets','prompts']
+      ['bookmarks','notes','slides','prompts']
         .forEach(t => localStorage.removeItem('likes_' + t));
     }
     if (doNotes) {
@@ -172,7 +172,7 @@ const Store = (() => {
         .forEach(k => localStorage.removeItem(k));
     }
     if (doUser) {
-      ['bookmarks','notes','snippets','prompts'].forEach(t => {
+      ['bookmarks','notes','slides','prompts'].forEach(t => {
         localStorage.removeItem('user_' + t);
         mergeIntoCache(t);
       });

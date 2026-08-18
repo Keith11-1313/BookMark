@@ -64,10 +64,13 @@ const Icons = (() => {
     heading3: '<path d="M4 12h8"/><path d="M4 18V6"/><path d="M12 18V6"/><path d="M17.5 10.5c1.7-1 3.5 0 3.5 1.5a2 2 0 0 1-2 2c-.7 0-1.3-.2-1.7-.6"/><path d="M17 18.4c1.2.8 3.2.6 3.7-1.4"/>',
     listOrdered: '<path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/>',
     quote: '<path d="M9.5 7C6.7 7 5 9 5 11.5V17h5v-6H7.6c0-1.9.6-2.8 2.4-3Z"/><path d="M18.5 7c-2.8 0-4.5 2-4.5 4.5V17h5v-6h-2.4c0-1.9.6-2.8 2.4-3Z"/>',
+    chevronLeft: '<path d="M15.75 19.5 8.25 12l7.5-7.5"/>',
+    chevronRight: '<path d="m8.25 4.5 7.5 7.5-7.5 7.5"/>',
+    imagePlus: '<path d="M2.25 15.75 7.5 10.5l5.25 5.25m0 0L15.75 13.5l5.25 5.25m-5.25-5.25 3.75-3.75M9 21h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3ZM14.25 7.5h.0075v.0075h-.0075V7.5Z"/>',
   };
 
-  const routeMap = { dashboard: 'dashboard', links: 'bookmark', notes: 'note', snippets: 'code', prompts: 'prompt', settings: 'settings' };
-  const typeMap = { link: 'bookmark', note: 'note', snippet: 'code', prompt: 'prompt' };
+  const routeMap = { dashboard: 'dashboard', links: 'bookmark', notes: 'note', slides: 'asset', prompts: 'prompt', settings: 'settings' };
+  const typeMap = { link: 'bookmark', note: 'note', slides: 'asset', prompt: 'prompt' };
   const categoryMap = {
     AI: 'ai', Design: 'design', 'Design Tools': 'design', 'Design Inspiration': 'design', 'Libraries/Frameworks': 'ui', Assets: 'asset', 'Developer Tools': 'dev', Utilities: 'utility', APIs: 'api', Documentation: 'docs', Games: 'game', Music: 'music', Finance: 'finance', Learning: 'education', Lifestyle: 'lifestyle'
   };

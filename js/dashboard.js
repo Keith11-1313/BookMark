@@ -4,14 +4,14 @@ const Dashboard = (() => {
   function render(container) {
     const bookmarks = Store.get('bookmarks');
     const notes     = Store.get('notes');
-    const snippets  = Store.get('snippets');
+    const slides    = Store.get('slides');
     const prompts   = Store.get('prompts');
 
     const stats = [
       { label: 'Bookmarks', value: bookmarks.length, icon: 'bookmark',     route: 'links',     colorClass: 'stat-bookmarks' },
       { label: 'Notes',     value: notes.length,     icon: 'notebook-pen', route: 'notes',     colorClass: 'stat-notes' },
-      { label: 'Snippets',  value: snippets.length,  icon: 'code-2',       route: 'snippets', colorClass: 'stat-snippets' },
-      { label: 'Prompts',   value: prompts.length,    icon: 'sparkles',     route: 'prompts',  colorClass: 'stat-prompts' },
+      { label: 'Slides',   value: slides.length,   icon: 'asset',        route: 'slides',    colorClass: 'stat-slides' },
+      { label: 'Prompts',   value: prompts.length,   icon: 'sparkles',     route: 'prompts',   colorClass: 'stat-prompts' },
     ];
 
     const categories = {};
@@ -24,23 +24,20 @@ const Dashboard = (() => {
 
     const liked = Store.getLiked('bookmarks');
 
-    const featuredSnippets = snippets.slice(0, 3);
-    const LANG_MAP = { JavaScript:'js',TypeScript:'ts',HTML:'html',CSS:'css',Python:'python',JSON:'json',Bash:'bash',SQL:'sql',Java:'java','C#':'cs',Go:'go',Rust:'rust',PHP:'php',Ruby:'ruby',YAML:'yaml','Plain Text':'plaintext' };
-
     const recentItems = [
       ...bookmarks.map(i => ({ ...i, _type: 'link' })),
       ...notes.map(i => ({ ...i, _type: 'note' })),
-      ...snippets.map(i => ({ ...i, _type: 'snippet' })),
+      ...slides.map(i => ({ ...i, _type: 'slides' })),
       ...prompts.map(i => ({ ...i, _type: 'prompt' }))
     ].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0)).slice(0, 5);
 
-    const routes = { link: 'links', note: 'notes', snippet: 'snippets', prompt: 'prompts' };
+    const routes = { link: 'links', note: 'notes', slides: 'slides', prompt: 'prompts' };
 
     container.innerHTML = `
       <div class="home-search">
         <div class="home-search-bar">
           ${Icons.svg('search', 20)}
-          <input class="home-search-input" id="home-search" type="text" placeholder="Search bookmarks, notes, snippets, prompts…" autocomplete="off">
+          <input class="home-search-input" id="home-search" type="text" placeholder="Search bookmarks, notes, prompts, slides…" autocomplete="off">
           <kbd class="home-search-kbd">Ctrl K</kbd>
         </div>
       </div>
@@ -112,30 +109,6 @@ const Dashboard = (() => {
         </div>
       </div>` : ''}
 
-      ${featuredSnippets.length ? `
-      <div class="dashboard-section">
-        <div class="section-header">
-          <h2 class="section-title">${Icons.svg('code', 18)} Featured Snippets</h2>
-          <button class="btn btn-ghost btn-sm" id="go-snippets">View all</button>
-        </div>
-        <div class="featured-snippets-grid">
-          ${featuredSnippets.map(s => {
-            const langKey = LANG_MAP[s.language] || 'plaintext';
-            return `
-              <div class="featured-snippet" data-id="${escAttr(s.id)}">
-                <div class="featured-snippet-header">
-                  <span class="snippet-title">${escHtml(s.title)}</span>
-                  <span class="snippet-lang lang-${langKey}">${escHtml(s.language || 'Text')}</span>
-                </div>
-                <pre class="snippet-code"><code class="language-${langKey}">${escHtml((s.code || '').slice(0, 200))}</code></pre>
-                <button class="copy-btn-overlay" data-action="copy-snippet" data-code="${escAttr(s.code || '')}">
-                  ${Icons.svg('copy', 12)} Copy
-                </button>
-              </div>`;
-          }).join('')}
-        </div>
-      </div>` : ''}
-
       <div class="dashboard-section">
         <div class="section-header">
           <h2 class="section-title">${Icons.svg('clock', 18)} Recently Added</h2>
@@ -161,9 +134,6 @@ const Dashboard = (() => {
       </div>
     `;
 
-    // Syntax highlight featured snippets
-    container.querySelectorAll('pre code').forEach(block => { if (window.hljs) hljs.highlightElement(block); });
-
     // Event bindings
     container.querySelector('#home-search')?.addEventListener('focus', () => {
       CommandPalette.open();
@@ -171,7 +141,6 @@ const Dashboard = (() => {
     });
 
     container.querySelector('#go-bookmarks')?.addEventListener('click', () => App.navigate('links'));
-    container.querySelector('#go-snippets')?.addEventListener('click', () => App.navigate('snippets'));
     container.querySelector('#go-design-tools')?.addEventListener('click', () => {
       App.navigate('links');
       setTimeout(() => Links.filterByCategory?.('Design Tools'), 100);
@@ -192,15 +161,6 @@ const Dashboard = (() => {
       btn.addEventListener('click', () => {
         if (btn.dataset.url) window.open(btn.dataset.url, '_blank');
         else App.navigate(btn.dataset.route);
-      });
-    });
-
-    container.querySelectorAll('[data-action="copy-snippet"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        navigator.clipboard.writeText(btn.dataset.code || '').then(() => {
-          btn.innerHTML = `${Icons.svg('check', 12)} Copied!`;
-          setTimeout(() => { btn.innerHTML = `${Icons.svg('copy', 12)} Copy`; }, 2000);
-        }).catch(() => App.toast('Copy failed', 'error'));
       });
     });
   }

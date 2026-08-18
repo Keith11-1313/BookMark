@@ -463,40 +463,31 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 .like-btn:hover { background: var(--bg-hover); color: var(--danger); }
 .like-btn.liked { color: var(--danger); }
 
-/* Featured snippets */
-.featured-snippets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-4);
-}
-.featured-snippet {
+/* Copy overlay button (shared with prompts + other modules) */
+.copy-btn-overlay {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-secondary);
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  position: relative;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  touch-action: manipulation;
 }
-.featured-snippet-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--border);
-}
-.featured-snippet pre {
-  margin: 0;
-  padding: var(--space-3) var(--space-4);
-  font-size: 12px;
-  line-height: 1.5;
-  max-height: 120px;
-  overflow: hidden;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-}
-.featured-snippet .copy-btn-overlay {
-  position: absolute;
-  bottom: var(--space-2);
-  right: var(--space-2);
-}
+.copy-btn-overlay:hover { background: var(--bg-hover); color: var(--text-primary); }
+.copy-btn-overlay.copied { color: var(--success); border-color: oklch(70% 0.16 155 / 0.4); background: var(--success-light); }
 
 /* Categories */
 .categories-grid {
@@ -556,16 +547,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 
 @media (max-width: 640px) {
   .liked-grid { grid-template-columns: 1fr; }
-  .featured-snippets-grid { grid-template-columns: 1fr; }
   .home-search-kbd { display: none; }
-  .featured-snippet .copy-btn-overlay {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    align-self: flex-end;
-    margin: var(--space-2);
-  }
-  .featured-snippet { display: flex; flex-direction: column; }
   .dashboard-section .empty-state { padding: var(--space-5) var(--space-4); }
   .export-grid {
     display: grid;
@@ -671,5 +653,5 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   .app-main { margin-left: 0 !important; }
   .page-content { padding: 0 !important; }
   body { background: #fff; color: #000; }
-  .bookmark-card, .note-card, .snippet-card, .prompt-card { break-inside: avoid; border-color: #ccc; }
+  .bookmark-card, .note-card, .prompt-card { break-inside: avoid; border-color: #ccc; }
 }

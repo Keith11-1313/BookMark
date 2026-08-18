@@ -59,7 +59,6 @@
 }
 .stat-card-icon.stat-bookmarks,
 .stat-card-icon.stat-notes,
-.stat-card-icon.stat-snippets,
 .stat-card-icon.stat-prompts { background: var(--accent-light); color: var(--accent); }
 
 .stat-card-body { min-width: 0; }

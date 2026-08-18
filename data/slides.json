@@ -1,0 +1,19 @@
+[
+  {
+    "id": "font_pairings",
+    "title": "Font Pairings",
+    "description": "Type combos that actually carry a layout — grab a pairing and drop it straight into your next design.",
+    "category": "Design",
+    "tags": ["fonts", "pairings", "typography"],
+    "images": [
+      "assets/slides/font_pairings/1.jpg",
+      "assets/slides/font_pairings/2.jpg",
+      "assets/slides/font_pairings/3.jpg",
+      "assets/slides/font_pairings/4.jpg",
+      "assets/slides/font_pairings/5.jpg",
+      "assets/slides/font_pairings/6.jpg",
+      "assets/slides/font_pairings/7.jpg"
+    ],
+    "createdAt": "2026-08-18T00:00:00Z"
+  }
+]
