@@ -18,7 +18,7 @@ const Dashboard = (() => {
     bookmarks.forEach(b => { const c = b.category || 'Other'; categories[c] = (categories[c] || 0) + 1; });
     const topCats = Object.entries(categories).sort((a, b) => b[1] - a[1]).slice(0, 8);
     const usefulSites = bookmarks
-      .filter(b => ['UI Libraries', 'Design Tools', 'Design Inspiration', 'Assets', 'Design'].includes(b.category))
+      .filter(b => ['Libraries/Frameworks', 'Design Tools', 'Design Inspiration', 'Assets', 'Design'].includes(b.category))
       .slice(-8)
       .reverse();
 

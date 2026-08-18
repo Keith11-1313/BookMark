@@ -12,7 +12,7 @@
 const Links = (() => {
   let allLinks = [], currentFilter = 'all', currentView = 'card', searchQuery = '';
 
-  const DEFAULT_CATS = ['Design','Development','Tools','AI','Learning','Reference','Productivity','Other'];
+  const DEFAULT_CATS = ['AI','Design','Design Tools','Design Inspiration','Libraries/Frameworks','Assets','Developer Tools','Utilities','APIs','Documentation','Games','Music','Finance','Learning','Lifestyle','Other'];
 
   // ── Custom category helpers ────────────────────────────────
   // Shared localStorage key with prompts so categories typed anywhere appear everywhere.
