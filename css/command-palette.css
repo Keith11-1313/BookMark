@@ -134,6 +134,22 @@
 }
 .palette-hint-keys { display: flex; align-items: center; gap: var(--space-3); }
 .palette-hint-key { display: flex; align-items: center; gap: 4px; }
+.palette-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-hover);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.palette-add:hover { border-color: var(--accent); background: var(--accent-light); color: var(--text-primary); }
 kbd {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

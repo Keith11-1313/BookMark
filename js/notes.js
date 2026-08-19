@@ -48,6 +48,7 @@ const Notes = (() => {
           <option value="liked">Liked first</option>
         </select>
       </div>
+      <div id="smart-add-hint" class="smart-add-hint"></div>
       <div class="notes-layout" id="notes-layout">
         <div class="notes-list-panel">
           <div class="notes-grid" id="notes-grid"></div>
@@ -82,7 +83,19 @@ const Notes = (() => {
     else data.sort((a, b) => new Date(b.updatedAt || b.createdAt || 0) - new Date(a.updatedAt || a.createdAt || 0));
 
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state">${Icons.svg('notebook', 40)}<h3>No notes found</h3><p>${q ? 'Try a different search term' : 'Click New Note to get started'}</p></div>`;
+      let extra = '';
+      if (q) {
+        const sugg = Store.suggestSpelling(q, { scope: ['notes'] });
+        if (sugg.length) extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+      }
+      grid.innerHTML = `<div class="empty-state">${Icons.svg('notebook', 40)}<h3>No notes found</h3><p>${q ? 'Try a different search term' : 'Click New Note to get started'}</p>${extra}</div>`;
+      grid.querySelectorAll('.did-mean-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = container.querySelector('#notes-search');
+          if (input) input.value = btn.dataset.suggest;
+          renderNotesList(container);
+        });
+      });
       return;
     }
 
@@ -125,12 +138,12 @@ const Notes = (() => {
   }
 
   // ── Create new note ────────────────────────────────────────
-  function createNewNote(container) {
+  function createNewNote(container, data = {}) {
     const note = Store.addUser('notes', {
-      title: '',
-      body: '',
-      color: COLORS[0],
-      linkedBookmarks: []
+      title: data.title || '',
+      body: data.body || '',
+      color: data.color || COLORS[0],
+      linkedBookmarks: data.linkedBookmarks || []
     });
     allNotes = Store.get('notes');
     renderNotesList(container);
@@ -309,8 +322,20 @@ const Notes = (() => {
 
   function bindEvents(container) {
     container.querySelector('#btn-new-note')?.addEventListener('click', () => createNewNote(container));
-    container.querySelector('#notes-search')?.addEventListener('input', () => renderNotesList(container));
+    container.querySelector('#notes-search')?.addEventListener('input', () => { renderNotesList(container); renderSmartAddHint(container); });
     container.querySelector('#notes-sort')?.addEventListener('change', () => renderNotesList(container));
+  }
+
+  function renderSmartAddHint(container) {
+    const el = container.querySelector('#smart-add-hint');
+    if (!el) return;
+    const q = (container.querySelector('#notes-search')?.value || '').trim();
+    if (!q) { el.style.display = 'none'; el.innerHTML = ''; return; }
+    const type = SmartAdd.classify(q);
+    if (!type || type === 'note') { el.style.display = 'none'; el.innerHTML = ''; return; }
+    el.innerHTML = SmartAdd.hintHtml(q, type);
+    el.style.display = 'flex';
+    el.querySelector('[data-smart-add]')?.addEventListener('click', () => SmartAdd.routeTo(type, q));
   }
 
   function escHtml(s) { return App.escapeHtml(s); }
@@ -322,5 +347,5 @@ const Notes = (() => {
     if (fab) fab.remove();
   }
 
-  return { render, unmount };
+  return { render, unmount, createNewNote };
 })();

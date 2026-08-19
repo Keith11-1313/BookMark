@@ -153,6 +153,48 @@ const Store = (() => {
     return results;
   }
 
+  // ── Spelling suggestions ("Did you mean") ─────────────────
+  // opts.scope: array of types to pull candidate terms from, e.g. ['bookmarks','notes','prompts']
+  function levDist(a, b) {
+    if (a === b) return 0;
+    const m = a.length, n = b.length;
+    if (!m) return n; if (!n) return m;
+    let prev = new Array(n + 1), curr = new Array(n + 1);
+    for (let j = 0; j <= n; j++) prev[j] = j;
+    for (let i = 1; i <= m; i++) {
+      curr[0] = i;
+      for (let j = 1; j <= n; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+      }
+      [prev, curr] = [curr, prev];
+    }
+    return prev[n];
+  }
+
+  function suggestSpelling(query, opts = {}) {
+    const q = (query || '').toLowerCase().trim();
+    if (q.length < 3) return [];
+    const types = opts.scope && opts.scope.length ? opts.scope : ['bookmarks', 'notes', 'slides', 'prompts'];
+    const pool = new Set();
+    types.forEach(t => {
+      (cache[t] || []).forEach(item => {
+        if (item.title) pool.add(item.title.toLowerCase());
+        (item.tags || []).forEach(tag => pool.add(tag.toLowerCase()));
+        if (item.category) pool.add(item.category.toLowerCase());
+      });
+    });
+    const maxDist = Math.max(1, Math.floor(q.length / 3));
+    const scored = [];
+    pool.forEach(c => {
+      if (c === q) return;
+      const d = levDist(q, c);
+      if (d <= maxDist && Math.abs(c.length - q.length) <= maxDist) scored.push({ c, d });
+    });
+    scored.sort((x, y) => x.d - y.d || x.c.length - y.c.length);
+    return scored.slice(0, 2).map(s => s.c);
+  }
+
   // ── Clear user data ────────────────────────────────────────
   // scope: 'likes' | 'bm_notes' | 'user' | 'cats' | 'all'
   // After clearing, re-merges cache from JSON so Store.get() returns clean data.
@@ -206,7 +248,7 @@ const Store = (() => {
   return {
     load, loadAll, get, getUserItems,
     addUser, updateUser, removeUser,
-    searchAll,
+    searchAll, suggestSpelling,
     isLiked, toggleLike, getLiked,
     clearUserData
   };

@@ -90,6 +90,7 @@ const Prompts = (() => {
           <option value="liked">Liked first</option>
         </select>
       </div>
+      <div id="smart-add-hint" class="smart-add-hint"></div>
       <div class="prompts-layout" id="prompts-layout">
         <div class="prompts-list-panel">
           <div id="prompts-grid" class="prompts-grid"></div>
@@ -119,6 +120,7 @@ const Prompts = (() => {
             <div class="form-field">
               <label class="form-label" for="pr-body">Prompt Body <span style="color:var(--danger)">*</span></label>
               <textarea class="input" id="pr-body" rows="8" placeholder="You are a helpful assistant that…" style="font-family:var(--font-mono);font-size:13px"></textarea>
+              <div id="pr-type-hint" class="type-hint" style="display:none"></div>
             </div>
             <div class="form-field">
               <label class="form-label" for="pr-tags">Tags <span class="form-hint">(comma-separated)</span></label>
@@ -222,7 +224,19 @@ const Prompts = (() => {
 
     const grid = container.querySelector('#prompts-grid'); if (!grid) return;
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('sparkles', 40)}<h3>No prompts found</h3><p>${q ? 'Try a different search term' : 'Click New Prompt to add one'}</p></div>`;
+      let extra = '';
+      if (q && cat === 'all') {
+        const sugg = Store.suggestSpelling(q, { scope: ['prompts'] });
+        if (sugg.length) extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+      }
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('sparkles', 40)}<h3>No prompts found</h3><p>${q ? 'Try a different search term' : 'Click New Prompt to add one'}</p>${extra}</div>`;
+      grid.querySelectorAll('.did-mean-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = container.querySelector('#prompts-search');
+          if (input) input.value = btn.dataset.suggest;
+          refreshList(container);
+        });
+      });
       return;
     }
     grid.innerHTML = data.map(p => renderCard(p)).join('');
@@ -348,7 +362,7 @@ const Prompts = (() => {
 
   function bindEvents(container) {
     container.querySelector('#btn-new-prompt')?.addEventListener('click', () => openModal(container));
-    container.querySelector('#prompts-search')?.addEventListener('input', () => refreshList(container));
+    container.querySelector('#prompts-search')?.addEventListener('input', () => { refreshList(container); renderSmartAddHint(container); });
     container.querySelector('#prompts-cat-filter')?.addEventListener('change', () => refreshList(container));
     container.querySelector('#prompts-sort')?.addEventListener('change', () => refreshList(container));
     container.querySelector('#pr-modal-close')?.addEventListener('click', () => closeModal(container));
@@ -357,6 +371,33 @@ const Prompts = (() => {
     container.querySelector('#pr-modal-save')?.addEventListener('click', () => savePrompt(container));
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#pr-category')?.addEventListener('change', () => syncCustomCatInput(container));
+    container.querySelector('#pr-body')?.addEventListener('input', () => updatePrTypeHint(container));
+  }
+
+  function renderSmartAddHint(container) {
+    const el = container.querySelector('#smart-add-hint');
+    if (!el) return;
+    const q = (container.querySelector('#prompts-search')?.value || '').trim();
+    if (!q) { el.style.display = 'none'; el.innerHTML = ''; return; }
+    const type = SmartAdd.classify(q);
+    if (!type || type === 'prompt') { el.style.display = 'none'; el.innerHTML = ''; return; }
+    el.innerHTML = SmartAdd.hintHtml(q, type);
+    el.style.display = 'flex';
+    el.querySelector('[data-smart-add]')?.addEventListener('click', () => SmartAdd.routeTo(type, q));
+  }
+
+  function updatePrTypeHint(container) {
+    const hint = container.querySelector('#pr-type-hint');
+    if (!hint) return;
+    const v = (container.querySelector('#pr-body')?.value || '').trim();
+    const type = v ? SmartAdd.classify(v) : null;
+    if (!type || type === 'prompt') { hint.style.display = 'none'; hint.innerHTML = ''; return; }
+    hint.style.display = 'flex';
+    hint.innerHTML = `<span>${SmartAdd.isUrl(v) ? 'This looks like a URL —' : 'This looks like a note —'}</span><button type="button" class="btn btn-secondary btn-sm" data-smart-add="${type}">${SmartAdd.label(type)}</button>`;
+    hint.querySelector('[data-smart-add]')?.addEventListener('click', () => {
+      closeModal(container);
+      SmartAdd.routeTo(type, v);
+    });
   }
 
   function escHtml(s) { return App.escapeHtml(s); }
@@ -367,5 +408,5 @@ const Prompts = (() => {
     if (fab) fab.remove();
   }
 
-  return { render, unmount };
+  return { render, unmount, openModal };
 })();

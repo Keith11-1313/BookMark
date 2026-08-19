@@ -41,7 +41,22 @@ const CommandPalette = (() => {
 
     const results = Store.searchAll(query.trim());
     if (!results.length) {
-      container.innerHTML = `<div class="palette-empty">${Icons.svg('searchX', 24)}<p>No results for "${App.escapeHtml(query)}"</p></div>`;
+      const sugg = Store.suggestSpelling(query);
+      const did = sugg.length ? `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${App.escapeAttr(s)}">${App.escapeHtml(s)}</button>`).join('')}?</div>` : '';
+      const type = SmartAdd.classify(query);
+      const smart = type ? `<button type="button" class="palette-add" data-smart-add="${type}">${Icons.svg(type === 'bookmark' ? 'bookmark' : type === 'prompt' ? 'sparkles' : 'notebook', 14)} ${SmartAdd.label(type)}: "${App.escapeHtml(query.trim())}"</button>` : '';
+      container.innerHTML = `<div class="palette-empty">${Icons.svg('searchX', 24)}<p>No results for "${App.escapeHtml(query)}"</p>${did}${smart}</div>`;
+      container.querySelectorAll('.did-mean-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = document.getElementById('palette-input');
+          input.value = btn.dataset.suggest;
+          renderResults(input.value);
+        });
+      });
+      container.querySelector('[data-smart-add]')?.addEventListener('click', () => {
+        close();
+        SmartAdd.routeTo(type, query.trim());
+      });
       return;
     }
 
@@ -56,7 +71,7 @@ const CommandPalette = (() => {
         ? `<img src="${App.escapeAttr(favicon)}" width="16" height="16" style="border-radius:2px" onerror="this.style.display='none'">`
         : Icons.type(r.type, 16);
       return `
-        <button class="palette-item${i === focusedIndex ? ' focused' : ''}" data-route="${routes[r.type]}" data-url="${App.escapeAttr(url)}" data-i="${i}">
+        <button class="palette-item${i === focusedIndex ? ' focused' : ''}" data-route="${routes[r.type]}" data-type="${r.type}" data-url="${App.escapeAttr(url)}" data-id="${App.escapeAttr(item.id)}" data-i="${i}">
           <div class="palette-item-icon">${iconHtml}</div>
           <div class="palette-item-body">
             <div class="palette-item-title">${App.escapeHtml(item.title || 'Untitled')}</div>
@@ -68,8 +83,12 @@ const CommandPalette = (() => {
 
     container.querySelectorAll('.palette-item').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.url) window.open(btn.dataset.url, '_blank');
-        else App.navigate(btn.dataset.route);
+        if (btn.dataset.type === 'link' && btn.dataset.id) {
+          App.navigate('links');
+          setTimeout(() => Links.reveal?.(btn.dataset.id), 120);
+        } else {
+          App.navigate(btn.dataset.route);
+        }
         close();
       });
     });

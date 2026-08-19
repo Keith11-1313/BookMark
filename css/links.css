@@ -368,6 +368,8 @@
 
 .bookmark-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-3); }
 .bookmark-tag {
+  font: inherit;
+  line-height: 1.6;
   padding: 2px var(--space-2);
   background: oklch(29% 0.02 266);
   border: 1px solid oklch(38% 0.025 266);
@@ -378,6 +380,12 @@
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 .bookmark-tag:hover { background: var(--accent-light); color: oklch(84% 0.10 266); }
+
+@keyframes bookmark-flash {
+  0%, 100% { box-shadow: none; }
+  15%, 75% { box-shadow: 0 0 0 3px var(--accent); }
+}
+.bookmark-card.highlight { animation: bookmark-flash 3s ease; }
 
 .bookmark-footer {
   display: flex;

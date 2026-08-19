@@ -18,7 +18,7 @@ const Dashboard = (() => {
     bookmarks.forEach(b => { const c = b.category || 'Other'; categories[c] = (categories[c] || 0) + 1; });
     const topCats = Object.entries(categories).sort((a, b) => b[1] - a[1]).slice(0, 8);
     const usefulSites = bookmarks
-      .filter(b => ['Libraries/Frameworks', 'Design Tools', 'Design Inspiration', 'Assets', 'Design'].includes(b.category))
+      .filter(b => ['Libraries/Frameworks', 'Design Tools', 'Design Inspiration', 'Assets', 'Design', 'Security'].includes(b.category))
       .slice(-8)
       .reverse();
 
@@ -121,7 +121,7 @@ const Dashboard = (() => {
               ? `<img src="${escAttr(App.safeImageUrl(item.favicon, App.faviconFor(item.url)))}" alt="" width="16" height="16" style="border-radius:2px" onerror="this.style.display='none'">`
               : Icons.type(item._type, 16);
             return `
-              <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}">
+              <button class="recent-item" data-route="${routes[item._type]}" data-url="${escAttr(url)}" data-id="${escAttr(item.id)}">
                 <div class="recent-item-icon">${iconHtml}</div>
                 <div class="recent-item-body">
                   <div class="recent-item-title">${escHtml(item.title || 'Untitled')}</div>
@@ -159,8 +159,12 @@ const Dashboard = (() => {
 
     container.querySelectorAll('.recent-item[data-route]').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.url) window.open(btn.dataset.url, '_blank');
-        else App.navigate(btn.dataset.route);
+        if (btn.dataset.route === 'links' && btn.dataset.id) {
+          App.navigate('links');
+          setTimeout(() => Links.reveal?.(btn.dataset.id), 120);
+        } else {
+          App.navigate(btn.dataset.route);
+        }
       });
     });
   }

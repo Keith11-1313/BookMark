@@ -67,12 +67,14 @@ const Icons = (() => {
     chevronLeft: '<path d="M15.75 19.5 8.25 12l7.5-7.5"/>',
     chevronRight: '<path d="m8.25 4.5 7.5 7.5-7.5 7.5"/>',
     imagePlus: '<path d="M2.25 15.75 7.5 10.5l5.25 5.25m0 0L15.75 13.5l5.25 5.25m-5.25-5.25 3.75-3.75M9 21h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3ZM14.25 7.5h.0075v.0075h-.0075V7.5Z"/>',
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+    briefcase: '<path d="M3 7h18v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>',
   };
 
   const routeMap = { dashboard: 'dashboard', links: 'bookmark', notes: 'note', slides: 'asset', prompts: 'prompt', settings: 'settings' };
   const typeMap = { link: 'bookmark', note: 'note', slides: 'asset', prompt: 'prompt' };
   const categoryMap = {
-    AI: 'ai', Design: 'design', 'Design Tools': 'design', 'Design Inspiration': 'design', 'Libraries/Frameworks': 'ui', Assets: 'asset', 'Developer Tools': 'dev', Utilities: 'utility', APIs: 'api', Documentation: 'docs', Games: 'game', Music: 'music', Finance: 'finance', Learning: 'education', Lifestyle: 'lifestyle'
+    AI: 'ai', Design: 'design', 'Design Tools': 'design', 'Design Inspiration': 'design', 'Libraries/Frameworks': 'ui', Assets: 'asset', 'Developer Tools': 'dev', Utilities: 'utility', APIs: 'api', Documentation: 'docs', Games: 'game', Music: 'music', Finance: 'finance', Learning: 'education', Lifestyle: 'lifestyle', Security: 'shield', Business: 'briefcase', Deals: 'tag'
   };
 
   function svg(name, size = 18, className = 'ui-icon') {

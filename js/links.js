@@ -12,7 +12,7 @@
 const Links = (() => {
   let allLinks = [], currentFilter = 'all', currentView = 'card', searchQuery = '';
 
-  const DEFAULT_CATS = ['AI','Design','Design Tools','Design Inspiration','Libraries/Frameworks','Assets','Developer Tools','Utilities','APIs','Documentation','Games','Music','Finance','Learning','Lifestyle','Other'];
+  const DEFAULT_CATS = ['AI','Design','Design Tools','Design Inspiration','Libraries/Frameworks','Assets','Developer Tools','Utilities','APIs','Documentation','Games','Music','Finance','Learning','Lifestyle','Security','Business','Deals','Other'];
 
   // ── Custom category helpers ────────────────────────────────
   // Shared localStorage key with prompts so categories typed anywhere appear everywhere.
@@ -133,6 +133,8 @@ const Links = (() => {
         </div>
       </div>
 
+      <div id="smart-add-hint" class="smart-add-hint"></div>
+
       <div id="links-grid" class="links-grid"></div>
 
       ${buildModal()}
@@ -153,6 +155,7 @@ const Links = (() => {
             <div class="form-field">
               <label class="form-label" for="bm-url">URL <span style="color:var(--danger)">*</span></label>
               <input class="input" id="bm-url" type="url" placeholder="https://example.com" autocomplete="off">
+              <div id="bm-type-hint" class="type-hint" style="display:none"></div>
             </div>
             <div class="form-field">
               <label class="form-label" for="bm-title">Title</label>
@@ -271,6 +274,20 @@ const Links = (() => {
     if (w) w.style.display = 'none';
   }
 
+  function updateBmTypeHint(container) {
+    const hint = container.querySelector('#bm-type-hint');
+    if (!hint) return;
+    const v = (container.querySelector('#bm-url')?.value || '').trim();
+    const type = v && !SmartAdd.isUrl(v) ? SmartAdd.classify(v) : null;
+    if (!type || type === 'bookmark') { hint.style.display = 'none'; hint.innerHTML = ''; return; }
+    hint.style.display = 'flex';
+    hint.innerHTML = `<span>This looks like a ${type === 'prompt' ? 'prompt' : 'note'} —</span><button type="button" class="btn btn-secondary btn-sm" data-smart-add="${type}">${SmartAdd.label(type)}</button>`;
+    hint.querySelector('[data-smart-add]')?.addEventListener('click', () => {
+      closeModal(container);
+      SmartAdd.routeTo(type, v);
+    });
+  }
+
   // ── Save bookmark (add or edit) ───────────────────────────
   function saveBookmark(container) {
     const url = (container.querySelector('#bm-url')?.value || '').trim();
@@ -337,18 +354,35 @@ const Links = (() => {
     const grid = container.querySelector('#links-grid');
     if (!grid) return;
     if (!data.length) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('searchX', 40)}<h3>No bookmarks found</h3><p>${searchQuery ? 'Try a different search term' : 'No bookmarks in this category'}</p></div>`;
+      let extra = '';
+      if (searchQuery && currentFilter === 'all') {
+        const sugg = Store.suggestSpelling(searchQuery, { scope: ['bookmarks'] });
+        if (sugg.length) {
+          extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+        }
+      }
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('searchX', 40)}<h3>No bookmarks found</h3><p>${searchQuery ? 'Try a different search term' : 'No bookmarks in this category'}</p>${extra}</div>`;
+      grid.querySelectorAll('.did-mean-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const s = btn.dataset.suggest;
+          searchQuery = s;
+          const input = container.querySelector('#links-search');
+          if (input) input.value = s;
+          refreshList(container);
+        });
+      });
       return;
     }
     grid.innerHTML = data.map(b => renderCard(b)).join('');
     grid.querySelectorAll('.bookmark-card').forEach(card => bindCardEvents(card, container));
+    renderSmartAddHint(container);
   }
 
   function renderCard(b) {
     const url = App.safeUrl(b.url);
     const domain = getDomain(url);
     const favicon = App.safeImageUrl(b.favicon, App.faviconFor(url));
-    const tags = (b.tags || []).map(t => `<span class="bookmark-tag">${escHtml(t)}</span>`).join('');
+    const tags = (b.tags || []).map(t => `<button type="button" class="bookmark-tag" data-tag="${escAttr(t)}">${escHtml(t)}</button>`).join('');
     const liked = Store.isLiked('bookmarks', b.id);
     const noteText = getNote(b);
     const hasLocalNote = localStorage.getItem('bm_note_' + b.id) !== null;
@@ -425,6 +459,19 @@ const Links = (() => {
       });
     });
 
+    card.querySelectorAll('.bookmark-tag').forEach(tag => {
+      tag.addEventListener('click', e => {
+        e.stopPropagation();
+        const t = tag.dataset.tag;
+        searchQuery = t;
+        currentFilter = 'all';
+        container.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === 'all'));
+        const input = container.querySelector('#links-search');
+        if (input) input.value = t;
+        refreshList(container);
+      });
+    });
+
     // Inline note editing
     const noteWrap = card.querySelector('.bookmark-note-wrap');
     const display = noteWrap?.querySelector('[data-action="edit-note"]');
@@ -461,7 +508,7 @@ const Links = (() => {
 
   function bindEvents(container) {
     container.querySelector('#btn-add-bookmark')?.addEventListener('click', () => openModal(container));
-    container.querySelector('#links-search')?.addEventListener('input', e => { searchQuery = e.target.value; refreshList(container); });
+    container.querySelector('#links-search')?.addEventListener('input', e => { searchQuery = e.target.value; refreshList(container); renderSmartAddHint(container); });
     container.querySelector('#links-sort')?.addEventListener('change', () => refreshList(container));
 
     container.querySelectorAll('.filter-pill').forEach(pill => {
@@ -492,6 +539,7 @@ const Links = (() => {
     container.querySelector('#bm-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#bm-modal-backdrop')) closeModal(container); });
     container.querySelector('#bm-modal-save')?.addEventListener('click', () => saveBookmark(container));
     container.querySelector('#bm-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') saveBookmark(container); });
+    container.querySelector('#bm-url')?.addEventListener('input', () => updateBmTypeHint(container));
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#bm-category')?.addEventListener('change', () => syncCustomCatInput(container));
 
@@ -525,6 +573,37 @@ const Links = (() => {
     refreshList(container);
   }
 
+  function renderSmartAddHint(container) {
+    const el = container.querySelector('#smart-add-hint');
+    if (!el) return;
+    const q = (container.querySelector('#links-search')?.value || '').trim();
+    if (!q) { el.style.display = 'none'; el.innerHTML = ''; return; }
+    const type = SmartAdd.classify(q);
+    if (!type || type === 'bookmark' && allLinks.some(b => {
+      const n = (b.url || '').trim().replace(/\/+$/, '').toLowerCase();
+      const u = SmartAdd.normalizeUrl(q).replace(/\/+$/, '').toLowerCase();
+      return n === u;
+    })) { el.style.display = 'none'; el.innerHTML = ''; return; }
+    el.innerHTML = SmartAdd.hintHtml(q, type);
+    el.style.display = 'flex';
+    el.querySelector('[data-smart-add]')?.addEventListener('click', () => SmartAdd.routeTo(type, q));
+  }
+
+  function reveal(id) {
+    currentFilter = 'all';
+    searchQuery = '';
+    const container = document.getElementById('page-content');
+    const input = container.querySelector('#links-search');
+    if (input) input.value = '';
+    container.querySelectorAll('.filter-pill').forEach(p => { p.classList.toggle('active', p.dataset.cat === 'all'); });
+    refreshList(container);
+    const card = container.querySelector(`#links-grid .bookmark-card[data-id="${CSS.escape(id)}"]`);
+    if (!card) return;
+    card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    card.classList.add('highlight');
+    setTimeout(() => card.classList.remove('highlight'), 3000);
+  }
+
   function getDomain(url) { try { return new URL(url).hostname.replace('www.', ''); } catch { return ''; } }
   function langColor(lang) { const map = { JavaScript:'f1e05a',TypeScript:'3178c6',Python:'3572a5',HTML:'e34c26',CSS:'563d7c',Go:'00add8',Rust:'dea584',Java:'b07219',Ruby:'701516' }; return map[lang] || '5865f2'; }
   function escHtml(s) { return App.escapeHtml(s); }
@@ -534,5 +613,5 @@ const Links = (() => {
     if (fab) fab.remove();
   }
 
-  return { render, unmount, filterByCategory };
+  return { render, unmount, filterByCategory, reveal, openModal };
 })();
