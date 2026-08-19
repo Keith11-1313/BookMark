@@ -4,7 +4,11 @@
     "url": "https://manus.im/",
     "title": "Manus",
     "category": "AI",
-    "tags": ["ai-agent", "automation", "workflow"],
+    "tags": [
+      "ai-agent",
+      "automation",
+      "workflow"
+    ],
     "notes": "General-purpose AI agent that executes tasks and automates workflows, from building websites to running research.",
     "favicon": "https://www.google.com/s2/favicons?domain=manus.im&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -14,7 +18,11 @@
     "url": "https://www.unicorn.studio/",
     "title": "Unicorn Studio",
     "category": "Design",
-    "tags": ["webgl", "motion-design", "no-code"],
+    "tags": [
+      "webgl",
+      "motion-design",
+      "no-code"
+    ],
     "notes": "No-code WebGL design tool for creating interactive motion/effects, embeddable in Framer, Webflow, Wix, or Figma Sites.",
     "favicon": "https://www.google.com/s2/favicons?domain=unicorn.studio&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -24,7 +32,11 @@
     "url": "https://spline.design/",
     "title": "Spline",
     "category": "Design",
-    "tags": ["3d-design", "interactive", "collaborative"],
+    "tags": [
+      "3d-design",
+      "interactive",
+      "collaborative"
+    ],
     "notes": "Browser-based, real-time collaborative platform for 3D design, modeling, animation, and interactive web experiences.",
     "favicon": "https://www.google.com/s2/favicons?domain=spline.design&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -34,7 +46,11 @@
     "url": "https://www.10x.app/",
     "title": "10x",
     "category": "Developer Tools",
-    "tags": ["app-builder", "ios", "ai"],
+    "tags": [
+      "app-builder",
+      "ios",
+      "ai"
+    ],
     "notes": "AI-powered native iOS app builder for macOS — describe an app and it generates SwiftUI code, an Xcode project, and a simulator preview, plus App Store submission and marketing content.",
     "favicon": "https://www.google.com/s2/favicons?domain=10x.app&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -44,7 +60,11 @@
     "url": "https://componentry.dev/",
     "title": "Componentry",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "react", "animation"],
+    "tags": [
+      "ui-components",
+      "react",
+      "animation"
+    ],
     "notes": "Free, copy-paste library of animated React UI components (Tailwind CSS, TypeScript, Framer Motion), installable via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=componentry.dev&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -54,7 +74,11 @@
     "url": "https://21st.dev/",
     "title": "21st",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "react", "shadcn"],
+    "tags": [
+      "ui-components",
+      "react",
+      "shadcn"
+    ],
     "notes": "Community registry of 10,000+ hand-crafted React/Tailwind components and templates; each ships as a prompt you paste into Cursor, Claude Code, v0, or Lovable to drop into your project, or install via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=21st.dev&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -64,7 +88,11 @@
     "url": "https://refero.design/",
     "title": "Refero",
     "category": "Design",
-    "tags": ["ui-inspiration", "design-reference", "ux"],
+    "tags": [
+      "ui-inspiration",
+      "design-reference",
+      "ux"
+    ],
     "notes": "Gallery of real-world UI/UX screenshots for design reference — searchable and filterable by tag, type, and style.",
     "favicon": "https://www.google.com/s2/favicons?domain=refero.design&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -74,7 +102,11 @@
     "url": "https://ui.shadcn.com/",
     "title": "shadcn/ui",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "react", "tailwind"],
+    "tags": [
+      "ui-components",
+      "react",
+      "tailwind"
+    ],
     "notes": "Open-code, customizable React components you copy into your project rather than install as a dependency; foundation for many design systems.",
     "favicon": "https://www.google.com/s2/favicons?domain=ui.shadcn.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -84,7 +116,11 @@
     "url": "https://getdesign.md/",
     "title": "GetDesign",
     "category": "Design",
-    "tags": ["design-system", "ai-context", "style-reference"],
+    "tags": [
+      "design-system",
+      "ai-context",
+      "style-reference"
+    ],
     "notes": "Catalog of DESIGN.md files — written design-system analyses of popular websites (colors, type, spacing, components) that you drop into a project as a style reference for an AI coding agent.",
     "favicon": "https://www.google.com/s2/favicons?domain=getdesign.md&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -94,7 +130,12 @@
     "url": "https://github.com/IceWhaleTech/CasaOS",
     "title": "CasaOS",
     "category": "Utilities",
-    "tags": ["self-hosting", "home-server", "docker", "open-source"],
+    "tags": [
+      "self-hosting",
+      "home-server",
+      "docker",
+      "open-source"
+    ],
     "notes": "Open-source \"personal cloud\" system that turns a home server (e.g. Raspberry Pi, NUC) into an easy Docker-app dashboard for self-hosting.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -104,7 +145,11 @@
     "url": "https://dareful.com/",
     "title": "Dareful",
     "category": "Assets",
-    "tags": ["stock-video", "4k", "free"],
+    "tags": [
+      "stock-video",
+      "4k",
+      "free"
+    ],
     "notes": "Completely free 4K & HD stock video footage (nature, aerial, travel, etc.) under a Creative Commons Attribution license.",
     "favicon": "https://www.google.com/s2/favicons?domain=dareful.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -114,7 +159,11 @@
     "url": "https://coverr.co/",
     "title": "Coverr",
     "category": "Assets",
-    "tags": ["stock-video", "stock-photos", "free"],
+    "tags": [
+      "stock-video",
+      "stock-photos",
+      "free"
+    ],
     "notes": "Free stock video (plus stock photos and music); also offers AI video/image/music generation and tools to \"recreate\" library clips with AI.",
     "favicon": "https://www.google.com/s2/favicons?domain=coverr.co&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -124,7 +173,11 @@
     "url": "https://www.pexels.com/",
     "title": "Pexels",
     "category": "Assets",
-    "tags": ["stock-photos", "stock-video", "free"],
+    "tags": [
+      "stock-photos",
+      "stock-video",
+      "free"
+    ],
     "notes": "Free stock photos and videos for any creative project, no attribution required.",
     "favicon": "https://www.google.com/s2/favicons?domain=pexels.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -134,7 +187,11 @@
     "url": "https://pixabay.com/",
     "title": "Pixabay",
     "category": "Assets",
-    "tags": ["stock-photos", "illustrations", "royalty-free"],
+    "tags": [
+      "stock-photos",
+      "illustrations",
+      "royalty-free"
+    ],
     "notes": "Free stock photos, illustrations, vectors, videos, music, sound effects, and 3D models — no attribution required.",
     "favicon": "https://www.google.com/s2/favicons?domain=pixabay.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -144,7 +201,11 @@
     "url": "https://mixkit.co/",
     "title": "Mixkit",
     "category": "Assets",
-    "tags": ["stock-video", "sound-effects", "templates"],
+    "tags": [
+      "stock-video",
+      "sound-effects",
+      "templates"
+    ],
     "notes": "Free stock video clips, music, sound effects, and video editing templates (Premiere Pro, After Effects, Final Cut Pro, DaVinci Resolve), by Envato.",
     "favicon": "https://www.google.com/s2/favicons?domain=mixkit.co&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -154,7 +215,11 @@
     "url": "https://freesound.org/",
     "title": "Freesound",
     "category": "Assets",
-    "tags": ["sound-effects", "audio", "creative-commons"],
+    "tags": [
+      "sound-effects",
+      "audio",
+      "creative-commons"
+    ],
     "notes": "Searchable database of 700,000+ CC-licensed sound effects, run by Universitat Pompeu Fabra — credit depends on each sound’s license.",
     "favicon": "https://www.google.com/s2/favicons?domain=freesound.org&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -164,7 +229,11 @@
     "url": "https://www.zapsplat.com/",
     "title": "Zapsplat",
     "category": "Assets",
-    "tags": ["sound-effects", "music", "audio"],
+    "tags": [
+      "sound-effects",
+      "music",
+      "audio"
+    ],
     "notes": "Over 160,000 free sound effects plus royalty-free music tracks; free tier requires a login and attribution (paid removes both).",
     "favicon": "https://www.google.com/s2/favicons?domain=zapsplat.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -174,7 +243,11 @@
     "url": "https://uppbeat.io/",
     "title": "Uppbeat",
     "category": "Music",
-    "tags": ["royalty-free-music", "content-id-safe", "audio"],
+    "tags": [
+      "royalty-free-music",
+      "content-id-safe",
+      "audio"
+    ],
     "notes": "Royalty-free music and sound effects for videos/podcasts/streams, pre-cleared with Content ID to avoid copyright strikes.",
     "favicon": "https://www.google.com/s2/favicons?domain=uppbeat.io&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -184,7 +257,11 @@
     "url": "https://ncs.io/",
     "title": "NCS",
     "category": "Music",
-    "tags": ["royalty-free-music", "electronic", "copyright-free"],
+    "tags": [
+      "royalty-free-music",
+      "electronic",
+      "copyright-free"
+    ],
     "notes": "No Copyright Sounds: record label providing free music (mostly EDM/electronic) for creators, requires crediting the artist per their usage terms.",
     "favicon": "https://www.google.com/s2/favicons?domain=ncs.io&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -194,7 +271,11 @@
     "url": "https://www.bensound.com/",
     "title": "Bensound",
     "category": "Music",
-    "tags": ["royalty-free-music", "free", "audio"],
+    "tags": [
+      "royalty-free-music",
+      "free",
+      "audio"
+    ],
     "notes": "Royalty-free music for commercial and personal use, free under a Creative Commons license with attribution (or a paid license to skip crediting).",
     "favicon": "https://www.google.com/s2/favicons?domain=bensound.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -204,7 +285,11 @@
     "url": "https://www.chosic.com/",
     "title": "Chosic",
     "category": "Music",
-    "tags": ["music-discovery", "spotify", "playlist"],
+    "tags": [
+      "music-discovery",
+      "spotify",
+      "playlist"
+    ],
     "notes": "Music discovery toolkit built on the Spotify API — similar-songs finder, playlist generator/analyzer, genre/BPM finder — plus a small library of free royalty-free music downloads.",
     "favicon": "https://www.google.com/s2/favicons?domain=chosic.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -214,7 +299,11 @@
     "url": "https://texturelabs.org/",
     "title": "Texture Labs",
     "category": "Assets",
-    "tags": ["textures", "design-assets", "free"],
+    "tags": [
+      "textures",
+      "design-assets",
+      "free"
+    ],
     "notes": "Free, original texture images (grunge, film, paper, brick, etc.) and tutorials/tools for art and design.",
     "favicon": "https://www.google.com/s2/favicons?domain=texturelabs.org&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -224,7 +313,11 @@
     "url": "https://www.textures.com/",
     "title": "Textures.com",
     "category": "Assets",
-    "tags": ["textures", "pbr-materials", "3d"],
+    "tags": [
+      "textures",
+      "pbr-materials",
+      "3d"
+    ],
     "notes": "High-res texture packs and PBR materials for 3D and design work — free downloads daily, paid tiers for more.",
     "favicon": "https://www.google.com/s2/favicons?domain=textures.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -234,7 +327,11 @@
     "url": "https://texture.ninja/",
     "title": "Texture Ninja",
     "category": "Assets",
-    "tags": ["textures", "cc0", "photography"],
+    "tags": [
+      "textures",
+      "cc0",
+      "photography"
+    ],
     "notes": "Free, CC0 (public-domain) library of thousands of high-resolution texture and reference photos (brick, wood, metal, blood splatters, etc.) by 3D artist Joost Vanhoutte.",
     "favicon": "https://www.google.com/s2/favicons?domain=texture.ninja&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -244,7 +341,11 @@
     "url": "https://ambientcg.com/",
     "title": "Ambient CG",
     "category": "Assets",
-    "tags": ["pbr-materials", "3d-textures", "cc0"],
+    "tags": [
+      "pbr-materials",
+      "3d-textures",
+      "cc0"
+    ],
     "notes": "Free CC0 PBR textures and materials for CGI projects — metal, wood, fabric, ground, and more in high resolution.",
     "favicon": "https://www.google.com/s2/favicons?domain=ambientcg.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -254,7 +355,11 @@
     "url": "https://jitter.video/",
     "title": "Jitter",
     "category": "Design",
-    "tags": ["motion-design", "animation", "video"],
+    "tags": [
+      "motion-design",
+      "animation",
+      "video"
+    ],
     "notes": "Browser-based motion-design tool for creating animations and short videos, similar to a lightweight After Effects.",
     "favicon": "https://www.google.com/s2/favicons?domain=jitter.video&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -264,7 +369,12 @@
     "url": "https://github.com/badrshs/Complete-Website-Downloader",
     "title": "Complete Website Downloader",
     "category": "Utilities",
-    "tags": ["website-mirror", "offline", "windows", "open-source"],
+    "tags": [
+      "website-mirror",
+      "offline",
+      "windows",
+      "open-source"
+    ],
     "notes": "Windows desktop app (open-source wget wrapper) that mirrors entire sites — HTML, CSS, JS, images, fonts — and rewrites links for offline browsing.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -274,7 +384,11 @@
     "url": "https://haikei.app/",
     "title": "Haikei",
     "category": "Design",
-    "tags": ["background-generator", "svg", "gradients"],
+    "tags": [
+      "background-generator",
+      "svg",
+      "gradients"
+    ],
     "notes": "Beautiful random shape and gradient background generator (SVG blobs, waves, patterns) for design projects.",
     "favicon": "https://www.google.com/s2/favicons?domain=haikei.app&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -284,7 +398,11 @@
     "url": "https://fontjoy.com/",
     "title": "FontJoy",
     "category": "Design",
-    "tags": ["typography", "font-pairing", "generator"],
+    "tags": [
+      "typography",
+      "font-pairing",
+      "generator"
+    ],
     "notes": "Deep-learning font pairing generator for finding complementary typeface combinations.",
     "favicon": "https://www.google.com/s2/favicons?domain=fontjoy.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -294,7 +412,11 @@
     "url": "https://vidiq.com/",
     "title": "VidIQ",
     "category": "Utilities",
-    "tags": ["youtube", "seo", "analytics"],
+    "tags": [
+      "youtube",
+      "seo",
+      "analytics"
+    ],
     "notes": "YouTube analytics, keyword research, and optimization platform for video content creators.",
     "favicon": "https://www.google.com/s2/favicons?domain=vidiq.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -304,7 +426,11 @@
     "url": "https://driveandlisten.app/",
     "title": "Drive & Listen",
     "category": "Lifestyle",
-    "tags": ["ambient", "cities", "radio"],
+    "tags": [
+      "ambient",
+      "cities",
+      "radio"
+    ],
     "notes": "Experience different cities through synced dashcam driving footage and a local radio station playing in the background.",
     "favicon": "https://www.google.com/s2/favicons?domain=driveandlisten.app&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -314,7 +440,11 @@
     "url": "https://www.ifixit.com/",
     "title": "iFixit",
     "category": "Documentation",
-    "tags": ["repair-guides", "electronics", "teardowns"],
+    "tags": [
+      "repair-guides",
+      "electronics",
+      "teardowns"
+    ],
     "notes": "Community-powered repair guides, teardowns, and spare parts for electronics and devices.",
     "favicon": "https://www.google.com/s2/favicons?domain=ifixit.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -324,7 +454,11 @@
     "url": "https://zty.pe/",
     "title": "ZType",
     "category": "Games",
-    "tags": ["typing", "browser-game", "skill"],
+    "tags": [
+      "typing",
+      "browser-game",
+      "skill"
+    ],
     "notes": "Space-shooter typing game where you destroy enemies by typing the words attached to them.",
     "favicon": "https://www.google.com/s2/favicons?domain=zty.pe&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -334,7 +468,11 @@
     "url": "https://theresanaiforthat.com/",
     "title": "There's An AI For That",
     "category": "AI",
-    "tags": ["ai-directory", "discovery", "tools"],
+    "tags": [
+      "ai-directory",
+      "discovery",
+      "tools"
+    ],
     "notes": "Searchable directory of thousands of AI tools — search by task and compare options, plus daily deals and a newsletter.",
     "favicon": "https://www.google.com/s2/favicons?domain=theresanaiforthat.com&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -344,7 +482,11 @@
     "url": "https://www.originkit.dev/",
     "title": "Origin Kit",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "animation", "framer"],
+    "tags": [
+      "ui-components",
+      "animation",
+      "framer"
+    ],
     "notes": "Free library of animated components — copy the code, use in Framer, or connect via MCP — copy the code, use in Framer, or connect via MCP.",
     "favicon": "https://www.google.com/s2/favicons?domain=originkit.dev&sz=32",
     "createdAt": "2025-07-16T10:00:00Z"
@@ -354,7 +496,11 @@
     "url": "https://speckit.tech/",
     "title": "Spec Kit",
     "category": "Developer Tools",
-    "tags": ["ai", "spec", "software-planning"],
+    "tags": [
+      "ai",
+      "spec",
+      "software-planning"
+    ],
     "notes": "AI SaaS tool that turns a plain-language app idea into production-ready spec docs (PRD, requirements, architecture, API, database schema, roadmap) as exportable Markdown.",
     "favicon": "https://www.google.com/s2/favicons?domain=speckit.tech&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -364,7 +510,11 @@
     "url": "https://www.getlayers.ai/",
     "title": "Layers",
     "category": "AI",
-    "tags": ["ai-prompts", "landing-page", "templates"],
+    "tags": [
+      "ai-prompts",
+      "landing-page",
+      "templates"
+    ],
     "notes": "Library of AI prompts, 3D scenes, and templates — copy a prompt and paste it into your AI coding tool to generate a cinematic, non-generic-looking website section.",
     "favicon": "https://www.google.com/s2/favicons?domain=getlayers.ai&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -374,7 +524,11 @@
     "url": "https://motionsites.ai/",
     "title": "Motion Sites",
     "category": "AI",
-    "tags": ["ai-prompts", "web-design", "animation"],
+    "tags": [
+      "ai-prompts",
+      "web-design",
+      "animation"
+    ],
     "notes": "Library of ready-to-use AI design prompts for building animated landing pages, sections, backgrounds, and app interfaces.",
     "favicon": "https://www.google.com/s2/favicons?domain=motionsites.ai&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -384,7 +538,11 @@
     "url": "https://perlerbeads.net/",
     "title": "Perler Beads",
     "category": "Utilities",
-    "tags": ["pattern-generator", "craft", "hobby"],
+    "tags": [
+      "pattern-generator",
+      "craft",
+      "hobby"
+    ],
     "notes": "Free tool that converts uploaded photos into printable Perler/Hama/Artkal bead patterns with color matching and bead counts.",
     "favicon": "https://www.google.com/s2/favicons?domain=perlerbeads.net&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -394,7 +552,11 @@
     "url": "https://www.blueprint.io/",
     "title": "Blueprint",
     "category": "Developer Tools",
-    "tags": ["hardware", "ai", "electronics"],
+    "tags": [
+      "hardware",
+      "ai",
+      "electronics"
+    ],
     "notes": "AI hardware design tool — generates wiring diagrams, bills of materials, and step-by-step assembly guides for electronics/hardware projects (Arduino, Raspberry Pi, etc.) from a prompt.",
     "favicon": "https://www.google.com/s2/favicons?domain=blueprint.io&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -404,7 +566,11 @@
     "url": "https://kuku-kube.com/",
     "title": "Kuku Kube",
     "category": "Games",
-    "tags": ["color-perception", "puzzle", "browser-game"],
+    "tags": [
+      "color-perception",
+      "puzzle",
+      "browser-game"
+    ],
     "notes": "Browser-based color perception game — spot the one square that is a slightly different shade from the rest before the timer runs out.",
     "favicon": "https://www.google.com/s2/favicons?domain=kuku-kube.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -414,7 +580,12 @@
     "url": "https://github.com/every-app/open-seo",
     "title": "Open SEO",
     "category": "Developer Tools",
-    "tags": ["seo", "self-hosted", "keyword-research", "open-source"],
+    "tags": [
+      "seo",
+      "self-hosted",
+      "keyword-research",
+      "open-source"
+    ],
     "notes": "Open-source, self-hostable alternative to Semrush/Ahrefs — keyword research, rank tracking, backlinks, and site audits, pay-as-you-go via the DataForSEO API, with an MCP server and AI agent skills.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -424,7 +595,11 @@
     "url": "https://github.com/tonhowtf/omniget/releases",
     "title": "Omniget",
     "category": "Utilities",
-    "tags": ["media-downloader", "yt-dlp", "open-source"],
+    "tags": [
+      "media-downloader",
+      "yt-dlp",
+      "open-source"
+    ],
     "notes": "Open-source cross-platform desktop app (Tauri/Rust/Svelte) for downloading, organizing, and studying media — yt-dlp-based downloads from 1,800+ sites plus a PDF/EPUB reader with focus mode and spaced repetition.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -434,7 +609,12 @@
     "url": "https://github.com/spotbye/SpotiFLAC",
     "title": "SpotiFLAC",
     "category": "Music",
-    "tags": ["music-downloader", "lossless", "spotify", "open-source"],
+    "tags": [
+      "music-downloader",
+      "lossless",
+      "spotify",
+      "open-source"
+    ],
     "notes": "Open-source desktop app that fetches Spotify tracks in true lossless FLAC from Tidal, Qobuz, or Amazon Music — no account required.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -443,8 +623,12 @@
     "id": "https://start.me/p/L1rEYQ/osint4all",
     "url": "https://start.me/p/L1rEYQ/osint4all",
     "title": "OSINT4All",
-    "category": "Documentation",
-    "tags": ["osint", "research", "resource-list"],
+    "category": "Security",
+    "tags": [
+      "osint",
+      "research",
+      "resource-list"
+    ],
     "notes": "Start.me page packed with practical OSINT resources — an organized, beginner-friendly toolkit for researchers of any skill level.",
     "favicon": "https://www.google.com/s2/favicons?domain=start.me&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -454,7 +638,11 @@
     "url": "https://fmhy.net/",
     "title": "FMHY",
     "category": "Documentation",
-    "tags": ["free-resources", "media", "wiki"],
+    "tags": [
+      "free-resources",
+      "media",
+      "wiki"
+    ],
     "notes": "Free Media Heck Yeah — big wiki-style index of free internet resources: streaming, downloading, gaming, reading, AI tools, and privacy. Some destinations skate copyright lines.",
     "favicon": "https://www.google.com/s2/favicons?domain=fmhy.net&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -464,7 +652,11 @@
     "url": "https://www.invoapp.com/",
     "title": "Invo",
     "category": "Finance",
-    "tags": ["crypto", "copy-trading", "futures"],
+    "tags": [
+      "crypto",
+      "copy-trading",
+      "futures"
+    ],
     "notes": "Social crypto-futures copy-trading app — browse top traders and automatically mirror their positions across 170+ futures pairs on Hyperliquid.",
     "favicon": "https://www.google.com/s2/favicons?domain=invoapp.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -474,7 +666,11 @@
     "url": "https://www.modsnation.com/",
     "title": "ModsNation",
     "category": "Lifestyle",
-    "tags": ["car-mods", "3d-configurator", "community"],
+    "tags": [
+      "car-mods",
+      "3d-configurator",
+      "community"
+    ],
     "notes": "Automotive community platform with a 3D car configurator, aftermarket-parts marketplace, auctions, build journals, and car media.",
     "favicon": "https://www.google.com/s2/favicons?domain=modsnation.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -484,7 +680,11 @@
     "url": "https://flicker.laurie.fyi/gallery",
     "title": "Flicker Gallery",
     "category": "Design",
-    "tags": ["spinners", "svg", "animation"],
+    "tags": [
+      "spinners",
+      "svg",
+      "animation"
+    ],
     "notes": "Library of flip-dot-display-inspired loading spinners; browse the collection or build your own and export to SVG, React, or Flutter.",
     "favicon": "https://www.google.com/s2/favicons?domain=laurie.fyi&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -494,7 +694,11 @@
     "url": "https://www.fffuel.co/",
     "title": "fffuel",
     "category": "Design",
-    "tags": ["svg-generator", "backgrounds", "free"],
+    "tags": [
+      "svg-generator",
+      "backgrounds",
+      "free"
+    ],
     "notes": "Collection of free SVG generator tools for backgrounds, blobs, patterns, gradients, and more.",
     "favicon": "https://www.google.com/s2/favicons?domain=fffuel.co&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -504,7 +708,11 @@
     "url": "https://coolors.co/",
     "title": "Coolors",
     "category": "Design",
-    "tags": ["color-palette", "generator", "design-tool"],
+    "tags": [
+      "color-palette",
+      "generator",
+      "design-tool"
+    ],
     "notes": "Fast color palette generator and explorer for designers and developers.",
     "favicon": "https://www.google.com/s2/favicons?domain=coolors.co&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -514,7 +722,11 @@
     "url": "https://www.linerider.com/",
     "title": "Line Rider",
     "category": "Games",
-    "tags": ["physics", "drawing", "browser-game"],
+    "tags": [
+      "physics",
+      "drawing",
+      "browser-game"
+    ],
     "notes": "Physics-based drawing game where you sled along a hand-drawn track.",
     "favicon": "https://www.google.com/s2/favicons?domain=linerider.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -524,7 +736,11 @@
     "url": "https://textlab.javii.tools/",
     "title": "Textlab",
     "category": "Utilities",
-    "tags": ["mockup", "screenshot-generator", "social-media"],
+    "tags": [
+      "mockup",
+      "screenshot-generator",
+      "social-media"
+    ],
     "notes": "Generator for realistic messaging/social-media mockup screenshots (iMessage, WhatsApp, Instagram DM, TikTok/Instagram/YouTube comments, notifications, etc.) with transparent PNG export.",
     "favicon": "https://www.google.com/s2/favicons?domain=javii.tools&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -534,7 +750,11 @@
     "url": "https://www.reactbits.dev/",
     "title": "React Bits",
     "category": "Libraries/Frameworks",
-    "tags": ["react", "ui-components", "animation"],
+    "tags": [
+      "react",
+      "ui-components",
+      "animation"
+    ],
     "notes": "Copy-paste animated React components — text effects, animated backgrounds, loaders, buttons, and more, free and open source.",
     "favicon": "https://www.google.com/s2/favicons?domain=reactbits.dev&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -544,7 +764,11 @@
     "url": "https://github.com/darkroomengineering/lenis",
     "title": "Lenis",
     "category": "Libraries/Frameworks",
-    "tags": ["smooth-scroll", "javascript", "open-source"],
+    "tags": [
+      "smooth-scroll",
+      "javascript",
+      "open-source"
+    ],
     "notes": "Open-source smooth-scrolling library that adds buttery inertia to native scroll — the engine behind many award-winning sites.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -554,7 +778,11 @@
     "url": "https://github.com/greensock/GSAP",
     "title": "GSAP",
     "category": "Libraries/Frameworks",
-    "tags": ["animation", "javascript", "open-source"],
+    "tags": [
+      "animation",
+      "javascript",
+      "open-source"
+    ],
     "notes": "GreenSock Animation Platform — a battle-tested JS animation library for high-performance tweens of DOM, SVG, canvas, and WebGL, with a free core.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -564,7 +792,11 @@
     "url": "https://github.com/tengbao/vanta",
     "title": "Vanta.js",
     "category": "Libraries/Frameworks",
-    "tags": ["animated-backgrounds", "three-js", "open-source"],
+    "tags": [
+      "animated-backgrounds",
+      "three-js",
+      "open-source"
+    ],
     "notes": "Library for adding animated 3D backgrounds to websites using Three.js or p5.js.",
     "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -574,7 +806,11 @@
     "url": "https://animejs.com/",
     "title": "Anime.js",
     "category": "Libraries/Frameworks",
-    "tags": ["animation", "javascript", "open-source"],
+    "tags": [
+      "animation",
+      "javascript",
+      "open-source"
+    ],
     "notes": "Lightweight JavaScript animation library with a simple, flexible API for CSS, SVG, DOM, and JS objects.",
     "favicon": "https://www.google.com/s2/favicons?domain=animejs.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -584,7 +820,11 @@
     "url": "https://motion.dev/",
     "title": "Motion",
     "category": "Libraries/Frameworks",
-    "tags": ["animation", "react", "javascript"],
+    "tags": [
+      "animation",
+      "react",
+      "javascript"
+    ],
     "notes": "Animation library for JavaScript and React (formerly Framer Motion).",
     "favicon": "https://www.google.com/s2/favicons?domain=motion.dev&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -594,7 +834,11 @@
     "url": "https://bklit.com/",
     "title": "Bklit",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "charts", "react"],
+    "tags": [
+      "ui-components",
+      "charts",
+      "react"
+    ],
     "notes": "shadcn/ui-based React component library for data visualization — area, bar, candlestick, heatmap, sankey charts and more, with a Studio builder.",
     "favicon": "https://www.google.com/s2/favicons?domain=bklit.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -604,7 +848,11 @@
     "url": "https://skiper-ui.com/",
     "title": "Skiper UI",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "shadcn", "next-js"],
+    "tags": [
+      "ui-components",
+      "shadcn",
+      "next-js"
+    ],
     "notes": "Library of 100+ \"un-common\" animated components for shadcn/ui and Next.js, free and paid tiers, installable via the shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=skiper-ui.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -614,7 +862,11 @@
     "url": "https://www.cult-ui.com/",
     "title": "Cult UI",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "react", "animation"],
+    "tags": [
+      "ui-components",
+      "react",
+      "animation"
+    ],
     "notes": "Copy-paste animated React components and effects — from the Framer community, with free and paid tiers.",
     "favicon": "https://www.google.com/s2/favicons?domain=cult-ui.com&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -624,7 +876,11 @@
     "url": "https://ui.watermelon.sh/",
     "title": "Watermelon UI",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-components", "shadcn", "tailwind"],
+    "tags": [
+      "ui-components",
+      "shadcn",
+      "tailwind"
+    ],
     "notes": "Copy-paste React components, dashboards, and UI blocks built on Tailwind/shadcn conventions — grab a component or an entire dashboard.",
     "favicon": "https://www.google.com/s2/favicons?domain=watermelon.sh&sz=32",
     "createdAt": "2026-07-23T00:00:00Z"
@@ -634,7 +890,11 @@
     "url": "https://amoshuke.github.io/flutter_tilt_book/en/v4/",
     "title": "Flutter Tilt",
     "category": "Design Tools",
-    "tags": ["flutter", "3d-effect", "ui-animation"],
+    "tags": [
+      "flutter",
+      "3d-effect",
+      "ui-animation"
+    ],
     "notes": "Flutter package documentation and demos for creating tilt-based 3D card and book interactions.",
     "favicon": "https://www.google.com/s2/favicons?domain=amoshuke.github.io&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -644,7 +904,11 @@
     "url": "https://studio.getstanley.ai/",
     "title": "Stanley Studio",
     "category": "AI",
-    "tags": ["ai-video", "video-editing", "prompt-based"],
+    "tags": [
+      "ai-video",
+      "video-editing",
+      "prompt-based"
+    ],
     "notes": "AI video-editing studio for editing entire videos with a single prompt.",
     "favicon": "https://www.google.com/s2/favicons?domain=studio.getstanley.ai&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -654,7 +918,11 @@
     "url": "https://10minutemail.com/",
     "title": "10 Minute Mail",
     "category": "Utilities",
-    "tags": ["temporary-email", "privacy", "no-signup"],
+    "tags": [
+      "temporary-email",
+      "privacy",
+      "no-signup"
+    ],
     "notes": "Temporary email service for disposable inboxes and short-lived verification addresses.",
     "favicon": "https://www.google.com/s2/favicons?domain=10minutemail.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -664,7 +932,11 @@
     "url": "https://opensky-network.org/",
     "title": "OpenSky Network",
     "category": "APIs",
-    "tags": ["aircraft", "flight-tracking", "api"],
+    "tags": [
+      "aircraft",
+      "flight-tracking",
+      "api"
+    ],
     "notes": "Live aircraft state data including positions, altitude, velocity, and transponder details for aircraft currently in the sky.",
     "favicon": "https://www.google.com/s2/favicons?domain=opensky-network.org&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -674,7 +946,11 @@
     "url": "https://api.artic.edu/",
     "title": "Art Institute of Chicago API",
     "category": "APIs",
-    "tags": ["art", "museum", "no-api-key"],
+    "tags": [
+      "art",
+      "museum",
+      "no-api-key"
+    ],
     "notes": "REST API for Art Institute of Chicago public collection data, artwork metadata, search, and IIIF image URLs with anonymous access.",
     "favicon": "https://www.google.com/s2/favicons?domain=api.artic.edu&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -684,7 +960,11 @@
     "url": "https://world.openfoodfacts.org/",
     "title": "Open Food Facts",
     "category": "APIs",
-    "tags": ["food-data", "barcode", "nutrition"],
+    "tags": [
+      "food-data",
+      "barcode",
+      "nutrition"
+    ],
     "notes": "Open food-products database and API for barcode lookups, ingredients, nutrition values, brands, and product metadata.",
     "favicon": "https://www.google.com/s2/favicons?domain=world.openfoodfacts.org&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -694,7 +974,11 @@
     "url": "https://opentdb.com/",
     "title": "Open Trivia DB",
     "category": "APIs",
-    "tags": ["trivia", "quiz", "no-api-key"],
+    "tags": [
+      "trivia",
+      "quiz",
+      "no-api-key"
+    ],
     "notes": "Free trivia-question API with categories, difficulty levels, multiple-choice and true/false questions, no API key required.",
     "favicon": "https://www.google.com/s2/favicons?domain=opentdb.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -704,7 +988,11 @@
     "url": "https://lrclib.net/",
     "title": "LRCLIB",
     "category": "APIs",
-    "tags": ["lyrics", "music", "json-api"],
+    "tags": [
+      "lyrics",
+      "music",
+      "json-api"
+    ],
     "notes": "Open lyrics database with plain and synced lyrics served as clean JSON, no signup required.",
     "favicon": "https://www.google.com/s2/favicons?domain=lrclib.net&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -714,7 +1002,11 @@
     "url": "https://ui.unlumen.com/",
     "title": "unlumen UI",
     "category": "Libraries/Frameworks",
-    "tags": ["react", "ui-components", "tailwind"],
+    "tags": [
+      "react",
+      "ui-components",
+      "tailwind"
+    ],
     "notes": "Copy-paste React UI blocks and components styled with Tailwind — buttons, cards, navs, and effects for faster front-end work.",
     "favicon": "https://www.google.com/s2/favicons?domain=ui.unlumen.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -724,7 +1016,11 @@
     "url": "https://smoothui.dev/",
     "title": "SmoothUI",
     "category": "Libraries/Frameworks",
-    "tags": ["react", "shadcn", "animation"],
+    "tags": [
+      "react",
+      "shadcn",
+      "animation"
+    ],
     "notes": "Animated React components built for shadcn/ui, Tailwind CSS, and Motion.",
     "favicon": "https://www.google.com/s2/favicons?domain=smoothui.dev&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -734,7 +1030,11 @@
     "url": "https://animmasterlib.dev/",
     "title": "Animmaster Lib",
     "category": "Libraries/Frameworks",
-    "tags": ["animated-components", "web-ui", "templates"],
+    "tags": [
+      "animated-components",
+      "web-ui",
+      "templates"
+    ],
     "notes": "Copy-paste animated React components and product UI sections for your site.",
     "favicon": "https://www.google.com/s2/favicons?domain=animmasterlib.dev&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -744,7 +1044,11 @@
     "url": "https://funes.world/",
     "title": "FUNES",
     "category": "Lifestyle",
-    "tags": ["3d-archive", "cultural-heritage", "design-reference"],
+    "tags": [
+      "3d-archive",
+      "cultural-heritage",
+      "design-reference"
+    ],
     "notes": "3D cultural heritage archive for browsing preserved digital objects and historical artifacts.",
     "favicon": "https://www.google.com/s2/favicons?domain=funes.world&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -754,7 +1058,11 @@
     "url": "https://www.uilora.com/",
     "title": "Uilora",
     "category": "Libraries/Frameworks",
-    "tags": ["next-js", "react-native", "ui-components"],
+    "tags": [
+      "next-js",
+      "react-native",
+      "ui-components"
+    ],
     "notes": "UI components and templates for Next.js and React Native — grab free starters or buy full kits.",
     "favicon": "https://www.google.com/s2/favicons?domain=uilora.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -764,7 +1072,11 @@
     "url": "https://wokwi.com/",
     "title": "Wokwi",
     "category": "Developer Tools",
-    "tags": ["electronics", "esp32", "simulator"],
+    "tags": [
+      "electronics",
+      "esp32",
+      "simulator"
+    ],
     "notes": "Browser-based electronics simulator for ESP32, Arduino, Raspberry Pi Pico, and embedded projects.",
     "favicon": "https://www.google.com/s2/favicons?domain=wokwi.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -774,7 +1086,11 @@
     "url": "https://www.cta.gallery/",
     "title": "CTA.gallery",
     "category": "Design Inspiration",
-    "tags": ["cta", "conversion", "design-gallery"],
+    "tags": [
+      "cta",
+      "conversion",
+      "design-gallery"
+    ],
     "notes": "Gallery of call-to-action examples for landing pages, product sites, and conversion-focused design.",
     "favicon": "https://www.google.com/s2/favicons?domain=cta.gallery&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -784,7 +1100,11 @@
     "url": "https://fontshare.com/",
     "title": "Fontshare",
     "category": "Assets",
-    "tags": ["fonts", "typography", "free"],
+    "tags": [
+      "fonts",
+      "typography",
+      "free"
+    ],
     "notes": "Free font platform from Indian Type Foundry with quality typefaces for personal and commercial design work.",
     "favicon": "https://www.google.com/s2/favicons?domain=fontshare.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -794,7 +1114,11 @@
     "url": "https://www.footer.design/",
     "title": "Footer Design",
     "category": "Design Inspiration",
-    "tags": ["footer", "web-design", "gallery"],
+    "tags": [
+      "footer",
+      "web-design",
+      "gallery"
+    ],
     "notes": "Gallery of website footer designs — browse layout, navigation, and newsletter patterns for your next site.",
     "favicon": "https://www.google.com/s2/favicons?domain=footer.design&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -804,7 +1128,11 @@
     "url": "https://shadergradient.co/",
     "title": "Shader Gradient",
     "category": "Design Tools",
-    "tags": ["shader", "gradient", "3d"],
+    "tags": [
+      "shader",
+      "gradient",
+      "3d"
+    ],
     "notes": "Interactive shader-gradient generator for creating animated 3D gradient backgrounds.",
     "favicon": "https://www.google.com/s2/favicons?domain=shadergradient.co&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -814,7 +1142,11 @@
     "url": "https://app.paper.design/",
     "title": "Paper",
     "category": "Design Tools",
-    "tags": ["canvas", "design-tool", "web-app"],
+    "tags": [
+      "canvas",
+      "design-tool",
+      "web-app"
+    ],
     "notes": "Browser-based visual design app for creating and editing graphic layouts on a canvas.",
     "favicon": "https://www.google.com/s2/favicons?domain=app.paper.design&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -824,7 +1156,11 @@
     "url": "https://r3f.docs.pmnd.rs/",
     "title": "React Three Fiber Docs",
     "category": "Developer Tools",
-    "tags": ["react", "three-js", "documentation"],
+    "tags": [
+      "react",
+      "three-js",
+      "documentation"
+    ],
     "notes": "Docs for React Three Fiber, the React renderer for Three.js maintained by Poimandres.",
     "favicon": "https://www.google.com/s2/favicons?domain=r3f.docs.pmnd.rs&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -834,7 +1170,11 @@
     "url": "https://www.landing.love/",
     "title": "Landing Love",
     "category": "Design Inspiration",
-    "tags": ["landing-pages", "animation", "web-design"],
+    "tags": [
+      "landing-pages",
+      "animation",
+      "web-design"
+    ],
     "notes": "Showcase of animated landing pages and interactions — filter by animation type and swipe ideas for your next hero.",
     "favicon": "https://www.google.com/s2/favicons?domain=landing.love&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -844,7 +1184,11 @@
     "url": "https://howlongtobeat.com/",
     "title": "HowLongToBeat",
     "category": "Games",
-    "tags": ["game-length", "backlog", "planning"],
+    "tags": [
+      "game-length",
+      "backlog",
+      "planning"
+    ],
     "notes": "Crowdsourced database for estimating video game completion times, backlogs, and playthrough lengths.",
     "favicon": "https://www.google.com/s2/favicons?domain=howlongtobeat.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -854,7 +1198,11 @@
     "url": "https://lordicon.com/",
     "title": "Lordicon",
     "category": "Assets",
-    "tags": ["animated-icons", "icons", "lottie"],
+    "tags": [
+      "animated-icons",
+      "icons",
+      "lottie"
+    ],
     "notes": "Animated icons for interfaces — free hand-picked packs plus paid packs; export to Lottie, GIF, or SVG.",
     "favicon": "https://www.google.com/s2/favicons?domain=lordicon.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -864,7 +1212,11 @@
     "url": "https://www.removepaywall.com/",
     "title": "RemovePaywall",
     "category": "Utilities",
-    "tags": ["paywall", "articles", "utility"],
+    "tags": [
+      "paywall",
+      "articles",
+      "utility"
+    ],
     "notes": "Online utility for finding accessible versions of article pages blocked by paywalls.",
     "favicon": "https://www.google.com/s2/favicons?domain=removepaywall.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -874,7 +1226,11 @@
     "url": "https://colorflow.ls.graphics/",
     "title": "ColorFlow",
     "category": "Design Tools",
-    "tags": ["mesh-gradient", "color", "generator"],
+    "tags": [
+      "mesh-gradient",
+      "color",
+      "generator"
+    ],
     "notes": "Advanced mesh-gradient generator and editor for creating colorful abstract backgrounds.",
     "favicon": "https://www.google.com/s2/favicons?domain=colorflow.ls.graphics&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -884,7 +1240,11 @@
     "url": "https://namethatui.com/",
     "title": "NameThatUI",
     "category": "Documentation",
-    "tags": ["ui-patterns", "terminology", "reference"],
+    "tags": [
+      "ui-patterns",
+      "terminology",
+      "reference"
+    ],
     "notes": "Reference site for identifying what UI elements and interface patterns are called.",
     "favicon": "https://www.google.com/s2/favicons?domain=namethatui.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -894,7 +1254,11 @@
     "url": "https://www.termcn.dev/",
     "title": "termcn",
     "category": "Libraries/Frameworks",
-    "tags": ["terminal-ui", "components", "developer-tools"],
+    "tags": [
+      "terminal-ui",
+      "components",
+      "developer-tools"
+    ],
     "notes": "Terminal-style UI components for the web — build fake CLIs, retro TUIs, and code blocks in React.",
     "favicon": "https://www.google.com/s2/favicons?domain=termcn.dev&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -904,7 +1268,11 @@
     "url": "https://nosignups.net/",
     "title": "NoSignups",
     "category": "Utilities",
-    "tags": ["open-source", "no-signup", "tools"],
+    "tags": [
+      "open-source",
+      "no-signup",
+      "tools"
+    ],
     "notes": "Directory of open-source web tools that work without accounts or signups.",
     "favicon": "https://www.google.com/s2/favicons?domain=nosignups.net&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -914,7 +1282,11 @@
     "url": "https://www.swissted.com/",
     "title": "Swissted",
     "category": "Design Inspiration",
-    "tags": ["poster-design", "swiss-style", "music"],
+    "tags": [
+      "poster-design",
+      "swiss-style",
+      "music"
+    ],
     "notes": "Typographic poster project remixing punk, hardcore, and indie rock show flyers in Swiss modernist style.",
     "favicon": "https://www.google.com/s2/favicons?domain=swissted.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -924,7 +1296,11 @@
     "url": "https://designspells.com/",
     "title": "Design Spells",
     "category": "Design Inspiration",
-    "tags": ["microinteractions", "web-design", "inspiration"],
+    "tags": [
+      "microinteractions",
+      "web-design",
+      "inspiration"
+    ],
     "notes": "Collection of delightful interaction details, animations, and design touches from real websites.",
     "favicon": "https://www.google.com/s2/favicons?domain=designspells.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -934,7 +1310,11 @@
     "url": "https://viewport-ui.design/",
     "title": "Viewport UI",
     "category": "Design Inspiration",
-    "tags": ["ui-inspiration", "web-design", "gallery"],
+    "tags": [
+      "ui-inspiration",
+      "web-design",
+      "gallery"
+    ],
     "notes": "Showcase of standout UI and web-design experiences — browse by vibe or flow for interface inspiration.",
     "favicon": "https://www.google.com/s2/favicons?domain=viewport-ui.design&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -944,7 +1324,11 @@
     "url": "https://wigglypaint.com/",
     "title": "WigglyPaint",
     "category": "Design Tools",
-    "tags": ["drawing", "animated-gif", "creative-tool"],
+    "tags": [
+      "drawing",
+      "animated-gif",
+      "creative-tool"
+    ],
     "notes": "Free animated drawing tool for creating wiggly illustrations and exporting them as GIFs.",
     "favicon": "https://www.google.com/s2/favicons?domain=wigglypaint.com&sz=32",
     "createdAt": "2026-07-25T22:13:00"
@@ -954,7 +1338,11 @@
     "url": "https://tinywow.com/",
     "title": "TinyWow",
     "category": "Utilities",
-    "tags": ["pdf-tools", "image-tools", "ai-writing"],
+    "tags": [
+      "pdf-tools",
+      "image-tools",
+      "ai-writing"
+    ],
     "notes": "Free online tools for PDF, image, video, file conversion, and AI writing tasks.",
     "favicon": "https://www.google.com/s2/favicons?domain=tinywow.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -964,7 +1352,11 @@
     "url": "https://learn-anything.xyz/",
     "title": "Learn Anything",
     "category": "Learning",
-    "tags": ["learning", "knowledge-map", "resources"],
+    "tags": [
+      "learning",
+      "knowledge-map",
+      "resources"
+    ],
     "notes": "Open-source topic map of learning resources — search a subject and get community-vetted courses, videos, and articles.",
     "favicon": "https://www.google.com/s2/favicons?domain=learn-anything.xyz&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -974,7 +1366,11 @@
     "url": "https://wifispc.com/",
     "title": "WiFi Space",
     "category": "Utilities",
-    "tags": ["wifi-map", "passwords", "travel"],
+    "tags": [
+      "wifi-map",
+      "passwords",
+      "travel"
+    ],
     "notes": "Map-based service for finding shared WiFi passwords nearby.",
     "favicon": "https://www.google.com/s2/favicons?domain=wifispc.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -984,7 +1380,11 @@
     "url": "https://www.desktophut.com/",
     "title": "DesktopHut",
     "category": "Assets",
-    "tags": ["live-wallpapers", "animated-backgrounds", "desktop"],
+    "tags": [
+      "live-wallpapers",
+      "animated-backgrounds",
+      "desktop"
+    ],
     "notes": "Library of free live and animated wallpapers for Windows PC, Mac, and mobile.",
     "favicon": "https://www.google.com/s2/favicons?domain=desktophut.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -993,8 +1393,12 @@
     "id": "https://geospy.ai/",
     "url": "https://geospy.ai/",
     "title": "GeoSpy",
-    "category": "AI",
-    "tags": ["image-geolocation", "osint", "investigation"],
+    "category": "Security",
+    "tags": [
+      "image-geolocation",
+      "osint",
+      "investigation"
+    ],
     "notes": "AI tool that estimates where a photo was taken — drop in an image and get a map location plus confidence, built for OSINT work.",
     "favicon": "https://www.google.com/s2/favicons?domain=geospy.ai&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1004,7 +1408,11 @@
     "url": "https://www.turbo.ai/",
     "title": "Turbo AI",
     "category": "AI",
-    "tags": ["ai-notes", "flashcards", "study-tools"],
+    "tags": [
+      "ai-notes",
+      "flashcards",
+      "study-tools"
+    ],
     "notes": "AI study tool for generating notes, flashcards, quizzes, and related learning materials.",
     "favicon": "https://www.google.com/s2/favicons?domain=turbo.ai&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1014,7 +1422,11 @@
     "url": "https://3dicons.co/",
     "title": "3dicons",
     "category": "Assets",
-    "tags": ["3d-icons", "open-source", "free"],
+    "tags": [
+      "3d-icons",
+      "open-source",
+      "free"
+    ],
     "notes": "Open-source library of free 3D icons for personal and commercial projects.",
     "favicon": "https://www.google.com/s2/favicons?domain=3dicons.co&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1024,7 +1436,11 @@
     "url": "https://animate-ui.com/",
     "title": "Animate UI",
     "category": "Libraries/Frameworks",
-    "tags": ["react", "animated-components", "shadcn"],
+    "tags": [
+      "react",
+      "animated-components",
+      "shadcn"
+    ],
     "notes": "Open-source animated React components built with TypeScript, Tailwind CSS, Motion, and shadcn CLI.",
     "favicon": "https://www.google.com/s2/favicons?domain=animate-ui.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1034,7 +1450,11 @@
     "url": "https://www.untitledui.com/",
     "title": "Untitled UI",
     "category": "Libraries/Frameworks",
-    "tags": ["figma-kit", "react", "ui-components"],
+    "tags": [
+      "figma-kit",
+      "react",
+      "ui-components"
+    ],
     "notes": "Figma UI kit + React components for product work — free starter kit, paid unlocks the full component library.",
     "favicon": "https://www.google.com/s2/favicons?domain=untitledui.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1044,7 +1464,11 @@
     "url": "https://phosphoricons.com/",
     "title": "Phosphor Icons",
     "category": "Assets",
-    "tags": ["icons", "svg", "interface"],
+    "tags": [
+      "icons",
+      "svg",
+      "interface"
+    ],
     "notes": "Flexible icon family for interfaces, diagrams, presentations, and other visual projects.",
     "favicon": "https://www.google.com/s2/favicons?domain=phosphoricons.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1054,7 +1478,11 @@
     "url": "https://heroicons.com/",
     "title": "Heroicons",
     "category": "Assets",
-    "tags": ["svg-icons", "tailwind", "interface"],
+    "tags": [
+      "svg-icons",
+      "tailwind",
+      "interface"
+    ],
     "notes": "Hand-crafted SVG icon set from the makers of Tailwind CSS.",
     "favicon": "https://www.google.com/s2/favicons?domain=heroicons.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1064,7 +1492,11 @@
     "url": "https://lucide.dev/",
     "title": "Lucide",
     "category": "Assets",
-    "tags": ["icons", "svg", "open-source"],
+    "tags": [
+      "icons",
+      "svg",
+      "open-source"
+    ],
     "notes": "Community-made icon toolkit focused on consistent, clean interface icons.",
     "favicon": "https://www.google.com/s2/favicons?domain=lucide.dev&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1074,7 +1506,11 @@
     "url": "https://yout.com/",
     "title": "Yout",
     "category": "Utilities",
-    "tags": ["video-tools", "format-shift", "clipping"],
+    "tags": [
+      "video-tools",
+      "format-shift",
+      "clipping"
+    ],
     "notes": "Internet DVR for format-shifting and clipping videos from sites including YouTube, TikTok, and Instagram.",
     "favicon": "https://www.google.com/s2/favicons?domain=yout.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1084,7 +1520,11 @@
     "url": "https://terraink.app/",
     "title": "Terraink",
     "category": "Design Tools",
-    "tags": ["map-poster", "wallpaper", "generator"],
+    "tags": [
+      "map-poster",
+      "wallpaper",
+      "generator"
+    ],
     "notes": "Free map poster and wallpaper generator with PNG, PDF, and SVG export.",
     "favicon": "https://www.google.com/s2/favicons?domain=terraink.app&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1094,7 +1534,12 @@
     "url": "https://uiverse.io/",
     "title": "Uiverse",
     "category": "Libraries/Frameworks",
-    "tags": ["ui-elements", "css", "tailwind", "open-source"],
+    "tags": [
+      "ui-elements",
+      "css",
+      "tailwind",
+      "open-source"
+    ],
     "notes": "Free, open-source library of thousands of CSS/HTML UI elements — copy-paste buttons, loaders, cards, inputs, and more.",
     "favicon": "https://www.google.com/s2/favicons?domain=uiverse.io&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1104,7 +1549,11 @@
     "url": "https://spacetypegenerator.com/",
     "title": "Space Type Generator",
     "category": "Design Tools",
-    "tags": ["typography", "text-effects", "generator"],
+    "tags": [
+      "typography",
+      "text-effects",
+      "generator"
+    ],
     "notes": "Browser-based typography generator for animated space-style text experiments.",
     "favicon": "https://www.google.com/s2/favicons?domain=spacetypegenerator.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1114,7 +1563,11 @@
     "url": "https://www.napkin.ai/",
     "title": "Napkin AI",
     "category": "AI",
-    "tags": ["ai-visuals", "presentations", "storytelling"],
+    "tags": [
+      "ai-visuals",
+      "presentations",
+      "storytelling"
+    ],
     "notes": "AI tool that transforms text into visuals for business storytelling and communication.",
     "favicon": "https://www.google.com/s2/favicons?domain=napkin.ai&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1124,7 +1577,11 @@
     "url": "https://glint.trade/",
     "title": "Glint",
     "category": "Finance",
-    "tags": ["crypto", "perpetuals", "polymarket"],
+    "tags": [
+      "crypto",
+      "perpetuals",
+      "polymarket"
+    ],
     "notes": "Trading terminal for Hyperliquid perps and Polymarket predictions — real-time signals and smart-money tracking, backed by Polymarket.",
     "favicon": "https://www.google.com/s2/favicons?domain=glint.trade&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1134,7 +1591,11 @@
     "url": "https://app.paperanimator.com/",
     "title": "Paperanimator",
     "category": "Design Tools",
-    "tags": ["photo-effects", "paper-animation", "export"],
+    "tags": [
+      "photo-effects",
+      "paper-animation",
+      "export"
+    ],
     "notes": "Web app for applying paper effects to photos and exporting animated results with green-screen backgrounds.",
     "favicon": "https://www.google.com/s2/favicons?domain=app.paperanimator.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1144,7 +1605,11 @@
     "url": "https://freesewing.eu/",
     "title": "FreeSewing",
     "category": "Lifestyle",
-    "tags": ["sewing-patterns", "open-source", "bespoke"],
+    "tags": [
+      "sewing-patterns",
+      "open-source",
+      "bespoke"
+    ],
     "notes": "Open-source platform that generates made-to-measure sewing patterns from your body measurements — free, no login, parametric.",
     "favicon": "https://www.google.com/s2/favicons?domain=freesewing.eu&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1154,7 +1619,12 @@
     "url": "https://nextcloud.com/",
     "title": "Nextcloud",
     "category": "Utilities",
-    "tags": ["file-sync", "self-hosted", "collaboration", "open-source"],
+    "tags": [
+      "file-sync",
+      "self-hosted",
+      "collaboration",
+      "open-source"
+    ],
     "notes": "Open-source content collaboration platform for file sync, sharing, and organizational cloud workflows.",
     "favicon": "https://www.google.com/s2/favicons?domain=nextcloud.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1164,7 +1634,11 @@
     "url": "https://annas-archive.gl/",
     "title": "Anna's Archive",
     "category": "Documentation",
-    "tags": ["books", "papers", "shadow-library"],
+    "tags": [
+      "books",
+      "papers",
+      "shadow-library"
+    ],
     "notes": "Metasearch for books, papers, magazines, and comics across shadow libraries and archive.org — free and ad-free, but legally contentious.",
     "favicon": "https://www.google.com/s2/favicons?domain=annas-archive.gl&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1174,7 +1648,11 @@
     "url": "https://archive.org/",
     "title": "Internet Archive",
     "category": "Documentation",
-    "tags": ["digital-library", "wayback-machine", "media"],
+    "tags": [
+      "digital-library",
+      "wayback-machine",
+      "media"
+    ],
     "notes": "Digital library of free and borrowable texts, movies, music, software, and archived web pages.",
     "favicon": "https://www.google.com/s2/favicons?domain=archive.org&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1184,7 +1662,11 @@
     "url": "https://cobalt.tools/",
     "title": "cobalt",
     "category": "Utilities",
-    "tags": ["media-downloader", "no-ads", "privacy"],
+    "tags": [
+      "media-downloader",
+      "no-ads",
+      "privacy"
+    ],
     "notes": "Web tool for saving media links without ads, tracking, paywalls, or other extra steps.",
     "favicon": "https://www.google.com/s2/favicons?domain=cobalt.tools&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1194,7 +1676,11 @@
     "url": "https://www.photopea.com/",
     "title": "Photopea",
     "category": "Design Tools",
-    "tags": ["photo-editor", "browser-app", "image-editing"],
+    "tags": [
+      "photo-editor",
+      "browser-app",
+      "image-editing"
+    ],
     "notes": "Free, in-browser image editor that opens and saves PSD files — a Photoshop clone that runs anywhere, no install, with ads.",
     "favicon": "https://www.google.com/s2/favicons?domain=photopea.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1204,7 +1690,11 @@
     "url": "https://syncthing.net/",
     "title": "Syncthing",
     "category": "Utilities",
-    "tags": ["file-sync", "peer-to-peer", "privacy"],
+    "tags": [
+      "file-sync",
+      "peer-to-peer",
+      "privacy"
+    ],
     "notes": "Open-source, peer-to-peer file sync between your own devices — no cloud, no middleman, runs on phones, desktops, and NAS.",
     "favicon": "https://www.google.com/s2/favicons?domain=syncthing.net&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1214,7 +1704,11 @@
     "url": "https://ninite.com/",
     "title": "Ninite",
     "category": "Utilities",
-    "tags": ["app-installer", "windows", "updates"],
+    "tags": [
+      "app-installer",
+      "windows",
+      "updates"
+    ],
     "notes": "Windows utility for installing or updating multiple apps automatically in the background.",
     "favicon": "https://www.google.com/s2/favicons?domain=ninite.com&sz=32",
     "createdAt": "2026-07-30T21:51:33"
@@ -1224,9 +1718,418 @@
     "url": "https://boneyard.vercel.app/",
     "title": "boneyard",
     "category": "Developer Tools",
-    "tags": ["skeleton-screens", "ui-loading", "dom"],
+    "tags": [
+      "skeleton-screens",
+      "ui-loading",
+      "dom"
+    ],
     "notes": "Tool for auto-extracting pixel-perfect skeleton loading screens from real DOM layouts.",
     "favicon": "https://www.google.com/s2/favicons?domain=boneyard.vercel.app&sz=32",
     "createdAt": "2026-07-30T21:51:33"
+  },
+  {
+    "id": "https://alittleboxofgoodies.com/",
+    "url": "https://alittleboxofgoodies.com/",
+    "title": "A Little Box of Goodies",
+    "category": "Lifestyle",
+    "tags": [
+      "digital-care-package",
+      "gifts",
+      "long-distance",
+      "one-time-payment"
+    ],
+    "notes": "Pack a one-time-payment digital care package — notes, photos, voice memos, drawings, song and video links, even coupons — then share a link your person taps open like a real box.",
+    "favicon": "https://www.google.com/s2/favicons?domain=alittleboxofgoodies.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://buddyboardgames.com/",
+    "url": "https://buddyboardgames.com/",
+    "title": "BuddyBoardGames",
+    "category": "Games",
+    "tags": [
+      "board-games",
+      "multiplayer",
+      "browser",
+      "no-signup"
+    ],
+    "notes": "30 free multiplayer board and card games (Uno, Yahtzee, Battleship, Azul, Poker) — create a room, share the name, no sign-up, plays fine on phones. Ad-supported, with a bot opponent and matchmaking.",
+    "favicon": "https://www.google.com/s2/favicons?domain=buddyboardgames.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://getangie.com/",
+    "url": "https://getangie.com/",
+    "title": "Angie",
+    "category": "Lifestyle",
+    "tags": [
+      "long-distance",
+      "couples",
+      "dates",
+      "photobooth"
+    ],
+    "notes": "Realtime date room for long-distance couples — photobooth, quizzes, debate, and arcade games played together live. The photobooth is always free; paid plans add unlimited plays, and you can print strips as fridge magnets.",
+    "favicon": "https://www.google.com/s2/favicons?domain=getangie.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://littlevoicenote.com/",
+    "url": "https://littlevoicenote.com/",
+    "title": "Little Voice Note",
+    "category": "Lifestyle",
+    "tags": [
+      "voice-notes",
+      "music-box",
+      "keepsakes",
+      "gifts"
+    ],
+    "notes": "Record a voice memo, add up to 8 photos, and share a keepsake link that plays like a hand-crank music box — your person turns the handle to hear it. Free, no account.",
+    "favicon": "https://www.google.com/s2/favicons?domain=littlevoicenote.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.48lawspower.com/",
+    "url": "https://www.48lawspower.com/",
+    "title": "48 Laws of Power",
+    "category": "Learning",
+    "tags": [
+      "psychology",
+      "power",
+      "book-summaries",
+      "self-improvement"
+    ],
+    "notes": "Free one-page summaries and prefaces for all 48 of Robert Greene's laws, each a separate short blog article. Nothing interactive — just quick reference reading, plus an affiliate link to buy the book.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.48lawspower.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://pwn.college/",
+    "url": "https://pwn.college/",
+    "title": "pwn.college",
+    "category": "Security",
+    "tags": [
+      "cybersecurity",
+      "hacking",
+      "ctf",
+      "challenges"
+    ],
+    "notes": "Free hands-on hacking challenges from Arizona State University with live in-browser Linux workspaces, YouTube lectures, and community dojos. Registration is required, and posting writeups is discouraged so challenges stay usable for grading.",
+    "favicon": "https://www.google.com/s2/favicons?domain=pwn.college&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://quenq.com/",
+    "url": "https://quenq.com/",
+    "title": "Quenq",
+    "category": "Games",
+    "tags": [
+      "retro",
+      "emulators",
+      "flash-games",
+      "internet-culture"
+    ],
+    "notes": "An interactive museum of internet culture — 1,300+ playable Flash games, a full Windows XP simulator (Reborn XP), and browser ports of Minecraft and Angry Birds. No downloads, no paywalls, kept alive by ads.",
+    "favicon": "https://www.google.com/s2/favicons?domain=quenq.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://thehustleblower.com/",
+    "url": "https://thehustleblower.com/",
+    "title": "The Hustle Blower",
+    "category": "Business",
+    "tags": [
+      "side-hustles",
+      "newsletter",
+      "email",
+      "ideas"
+    ],
+    "notes": "Free weekly newsletter of real side hustles and business ideas, no hype — subscribe with your email to unlock a top-10 ranking of the highest-earning hustles.",
+    "favicon": "https://www.google.com/s2/favicons?domain=thehustleblower.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://storyset.com/",
+    "url": "https://storyset.com/",
+    "title": "Storyset",
+    "category": "Assets",
+    "tags": [
+      "illustrations",
+      "svg",
+      "animation",
+      "free"
+    ],
+    "notes": "Free SVG/PNG illustrations you recolor, strip layers, and animate in the browser — export as HTML, GIF, or MP4. Attribution required unless you buy a paid Flaticon license to skip it.",
+    "favicon": "https://www.google.com/s2/favicons?domain=storyset.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.flightradar24.com/",
+    "url": "https://www.flightradar24.com/",
+    "title": "Flightradar24",
+    "category": "Utilities",
+    "tags": [
+      "flight-tracking",
+      "aviation",
+      "live-map",
+      "ads-b"
+    ],
+    "notes": "Live global flight tracker with real-time plane positions, routes, altitude, and airline info. The free tier works but is ad-supported and time-limited; paid tiers add flight history, 3D view, and alerts.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.flightradar24.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.lofi.cafe/",
+    "url": "https://www.lofi.cafe/",
+    "title": "Lofi.cafe",
+    "category": "Music",
+    "tags": [
+      "lofi",
+      "radio",
+      "focus",
+      "music"
+    ],
+    "notes": "Lofi radio streams for studying, working, or chilling — pick a room by vibe and it plays right in the browser. No account needed to hit play.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.lofi.cafe&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://app.tinkered.ai/",
+    "url": "https://app.tinkered.ai/",
+    "title": "Tinkered",
+    "category": "Developer Tools",
+    "tags": [
+      "ai",
+      "hardware-design",
+      "electronics",
+      "circuit-simulator"
+    ],
+    "notes": "AI hardware design in your browser — describe a device and get a circuit, editable schematic, C/C++ firmware, and a 3D SPICE simulation, then flash it to 1,300+ real boards. Free to use.",
+    "favicon": "https://www.google.com/s2/favicons?domain=app.tinkered.ai&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://pinokio.co/",
+    "url": "https://pinokio.co/",
+    "title": "Pinokio",
+    "category": "Developer Tools",
+    "tags": [
+      "ai",
+      "local-ai",
+      "one-click-installer",
+      "open-source"
+    ],
+    "notes": "Free open-source launcher that one-click installs and runs hundreds of AI apps locally — ComfyUI, LLMs, video and music generation, TTS, and more — with a community app store. Many apps need a capable GPU.",
+    "favicon": "https://www.google.com/s2/favicons?domain=pinokio.co&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://fingerprint.to/",
+    "url": "https://fingerprint.to/",
+    "title": "Fingerprint",
+    "category": "Security",
+    "tags": [
+      "osint",
+      "username-search",
+      "public-data",
+      "people-search"
+    ],
+    "notes": "Search a username, email, or name across 700+ platforms in real time — results stream in as full profiles with bios, followers, and locations. Free tier is capped around 10 searches; paid plans and an API are on the way.",
+    "favicon": "https://www.google.com/s2/favicons?domain=fingerprint.to&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://studentsamplers.com/",
+    "url": "https://studentsamplers.com/",
+    "title": "Student Samplers",
+    "category": "Deals",
+    "tags": [
+      "student",
+      "freebies",
+      "samples",
+      "membership"
+    ],
+    "notes": "$20/month membership that rounds up student \"test & keep\" sampling programs — products ship to you and stay yours after a review — plus 48-hour early access and a free samples list. Caveat: stats are self-reported on an early-stage site.",
+    "favicon": "https://www.google.com/s2/favicons?domain=studentsamplers.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://toolixy.online/",
+    "url": "https://toolixy.online/",
+    "title": "Toolixy",
+    "category": "Utilities",
+    "tags": [
+      "online-tools",
+      "pdf-tools",
+      "in-browser",
+      "free"
+    ],
+    "notes": "190+ free in-browser tools across 8 categories — PDF, image, video, audio, text, dev, converters, and calculators — no signup, no watermarks, and files never leave your device.",
+    "favicon": "https://www.google.com/s2/favicons?domain=toolixy.online&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.thetoolbus.ai/",
+    "url": "https://www.thetoolbus.ai/",
+    "title": "TheToolBus",
+    "category": "Utilities",
+    "tags": [
+      "online-tools",
+      "ai-directory",
+      "pdf-tools",
+      "free"
+    ],
+    "notes": "154 free browser tools across PDF, image, converter, calculator, professional, and fun categories, plus an AI-tool directory — no signup, no watermark, and outputs are fine for commercial use.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.thetoolbus.ai&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://pngimg.com/",
+    "url": "https://pngimg.com/",
+    "title": "PNGimg",
+    "category": "Assets",
+    "tags": [
+      "png",
+      "transparent",
+      "images",
+      "non-commercial"
+    ],
+    "notes": "Over 116,000 transparent PNGs sorted by category and letter — but they're CC BY-NC, so no commercial use and you must credit. Fine for personal mockups and student work.",
+    "favicon": "https://www.google.com/s2/favicons?domain=pngimg.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://motionbgs.com/",
+    "url": "https://motionbgs.com/",
+    "title": "MotionBGS",
+    "category": "Assets",
+    "tags": [
+      "wallpapers",
+      "animated",
+      "4k",
+      "anime"
+    ],
+    "notes": "9,000+ free animated 4K wallpapers for desktop and phone — heavy on anime, gaming, cars, and superhero fan art. Downloads are free, but a lot is unlicensed fan art, so don't redistribute.",
+    "favicon": "https://www.google.com/s2/favicons?domain=motionbgs.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://smart.servier.com/",
+    "url": "https://smart.servier.com/",
+    "title": "Servier Medical Art",
+    "category": "Assets",
+    "tags": [
+      "medical",
+      "illustrations",
+      "cc-by",
+      "free"
+    ],
+    "notes": "3,000+ free medical illustrations from pharma company Servier — anatomy, cells, and clinical specialties for slides, papers, and posters. CC BY 4.0: free even for commercial use as long as you credit them.",
+    "favicon": "https://www.google.com/s2/favicons?domain=smart.servier.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.kenney.nl/",
+    "url": "https://www.kenney.nl/",
+    "title": "Kenney",
+    "category": "Assets",
+    "tags": [
+      "game-assets",
+      "free",
+      "cc0",
+      "sprites"
+    ],
+    "notes": "Thousands of free game assets — sprites, UI, 3D models, and audio — all public domain (CC0) from one creator, plus free starter kits. Paid extras: a Patreon club and an all-in-one download bundle.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.kenney.nl&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.loecsen.com/",
+    "url": "https://www.loecsen.com/",
+    "title": "Loecsen",
+    "category": "Learning",
+    "tags": [
+      "languages",
+      "audio",
+      "travel-phrases",
+      "spaced-repetition"
+    ],
+    "notes": "Free essentials for 50+ languages with audio, downloadable MP3s, and printable sheets — upgrades unlock extended content. Structured around CEFR levels (A1 to B1) with spaced repetition and speech recognition.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.loecsen.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://www.photoskop.com/",
+    "url": "https://www.photoskop.com/",
+    "title": "Photoskop",
+    "category": "Learning",
+    "tags": [
+      "photography",
+      "interactive",
+      "lessons",
+      "camera-skills"
+    ],
+    "notes": "Free interactive lessons where you drag aperture, ISO, and shutter speed on real photos to see the result instantly, plus a virtual light rig and a pose encyclopedia. Donation-funded and partly unfinished.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.photoskop.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://grayhatwarfare.com/",
+    "url": "https://grayhatwarfare.com/",
+    "title": "Gray Hat Warfare",
+    "category": "Security",
+    "tags": [
+      "osint",
+      "s3-buckets",
+      "security",
+      "search-engine"
+    ],
+    "notes": "Search engine for public AWS S3 buckets and URL-shortener links, with billions of files indexed. The free tier caps out at a few hundred results; paid plans (€25–60/mo) unlock unlimited results and an API.",
+    "favicon": "https://www.google.com/s2/favicons?domain=grayhatwarfare.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://incompetech.com/",
+    "url": "https://incompetech.com/",
+    "title": "Incompetech",
+    "category": "Music",
+    "tags": [
+      "royalty-free",
+      "music",
+      "kevin-macleod",
+      "attribution"
+    ],
+    "notes": "Kevin MacLeod's royalty-free music, 2,000+ tracks — use it free with credit, or buy a Standard License when you can't give attribution. Also home to a free graph paper and maze generator.",
+    "favicon": "https://www.google.com/s2/favicons?domain=incompetech.com&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://siriuslove.net/",
+    "url": "https://siriuslove.net/",
+    "title": "Sirius Love",
+    "category": "Lifestyle",
+    "tags": [
+      "gifts",
+      "romantic",
+      "love-page",
+      "digital-gift"
+    ],
+    "notes": "Build a free romantic gift page with photos, letters, Spotify playlists, and countdowns — no signup or credit card to start, and you can draw on it together. Paid plans ($4.50/mo or $19 lifetime) add more storage and a PIN lock.",
+    "favicon": "https://www.google.com/s2/favicons?domain=siriuslove.net&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://lovewritten.ca/",
+    "url": "https://lovewritten.ca/",
+    "title": "Love Written",
+    "category": "Lifestyle",
+    "tags": [
+      "love-letters",
+      "schedule",
+      "delivery",
+      "email"
+    ],
+    "notes": "Write a digital love letter, schedule it, and it lands in your person's inbox as a link to an interactive letter page — $3 CAD per letter, no account or subscription. Note: it can't be edited after you pay.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lovewritten.ca&sz=32",
+    "createdAt": "2026-08-19T10:00:00"
   }
 ]
