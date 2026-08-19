@@ -184,15 +184,84 @@ const Store = (() => {
         if (item.category) pool.add(item.category.toLowerCase());
       });
     });
-    const maxDist = Math.max(1, Math.floor(q.length / 3));
+    const maxDist = Math.min(2, Math.max(1, Math.floor(q.length / 4)));
     const scored = [];
     pool.forEach(c => {
       if (c === q) return;
+      if (c[0] !== q[0]) return;
       const d = levDist(q, c);
       if (d <= maxDist && Math.abs(c.length - q.length) <= maxDist) scored.push({ c, d });
     });
     scored.sort((x, y) => x.d - y.d || x.c.length - y.c.length);
     return scored.slice(0, 2).map(s => s.c);
+  }
+
+  // ── Related suggestions ("You might like") ────────────────
+  // Returns existing item titles sharing meaningful words with the query.
+  // Matching is token-based with 1-char typo tolerance; empty when unrelated.
+  // opts.scope: array of store types.
+  const STOPWORDS = new Set(['the','and','for','with','from','that','this','you','are','how','what','your','into','about','more','have','will','can','using','use','but','not','all']);
+
+  function tokenMatches(token, word) {
+    if (word === token) return true;
+    if (word.includes(token) || token.includes(word)) return true;
+    return levDist(token, word) <= 1;
+  }
+
+  function suggestRelated(query, opts = {}) {
+    const q = (query || '').toLowerCase().trim();
+    if (q.length < 2) return [];
+    const types = opts.scope && opts.scope.length ? opts.scope : ['bookmarks', 'notes', 'slides', 'prompts'];
+    const tokens = q.split(/[^a-z0-9]+/i).filter(t => t.length >= 3 && !STOPWORDS.has(t));
+    if (!tokens.length) return [];
+    const scored = [];
+    types.forEach(t => {
+      (cache[t] || []).forEach(item => {
+        const title = (item.title || '').toLowerCase();
+        if (!title) return;
+        const hay = (title + ' ' + (item.tags || []).join(' ') + ' ' + (item.category || '')).toLowerCase();
+        const words = hay.split(/[^a-z0-9]+/i).filter(Boolean);
+        let score = 0;
+        tokens.forEach(tok => {
+          if (words.some(w => tokenMatches(tok, w))) score += 1;
+        });
+        if (score > 0) scored.push({ title: item.title, score });
+      });
+    });
+    scored.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title));
+    return scored.slice(0, 4).map(s => s.title);
+  }
+
+  // ── Explore suggestions ("Would you like") ────────────────
+  // Randomized sample of words already in the app (tags, categories, titles)
+  // so every no-result search still offers fresh discovery options.
+  function suggestExplore(query, opts = {}) {
+    const q = (query || '').toLowerCase().trim();
+    const types = opts.scope && opts.scope.length ? opts.scope : ['bookmarks', 'notes', 'slides', 'prompts'];
+    const exclude = new Set(q.split(/[^a-z0-9]+/i).filter(Boolean));
+    const pool = new Set();
+    types.forEach(t => {
+      (cache[t] || []).forEach(item => {
+        (item.tags || []).forEach(tag => {
+          const k = tag.toLowerCase();
+          if (k.length >= 2 && !exclude.has(k)) pool.add(k);
+        });
+        if (item.category) {
+          const k = item.category.toLowerCase();
+          if (k.length >= 2 && !exclude.has(k)) pool.add(k);
+        }
+        String(item.title || '').split(/[^a-z0-9]+/i).forEach(w => {
+          const k = w.toLowerCase();
+          if (k.length >= 3 && !STOPWORDS.has(k) && !exclude.has(k)) pool.add(k);
+        });
+      });
+    });
+    const arr = [...pool];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.slice(0, 4);
   }
 
   // ── Clear user data ────────────────────────────────────────
@@ -248,7 +317,7 @@ const Store = (() => {
   return {
     load, loadAll, get, getUserItems,
     addUser, updateUser, removeUser,
-    searchAll, suggestSpelling,
+    searchAll, suggestSpelling, suggestRelated, suggestExplore,
     isLiked, toggleLike, getLiked,
     clearUserData
   };

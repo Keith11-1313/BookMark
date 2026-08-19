@@ -227,15 +227,29 @@ const Prompts = (() => {
       let extra = '';
       if (q && cat === 'all') {
         const sugg = Store.suggestSpelling(q, { scope: ['prompts'] });
-        if (sugg.length) extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+        if (sugg.length) extra += `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+        let relatedHtml = '', exploreHtml = '';
+        const related = Store.suggestRelated(q, { scope: ['prompts'] });
+        if (related.length) relatedHtml = `<div class="did-mean">You might like ${related.map(s => `<button type="button" class="did-mean-btn did-mean-related" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        const explore = Store.suggestExplore(q, { scope: ['prompts'] });
+        if (explore.length) exploreHtml = `<div class="did-mean">Would you like ${explore.map(s => `<button type="button" class="did-mean-btn did-mean-explore" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        if (relatedHtml && exploreHtml) extra += relatedHtml + '<div class="did-mean-sep">or</div>' + exploreHtml;
+        else extra += relatedHtml + exploreHtml;
       }
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('sparkles', 40)}<h3>No prompts found</h3><p>${q ? 'Try a different search term' : 'Click New Prompt to add one'}</p>${extra}</div>`;
+      if (q) extra += `<button type="button" class="btn btn-secondary btn-sm empty-clear">${Icons.svg('x', 13)} Clear search</button>`;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${q ? '' : Icons.svg('sparkles', 40)}<h3>${q ? '' : 'No prompts yet'}</h3><p>${q ? '' : 'Click New Prompt to add one'}</p>${extra}</div>`;
       grid.querySelectorAll('.did-mean-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const input = container.querySelector('#prompts-search');
           if (input) input.value = btn.dataset.suggest;
           refreshList(container);
         });
+      });
+      grid.querySelector('.empty-clear')?.addEventListener('click', () => {
+        const input = container.querySelector('#prompts-search');
+        if (input) input.value = '';
+        refreshList(container);
+        renderSmartAddHint(container);
       });
       return;
     }

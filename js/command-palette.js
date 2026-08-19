@@ -41,11 +41,20 @@ const CommandPalette = (() => {
 
     const results = Store.searchAll(query.trim());
     if (!results.length) {
-      const sugg = Store.suggestSpelling(query);
-      const did = sugg.length ? `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${App.escapeAttr(s)}">${App.escapeHtml(s)}</button>`).join('')}?</div>` : '';
-      const type = SmartAdd.classify(query);
-      const smart = type ? `<button type="button" class="palette-add" data-smart-add="${type}">${Icons.svg(type === 'bookmark' ? 'bookmark' : type === 'prompt' ? 'sparkles' : 'notebook', 14)} ${SmartAdd.label(type)}: "${App.escapeHtml(query.trim())}"</button>` : '';
-      container.innerHTML = `<div class="palette-empty">${Icons.svg('searchX', 24)}<p>No results for "${App.escapeHtml(query)}"</p>${did}${smart}</div>`;
+      const q = query.trim();
+      const sugg = Store.suggestSpelling(q);
+      let did = '';
+      if (sugg.length) did += `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${App.escapeAttr(s)}">${App.escapeHtml(s)}</button>`).join('')}?</div>`;
+      let relatedHtml = '', exploreHtml = '';
+      const related = Store.suggestRelated(q);
+      if (related.length) relatedHtml = `<div class="did-mean">You might like ${related.map(s => `<button type="button" class="did-mean-btn did-mean-related" data-suggest="${App.escapeAttr(s)}">${App.escapeHtml(s)}</button>`).join('')}</div>`;
+      const explore = Store.suggestExplore(q);
+      if (explore.length) exploreHtml = `<div class="did-mean">Would you like ${explore.map(s => `<button type="button" class="did-mean-btn did-mean-explore" data-suggest="${App.escapeAttr(s)}">${App.escapeHtml(s)}</button>`).join('')}</div>`;
+      if (relatedHtml && exploreHtml) did += relatedHtml + '<div class="did-mean-sep">or</div>' + exploreHtml;
+      else did += relatedHtml + exploreHtml;
+      const type = SmartAdd.classify(q);
+      const smart = type ? `<button type="button" class="palette-add" data-smart-add="${type}">${Icons.svg(type === 'bookmark' ? 'bookmark' : type === 'prompt' ? 'sparkles' : 'notebook', 14)} ${SmartAdd.label(type)}: "${App.escapeHtml(q)}"</button>` : '';
+      container.innerHTML = `<div class="palette-empty">${did}${smart}</div>`;
       container.querySelectorAll('.did-mean-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const input = document.getElementById('palette-input');
@@ -55,7 +64,7 @@ const CommandPalette = (() => {
       });
       container.querySelector('[data-smart-add]')?.addEventListener('click', () => {
         close();
-        SmartAdd.routeTo(type, query.trim());
+        SmartAdd.routeTo(type, q);
       });
       return;
     }

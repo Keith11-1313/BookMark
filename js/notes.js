@@ -86,15 +86,29 @@ const Notes = (() => {
       let extra = '';
       if (q) {
         const sugg = Store.suggestSpelling(q, { scope: ['notes'] });
-        if (sugg.length) extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+        if (sugg.length) extra += `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+        let relatedHtml = '', exploreHtml = '';
+        const related = Store.suggestRelated(q, { scope: ['notes'] });
+        if (related.length) relatedHtml = `<div class="did-mean">You might like ${related.map(s => `<button type="button" class="did-mean-btn did-mean-related" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        const explore = Store.suggestExplore(q, { scope: ['notes'] });
+        if (explore.length) exploreHtml = `<div class="did-mean">Would you like ${explore.map(s => `<button type="button" class="did-mean-btn did-mean-explore" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        if (relatedHtml && exploreHtml) extra += relatedHtml + '<div class="did-mean-sep">or</div>' + exploreHtml;
+        else extra += relatedHtml + exploreHtml;
+        extra += `<button type="button" class="btn btn-secondary btn-sm empty-clear">${Icons.svg('x', 13)} Clear search</button>`;
       }
-      grid.innerHTML = `<div class="empty-state">${Icons.svg('notebook', 40)}<h3>No notes found</h3><p>${q ? 'Try a different search term' : 'Click New Note to get started'}</p>${extra}</div>`;
+      grid.innerHTML = `<div class="empty-state">${q ? '' : Icons.svg('notebook', 40)}<h3>${q ? '' : 'No notes yet'}</h3><p>${q ? '' : 'Click New Note to get started'}</p>${extra}</div>`;
       grid.querySelectorAll('.did-mean-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const input = container.querySelector('#notes-search');
           if (input) input.value = btn.dataset.suggest;
           renderNotesList(container);
         });
+      });
+      grid.querySelector('.empty-clear')?.addEventListener('click', () => {
+        const input = container.querySelector('#notes-search');
+        if (input) input.value = '';
+        renderNotesList(container);
+        renderSmartAddHint(container);
       });
       return;
     }

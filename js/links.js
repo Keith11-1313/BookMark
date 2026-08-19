@@ -354,14 +354,30 @@ const Links = (() => {
     const grid = container.querySelector('#links-grid');
     if (!grid) return;
     if (!data.length) {
+      if (!searchQuery) {
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('searchX', 40)}<h3>No bookmarks found</h3><p>No bookmarks in this category</p></div>`;
+        return;
+      }
       let extra = '';
-      if (searchQuery && currentFilter === 'all') {
+      if (currentFilter === 'all') {
         const sugg = Store.suggestSpelling(searchQuery, { scope: ['bookmarks'] });
         if (sugg.length) {
-          extra = `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
+          extra += `<div class="did-mean">Did you mean ${sugg.map(s => `<button type="button" class="did-mean-btn" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}?</div>`;
         }
+        let relatedHtml = '', exploreHtml = '';
+        const related = Store.suggestRelated(searchQuery, { scope: ['bookmarks'] });
+        if (related.length) {
+          relatedHtml = `<div class="did-mean">You might like ${related.map(s => `<button type="button" class="did-mean-btn did-mean-related" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        }
+        const explore = Store.suggestExplore(searchQuery, { scope: ['bookmarks'] });
+        if (explore.length) {
+          exploreHtml = `<div class="did-mean">Would you like ${explore.map(s => `<button type="button" class="did-mean-btn did-mean-explore" data-suggest="${escAttr(s)}">${escHtml(s)}</button>`).join('')}</div>`;
+        }
+        if (relatedHtml && exploreHtml) extra += relatedHtml + '<div class="did-mean-sep">or</div>' + exploreHtml;
+        else extra += relatedHtml + exploreHtml;
       }
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${Icons.svg('searchX', 40)}<h3>No bookmarks found</h3><p>${searchQuery ? 'Try a different search term' : 'No bookmarks in this category'}</p>${extra}</div>`;
+      extra += `<button type="button" class="btn btn-secondary btn-sm empty-clear">${Icons.svg('x', 13)} Clear search</button>`;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${extra}</div>`;
       grid.querySelectorAll('.did-mean-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const s = btn.dataset.suggest;
@@ -370,6 +386,13 @@ const Links = (() => {
           if (input) input.value = s;
           refreshList(container);
         });
+      });
+      grid.querySelector('.empty-clear')?.addEventListener('click', () => {
+        searchQuery = '';
+        const input = container.querySelector('#links-search');
+        if (input) input.value = '';
+        refreshList(container);
+        renderSmartAddHint(container);
       });
       return;
     }
