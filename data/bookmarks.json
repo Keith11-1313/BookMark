@@ -2131,5 +2131,421 @@
     "notes": "Write a digital love letter, schedule it, and it lands in your person's inbox as a link to an interactive letter page — $3 CAD per letter, no account or subscription. Note: it can't be edited after you pay.",
     "favicon": "https://www.google.com/s2/favicons?domain=lovewritten.ca&sz=32",
     "createdAt": "2026-08-19T10:00:00"
+  },
+  {
+    "id": "https://htwins.net/",
+    "url": "https://htwins.net/",
+    "title": "Scale of the Universe",
+    "category": "Learning",
+    "tags": [
+      "interactive",
+      "education",
+      "science",
+      "visualization"
+    ],
+    "notes": "Zoom from a planck length to the whole cosmos in the Huang brothers' wildly fun interactive scale chart.",
+    "favicon": "https://www.google.com/s2/favicons?domain=htwins.net&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://app.raena.ai/",
+    "url": "https://app.raena.ai/",
+    "title": "Raena AI",
+    "category": "Learning",
+    "tags": [
+      "study",
+      "quizzes",
+      "summaries",
+      "ai"
+    ],
+    "notes": "Turns your messy class notes into smart summaries and quizzes so exam prep actually sticks. Free tier with limits.",
+    "favicon": "https://www.google.com/s2/favicons?domain=app.raena.ai&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://photofromemoji.com/",
+    "url": "https://photofromemoji.com/",
+    "title": "Photo From Emoji",
+    "category": "Utilities",
+    "tags": [
+      "emoji",
+      "image-effects",
+      "generator",
+      "privacy"
+    ],
+    "notes": "Rebuilds any photo as an emoji mosaic right in your browser — nothing gets uploaded, no signup, no watermark.",
+    "favicon": "https://www.google.com/s2/favicons?domain=photofromemoji.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.startmycar.com/",
+    "url": "https://www.startmycar.com/",
+    "title": "StartMyCar",
+    "category": "Lifestyle",
+    "tags": [
+      "cars",
+      "repair",
+      "community",
+      "diy"
+    ],
+    "notes": "Crowdsourced fix-it knowledge base where car owners swap causes and cures for the same stubborn problems.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.startmycar.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://musicgpt.com/",
+    "url": "https://musicgpt.com/",
+    "title": "MusicGPT",
+    "category": "Music",
+    "tags": [
+      "ai-music",
+      "generator",
+      "text-to-music"
+    ],
+    "notes": "Type a vibe, get a full AI-generated track — make songs from a text prompt in seconds.",
+    "favicon": "https://www.google.com/s2/favicons?domain=musicgpt.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://simulator.electude.com/",
+    "url": "https://simulator.electude.com/",
+    "title": "Electude Simulator",
+    "category": "Learning",
+    "tags": [
+      "automotive",
+      "simulator",
+      "education"
+    ],
+    "notes": "Virtual car rig for students — wire up electrics, hunt faults, and learn engine logic without lifting a real hood.",
+    "favicon": "https://www.google.com/s2/favicons?domain=simulator.electude.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://roadmap.sh/",
+    "url": "https://roadmap.sh/",
+    "title": "roadmap.sh",
+    "category": "Learning",
+    "tags": [
+      "roadmaps",
+      "career",
+      "webdev",
+      "guides"
+    ],
+    "notes": "Step-by-step community roadmaps for becoming a frontend, backend, AI, or DevOps engineer — pick a path and start climbing.",
+    "favicon": "https://www.google.com/s2/favicons?domain=roadmap.sh&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.usesprout.com/",
+    "url": "https://www.usesprout.com/",
+    "title": "Sprout",
+    "category": "Business",
+    "tags": [
+      "job-search",
+      "ai",
+      "resumes",
+      "automation"
+    ],
+    "notes": "AI applies to jobs for you with tailored resumes and cover letters, then tracks every response — plans from $19.99/month.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.usesprout.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.bored.com/",
+    "url": "https://www.bored.com/",
+    "title": "Bored.com",
+    "category": "Games",
+    "tags": [
+      "classic-games",
+      "arcade",
+      "browser"
+    ],
+    "notes": "A pile of classic browser games for killing ten minutes that somehow turns into an hour.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.bored.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://reccloud.com/",
+    "url": "https://reccloud.com/",
+    "title": "RecCloud",
+    "category": "Utilities",
+    "tags": [
+      "screen-recording",
+      "video",
+      "cloud",
+      "free"
+    ],
+    "notes": "Record your screen straight from the browser and stash it in the cloud — nothing to install.",
+    "favicon": "https://www.google.com/s2/favicons?domain=reccloud.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://lopaka.app/",
+    "url": "https://lopaka.app/",
+    "title": "Lopaka",
+    "category": "Developer Tools",
+    "tags": [
+      "embedded",
+      "arduino",
+      "gui",
+      "codegen"
+    ],
+    "notes": "Design GUIs for tiny displays visually, then export ready-to-compile code for U8g2, TFT_eSPI, LVGL, and friends.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lopaka.app&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.scrolltide.co/",
+    "url": "https://www.scrolltide.co/",
+    "title": "Scrolltide",
+    "category": "Developer Tools",
+    "tags": [
+      "prompts",
+      "webdesign",
+      "animation",
+      "templates"
+    ],
+    "notes": "Scroll-driven site prompts built for Claude, Cursor, and v0 — 55 templates, new drops every Friday, free plus a ~$10/month paid tier.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.scrolltide.co&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://angleref.com/",
+    "url": "https://angleref.com/",
+    "title": "Angle Ref",
+    "category": "Utilities",
+    "tags": [
+      "angles",
+      "reference",
+      "geometry"
+    ],
+    "notes": "Search any angle and see it drawn as a clean visual reference — handy for geometry and design work.",
+    "favicon": "https://www.google.com/s2/favicons?domain=angleref.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.buzzy.now/",
+    "url": "https://www.buzzy.now/",
+    "title": "Buzzy",
+    "category": "AI",
+    "tags": [
+      "ai-video",
+      "generation",
+      "kling",
+      "seedance"
+    ],
+    "notes": "One credit-based hub for the big AI video models — Kling, Seedance, Midjourney, MiniMax — plus viral-ready workflow packs.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.buzzy.now&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://worldcam.tv/",
+    "url": "https://worldcam.tv/",
+    "title": "WorldCam",
+    "category": "Lifestyle",
+    "tags": [
+      "webcams",
+      "live",
+      "travel",
+      "world"
+    ],
+    "notes": "Peek at live public webcams from 180+ countries — beaches, cities, wildlife — streaming free around the clock.",
+    "favicon": "https://www.google.com/s2/favicons?domain=worldcam.tv&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.b98.tv/",
+    "url": "https://www.b98.tv/",
+    "title": "B98.TV",
+    "category": "Lifestyle",
+    "tags": [
+      "cartoons",
+      "streaming",
+      "classic",
+      "free"
+    ],
+    "notes": "Stream vintage cartoons — Tom & Jerry, Looney Tunes, Scooby — free and without signup.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.b98.tv&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.moshpro.app/",
+    "url": "https://www.moshpro.app/",
+    "title": "Mosh-Pro",
+    "category": "Design Tools",
+    "tags": [
+      "video-effects",
+      "glitch",
+      "vj",
+      "audio-reactive"
+    ],
+    "notes": "Glitch and VJ mixer with 60+ stackable effects, audio-reactive modulators, and 4K export. Free web Lite; desktop is $49 one-time or $24/year.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.moshpro.app&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://lostgamer.io/",
+    "url": "https://lostgamer.io/",
+    "title": "Lost Gamer",
+    "category": "Games",
+    "tags": [
+      "quiz",
+      "retro",
+      "guessing",
+      "games"
+    ],
+    "notes": "Shows a zoomed-in slice of a game level — guess which game it's from. Brutal fun for retro fans.",
+    "favicon": "https://www.google.com/s2/favicons?domain=lostgamer.io&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://snookersim.com/",
+    "url": "https://snookersim.com/",
+    "title": "Snooker Sim",
+    "category": "Games",
+    "tags": [
+      "snooker",
+      "physics",
+      "multiplayer",
+      "browser"
+    ],
+    "notes": "Full-table snooker in the browser with real physics — pot your way to a 147.",
+    "favicon": "https://www.google.com/s2/favicons?domain=snookersim.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://soundeffect-lab.info/",
+    "url": "https://soundeffect-lab.info/",
+    "title": "SoundEffect Lab",
+    "category": "Assets",
+    "tags": [
+      "sound-effects",
+      "free",
+      "download",
+      "sfx"
+    ],
+    "notes": "Thousands of free sound-effect clips from a Japanese studio, no signup needed — peek at the license before commercial use.",
+    "favicon": "https://www.google.com/s2/favicons?domain=soundeffect-lab.info&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://x-minus.pro/",
+    "url": "https://x-minus.pro/",
+    "title": "X-Minus",
+    "category": "Music",
+    "tags": [
+      "karaoke",
+      "backing-tracks",
+      "vocal-removal",
+      "minus-one"
+    ],
+    "notes": "Karaoke juggernaut with backing tracks in every key, plus a vocal remover to cut your own minus-ones.",
+    "favicon": "https://www.google.com/s2/favicons?domain=x-minus.pro&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://osintframework.com/",
+    "url": "https://osintframework.com/",
+    "title": "OSINT Framework",
+    "category": "Security",
+    "tags": [
+      "osint",
+      "investigation",
+      "tools",
+      "directory"
+    ],
+    "notes": "Giant tree of open-source intelligence tools for digging up anything publicly out there — usernames, emails, geodata.",
+    "favicon": "https://www.google.com/s2/favicons?domain=osintframework.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.classcentral.com/",
+    "url": "https://www.classcentral.com/",
+    "title": "Class Central",
+    "category": "Learning",
+    "tags": [
+      "courses",
+      "mooc",
+      "free",
+      "directory"
+    ],
+    "notes": "Search engine for online courses from universities and platforms — filter by free, certificate, or subject.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.classcentral.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://design.minimax.io/",
+    "url": "https://design.minimax.io/",
+    "title": "MiniMax Design",
+    "category": "AI",
+    "tags": [
+      "ai-design",
+      "agents",
+      "video",
+      "image"
+    ],
+    "notes": "Desktop AI studio where a crew of agents turns one brief into scripts, images, video, and edits — free to start, Mac and Windows.",
+    "favicon": "https://www.google.com/s2/favicons?domain=design.minimax.io&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.joinclova.com/",
+    "url": "https://www.joinclova.com/",
+    "title": "Clova",
+    "category": "AI",
+    "tags": [
+      "ai-design",
+      "ads",
+      "branding",
+      "product-shots"
+    ],
+    "notes": "Drop in your website URL and it learns your brand, then pumps out on-brand ad sets and product shots from one chat. Free to start.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.joinclova.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://flowerisblooming.com/",
+    "url": "https://flowerisblooming.com/",
+    "title": "Flowers",
+    "category": "Lifestyle",
+    "tags": [
+      "gifts",
+      "flowers",
+      "digital",
+      "free"
+    ],
+    "notes": "Send a digital bouquet as a forever link or QR code — hand-illustrated flowers, with an app for growing your own collection.",
+    "favicon": "https://www.google.com/s2/favicons?domain=flowerisblooming.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.hooktheory.com/",
+    "url": "https://www.hooktheory.com/",
+    "title": "HookTheory",
+    "category": "Music",
+    "tags": [
+      "music-theory",
+      "hookpad",
+      "interactive",
+      "songwriting"
+    ],
+    "notes": "Learn how pop songs actually work with interactive theory lessons and Hookpad, the chord-sketching songwriting pad.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.hooktheory.com&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://www.cosmos.so/",
+    "url": "https://www.cosmos.so/",
+    "title": "Cosmos",
+    "category": "Design Inspiration",
+    "tags": [
+      "moodboard",
+      "inspiration",
+      "save",
+      "community"
+    ],
+    "notes": "A calmer corner of the internet for saving and clustering visual inspiration — part moodboard, part discovery feed.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.cosmos.so&sz=32",
+    "createdAt": "2026-08-27T00:00:00Z"
   }
 ]
