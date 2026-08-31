@@ -248,6 +248,9 @@
 .filter-pill:hover,
 .filter-pill:focus-visible { border-color: var(--accent); color: var(--accent); }
 .filter-pill.active { background: var(--accent-light); border-color: var(--accent); color: oklch(84% 0.10 266); box-shadow: inset 0 0 0 1px oklch(72% 0.14 266 / 0.25); }
+[data-theme="anti-design"] .filter-pill.active { background: transparent; box-shadow: none; color: var(--accent); }
+[data-theme="sport"] .filter-pill.active { box-shadow: 0 0 10px oklch(88% 0.28 130 / 0.2); }
+[data-theme="sport"] .bookmark-card:hover { border-color: var(--accent); box-shadow: 0 0 14px oklch(88% 0.28 130 / 0.12); }
 .filter-pill-count { background: var(--bg-hover); border-radius: var(--radius-full); padding: 1px 5px; font-size: 10px; }
 
 /* Bulk action bar */
@@ -314,6 +317,7 @@
 .bookmark-card-meta { flex: 1; min-width: 0; }
 .bookmark-title { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .bookmark-category { display: inline-flex; align-items: center; gap: 4px; width: fit-content; font-size: var(--text-xs); color: oklch(84% 0.10 266); margin-top: 5px; font-weight: 600; background: var(--accent-light); border-radius: var(--radius-full); padding: 1px 8px; }
+[data-theme="anti-design"] .bookmark-category { font-size: 9px; color: var(--text-muted); font-weight: 700; background: transparent; border: 1px solid var(--border); border-radius: 0; padding: 1px 6px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
 
 .bookmark-card-actions {
   display: flex;
@@ -380,6 +384,7 @@
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 .bookmark-tag:hover { background: var(--accent-light); color: oklch(84% 0.10 266); }
+[data-theme="anti-design"] .bookmark-tag:hover { background: var(--bg-hover); color: var(--text-primary); }
 
 @keyframes bookmark-flash {
   0%, 100% { box-shadow: none; }

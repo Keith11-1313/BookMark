@@ -85,6 +85,32 @@ const Settings = (() => {
         </div>
       </div>
 
+      <!-- Theme -->
+      <div class="settings-section">
+        <div class="settings-section-header">
+          <h2 class="settings-section-title">Theme</h2>
+          <p class="settings-section-desc">Choose a visual style for the interface.</p>
+        </div>
+        <div class="settings-card">
+          <div class="settings-row settings-row-last">
+            <div class="settings-row-left">
+              <div class="settings-row-icon">
+                ${Icons.svg('design', 16)}
+              </div>
+              <div>
+                <div class="settings-row-label">Appearance</div>
+                <div class="settings-row-desc">Switch between visual themes. Changes apply instantly.</div>
+              </div>
+            </div>
+            <select class="input" id="theme-select" style="width:auto;min-width:140px">
+              <option value="default"${App.getTheme() === 'default' ? ' selected' : ''}>Default</option>
+              <option value="anti-design"${App.getTheme() === 'anti-design' ? ' selected' : ''}>Anti-design</option>
+              <option value="sport"${App.getTheme() === 'sport' ? ' selected' : ''}>Sport</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <!-- Data Management -->
       <div class="settings-section">
         <div class="settings-section-header">
@@ -200,6 +226,12 @@ const Settings = (() => {
   // ── Events ─────────────────────────────────────────────────
   function bindEvents(container) {
 
+    // ── Theme selector ─────────────────────────────────────
+    container.querySelector('#theme-select')?.addEventListener('change', e => {
+      App.setTheme(e.target.value);
+      App.toast('Theme updated', 'success');
+    });
+
     // ── Scoped clear buttons ───────────────────────────────
     let pendingScope = null;
 
@@ -258,6 +290,7 @@ const Settings = (() => {
     container.querySelector('#settings-restore-ok')?.addEventListener('click', () => {
       Store.clearUserData('all');
       localStorage.removeItem('bookmark_sidebar_collapsed');
+      localStorage.removeItem('bookmark_theme');
       // Small delay so the modal closes visually before reload
       closeModal(container, 'settings-restore-backdrop');
       setTimeout(() => location.reload(), 150);

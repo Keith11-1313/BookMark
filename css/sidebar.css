@@ -35,6 +35,7 @@
   overflow: hidden;
   transition: opacity var(--transition-base), width var(--transition-base);
 }
+[data-theme="anti-design"] .sidebar-brand { font-size: var(--text-md); font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
 
 .sidebar-collapse-btn {
   margin-left: auto;
@@ -90,6 +91,7 @@
   overflow: hidden;
   transition: opacity var(--transition-base);
 }
+[data-theme="anti-design"] .nav-section-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; font-family: var(--font-mono); }
 .app-sidebar.collapsed .nav-section-label { opacity: 0; }
 
 .nav-item {
@@ -119,6 +121,13 @@
   box-shadow: inset 0 0 0 1px oklch(72% 0.14 266 / 0.25);
 }
 .nav-item.active .nav-item-icon { color: oklch(84% 0.10 266); }
+[data-theme="anti-design"] .nav-item.active {
+  background: transparent; color: var(--accent); box-shadow: none;
+  border-left: 2px solid var(--accent); padding-left: calc(var(--space-3) - 2px);
+}
+[data-theme="anti-design"] .nav-item.active .nav-item-icon { color: var(--accent); }
+[data-theme="sport"] .nav-item.active { background: var(--accent-light); color: var(--accent); box-shadow: inset 0 0 0 1px oklch(88% 0.28 130 / 0.25); }
+[data-theme="sport"] .nav-item.active .nav-item-icon { color: var(--accent); }
 
 .nav-item-icon {
   display: flex;
@@ -229,6 +238,7 @@
   width: calc(100% - var(--space-4));
 }
 .sidebar-search-btn:hover { border-color: var(--accent); background: var(--bg-hover); color: var(--text-secondary); box-shadow: 0 8px 22px oklch(5% 0.01 266 / 0.18); }
+[data-theme="anti-design"] .sidebar-search-btn:hover { box-shadow: none; }
 .sidebar-search-shortcut {
   margin-left: auto;
   font-family: var(--font-mono);

@@ -14,6 +14,7 @@ const App = (() => {
 
   // ── Init ────────────────────────────────────────────────
   async function init() {
+    applyTheme(getTheme());
     const app = document.getElementById('app');
     const main = document.getElementById('page-content');
     app.style.display = 'flex';
@@ -212,10 +213,23 @@ const App = (() => {
     setTimeout(() => backdrop.querySelector('#app-confirm-cancel')?.focus(), 50);
   }
 
+  // ── Theme ──────────────────────────────────────────────────
+  const THEME_KEY = 'bookmark_theme';
+  function getTheme() { return localStorage.getItem(THEME_KEY) || 'default'; }
+  function setTheme(name) { localStorage.setItem(THEME_KEY, name); applyTheme(name); }
+  function applyTheme(name) {
+    if (name && name !== 'default') {
+      document.documentElement.setAttribute('data-theme', name);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
   return {
     init, navigate, toast, confirm,
     formatDate, formatDateFull, getRoute,
-    escapeHtml, escapeAttr, safeUrl, safeImageUrl, faviconFor
+    escapeHtml, escapeAttr, safeUrl, safeImageUrl, faviconFor,
+    getTheme, setTheme
   };
 })();
 

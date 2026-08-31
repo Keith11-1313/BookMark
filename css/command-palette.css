@@ -27,6 +27,8 @@
   transition: transform var(--transition-spring);
 }
 #command-palette-backdrop.open .command-palette { transform: scale(1) translateY(0); }
+[data-theme="anti-design"] .command-palette { border-radius: 0; box-shadow: none; transform: translateY(-8px); transition: transform var(--transition-base); }
+[data-theme="anti-design"] #command-palette-backdrop.open .command-palette { transform: translateY(0); }
 
 /* Search input */
 .palette-search {
