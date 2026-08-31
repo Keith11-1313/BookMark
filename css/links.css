@@ -251,6 +251,8 @@
 [data-theme="anti-design"] .filter-pill.active { background: transparent; box-shadow: none; color: var(--accent); }
 [data-theme="sport"] .filter-pill.active { box-shadow: 0 0 10px oklch(88% 0.28 130 / 0.2); }
 [data-theme="sport"] .bookmark-card:hover { border-color: var(--accent); box-shadow: 0 0 14px oklch(88% 0.28 130 / 0.12); }
+[data-theme="map-forward"] .bookmark-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
+[data-theme="map-forward"] .filter-pill.active { background: var(--accent-light); }
 .filter-pill-count { background: var(--bg-hover); border-radius: var(--radius-full); padding: 1px 5px; font-size: 10px; }
 
 /* Bulk action bar */

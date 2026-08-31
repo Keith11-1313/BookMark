@@ -128,6 +128,8 @@
 [data-theme="anti-design"] .nav-item.active .nav-item-icon { color: var(--accent); }
 [data-theme="sport"] .nav-item.active { background: var(--accent-light); color: var(--accent); box-shadow: inset 0 0 0 1px oklch(88% 0.28 130 / 0.25); }
 [data-theme="sport"] .nav-item.active .nav-item-icon { color: var(--accent); }
+[data-theme="map-forward"] .nav-item.active { background: var(--accent-light); color: var(--accent); box-shadow: none; }
+[data-theme="map-forward"] .nav-item.active .nav-item-icon { color: var(--accent); }
 
 .nav-item-icon {
   display: flex;

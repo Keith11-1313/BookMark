@@ -70,6 +70,9 @@
 [data-theme="anti-design"] .stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; font-family: var(--font-mono); }
 [data-theme="sport"] .stat-value { font-weight: 800; letter-spacing: -0.02em; }
 [data-theme="sport"] .stat-card:hover { border-color: var(--accent); box-shadow: 0 0 16px oklch(88% 0.28 130 / 0.15); }
+[data-theme="map-forward"] .section-title { font-weight: 600; letter-spacing: -0.005em; }
+[data-theme="map-forward"] .stat-card { padding: var(--space-6); }
+[data-theme="map-forward"] .stat-card:hover { border-color: var(--accent); }
 
 /* Recent activity */
 .recent-activity {
