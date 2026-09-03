@@ -59,6 +59,14 @@ const Sidebar = (() => {
           ${Icons.route('settings', 15)}
           <span>Settings</span>
         </button>
+        <button class="sidebar-link" id="nav-privacy" aria-label="Privacy Notice">
+          ${Icons.svg('shield', 15)}
+          <span>Privacy</span>
+        </button>
+        <button class="sidebar-link" id="nav-terms" aria-label="Terms of Use">
+          ${Icons.svg('docs', 15)}
+          <span>Terms</span>
+        </button>
         <a class="sidebar-link" href="${GITHUB_REPO}/issues/new?title=Site+Request:+&body=URL:%0ACategory:%0AWhy+this+should+be+added:%0A&labels=site-request" target="_blank" rel="noopener">
           ${Icons.svg('plus', 15)}
           <span>Request a Site</span>
@@ -75,6 +83,8 @@ const Sidebar = (() => {
     });
 
     sidebar.querySelector('#sidebar-search-btn').addEventListener('click', () => CommandPalette.open());
+    sidebar.querySelector('#nav-privacy')?.addEventListener('click', () => Legal.open('privacy'));
+    sidebar.querySelector('#nav-terms')?.addEventListener('click', () => Legal.open('terms'));
   }
 
   function renderBottomNav() {

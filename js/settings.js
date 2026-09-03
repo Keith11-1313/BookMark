@@ -138,6 +138,44 @@ const Settings = (() => {
           `).join('')}
         </div>
       </div>
+      
+      <!-- Legal -->
+      <div class="settings-section">
+        <div class="settings-section-header">
+          <h2 class="settings-section-title">Legal</h2>
+          <p class="settings-section-desc">How your data is handled and the terms for using BookMark.</p>
+        </div>
+        <div class="settings-card">
+          <div class="settings-row">
+            <div class="settings-row-left">
+              <div class="settings-row-icon">
+                ${Icons.svg('shield', 16)}
+              </div>
+              <div>
+                <div class="settings-row-label">Privacy Notice</div>
+                <div class="settings-row-desc">What BookMark stores locally and which third parties are contacted.</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-legal="privacy">
+              View
+            </button>
+          </div>
+          <div class="settings-row settings-row-last">
+            <div class="settings-row-left">
+              <div class="settings-row-icon">
+                ${Icons.svg('docs', 16)}
+              </div>
+              <div>
+                <div class="settings-row-label">Terms of Use</div>
+                <div class="settings-row-desc">The terms for using this app and its content.</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-legal="terms">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
 
       <!-- Danger Zone -->
       <div class="settings-section">
@@ -232,6 +270,11 @@ const Settings = (() => {
     container.querySelector('#theme-select')?.addEventListener('change', e => {
       App.setTheme(e.target.value);
       App.toast('Theme updated', 'success');
+    });
+
+    // ── Legal links (popup modal, no route change) ──────────
+    container.querySelectorAll('[data-legal]').forEach(btn => {
+      btn.addEventListener('click', () => Legal.open(btn.dataset.legal));
     });
 
     // ── Scoped clear buttons ───────────────────────────────
