@@ -49,6 +49,7 @@ const App = (() => {
       ROUTES[prevRoute].module().unmount();
     }
 
+    if (window.Dropdown) Dropdown.reset();
     history.replaceState(null, '', '#' + route);
 
     const main = document.getElementById('page-content');

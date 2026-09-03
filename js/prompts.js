@@ -166,6 +166,7 @@ const Prompts = (() => {
     const allCats = [...new Set([...CATEGORIES.filter(c => c !== 'Other'), ...Store.get('prompts').map(p => p.category).filter(Boolean), ...readCustomCats(), 'Other'])];
     const isKnown = allCats.includes(savedCat);
     sel.innerHTML = buildCatOptions(isKnown ? savedCat : 'Other');
+    Dropdown.enhance(sel);
     if (!isKnown) {
       customInput.style.display = 'block';
       customInput.value = savedCat;
@@ -379,12 +380,15 @@ const Prompts = (() => {
     container.querySelector('#prompts-search')?.addEventListener('input', () => { refreshList(container); renderSmartAddHint(container); });
     container.querySelector('#prompts-cat-filter')?.addEventListener('change', () => refreshList(container));
     container.querySelector('#prompts-sort')?.addEventListener('change', () => refreshList(container));
+    Dropdown.enhance(container.querySelector('#prompts-cat-filter'));
+    Dropdown.enhance(container.querySelector('#prompts-sort'));
     container.querySelector('#pr-modal-close')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#pr-modal-cancel')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#pr-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#pr-modal-backdrop')) closeModal(container); });
     container.querySelector('#pr-modal-save')?.addEventListener('click', () => savePrompt(container));
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#pr-category')?.addEventListener('change', () => syncCustomCatInput(container));
+    Dropdown.enhance(container.querySelector('#pr-category'));
     container.querySelector('#pr-body')?.addEventListener('input', () => updatePrTypeHint(container));
   }
 

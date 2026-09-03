@@ -338,6 +338,7 @@ const Notes = (() => {
     container.querySelector('#btn-new-note')?.addEventListener('click', () => createNewNote(container));
     container.querySelector('#notes-search')?.addEventListener('input', () => { renderNotesList(container); renderSmartAddHint(container); });
     container.querySelector('#notes-sort')?.addEventListener('change', () => renderNotesList(container));
+    Dropdown.enhance(container.querySelector('#notes-sort'));
   }
 
   function renderSmartAddHint(container) {

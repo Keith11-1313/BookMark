@@ -271,6 +271,7 @@ const Settings = (() => {
       App.setTheme(e.target.value);
       App.toast('Theme updated', 'success');
     });
+    Dropdown.enhance(container.querySelector('#theme-select'));
 
     // ── Legal links (popup modal, no route change) ──────────
     container.querySelectorAll('[data-legal]').forEach(btn => {

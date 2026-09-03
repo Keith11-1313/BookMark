@@ -246,6 +246,7 @@ const Links = (() => {
     const allCats = [...new Set([...DEFAULT_CATS.filter(c => c !== 'Other'), ...Store.get('bookmarks').map(b => b.category).filter(Boolean), ...readCustomCats(), 'Other'])];
     const isKnown = allCats.includes(savedCat);
     sel.innerHTML = buildCatOptions(isKnown ? savedCat : 'Other');
+    Dropdown.enhance(sel);
     // If the saved category is a custom one not in the list yet, show it in the input
     if (!isKnown) {
       customInput.style.display = 'block';
@@ -533,6 +534,7 @@ const Links = (() => {
     container.querySelector('#btn-add-bookmark')?.addEventListener('click', () => openModal(container));
     container.querySelector('#links-search')?.addEventListener('input', e => { searchQuery = e.target.value; refreshList(container); renderSmartAddHint(container); });
     container.querySelector('#links-sort')?.addEventListener('change', () => refreshList(container));
+    Dropdown.enhance(container.querySelector('#links-sort'));
 
     container.querySelectorAll('.filter-pill').forEach(pill => {
       pill.addEventListener('click', () => {
@@ -565,6 +567,7 @@ const Links = (() => {
     container.querySelector('#bm-url')?.addEventListener('input', () => updateBmTypeHint(container));
     // Show/hide custom category input when "Other" is selected
     container.querySelector('#bm-category')?.addEventListener('change', () => syncCustomCatInput(container));
+    Dropdown.enhance(container.querySelector('#bm-category'));
 
     initFilterBarScroll(container);
   }

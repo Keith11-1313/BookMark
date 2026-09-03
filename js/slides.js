@@ -435,6 +435,7 @@ const Slides = (() => {
     const allCats = [...new Set([...CATEGORIES.filter(c => c !== 'Other'), ...Store.get('slides').map(d => d.category).filter(Boolean), ...readCustomCats(), 'Other'])];
     const isKnown = allCats.includes(savedCat);
     sel.innerHTML = buildCatOptions(isKnown ? savedCat : 'Other');
+    Dropdown.enhance(sel);
     if (!isKnown) { customInput.style.display = 'block'; customInput.value = savedCat; }
     else if (savedCat === 'Other') { customInput.style.display = 'block'; customInput.value = ''; }
     else { customInput.style.display = 'none'; customInput.value = ''; }
@@ -490,6 +491,7 @@ const Slides = (() => {
     container.querySelector('#btn-new-deck')?.addEventListener('click', () => openModal(container));
     container.querySelector('#gallery-search')?.addEventListener('input', () => refresh(container));
     container.querySelector('#gallery-cat-filter')?.addEventListener('change', () => refresh(container));
+    Dropdown.enhance(container.querySelector('#gallery-cat-filter'));
     container.querySelector('#gl-modal-close')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#gl-modal-cancel')?.addEventListener('click', () => closeModal(container));
     container.querySelector('#gl-modal-backdrop')?.addEventListener('click', e => { if (e.target === container.querySelector('#gl-modal-backdrop')) closeModal(container); });
@@ -497,6 +499,7 @@ const Slides = (() => {
     container.querySelector('#gl-pick-images')?.addEventListener('click', () => container.querySelector('#gl-images')?.click());
     container.querySelector('#gl-images')?.addEventListener('change', e => { onImagesPicked(container, e.target.files); e.target.value = ''; });
     container.querySelector('#gl-category')?.addEventListener('change', () => syncCustomCatInput(container));
+    Dropdown.enhance(container.querySelector('#gl-category'));
 
     keyHandler = e => {
       if (e.target.closest('.modal-backdrop')) return;

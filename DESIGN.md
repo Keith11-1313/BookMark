@@ -41,6 +41,15 @@ lightweight typography, glow accents. Token root is `[data-theme="dark-glass"]`.
 3. Add an `<option>` in `js/settings.js` inside `#theme-select`.
 4. Theme is persisted via `localStorage` key `bookmark_theme`, applied in `App.init()`.
 
+## Shared Components
+
+- Dropdown (`js/dropdown.js` + `css/dropdown.css`): themed listbox replacing native
+  `<select>` popups (OS-rendered, unthemeable). `Dropdown.enhance(select)` keeps the
+  hidden native select as source of truth — `.value` reads and `change` listeners
+  keep working. Call `enhance()` again after rebuilding options. List is
+  fixed-positioned (escapes modal overflow); closes on outside pointer,
+  scroll, resize, Esc, and route change (`Dropdown.reset()` in `App.navigate`).
+
 ## Bans
 
 - No gradient text.
