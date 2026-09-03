@@ -229,6 +229,3 @@ Pull requests are welcome for new curated items in `data/*.json`.
 ## License
 
 MIT
-
-
-opencode -s ses_feb47c4fcffeWgNWcl3Ei5QJOK
