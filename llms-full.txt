@@ -1,0 +1,1149 @@
+# BookMark — Complete Curated Directory
+
+> Full machine-readable dump of every curated item in BookMark,
+> a static directory of developer bookmarks, notes, AI prompts, and slide decks.
+> Source files: data/bookmarks.json, data/notes.json, data/prompts.json, data/slides.json.
+> App: https://keith11-1313.github.io/BookMark/ — Summary: https://keith11-1313.github.io/BookMark/llms.txt
+
+## Bookmarks (178)
+
+### AI (10)
+
+- [Manus](https://manus.im/)
+  General-purpose AI agent that executes tasks and automates workflows, from building websites to running research.
+  Tags: ai-agent, automation, workflow
+
+- [There's An AI For That](https://theresanaiforthat.com/)
+  Searchable directory of thousands of AI tools â€” search by task and compare options, plus daily deals and a newsletter.
+  Tags: ai-directory, discovery, tools
+
+- [Layers](https://www.getlayers.ai/)
+  Library of AI prompts, 3D scenes, and templates â€” copy a prompt and paste it into your AI coding tool to generate a cinematic, non-generic-looking website section.
+  Tags: ai-prompts, landing-page, templates
+
+- [Motion Sites](https://motionsites.ai/)
+  Library of ready-to-use AI design prompts for building animated landing pages, sections, backgrounds, and app interfaces.
+  Tags: ai-prompts, web-design, animation
+
+- [Stanley Studio](https://studio.getstanley.ai/)
+  AI video-editing studio for editing entire videos with a single prompt.
+  Tags: ai-video, video-editing, prompt-based
+
+- [Turbo AI](https://www.turbo.ai/)
+  AI study tool for generating notes, flashcards, quizzes, and related learning materials.
+  Tags: ai-notes, flashcards, study-tools
+
+- [Napkin AI](https://www.napkin.ai/)
+  AI tool that transforms text into visuals for business storytelling and communication.
+  Tags: ai-visuals, presentations, storytelling
+
+- [Buzzy](https://www.buzzy.now/)
+  One credit-based hub for the big AI video models â€” Kling, Seedance, Midjourney, MiniMax â€” plus viral-ready workflow packs.
+  Tags: ai-video, generation, kling, seedance
+
+- [MiniMax Design](https://design.minimax.io/)
+  Desktop AI studio where a crew of agents turns one brief into scripts, images, video, and edits â€” free to start, Mac and Windows.
+  Tags: ai-design, agents, video, image
+
+- [Clova](https://www.joinclova.com/)
+  Drop in your website URL and it learns your brand, then pumps out on-brand ad sets and product shots from one chat. Free to start.
+  Tags: ai-design, ads, branding, product-shots
+
+### APIs (5)
+
+- [OpenSky Network](https://opensky-network.org/)
+  Live aircraft state data including positions, altitude, velocity, and transponder details for aircraft currently in the sky.
+  Tags: aircraft, flight-tracking, api
+
+- [Art Institute of Chicago API](https://api.artic.edu/)
+  REST API for Art Institute of Chicago public collection data, artwork metadata, search, and IIIF image URLs with anonymous access.
+  Tags: art, museum, no-api-key
+
+- [Open Food Facts](https://world.openfoodfacts.org/)
+  Open food-products database and API for barcode lookups, ingredients, nutrition values, brands, and product metadata.
+  Tags: food-data, barcode, nutrition
+
+- [Open Trivia DB](https://opentdb.com/)
+  Free trivia-question API with categories, difficulty levels, multiple-choice and true/false questions, no API key required.
+  Tags: trivia, quiz, no-api-key
+
+- [LRCLIB](https://lrclib.net/)
+  Open lyrics database with plain and synced lyrics served as clean JSON, no signup required.
+  Tags: lyrics, music, json-api
+
+### Assets (24)
+
+- [Dareful](https://dareful.com/)
+  Completely free 4K & HD stock video footage (nature, aerial, travel, etc.) under a Creative Commons Attribution license.
+  Tags: stock-video, 4k, free
+
+- [Coverr](https://coverr.co/)
+  Free stock video (plus stock photos and music); also offers AI video/image/music generation and tools to "recreate" library clips with AI.
+  Tags: stock-video, stock-photos, free
+
+- [Pexels](https://www.pexels.com/)
+  Free stock photos and videos for any creative project, no attribution required.
+  Tags: stock-photos, stock-video, free
+
+- [Pixabay](https://pixabay.com/)
+  Free stock photos, illustrations, vectors, videos, music, sound effects, and 3D models â€” no attribution required.
+  Tags: stock-photos, illustrations, royalty-free
+
+- [Mixkit](https://mixkit.co/)
+  Free stock video clips, music, sound effects, and video editing templates (Premiere Pro, After Effects, Final Cut Pro, DaVinci Resolve), by Envato.
+  Tags: stock-video, sound-effects, templates
+
+- [Freesound](https://freesound.org/)
+  Searchable database of 700,000+ CC-licensed sound effects, run by Universitat Pompeu Fabra â€” credit depends on each soundâ€™s license.
+  Tags: sound-effects, audio, creative-commons
+
+- [Zapsplat](https://www.zapsplat.com/)
+  Over 160,000 free sound effects plus royalty-free music tracks; free tier requires a login and attribution (paid removes both).
+  Tags: sound-effects, music, audio
+
+- [Texture Labs](https://texturelabs.org/)
+  Free, original texture images (grunge, film, paper, brick, etc.) and tutorials/tools for art and design.
+  Tags: textures, design-assets, free
+
+- [Textures.com](https://www.textures.com/)
+  High-res texture packs and PBR materials for 3D and design work â€” free downloads daily, paid tiers for more.
+  Tags: textures, pbr-materials, 3d
+
+- [Texture Ninja](https://texture.ninja/)
+  Free, CC0 (public-domain) library of thousands of high-resolution texture and reference photos (brick, wood, metal, blood splatters, etc.) by 3D artist Joost Vanhoutte.
+  Tags: textures, cc0, photography
+
+- [Ambient CG](https://ambientcg.com/)
+  Free CC0 PBR textures and materials for CGI projects â€” metal, wood, fabric, ground, and more in high resolution.
+  Tags: pbr-materials, 3d-textures, cc0
+
+- [Fontshare](https://fontshare.com/)
+  Free font platform from Indian Type Foundry with quality typefaces for personal and commercial design work.
+  Tags: fonts, typography, free
+
+- [Lordicon](https://lordicon.com/)
+  Animated icons for interfaces â€” free hand-picked packs plus paid packs; export to Lottie, GIF, or SVG.
+  Tags: animated-icons, icons, lottie
+
+- [DesktopHut](https://www.desktophut.com/)
+  Library of free live and animated wallpapers for Windows PC, Mac, and mobile.
+  Tags: live-wallpapers, animated-backgrounds, desktop
+
+- [3dicons](https://3dicons.co/)
+  Open-source library of free 3D icons for personal and commercial projects.
+  Tags: 3d-icons, open-source, free
+
+- [Phosphor Icons](https://phosphoricons.com/)
+  Flexible icon family for interfaces, diagrams, presentations, and other visual projects.
+  Tags: icons, svg, interface
+
+- [Heroicons](https://heroicons.com/)
+  Hand-crafted SVG icon set from the makers of Tailwind CSS.
+  Tags: svg-icons, tailwind, interface
+
+- [Lucide](https://lucide.dev/)
+  Community-made icon toolkit focused on consistent, clean interface icons.
+  Tags: icons, svg, open-source
+
+- [Storyset](https://storyset.com/)
+  Free SVG/PNG illustrations you recolor, strip layers, and animate in the browser â€” export as HTML, GIF, or MP4. Attribution required unless you buy a paid Flaticon license to skip it.
+  Tags: illustrations, svg, animation, free
+
+- [PNGimg](https://pngimg.com/)
+  Over 116,000 transparent PNGs sorted by category and letter â€” but they're CC BY-NC, so no commercial use and you must credit. Fine for personal mockups and student work.
+  Tags: png, transparent, images, non-commercial
+
+- [MotionBGS](https://motionbgs.com/)
+  9,000+ free animated 4K wallpapers for desktop and phone â€” heavy on anime, gaming, cars, and superhero fan art. Downloads are free, but a lot is unlicensed fan art, so don't redistribute.
+  Tags: wallpapers, animated, 4k, anime
+
+- [Servier Medical Art](https://smart.servier.com/)
+  3,000+ free medical illustrations from pharma company Servier â€” anatomy, cells, and clinical specialties for slides, papers, and posters. CC BY 4.0: free even for commercial use as long as you credit them.
+  Tags: medical, illustrations, cc-by, free
+
+- [Kenney](https://www.kenney.nl/)
+  Thousands of free game assets â€” sprites, UI, 3D models, and audio â€” all public domain (CC0) from one creator, plus free starter kits. Paid extras: a Patreon club and an all-in-one download bundle.
+  Tags: game-assets, free, cc0, sprites
+
+- [SoundEffect Lab](https://soundeffect-lab.info/)
+  Thousands of free sound-effect clips from a Japanese studio, no signup needed â€” peek at the license before commercial use.
+  Tags: sound-effects, free, download, sfx
+
+### Business (2)
+
+- [The Hustle Blower](https://thehustleblower.com/)
+  Free weekly newsletter of real side hustles and business ideas, no hype â€” subscribe with your email to unlock a top-10 ranking of the highest-earning hustles.
+  Tags: side-hustles, newsletter, email, ideas
+
+- [Sprout](https://www.usesprout.com/)
+  AI applies to jobs for you with tailored resumes and cover letters, then tracks every response â€” plans from $19.99/month.
+  Tags: job-search, ai, resumes, automation
+
+### Deals (1)
+
+- [Student Samplers](https://studentsamplers.com/)
+  $20/month membership that rounds up student "test & keep" sampling programs â€” products ship to you and stay yours after a review â€” plus 48-hour early access and a free samples list. Caveat: stats are self-reported on an early-stage site.
+  Tags: student, freebies, samples, membership
+
+### Design (10)
+
+- [Unicorn Studio](https://www.unicorn.studio/)
+  No-code WebGL design tool for creating interactive motion/effects, embeddable in Framer, Webflow, Wix, or Figma Sites.
+  Tags: webgl, motion-design, no-code
+
+- [Spline](https://spline.design/)
+  Browser-based, real-time collaborative platform for 3D design, modeling, animation, and interactive web experiences.
+  Tags: 3d-design, interactive, collaborative
+
+- [Refero](https://refero.design/)
+  Gallery of real-world UI/UX screenshots for design reference â€” searchable and filterable by tag, type, and style.
+  Tags: ui-inspiration, design-reference, ux
+
+- [GetDesign](https://getdesign.md/)
+  Catalog of DESIGN.md files â€” written design-system analyses of popular websites (colors, type, spacing, components) that you drop into a project as a style reference for an AI coding agent.
+  Tags: design-system, ai-context, style-reference
+
+- [Jitter](https://jitter.video/)
+  Browser-based motion-design tool for creating animations and short videos, similar to a lightweight After Effects.
+  Tags: motion-design, animation, video
+
+- [Haikei](https://haikei.app/)
+  Beautiful random shape and gradient background generator (SVG blobs, waves, patterns) for design projects.
+  Tags: background-generator, svg, gradients
+
+- [FontJoy](https://fontjoy.com/)
+  Deep-learning font pairing generator for finding complementary typeface combinations.
+  Tags: typography, font-pairing, generator
+
+- [Flicker Gallery](https://flicker.laurie.fyi/gallery)
+  Library of flip-dot-display-inspired loading spinners; browse the collection or build your own and export to SVG, React, or Flutter.
+  Tags: spinners, svg, animation
+
+- [fffuel](https://www.fffuel.co/)
+  Collection of free SVG generator tools for backgrounds, blobs, patterns, gradients, and more.
+  Tags: svg-generator, backgrounds, free
+
+- [Coolors](https://coolors.co/)
+  Fast color palette generator and explorer for designers and developers.
+  Tags: color-palette, generator, design-tool
+
+### Design Inspiration (7)
+
+- [CTA.gallery](https://www.cta.gallery/)
+  Gallery of call-to-action examples for landing pages, product sites, and conversion-focused design.
+  Tags: cta, conversion, design-gallery
+
+- [Footer Design](https://www.footer.design/)
+  Gallery of website footer designs â€” browse layout, navigation, and newsletter patterns for your next site.
+  Tags: footer, web-design, gallery
+
+- [Landing Love](https://www.landing.love/)
+  Showcase of animated landing pages and interactions â€” filter by animation type and swipe ideas for your next hero.
+  Tags: landing-pages, animation, web-design
+
+- [Swissted](https://www.swissted.com/)
+  Typographic poster project remixing punk, hardcore, and indie rock show flyers in Swiss modernist style.
+  Tags: poster-design, swiss-style, music
+
+- [Design Spells](https://designspells.com/)
+  Collection of delightful interaction details, animations, and design touches from real websites.
+  Tags: microinteractions, web-design, inspiration
+
+- [Viewport UI](https://viewport-ui.design/)
+  Showcase of standout UI and web-design experiences â€” browse by vibe or flow for interface inspiration.
+  Tags: ui-inspiration, web-design, gallery
+
+- [Cosmos](https://www.cosmos.so/)
+  A calmer corner of the internet for saving and clustering visual inspiration â€” part moodboard, part discovery feed.
+  Tags: moodboard, inspiration, save, community
+
+### Design Tools (10)
+
+- [Flutter Tilt](https://amoshuke.github.io/flutter_tilt_book/en/v4/)
+  Flutter package documentation and demos for creating tilt-based 3D card and book interactions.
+  Tags: flutter, 3d-effect, ui-animation
+
+- [Shader Gradient](https://shadergradient.co/)
+  Interactive shader-gradient generator for creating animated 3D gradient backgrounds.
+  Tags: shader, gradient, 3d
+
+- [Paper](https://app.paper.design/)
+  Browser-based visual design app for creating and editing graphic layouts on a canvas.
+  Tags: canvas, design-tool, web-app
+
+- [ColorFlow](https://colorflow.ls.graphics/)
+  Advanced mesh-gradient generator and editor for creating colorful abstract backgrounds.
+  Tags: mesh-gradient, color, generator
+
+- [WigglyPaint](https://wigglypaint.com/)
+  Free animated drawing tool for creating wiggly illustrations and exporting them as GIFs.
+  Tags: drawing, animated-gif, creative-tool
+
+- [Terraink](https://terraink.app/)
+  Free map poster and wallpaper generator with PNG, PDF, and SVG export.
+  Tags: map-poster, wallpaper, generator
+
+- [Space Type Generator](https://spacetypegenerator.com/)
+  Browser-based typography generator for animated space-style text experiments.
+  Tags: typography, text-effects, generator
+
+- [Paperanimator](https://app.paperanimator.com/)
+  Web app for applying paper effects to photos and exporting animated results with green-screen backgrounds.
+  Tags: photo-effects, paper-animation, export
+
+- [Photopea](https://www.photopea.com/)
+  Free, in-browser image editor that opens and saves PSD files â€” a Photoshop clone that runs anywhere, no install, with ads.
+  Tags: photo-editor, browser-app, image-editing
+
+- [Mosh-Pro](https://www.moshpro.app/)
+  Glitch and VJ mixer with 60+ stackable effects, audio-reactive modulators, and 4K export. Free web Lite; desktop is $49 one-time or $24/year.
+  Tags: video-effects, glitch, vj, audio-reactive
+
+### Developer Tools (11)
+
+- [10x](https://www.10x.app/)
+  AI-powered native iOS app builder for macOS â€” describe an app and it generates SwiftUI code, an Xcode project, and a simulator preview, plus App Store submission and marketing content.
+  Tags: app-builder, ios, ai
+
+- [Spec Kit](https://speckit.tech/)
+  AI SaaS tool that turns a plain-language app idea into production-ready spec docs (PRD, requirements, architecture, API, database schema, roadmap) as exportable Markdown.
+  Tags: ai, spec, software-planning
+
+- [Blueprint](https://www.blueprint.io/)
+  AI hardware design tool â€” generates wiring diagrams, bills of materials, and step-by-step assembly guides for electronics/hardware projects (Arduino, Raspberry Pi, etc.) from a prompt.
+  Tags: hardware, ai, electronics
+
+- [Open SEO](https://github.com/every-app/open-seo)
+  Open-source, self-hostable alternative to Semrush/Ahrefs â€” keyword research, rank tracking, backlinks, and site audits, pay-as-you-go via the DataForSEO API, with an MCP server and AI agent skills.
+  Tags: seo, self-hosted, keyword-research, open-source
+
+- [Wokwi](https://wokwi.com/)
+  Browser-based electronics simulator for ESP32, Arduino, Raspberry Pi Pico, and embedded projects.
+  Tags: electronics, esp32, simulator
+
+- [React Three Fiber Docs](https://r3f.docs.pmnd.rs/)
+  Docs for React Three Fiber, the React renderer for Three.js maintained by Poimandres.
+  Tags: react, three-js, documentation
+
+- [boneyard](https://boneyard.vercel.app/)
+  Tool for auto-extracting pixel-perfect skeleton loading screens from real DOM layouts.
+  Tags: skeleton-screens, ui-loading, dom
+
+- [Tinkered](https://app.tinkered.ai/)
+  AI hardware design in your browser â€” describe a device and get a circuit, editable schematic, C/C++ firmware, and a 3D SPICE simulation, then flash it to 1,300+ real boards. Free to use.
+  Tags: ai, hardware-design, electronics, circuit-simulator
+
+- [Pinokio](https://pinokio.co/)
+  Free open-source launcher that one-click installs and runs hundreds of AI apps locally â€” ComfyUI, LLMs, video and music generation, TTS, and more â€” with a community app store. Many apps need a capable GPU.
+  Tags: ai, local-ai, one-click-installer, open-source
+
+- [Lopaka](https://lopaka.app/)
+  Design GUIs for tiny displays visually, then export ready-to-compile code for U8g2, TFT_eSPI, LVGL, and friends.
+  Tags: embedded, arduino, gui, codegen
+
+- [Scrolltide](https://www.scrolltide.co/)
+  Scroll-driven site prompts built for Claude, Cursor, and v0 â€” 55 templates, new drops every Friday, free plus a ~$10/month paid tier.
+  Tags: prompts, webdesign, animation, templates
+
+### Documentation (5)
+
+- [iFixit](https://www.ifixit.com/)
+  Community-powered repair guides, teardowns, and spare parts for electronics and devices.
+  Tags: repair-guides, electronics, teardowns
+
+- [FMHY](https://fmhy.net/)
+  Free Media Heck Yeah â€” big wiki-style index of free internet resources: streaming, downloading, gaming, reading, AI tools, and privacy. Some destinations skate copyright lines.
+  Tags: free-resources, media, wiki
+
+- [NameThatUI](https://namethatui.com/)
+  Reference site for identifying what UI elements and interface patterns are called.
+  Tags: ui-patterns, terminology, reference
+
+- [Anna's Archive](https://annas-archive.gl/)
+  Metasearch for books, papers, magazines, and comics across shadow libraries and archive.org â€” free and ad-free, but legally contentious.
+  Tags: books, papers, shadow-library
+
+- [Internet Archive](https://archive.org/)
+  Digital library of free and borrowable texts, movies, music, software, and archived web pages.
+  Tags: digital-library, wayback-machine, media
+
+### Finance (2)
+
+- [Invo](https://www.invoapp.com/)
+  Social crypto-futures copy-trading app â€” browse top traders and automatically mirror their positions across 170+ futures pairs on Hyperliquid.
+  Tags: crypto, copy-trading, futures
+
+- [Glint](https://glint.trade/)
+  Trading terminal for Hyperliquid perps and Polymarket predictions â€” real-time signals and smart-money tracking, backed by Polymarket.
+  Tags: crypto, perpetuals, polymarket
+
+### Games (9)
+
+- [ZType](https://zty.pe/)
+  Space-shooter typing game where you destroy enemies by typing the words attached to them.
+  Tags: typing, browser-game, skill
+
+- [Kuku Kube](https://kuku-kube.com/)
+  Browser-based color perception game â€” spot the one square that is a slightly different shade from the rest before the timer runs out.
+  Tags: color-perception, puzzle, browser-game
+
+- [Line Rider](https://www.linerider.com/)
+  Physics-based drawing game where you sled along a hand-drawn track.
+  Tags: physics, drawing, browser-game
+
+- [HowLongToBeat](https://howlongtobeat.com/)
+  Crowdsourced database for estimating video game completion times, backlogs, and playthrough lengths.
+  Tags: game-length, backlog, planning
+
+- [BuddyBoardGames](https://buddyboardgames.com/)
+  30 free multiplayer board and card games (Uno, Yahtzee, Battleship, Azul, Poker) â€” create a room, share the name, no sign-up, plays fine on phones. Ad-supported, with a bot opponent and matchmaking.
+  Tags: board-games, multiplayer, browser, no-signup
+
+- [Quenq](https://quenq.com/)
+  An interactive museum of internet culture â€” 1,300+ playable Flash games, a full Windows XP simulator (Reborn XP), and browser ports of Minecraft and Angry Birds. No downloads, no paywalls, kept alive by ads.
+  Tags: retro, emulators, flash-games, internet-culture
+
+- [Bored.com](https://www.bored.com/)
+  A pile of classic browser games for killing ten minutes that somehow turns into an hour.
+  Tags: classic-games, arcade, browser
+
+- [Lost Gamer](https://lostgamer.io/)
+  Shows a zoomed-in slice of a game level â€” guess which game it's from. Brutal fun for retro fans.
+  Tags: quiz, retro, guessing, games
+
+- [Snooker Sim](https://snookersim.com/)
+  Full-table snooker in the browser with real physics â€” pot your way to a 147.
+  Tags: snooker, physics, multiplayer, browser
+
+### Learning (9)
+
+- [Learn Anything](https://learn-anything.xyz/)
+  Open-source topic map of learning resources â€” search a subject and get community-vetted courses, videos, and articles.
+  Tags: learning, knowledge-map, resources
+
+- [48 Laws of Power](https://www.48lawspower.com/)
+  Free one-page summaries and prefaces for all 48 of Robert Greene's laws, each a separate short blog article. Nothing interactive â€” just quick reference reading, plus an affiliate link to buy the book.
+  Tags: psychology, power, book-summaries, self-improvement
+
+- [Loecsen](https://www.loecsen.com/)
+  Free essentials for 50+ languages with audio, downloadable MP3s, and printable sheets â€” upgrades unlock extended content. Structured around CEFR levels (A1 to B1) with spaced repetition and speech recognition.
+  Tags: languages, audio, travel-phrases, spaced-repetition
+
+- [Photoskop](https://www.photoskop.com/)
+  Free interactive lessons where you drag aperture, ISO, and shutter speed on real photos to see the result instantly, plus a virtual light rig and a pose encyclopedia. Donation-funded and partly unfinished.
+  Tags: photography, interactive, lessons, camera-skills
+
+- [Scale of the Universe](https://htwins.net/)
+  Zoom from a planck length to the whole cosmos in the Huang brothers' wildly fun interactive scale chart.
+  Tags: interactive, education, science, visualization
+
+- [Raena AI](https://app.raena.ai/)
+  Turns your messy class notes into smart summaries and quizzes so exam prep actually sticks. Free tier with limits.
+  Tags: study, quizzes, summaries, ai
+
+- [Electude Simulator](https://simulator.electude.com/)
+  Virtual car rig for students â€” wire up electrics, hunt faults, and learn engine logic without lifting a real hood.
+  Tags: automotive, simulator, education
+
+- [roadmap.sh](https://roadmap.sh/)
+  Step-by-step community roadmaps for becoming a frontend, backend, AI, or DevOps engineer â€” pick a path and start climbing.
+  Tags: roadmaps, career, webdev, guides
+
+- [Class Central](https://www.classcentral.com/)
+  Search engine for online courses from universities and platforms â€” filter by free, certificate, or subject.
+  Tags: courses, mooc, free, directory
+
+### Libraries/Frameworks (22)
+
+- [Componentry](https://componentry.dev/)
+  Free, copy-paste library of animated React UI components (Tailwind CSS, TypeScript, Framer Motion), installable via the shadcn CLI.
+  Tags: ui-components, react, animation
+
+- [21st](https://21st.dev/)
+  Community registry of 10,000+ hand-crafted React/Tailwind components and templates; each ships as a prompt you paste into Cursor, Claude Code, v0, or Lovable to drop into your project, or install via the shadcn CLI.
+  Tags: ui-components, react, shadcn
+
+- [shadcn/ui](https://ui.shadcn.com/)
+  Open-code, customizable React components you copy into your project rather than install as a dependency; foundation for many design systems.
+  Tags: ui-components, react, tailwind
+
+- [Origin Kit](https://www.originkit.dev/)
+  Free library of animated components â€” copy the code, use in Framer, or connect via MCP â€” copy the code, use in Framer, or connect via MCP.
+  Tags: ui-components, animation, framer
+
+- [React Bits](https://www.reactbits.dev/)
+  Copy-paste animated React components â€” text effects, animated backgrounds, loaders, buttons, and more, free and open source.
+  Tags: react, ui-components, animation
+
+- [Lenis](https://github.com/darkroomengineering/lenis)
+  Open-source smooth-scrolling library that adds buttery inertia to native scroll â€” the engine behind many award-winning sites.
+  Tags: smooth-scroll, javascript, open-source
+
+- [GSAP](https://github.com/greensock/GSAP)
+  GreenSock Animation Platform â€” a battle-tested JS animation library for high-performance tweens of DOM, SVG, canvas, and WebGL, with a free core.
+  Tags: animation, javascript, open-source
+
+- [Vanta.js](https://github.com/tengbao/vanta)
+  Library for adding animated 3D backgrounds to websites using Three.js or p5.js.
+  Tags: animated-backgrounds, three-js, open-source
+
+- [Anime.js](https://animejs.com/)
+  Lightweight JavaScript animation library with a simple, flexible API for CSS, SVG, DOM, and JS objects.
+  Tags: animation, javascript, open-source
+
+- [Motion](https://motion.dev/)
+  Animation library for JavaScript and React (formerly Framer Motion).
+  Tags: animation, react, javascript
+
+- [Bklit](https://bklit.com/)
+  shadcn/ui-based React component library for data visualization â€” area, bar, candlestick, heatmap, sankey charts and more, with a Studio builder.
+  Tags: ui-components, charts, react
+
+- [Skiper UI](https://skiper-ui.com/)
+  Library of 100+ "un-common" animated components for shadcn/ui and Next.js, free and paid tiers, installable via the shadcn CLI.
+  Tags: ui-components, shadcn, next-js
+
+- [Cult UI](https://www.cult-ui.com/)
+  Copy-paste animated React components and effects â€” from the Framer community, with free and paid tiers.
+  Tags: ui-components, react, animation
+
+- [Watermelon UI](https://ui.watermelon.sh/)
+  Copy-paste React components, dashboards, and UI blocks built on Tailwind/shadcn conventions â€” grab a component or an entire dashboard.
+  Tags: ui-components, shadcn, tailwind
+
+- [unlumen UI](https://ui.unlumen.com/)
+  Copy-paste React UI blocks and components styled with Tailwind â€” buttons, cards, navs, and effects for faster front-end work.
+  Tags: react, ui-components, tailwind
+
+- [SmoothUI](https://smoothui.dev/)
+  Animated React components built for shadcn/ui, Tailwind CSS, and Motion.
+  Tags: react, shadcn, animation
+
+- [Animmaster Lib](https://animmasterlib.dev/)
+  Copy-paste animated React components and product UI sections for your site.
+  Tags: animated-components, web-ui, templates
+
+- [Uilora](https://www.uilora.com/)
+  UI components and templates for Next.js and React Native â€” grab free starters or buy full kits.
+  Tags: next-js, react-native, ui-components
+
+- [termcn](https://www.termcn.dev/)
+  Terminal-style UI components for the web â€” build fake CLIs, retro TUIs, and code blocks in React.
+  Tags: terminal-ui, components, developer-tools
+
+- [Animate UI](https://animate-ui.com/)
+  Open-source animated React components built with TypeScript, Tailwind CSS, Motion, and shadcn CLI.
+  Tags: react, animated-components, shadcn
+
+- [Untitled UI](https://www.untitledui.com/)
+  Figma UI kit + React components for product work â€” free starter kit, paid unlocks the full component library.
+  Tags: figma-kit, react, ui-components
+
+- [Uiverse](https://uiverse.io/)
+  Free, open-source library of thousands of CSS/HTML UI elements â€” copy-paste buttons, loaders, cards, inputs, and more.
+  Tags: ui-elements, css, tailwind, open-source
+
+### Lifestyle (13)
+
+- [Drive & Listen](https://driveandlisten.app/)
+  Experience different cities through synced dashcam driving footage and a local radio station playing in the background.
+  Tags: ambient, cities, radio
+
+- [ModsNation](https://www.modsnation.com/)
+  Automotive community platform with a 3D car configurator, aftermarket-parts marketplace, auctions, build journals, and car media.
+  Tags: car-mods, 3d-configurator, community
+
+- [FUNES](https://funes.world/)
+  3D cultural heritage archive for browsing preserved digital objects and historical artifacts.
+  Tags: 3d-archive, cultural-heritage, design-reference
+
+- [FreeSewing](https://freesewing.eu/)
+  Open-source platform that generates made-to-measure sewing patterns from your body measurements â€” free, no login, parametric.
+  Tags: sewing-patterns, open-source, bespoke
+
+- [A Little Box of Goodies](https://alittleboxofgoodies.com/)
+  Pack a one-time-payment digital care package â€” notes, photos, voice memos, drawings, song and video links, even coupons â€” then share a link your person taps open like a real box.
+  Tags: digital-care-package, gifts, long-distance, one-time-payment
+
+- [Angie](https://getangie.com/)
+  Realtime date room for long-distance couples â€” photobooth, quizzes, debate, and arcade games played together live. The photobooth is always free; paid plans add unlimited plays, and you can print strips as fridge magnets.
+  Tags: long-distance, couples, dates, photobooth
+
+- [Little Voice Note](https://littlevoicenote.com/)
+  Record a voice memo, add up to 8 photos, and share a keepsake link that plays like a hand-crank music box â€” your person turns the handle to hear it. Free, no account.
+  Tags: voice-notes, music-box, keepsakes, gifts
+
+- [Sirius Love](https://siriuslove.net/)
+  Build a free romantic gift page with photos, letters, Spotify playlists, and countdowns â€” no signup or credit card to start, and you can draw on it together. Paid plans ($4.50/mo or $19 lifetime) add more storage and a PIN lock.
+  Tags: gifts, romantic, love-page, digital-gift
+
+- [Love Written](https://lovewritten.ca/)
+  Write a digital love letter, schedule it, and it lands in your person's inbox as a link to an interactive letter page â€” $3 CAD per letter, no account or subscription. Note: it can't be edited after you pay.
+  Tags: love-letters, schedule, delivery, email
+
+- [StartMyCar](https://www.startmycar.com/)
+  Crowdsourced fix-it knowledge base where car owners swap causes and cures for the same stubborn problems.
+  Tags: cars, repair, community, diy
+
+- [WorldCam](https://worldcam.tv/)
+  Peek at live public webcams from 180+ countries â€” beaches, cities, wildlife â€” streaming free around the clock.
+  Tags: webcams, live, travel, world
+
+- [B98.TV](https://www.b98.tv/)
+  Stream vintage cartoons â€” Tom & Jerry, Looney Tunes, Scooby â€” free and without signup.
+  Tags: cartoons, streaming, classic, free
+
+- [Flowers](https://flowerisblooming.com/)
+  Send a digital bouquet as a forever link or QR code â€” hand-illustrated flowers, with an app for growing your own collection.
+  Tags: gifts, flowers, digital, free
+
+### Music (10)
+
+- [Uppbeat](https://uppbeat.io/)
+  Royalty-free music and sound effects for videos/podcasts/streams, pre-cleared with Content ID to avoid copyright strikes.
+  Tags: royalty-free-music, content-id-safe, audio
+
+- [NCS](https://ncs.io/)
+  No Copyright Sounds: record label providing free music (mostly EDM/electronic) for creators, requires crediting the artist per their usage terms.
+  Tags: royalty-free-music, electronic, copyright-free
+
+- [Bensound](https://www.bensound.com/)
+  Royalty-free music for commercial and personal use, free under a Creative Commons license with attribution (or a paid license to skip crediting).
+  Tags: royalty-free-music, free, audio
+
+- [Chosic](https://www.chosic.com/)
+  Music discovery toolkit built on the Spotify API â€” similar-songs finder, playlist generator/analyzer, genre/BPM finder â€” plus a small library of free royalty-free music downloads.
+  Tags: music-discovery, spotify, playlist
+
+- [SpotiFLAC](https://github.com/spotbye/SpotiFLAC)
+  Open-source desktop app that fetches Spotify tracks in true lossless FLAC from Tidal, Qobuz, or Amazon Music â€” no account required.
+  Tags: music-downloader, lossless, spotify, open-source
+
+- [Lofi.cafe](https://www.lofi.cafe/)
+  Lofi radio streams for studying, working, or chilling â€” pick a room by vibe and it plays right in the browser. No account needed to hit play.
+  Tags: lofi, radio, focus, music
+
+- [Incompetech](https://incompetech.com/)
+  Kevin MacLeod's royalty-free music, 2,000+ tracks â€” use it free with credit, or buy a Standard License when you can't give attribution. Also home to a free graph paper and maze generator.
+  Tags: royalty-free, music, kevin-macleod, attribution
+
+- [MusicGPT](https://musicgpt.com/)
+  Type a vibe, get a full AI-generated track â€” make songs from a text prompt in seconds.
+  Tags: ai-music, generator, text-to-music
+
+- [X-Minus](https://x-minus.pro/)
+  Karaoke juggernaut with backing tracks in every key, plus a vocal remover to cut your own minus-ones.
+  Tags: karaoke, backing-tracks, vocal-removal, minus-one
+
+- [HookTheory](https://www.hooktheory.com/)
+  Learn how pop songs actually work with interactive theory lessons and Hookpad, the chord-sketching songwriting pad.
+  Tags: music-theory, hookpad, interactive, songwriting
+
+### Security (6)
+
+- [OSINT4All](https://start.me/p/L1rEYQ/osint4all)
+  Start.me page packed with practical OSINT resources â€” an organized, beginner-friendly toolkit for researchers of any skill level.
+  Tags: osint, research, resource-list
+
+- [GeoSpy](https://geospy.ai/)
+  AI tool that estimates where a photo was taken â€” drop in an image and get a map location plus confidence, built for OSINT work.
+  Tags: image-geolocation, osint, investigation
+
+- [pwn.college](https://pwn.college/)
+  Free hands-on hacking challenges from Arizona State University with live in-browser Linux workspaces, YouTube lectures, and community dojos. Registration is required, and posting writeups is discouraged so challenges stay usable for grading.
+  Tags: cybersecurity, hacking, ctf, challenges
+
+- [Fingerprint](https://fingerprint.to/)
+  Search a username, email, or name across 700+ platforms in real time â€” results stream in as full profiles with bios, followers, and locations. Free tier is capped around 10 searches; paid plans and an API are on the way.
+  Tags: osint, username-search, public-data, people-search
+
+- [Gray Hat Warfare](https://grayhatwarfare.com/)
+  Search engine for public AWS S3 buckets and URL-shortener links, with billions of files indexed. The free tier caps out at a few hundred results; paid plans (â‚¬25â€“60/mo) unlock unlimited results and an API.
+  Tags: osint, s3-buckets, security, search-engine
+
+- [OSINT Framework](https://osintframework.com/)
+  Giant tree of open-source intelligence tools for digging up anything publicly out there â€” usernames, emails, geodata.
+  Tags: osint, investigation, tools, directory
+
+### Utilities (22)
+
+- [CasaOS](https://github.com/IceWhaleTech/CasaOS)
+  Open-source "personal cloud" system that turns a home server (e.g. Raspberry Pi, NUC) into an easy Docker-app dashboard for self-hosting.
+  Tags: self-hosting, home-server, docker, open-source
+
+- [Complete Website Downloader](https://github.com/badrshs/Complete-Website-Downloader)
+  Windows desktop app (open-source wget wrapper) that mirrors entire sites â€” HTML, CSS, JS, images, fonts â€” and rewrites links for offline browsing.
+  Tags: website-mirror, offline, windows, open-source
+
+- [VidIQ](https://vidiq.com/)
+  YouTube analytics, keyword research, and optimization platform for video content creators.
+  Tags: youtube, seo, analytics
+
+- [Perler Beads](https://perlerbeads.net/)
+  Free tool that converts uploaded photos into printable Perler/Hama/Artkal bead patterns with color matching and bead counts.
+  Tags: pattern-generator, craft, hobby
+
+- [Omniget](https://github.com/tonhowtf/omniget/releases)
+  Open-source cross-platform desktop app (Tauri/Rust/Svelte) for downloading, organizing, and studying media â€” yt-dlp-based downloads from 1,800+ sites plus a PDF/EPUB reader with focus mode and spaced repetition.
+  Tags: media-downloader, yt-dlp, open-source
+
+- [Textlab](https://textlab.javii.tools/)
+  Generator for realistic messaging/social-media mockup screenshots (iMessage, WhatsApp, Instagram DM, TikTok/Instagram/YouTube comments, notifications, etc.) with transparent PNG export.
+  Tags: mockup, screenshot-generator, social-media
+
+- [10 Minute Mail](https://10minutemail.com/)
+  Temporary email service for disposable inboxes and short-lived verification addresses.
+  Tags: temporary-email, privacy, no-signup
+
+- [RemovePaywall](https://www.removepaywall.com/)
+  Online utility for finding accessible versions of article pages blocked by paywalls.
+  Tags: paywall, articles, utility
+
+- [NoSignups](https://nosignups.net/)
+  Directory of open-source web tools that work without accounts or signups.
+  Tags: open-source, no-signup, tools
+
+- [TinyWow](https://tinywow.com/)
+  Free online tools for PDF, image, video, file conversion, and AI writing tasks.
+  Tags: pdf-tools, image-tools, ai-writing
+
+- [WiFi Space](https://wifispc.com/)
+  Map-based service for finding shared WiFi passwords nearby.
+  Tags: wifi-map, passwords, travel
+
+- [Yout](https://yout.com/)
+  Internet DVR for format-shifting and clipping videos from sites including YouTube, TikTok, and Instagram.
+  Tags: video-tools, format-shift, clipping
+
+- [Nextcloud](https://nextcloud.com/)
+  Open-source content collaboration platform for file sync, sharing, and organizational cloud workflows.
+  Tags: file-sync, self-hosted, collaboration, open-source
+
+- [cobalt](https://cobalt.tools/)
+  Web tool for saving media links without ads, tracking, paywalls, or other extra steps.
+  Tags: media-downloader, no-ads, privacy
+
+- [Syncthing](https://syncthing.net/)
+  Open-source, peer-to-peer file sync between your own devices â€” no cloud, no middleman, runs on phones, desktops, and NAS.
+  Tags: file-sync, peer-to-peer, privacy
+
+- [Ninite](https://ninite.com/)
+  Windows utility for installing or updating multiple apps automatically in the background.
+  Tags: app-installer, windows, updates
+
+- [Flightradar24](https://www.flightradar24.com/)
+  Live global flight tracker with real-time plane positions, routes, altitude, and airline info. The free tier works but is ad-supported and time-limited; paid tiers add flight history, 3D view, and alerts.
+  Tags: flight-tracking, aviation, live-map, ads-b
+
+- [Toolixy](https://toolixy.online/)
+  190+ free in-browser tools across 8 categories â€” PDF, image, video, audio, text, dev, converters, and calculators â€” no signup, no watermarks, and files never leave your device.
+  Tags: online-tools, pdf-tools, in-browser, free
+
+- [TheToolBus](https://www.thetoolbus.ai/)
+  154 free browser tools across PDF, image, converter, calculator, professional, and fun categories, plus an AI-tool directory â€” no signup, no watermark, and outputs are fine for commercial use.
+  Tags: online-tools, ai-directory, pdf-tools, free
+
+- [Photo From Emoji](https://photofromemoji.com/)
+  Rebuilds any photo as an emoji mosaic right in your browser â€” nothing gets uploaded, no signup, no watermark.
+  Tags: emoji, image-effects, generator, privacy
+
+- [RecCloud](https://reccloud.com/)
+  Record your screen straight from the browser and stash it in the cloud â€” nothing to install.
+  Tags: screen-recording, video, cloud, free
+
+- [Angle Ref](https://angleref.com/)
+  Search any angle and see it drawn as a clean visual reference â€” handy for geometry and design work.
+  Tags: angles, reference, geometry
+
+## Prompts (21)
+
+### BookMark Intake System â€” Open WebUI System Prompt
+Category: Coding
+Tags: system-prompt
+
+# BookMark Intake System â€” Open WebUI System Prompt
+
+You are a data intake assistant for the BookMark app â€” an open-source developer resource directory. Your job is to take raw input (URLs, code blocks, text, screenshots) and convert them into structured JSON entries ready to be pasted into the app's data files.
+
+## How It Works
+
+1. I send you a URL, code snippet, text block, screenshot, or description
+2. You determine what type it is (bookmark, note, prompt, or slide set)
+3. You output valid JSON matching the exact schema below
+4. I paste the JSON into the corresponding `data/*.json` file
+
+## Type Detection Rules
+
+| If the input is...                          | Type       | Output file          |
+|---------------------------------------------|------------|----------------------|
+| A URL or website                            | bookmark   | `data/bookmarks.json` |
+| A set of images in a folder                | slides     | `data/slides.json`    |
+| A long-form text, guide, or knowledge       | note       | `data/notes.json`     |
+| An instruction/system prompt for AI         | prompt     | `data/prompts.json`   |
+
+If ambiguous, ask me to clarify.
+
+## JSON Schemas
+
+### Bookmark
+```json
+{
+  "id": "<unique ID â€” see ID Generation>",
+  "url": "<full URL>",
+  "title": "<site name or page title>",
+  "category": "<one of the categories below>",
+  "tags": ["<tag1>", "<tag2>", "<tag3>"],
+  "notes": "<one-line description of what this site does and why it's useful>",
+  "favicon": "https://www.google.com/s2/favicons?domain=<domain>&sz=32",
+  "githubMeta": null,
+  "createdAt": "<ISO 8601 timestamp>"
+}
+```
+
+**Categories** (pick the most fitting one):
+AI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Developer Tools, Utilities, APIs, Documentation, Games, Music, Finance, Learning, Lifestyle, Security, Business, Deals, Other
+
+**Tag rules:**
+- 2-5 tags per item
+- Lowercase, hyphenated (e.g., "machine-learning", "ui-design")
+- Be specific: prefer "react-hooks" over "javascript"
+- Include the primary technology/topic
+
+**Notes field:**
+- One sentence, max 120 characters
+- What it does + why it matters
+- Example: "Collaborative interface design tool used by most product teams."
+
+### Slide Set
+```json
+{
+  "id": "<folder name under assets/slides/>",
+  "title": "<descriptive title>",
+  "description": "<one-line description of what the deck shows>",
+  "category": "<one of the bookmark categories below>",
+  "tags": ["<tag1>", "<tag2>"],
+  "images": ["assets/slides/<folder>/1.jpg", "â€¦"],
+  "createdAt": "<ISO 8601 timestamp>"
+}
+```
+
+### Note
+```json
+{
+  "id": "<unique ID â€” see ID Generation>",
+  "title": "<note title>",
+  "body": "<HTML content â€” use <p>, <ul>, <li>, <b>, <i>, <code> tags>",
+  "color": "<one of: #5865f2, #23a559, #f0b232, #da373c, #00a8fc, #eb459e, #949ba4, or null>",
+  "linkedBookmarks": [],
+  "createdAt": "<ISO 8601 timestamp>",
+  "updatedAt": "<ISO 8601 timestamp>"
+}
+```
+
+### Prompt
+```json
+{
+  "id": "<unique ID â€” see ID Generation>",
+  "title": "<prompt name>",
+  "category": "<one of: Writing, Coding, Analysis, Creative, Business, Marketing, Education, Personal, Other>",
+  "body": "<the full prompt text>",
+  "tags": ["<tag1>", "<tag2>"],
+  "createdAt": "<ISO 8601 timestamp>"
+}
+```
+
+## ID Generation
+
+IDs are **plain sequential numeric strings** â€” `"1"`, `"2"`, `"3"`... â€” with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `["1", "2"]`); a prefixed ID would break that reference.
+
+- Each data file keeps its own independent counter â€” `bookmarks.json`, `notes.json`, `prompts.json`, and `slides.json` all number from 1 separately
+- Slide set IDs are **folder names** under `assets/slides/` (e.g. `font_pairings`)
+- Use the highest existing `id` in the target file, plus one, as the next ID
+- Example: if `notes.json` currently ends at `"3"`, the next note is `"4"`
+- If I tell you "start from ID X," use that as the next number instead
+
+## Timestamp
+
+Use the current date/time in ISO 8601 format: `2025-07-16T10:00:00Z`
+
+## Output Format
+
+Always output:
+1. The **type** (bookmark / note / prompt / slides)
+2. The **target file** (e.g., `data/bookmarks.json`)
+3. The **JSON object** â€” ready to copy-paste into the array in the target file
+
+Example output:
+```
+Type: bookmark
+File: data/bookmarks.json
+
+{
+  "id": "9",
+  "url": "https://react.dev",
+  "title": "React",
+  "category": "Libraries/Frameworks",
+  "tags": ["react", "frontend", "ui-library"],
+  "notes": "Official React documentation and learning resources.",
+  "favicon": "https://www.google.com/s2/favicons?domain=react.dev&sz=32",
+  "githubMeta": null,
+  "createdAt": "2025-07-16T10:00:00Z"
+}
+```
+
+## Batch Input
+
+If I send multiple items at once, output each one separately with clear separation:
+```
+---
+Type: bookmark
+File: data/bookmarks.json
+{ ... }
+
+---
+Type: slides
+File: data/slides.json
+{ ... }
+```
+
+## Rules
+
+- Always use the exact field names from the schemas above
+- Always include ALL fields â€” no omissions
+- Escape special characters in JSON strings properly (newlines as `\n`, quotes as `\"`)
+- For a folder of images, add every file to the deck's `images` array in filename order
+- For notes, use semantic HTML (`<p>`, `<ul>`, `<li>`, `<b>`, `<code>`) â€” no `<div>` or `<span>`
+- If a URL is a GitHub repo, try to fill in `githubMeta` with `{ "stars": <n>, "forks": <n>, "language": "<lang>" }` if known, otherwise use `null`
+- For screenshots of websites: extract the URL from the screenshot, determine the site name, categorize it
+- For screenshots of code: extract the code text, detect the language, and file it as a note instead
+
+### LinkedIn Headline That Sells
+Category: LinkedIn Optimization
+Tags: linkedin, headline, personal-branding
+
+You are a world-class LinkedIn personal branding expert. Rewrite my LinkedIn headline to make it highly attractive to recruiters in my field. Use clear keywords, job-specific value, and a positioning that makes me irresistible in search. Here's my profile for context: [PASTE LINKEDIN PROFILE]
+
+### Optimize Your About Section
+Category: LinkedIn Optimization
+Tags: linkedin, about-section, copywriting
+
+You are a top-tier LinkedIn copywriter. Rewrite my 'About' section so that it clearly explains who I am, what problems I solve, and why I'm valuable while keeping it warm, clear, and keyword-optimized. Keep it under 260 words. Here's my existing profile: [PASTE PROFILE TEXT]
+
+### Rewrite Experience to Show ROI
+Category: LinkedIn Optimization
+Tags: linkedin, experience, resume
+
+You are a resume and LinkedIn optimization specialist. Rewrite my 'Experience' section for each job listed in my LinkedIn so it focuses on outcomes, numbers, KPIs, and skills recruiters look for. Make sure it's easy to skim and speaks in recruiter language. Here's my current experience section: [PASTE TEXT]
+
+### Fix Your LinkedIn Profile Instantly
+Category: LinkedIn Optimization
+Tags: linkedin, profile-review, job-search
+
+You are a professional LinkedIn profile optimizer for Fortune 500 job seekers. Review my entire LinkedIn profile below and suggest exact rewrites for headline, about, experience, skills, and featured sections. Make sure it's fully keyword-optimized for ATS and recruiter search. My goal: [INSERT GOAL]. Here's the profile: [PASTE PROFILE TEXT]
+
+### Inject Keywords To Rank Higher
+Category: LinkedIn Optimization
+Tags: linkedin, seo, keywords
+
+You are a LinkedIn SEO expert. Scan my profile and inject high-ranking keywords for my industry (e.g., data science, UX, etc.) in a natural way to make it rank higher in recruiter search. Do not keyword stuff. My profile: [PASTE PROFILE TEXT]
+
+### Build a Unique Value Proposition
+Category: LinkedIn Optimization
+Tags: linkedin, uvp, personal-branding
+
+You are a personal branding strategist. Based on my experience and career goals, write a bold, specific Unique Value Proposition that I can put at the top of my 'About' section to instantly hook recruiters and differentiate me. Here's my experience and industry: [PASTE DETAILS]
+
+### Turn Your Profile Into a Pitch
+Category: LinkedIn Optimization
+Tags: linkedin, elevator-pitch, career
+
+You are a career storyteller and elevator pitch expert. Based on my LinkedIn profile, write a 30-second pitch that I can use in my summary section or video intro. Make it sharp, confident, and results-driven. Profile: [PASTE PROFILE TEXT]
+
+### 4K Effect
+Category: Image Enhancement
+Tags: upscale, photorealism, image-editing
+
+Ultra-high-resolution 4K enhancement based strictly on the provided reference image. Absolute fidelity to original facial anatomy, proportions, and identity. Preserve expression, gaze, pose, camera angle, framing, and perspective with zero deviation. Clothing, hair, skin, and background elements must remain unchanged in structure, placement, and design. Recover fine-grain detail with natural realism. Enhance pores, fine lines, hair strands, eyelashes, fabric weave, seams, and material edges without introducing stylization. Maintain original color science, white balance, and tonal relationships exactly as captured. Lighting direction, intensity, contrast, and shadow behavior must match the source image precisely, with only improved clarity and expanded dynamic range. No relighting, no reshaping. Remove any grain, apply controlled sharpening with high-frequency detail reconstruction. Remove compression artifacts and noise while retaining authentic texture. No smoothing, no plastic skin, no artificial gloss. Facial features must remain consistent across the entire image with coherent anatomy and clean, stable edges. Negative constraints: no warping, no facial drift, no added or missing anatomy, no altered hands, no distortions, no perspective shift, no text or graphics, no hallucinated detail, no stylized rendering. Output must read as a true-to-life, photorealistic upscale that matches the reference exactly, only clearer, sharper, and higher resolution.
+
+### Skin Enhancer
+Category: Image Enhancement
+Tags: retouching, skin-texture, image-editing
+
+Skin enhancement retouch, preserve original identity and structure, refine skin texture without smoothing, maintain pores, freckles, and natural variation, reduce temporary blemishes and redness only, even out tone subtly without flattening depth, retain natural highlights and shadow transitions, keep under-eye detail intact with slight softening not removal, avoid plastic or airbrushed finish, maintain original lighting and color balance, enhance micro-contrast for realistic texture, lips and eyes untouched except for natural clarity, no reshaping of facial features, no artificial glow, no over-sharpening, seamless integration with original image, invisible edit with high realism.
+
+### GTA V Effect
+Category: Image Transformation
+Tags: gta-v, game-render, style-transfer
+
+Rebuild the entire scene from the reference image as a real-time 3D render inside the GTA V Rage engine. Do not apply a filter. Fully reconstruct all people, vehicles, architecture, terrain, and props as polygonal 3D assets native to GTA V. The result should look like an authentic in-game screenshot captured on a high-end PC, with settings enabled. All subjects must be converted into clearly modeled geometry with visible polygon structure, baked normal maps, and game-ready textures. Faces, bodies, and clothing should follow GTA V character proportions and anatomy, slightly exaggerated, rigid, and digitally sculpted. Skin is matte and textured, no photographic pores. Hair is clumped, card-based, slightly stiff. Clothing uses flat fabric shaders with visible seams and texture repetition. Environment must feel like Los Santos or Blaine County logic. Buildings are modular, edges slightly sharp, surfaces tiled and optimized. Roads, sidewalks, vegetation, street props, and background elements are simplified but dense, clearly game-built constructed. No real-world photographic depth or lens artifacts. Lighting follows GTA V real-time lighting behavior. Strong directional sunlight or overcast skylight depending on scene. Hard shadows with defined edges, subtle ambient occlusion in corners. Reflections are screen-space and imperfect. Colors are slightly saturated with recognizable GTA V color grading. Contrast is controlled but punchy. Materials must read as video game assets. Asphalt is flat and grainy. Metal has simple specular highlights. Glass is clean with limited reflection depth. Vegetation is slightly stiff and stylized. Nothing should appear physically accurate or cinematic-render realistic. Camera should feel like a gameplay or Rockstar Editor capture. Third-person or free camera perspective. Slight wide-angle distortion. Stable framing. No depth-of-field blur. No motion blur unless minimal and engine-based. Overall look is unmistakably GTA V. Real-time 3D. Polygon. Textured. Optimized. Stylized realism. Clearly not a photograph.
+
+### Minecraft Effect
+Category: Image Transformation
+Tags: minecraft, voxel, background-rebuild
+
+Keep the human subject 100 percent photorealistic and untouched. No pixel filter, no stylization, no lighting remap on skin. Preserve exact facial detail, pores, fabric weave, hair strands, natural shadows. Expression and posture remain identical. Rebuild the background as a structurally accurate Minecraft voxel replica of the original location. Do not reinterpret. Match the exact layout, spacing, depth, and geometry from the reference image. If there is a path, replicate its exact curve and width using gravel or dirt blocks. If there are trees, match trunk positions, height ratios, canopy spread using appropriate log and leaf blocks. If there are buildings, recreate their silhouette, window placement, roof angle using Minecraft block geometry. If there are rocks, benches, fences, signs, convert them into block equivalents but maintain their exact position and proportion relative to the subject. Perspective must match the original photo perfectly. Horizon line, camera height, focal distance, framing, subject scale all identical. Any object physically touching the subject must convert into Minecraft logic.
+
+### Professional Portrait
+Category: Portrait Editing
+Tags: headshot, portrait, studio-lighting
+
+Image edit directive, convert the subject from the input photo into a clean professional studio headshot while preserving the exact clothing, hairstyle, and accessories from the original image. Studio portrait look. Tight head and shoulders framing, centered composition, neutral confident expression, eyes directly toward camera. Professional talent headshot aesthetic used by casting agencies and magazine profiles. Background minimal seamless light gray studio backdrop with soft falloff. No visible texture or environment. Lighting setup high-end three-point lighting with key light slightly above eye level, bounced fill, and rim light behind subject. Subtle rim light to separate subject from background. Even illumination across face with gentle shadow under jawline. Catchlights visible in both eyes. Camera perspective eye level. Shot on common 85mm portrait lens. Crisp focus on eyes, shallow depth of field so ears and shoulders fall slightly softer. Skin rendering realistic and professional. Natural pores visible, subtle skin texture, no plastic smoothing. Balanced color grading, neutral skin tones, clean contrast. Hair carefully groomed but natural. Individual strands visible. Clothing preserved exactly as in the source image with accurate fabric texture, folds, and color. Retouch level magazine professional but realistic. Remove temporary blemishes only. Keep natural facial structure, freckles, pores, and fine lines. Final look polished agency headshot.
+
+### MS Paint Effect
+Category: Image Transformation
+Tags: ms-paint, scribble, style-transfer
+
+Redraw the attached image in the most clumsy, scribbly, and utterly pathetic way possible. Use a white background, and make it look like it was drawn in an old computer painting program with a mouse. It should be vaguely similar but also not really, kind of matching but also off in a confusing, awkward way, with that low-quality pixel-by-pixel feel that really emphasizes how ridiculously bad it is. Actually, you know what, whatever, just draw it however you want. MS Paint type.
+
+### LEGO Effect
+Category: Image Transformation
+Tags: lego, background-rebuild, style-transfer
+
+Keep the human subject 100 percent photorealistic and untouched. No pixel filter, no stylization, no lighting remap on skin. Preserve exact facial detail, pores, fabric weave, hair strands, natural shadows. Expression and posture remain identical. Rebuild the background as a structurally accurate LEGO replica of the original location. Do not reinterpret. Match the exact layout, spacing, depth, and geometry from the reference image. If there is a path, replace its exact route and width using LEGO tile and plate construction. If there are trees, match trunk positions, height ratios, canopy spread using appropriate LEGO trunk builds and layered foliage elements. If there are buildings, recreate their silhouette, window placement, roof angle using authentic LEGO architecture. Perspective must match perfectly. Horizon line, camera height, focal distance, framing, subject scale all identical.
+
+### Product Ad
+Category: Product Photography
+Tags: product-ad, studio-lighting, commercial
+
+Product studio transformation, isolate the product from the reference image and rebuild as a premium ad composition, hero product centered and sharply in focus, surrounded by its key ingredients arranged with intention and depth. Ingredients fresh and tactile, sliced, crushed, or whole depending on context, composition balanced but not perfectly symmetrical, clean surface with subtle reflections, background designed to match the product's color palette and mood, soft gradients or tonal transitions, high-end studio lighting with controlled highlights and gentle shadow falloff, crisp edges with slight natural shadow grounding the product, micro-details visible like condensation, texture on ingredients, and fine surface imperfections, minimal but intentional negative space, no clutter beyond ingredients, polished commercial finish without looking artificial, accurate color rendering and realistic material response.
+
+### Group Selfie
+Category: Photo Realism
+Tags: selfie, iphone, photorealism
+
+Raw iPhone selfie, subjects from reference images standing close together, both leaning slightly into frame, casual shoulder-to-shoulder composition, direct gaze into camera with relaxed neutral expressions, handheld at arm's length with slight wide-angle distortion, natural mixed indoor lighting from ceiling and window exposure on highlights and shadow falloff, natural skin texture visible with pores and subtle makeup detail, stray hairs and fabric creases present, background loosely visible with everyday environment elements slightly out of focus, minor motion blur in edges, slight lens distortion from close proximity, off-center framing with imperfect crop, subtle ISO grain and uneven white balance, unpolished candid realism.
+
+### Anime Effect
+Category: Image Transformation
+Tags: anime, style-transfer, image-editing
+
+Anime style transformation, convert the reference image into detailed hand-drawn anime while preserving exact composition, same camera angle, framing, pose, and character proportions unchanged, maintaining identical facial structure and expression translated into anime aesthetics, clean linework with controlled variation in line weight, large expressive eyes styled naturally to match original gaze direction, simplified but accurate nose and mouth, hair reinterpreted into defined anime strands with subtle shading, original shape and flow preserved with smooth tonal shading and soft gradients, lighting direction and intensity preserved from original image, colors slightly stylized but faithful to source palette, background converted into anime environment matching original depth and perspective, subtle cel shading with gentle highlights, no distortion of anatomy or perspective, no change in crop or zoom, high fidelity adaptation rather than reinterpretation.
+
+### Billboard Effect
+Category: Mockups
+Tags: billboard, mockup, photorealism
+
+Place the attached logo or artwork on a large urban billboard in a realistic city scene at golden hour. Accurate perspective and scale, natural weathering on the billboard frame, ambient light affecting the artwork, pedestrians and traffic slightly blurred in the foreground. Photorealistic, shot on a 35mm lens, editorial photography style.
+
+### Action Figure Effect
+Category: Image Transformation
+Tags: action-figure, toy-box, product-shot
+
+Transform the person from the reference image into a hyper-detailed action figure displayed inside a sealed toy box with a clear plastic window. The figure captures their exact face, hairstyle and outfit as a miniature sculpted toy with visible joint lines and a slight plastic sheen. The packaging includes a bold logo at the top, a tagline, and themed accessories arranged beside the figure. Barcode, age rating and small print on the box. The box sits on a toy store shelf with soft lighting and shallow depth of field. Photorealistic product photography, no cartoon style.
+
+### UGC Product Effect
+Category: Product Photography
+Tags: ugc, product-photo, smartphone
+
+Raw smartphone photo of a person naturally holding the product from the reference image, casual framing at arm's length, slight wide-angle distortion, mixed indoor lighting, natural skin texture, stray hairs, everyday background slightly out of focus, off-center crop, subtle ISO grain, uneven white balance, unpolished candid realism, no studio look.
+
+## Notes (1)
+
+### Git & GitHub Tutorial
+
+Git &amp; GitHub Tutorial
+
+Practical reference covering setup, cloning, committing, branching, restoring files, and CI/CD with GitHub Actions.
+
+1. Connecting a New Project via HTTPS
+
+Create an empty repo on GitHub (skip README/gitignore if your local folder already has files, to avoid a conflict on first push). Then inside your project folder:
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/username/repo-name.git
+git push -u origin main
+
+Authentication note: GitHub no longer accepts your account password for HTTPS git operations. Git Credential Manager (bundled with Git for Windows) opens a browser login popup on first push and remembers you. Alternatively, generate a Personal Access Token under GitHub Settings, Developer settings, Personal access tokens, and paste it in place of your password when prompted.
+
+2. Connecting to an Existing Project (Clone &amp; Pull)
+
+To clone a repo you don't have locally yet:
+
+git clone https://github.com/username/repo-name.git
+cd repo-name
+
+To pull the latest changes into a repo you already have:
+
+git pull origin main
+
+If you already have a local folder not yet linked to the GitHub repo:
+
+git remote add origin https://github.com/username/repo-name.git
+git fetch origin
+git checkout main
+
+If your local folder has commits with no shared history, add --allow-unrelated-histories to the pull command.
+
+3. Committing to GitHub
+
+git status â€” see what's changed
+git add &lt;file&gt; â€” stage a specific file
+git add . â€” stage everything in the current directory
+git commit -m "message" â€” commit staged changes
+git push origin &lt;branch&gt; â€” push to GitHub
+
+Commit message convention: feat: new feature, fix: bug fix, chore: maintenance/cleanup, docs: documentation only, refactor: code change that isn't a fix or feature, style: formatting only, test: adding or updating tests.
+
+4. Branching
+
+git checkout -b branch-name â€” create and switch in one step
+git branch â€” list local branches
+git checkout branch-name â€” switch to an existing branch
+git push -u origin branch-name â€” push new branch, set upstream
+
+Merge back via GitHub PR (recommended): push the branch, open a pull request into main, review the diff, then merge through the UI.
+
+Or merge locally:
+
+git checkout main
+git pull origin main
+git merge branch-name
+git push origin main
+
+Clean up after merge:
+
+git branch -d branch-name
+git push origin --delete branch-name
+
+5. git restore
+
+git restore &lt;file&gt; â€” discards uncommitted edits, reverts to last commit (also undoes an uncommitted deletion)
+git restore --staged &lt;file&gt; â€” unstages a file, keeps the edits
+git restore --source=&lt;commit&gt; &lt;file&gt; â€” restores a file's contents from a specific past commit
+
+Only works on uncommitted changes. For already-committed/pushed changes, use git revert &lt;commit&gt; (safe for shared branches) or git reset (rewrites history, local-only commits).
+
+Advanced: CI/CD with GitHub Actions
+
+Workflows live in .github/workflows/*.yml. Basic example â€” lint and build on every push/PR to main:
+
+on: push / pull_request, branches: [main]
+jobs.build.runs-on: ubuntu-latest
+steps: actions/checkout@v4
+steps: actions/setup-node@v4 (node-version 20)
+run: npm ci
+run: npm run lint
+run: npm run build
+
+Secrets (API keys, DB URLs) go under repo Settings, Secrets and variables, Actions, referenced as ${{ secrets.YOUR_SECRET_NAME }} â€” never hardcoded in the YAML.
+
+Branch protection (Settings, Branches) can require this workflow to pass before a PR merges into main, turning CI into an actual gate.
+
+Deployment: on Vercel, connecting the GitHub repo auto-deploys every push and generates preview URLs per PR â€” no deploy step needed in Actions. For other hosts, add a final job gated to main using SSH/rsync/FTP actions, with needs: build so it waits for the build job to succeed first.
+
+## Slide decks (1)
+
+### Font Pairings
+Type combos that actually carry a layout â€” grab a pairing and drop it straight into your next design.
+Category: Design
+Tags: fonts, pairings, typography
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/1.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/2.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/3.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/4.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/5.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/6.jpg
+- Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/7.jpg

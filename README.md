@@ -213,6 +213,7 @@ Static site — deploy anywhere:
 | **Themes** | Five switchable themes (Default, Anti-design, Sport, Map-forward, Dark Glass) persisted in localStorage |
 | **Themed dropdowns** | Custom listbox replacing native selects — keyboard navigable, works in modals, follows the active theme |
 | **Privacy & Terms** | Privacy Notice and Terms of Use as an accessible popup modal, reachable from Settings and the sidebar |
+| **AI-readable index** | `llms.txt` summary, full `llms-full.txt` content dump, `sitemap.xml`, and `robots.txt` so AI assistants can search and use the directory |
 | **Mobile FAB** | Floating action button on mobile for quick item creation |
 
 ---

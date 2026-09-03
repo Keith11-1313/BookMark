@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# AI assistants and search crawlers are welcome to read public content
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://keith11-1313.github.io/BookMark/sitemap.xml
