@@ -57,6 +57,10 @@ lightweight typography, glow accents. Token root is `[data-theme="dark-glass"]`.
   keep working. Call `enhance()` again after rebuilding options. List is
   fixed-positioned (escapes modal overflow); closes on outside pointer,
   scroll, resize, Esc, and route change (`Dropdown.reset()` in `App.navigate`).
+- Legal modal (`js/legal.js` + `css/legal.css`): Privacy Notice and Terms of Use
+  as a popup with no route change. `Legal.open('privacy' | 'terms')` follows the
+  `App.confirm` pattern: body-appended backdrop, Esc/backdrop-click close,
+  focus moved inside on open, single-instance guard.
 
 ## Bans
 

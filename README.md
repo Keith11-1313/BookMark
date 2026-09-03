@@ -6,7 +6,7 @@
   **An open-source, curated directory of developer bookmarks, notes, AI prompts, and image decks.**
   No login required. Browse, search, and save your own items locally.
 
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
   [![Static Site](https://img.shields.io/badge/static-no%20build%20required-brightgreen.svg)]()
   [![No Dependencies](https://img.shields.io/badge/dependencies-none-orange.svg)]()
 
@@ -22,7 +22,7 @@ BookMark is a static single-page app that serves as a personal developer resourc
 - **Notes** — Rich-text notes with a `contenteditable` editor, color accents, and auto-save
 - **Slides** — Image decks (one folder per deck under `assets/slides/`) shown as a notes-style grid; click a deck for a full-bleed TikTok-style slideshow with captions
 - **Prompts** — AI/text prompt library organized by category with a full viewer panel
-- **Settings** — Manage all locally saved data with granular clear controls and a safe "Restore to Default" flow
+- **Settings** — Switch themes, view legal docs, and manage all locally saved data with granular clear controls and a safe "Restore to Default" flow
 
 All curated data lives in plain JSON files. User-created items (bookmarks, notes, prompts, slide sets) are saved to **localStorage** — no database, no authentication, no server-side code.
 
@@ -67,9 +67,12 @@ BookMark/
 │   ├── notes.css             Note cards, rich editor, viewer
 │   ├── slides.css            Deck grid, slideshow, captions
 │   ├── prompts.css           Prompt cards, categories, viewer
-│   └── settings.css          Settings page
+│   ├── settings.css          Settings page
+│   ├── legal.css             Privacy/Terms modal
+│   └── dropdown.css          Themed custom dropdown listbox
 └── js/
     ├── store.js              Data layer — JSON fetch + localStorage CRUD
+    ├── icons.js              Local inline SVG registry
     ├── app.js                Hash router, toasts, confirm modal, utilities
     ├── sidebar.js            Desktop sidebar + mobile bottom nav
     ├── command-palette.js    Ctrl+K global search
@@ -78,7 +81,10 @@ BookMark/
     ├── notes.js              Notes viewer + rich text editor
     ├── slides.js             Deck grid + full-bleed slideshow + add/edit modal
     ├── prompts.js            Prompt library + add/edit modal
-    └── settings.js           Settings page — data management
+    ├── smart-add.js          Detects input type for cross-module routing
+    ├── dropdown.js           Themed listbox replacing native selects
+    ├── settings.js           Settings page — themes, legal, data management
+    └── legal.js              Privacy Notice + Terms of Use modal
 ```
 
 ---
@@ -203,7 +209,10 @@ Static site — deploy anywhere:
 | **Duplicate URL warning** | Detects and surfaces duplicate bookmark URLs on the Bookmarks page |
 | **Inline bookmark notes** | Click the note area on any bookmark card to write/edit a note, saved locally |
 | **Likes** | Heart any item — liked items persist in localStorage and float to the top with "Liked first" sort |
-| **Settings page** | Granular data clearing (likes, inline notes, added items, categories) + full "Restore to Default" with confirmation phrase |
+| **Settings page** | Theme switching, legal docs, granular data clearing (likes, inline notes, added items, categories) + full "Restore to Default" with confirmation phrase |
+| **Themes** | Five switchable themes (Default, Anti-design, Sport, Map-forward, Dark Glass) persisted in localStorage |
+| **Themed dropdowns** | Custom listbox replacing native selects — keyboard navigable, works in modals, follows the active theme |
+| **Privacy & Terms** | Privacy Notice and Terms of Use as an accessible popup modal, reachable from Settings and the sidebar |
 | **Mobile FAB** | Floating action button on mobile for quick item creation |
 
 ---
@@ -213,7 +222,7 @@ Static site — deploy anywhere:
 | Shortcut | Action |
 |---|---|
 | `Ctrl+K` | Open command palette |
-| `1` – `6` | Navigate to each page (Home, Bookmarks, Notes, Slides, Prompts, Settings) |
+| `1` – `5` | Navigate to each page (Home, Bookmarks, Notes, Slides, Prompts) |
 | `Escape` | Close palette / confirm modal |
 
 ---
