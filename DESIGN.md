@@ -15,6 +15,14 @@ Brutalist display register. Pure achromatic black, electric green accent (hue 14
 zero border-radius, no shadows, uppercase mono labels, linear transitions.
 Token root is `[data-theme="anti-design"]`.
 
+### Sport
+High-energy saturated color. Lime accent (hue 130), bouncy spring easing,
+glow shadows on primary actions. Token root is `[data-theme="sport"]`.
+
+### Map-forward
+Civic clarity. Muted blue-gray surface, desaturated teal accent (hue 210),
+generous spacing, calm deliberate motion. Token root is `[data-theme="map-forward"]`.
+
 ### Dark Glass
 Premium frosted glass. Deep violet-tinted base (hue 280), translucent layered
 surfaces with `backdrop-filter: blur()` + saturate, large radii, refined
