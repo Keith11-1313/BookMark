@@ -253,6 +253,8 @@
 [data-theme="sport"] .bookmark-card:hover { border-color: var(--accent); box-shadow: 0 0 14px oklch(88% 0.28 130 / 0.12); }
 [data-theme="map-forward"] .bookmark-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
 [data-theme="map-forward"] .filter-pill.active { background: var(--accent-light); }
+[data-theme="dark-glass"] .bookmark-card { background: oklch(100% 0 0 / 0.03); border-color: oklch(100% 0 0 / 0.07); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+[data-theme="dark-glass"] .bookmark-card:hover { border-color: oklch(100% 0 0 / 0.14); background: oklch(100% 0 0 / 0.05); }
 .filter-pill-count { background: var(--bg-hover); border-radius: var(--radius-full); padding: 1px 5px; font-size: 10px; }
 
 /* Bulk action bar */

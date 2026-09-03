@@ -107,6 +107,7 @@ const Settings = (() => {
               <option value="anti-design"${App.getTheme() === 'anti-design' ? ' selected' : ''}>Anti-design</option>
               <option value="sport"${App.getTheme() === 'sport' ? ' selected' : ''}>Sport</option>
               <option value="map-forward"${App.getTheme() === 'map-forward' ? ' selected' : ''}>Map-forward</option>
+              <option value="dark-glass"${App.getTheme() === 'dark-glass' ? ' selected' : ''}>Dark Glass</option>
             </select>
           </div>
         </div>

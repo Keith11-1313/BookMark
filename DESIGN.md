@@ -4,7 +4,7 @@ BookMark is a dense developer reference library. Design must make scanning faste
 
 ## Themes
 
-Two themes ship with the app, switchable in Settings > Theme.
+Five themes ship with the app, switchable in Settings > Theme.
 
 ### Default
 Dark command-center surface for long browsing sessions. Indigo accent (hue 266),
@@ -14,6 +14,11 @@ soft radii, layered shadows, spring-eased transitions. Token root is `:root`.
 Brutalist display register. Pure achromatic black, electric green accent (hue 145),
 zero border-radius, no shadows, uppercase mono labels, linear transitions.
 Token root is `[data-theme="anti-design"]`.
+
+### Dark Glass
+Premium frosted glass. Deep violet-tinted base (hue 280), translucent layered
+surfaces with `backdrop-filter: blur()` + saturate, large radii, refined
+lightweight typography, glow accents. Token root is `[data-theme="dark-glass"]`.
 
 ## Reference Sources
 
@@ -39,6 +44,6 @@ Token root is `[data-theme="anti-design"]`.
 ## Bans
 
 - No gradient text.
-- No decorative glass blur.
+- No glass blur outside the Dark Glass theme (there it is structural, with opaque fallbacks via translucent tokens).
 - No animation that does not communicate state.
 - No new dependency for icons or UI polish.

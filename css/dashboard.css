@@ -73,6 +73,10 @@
 [data-theme="map-forward"] .section-title { font-weight: 600; letter-spacing: -0.005em; }
 [data-theme="map-forward"] .stat-card { padding: var(--space-6); }
 [data-theme="map-forward"] .stat-card:hover { border-color: var(--accent); }
+[data-theme="dark-glass"] .section-title { font-weight: 500; letter-spacing: -0.01em; }
+[data-theme="dark-glass"] .stat-card { background: oklch(100% 0 0 / 0.03); border-color: oklch(100% 0 0 / 0.07); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+[data-theme="dark-glass"] .stat-card:hover { border-color: oklch(100% 0 0 / 0.14); background: oklch(100% 0 0 / 0.06); }
+[data-theme="dark-glass"] .recent-activity { background: oklch(100% 0 0 / 0.02); border-color: oklch(100% 0 0 / 0.07); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 
 /* Recent activity */
 .recent-activity {

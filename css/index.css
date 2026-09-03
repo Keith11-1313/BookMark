@@ -227,6 +227,58 @@
   --focus-ring: 0 0 0 3px oklch(68% 0.10 210 / 0.3);
 }
 
+/* ── Dark Glass theme override ──────────────────────────── */
+[data-theme="dark-glass"] {
+  --bg-darkest:    oklch(8% 0.012 280);
+  --bg-primary:    oklch(11% 0.014 280);
+  --bg-secondary:  oklch(16% 0.016 280 / 0.65);
+  --bg-tertiary:   oklch(20% 0.016 280 / 0.55);
+  --bg-input:      oklch(18% 0.014 280 / 0.60);
+  --bg-hover:      oklch(24% 0.018 280 / 0.50);
+  --bg-modal:      oklch(14% 0.016 280 / 0.80);
+
+  --text-primary:   oklch(96% 0.006 280);
+  --text-secondary: oklch(76% 0.012 280);
+  --text-muted:     oklch(56% 0.016 280);
+  --text-link:      oklch(78% 0.12 280);
+
+  --accent:         oklch(74% 0.14 280);
+  --accent-hover:   oklch(68% 0.15 280);
+  --accent-light:   oklch(74% 0.14 280 / 0.12);
+  --accent-glow:    oklch(74% 0.14 280 / 0.28);
+
+  --success:        oklch(72% 0.14 160);
+  --success-light:  oklch(72% 0.14 160 / 0.12);
+  --danger:         oklch(66% 0.18 15);
+  --danger-light:   oklch(66% 0.18 15 / 0.12);
+  --warning:        oklch(80% 0.14 75);
+  --warning-light:  oklch(80% 0.14 75 / 0.12);
+  --rose:           oklch(70% 0.16 340);
+
+  --border:         oklch(100% 0 0 / 0.07);
+
+  --shadow-sm:   0 1px 2px oklch(5% 0.02 280 / 0.30);
+  --shadow-md:   0 8px 24px oklch(5% 0.02 280 / 0.28), 0 2px 6px oklch(5% 0.02 280 / 0.18);
+  --shadow-lg:   0 16px 48px oklch(5% 0.02 280 / 0.36), 0 4px 12px oklch(5% 0.02 280 / 0.20);
+  --shadow-xl:   0 24px 72px oklch(5% 0.02 280 / 0.45), 0 8px 24px oklch(5% 0.02 280 / 0.25);
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:18px;
+  --space-5:22px; --space-6:28px; --space-8:36px; --space-10:48px;
+
+  --text-xs:11px; --text-sm:13px; --text-base:15px; --text-md:16px;
+  --text-lg:19px; --text-xl:22px; --text-2xl:26px; --text-3xl:34px;
+
+  --radius-sm:8px; --radius-md:12px; --radius-lg:16px;
+  --radius-xl:20px; --radius-full:9999px;
+
+  --transition-fast:   180ms cubic-bezier(0.22,1,0.36,1);
+  --transition-base:   280ms cubic-bezier(0.22,1,0.36,1);
+  --transition-slow:   420ms cubic-bezier(0.22,1,0.36,1);
+  --transition-spring: 320ms cubic-bezier(0.22,1,0.36,1);
+
+  --focus-ring: 0 0 0 3px oklch(74% 0.14 280 / 0.3);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -292,6 +344,14 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
 [data-theme="map-forward"] h4,
 [data-theme="map-forward"] h5,
 [data-theme="map-forward"] h6 { font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; }
+
+/* Dark Glass: refined, lightweight typography */
+[data-theme="dark-glass"] h1,
+[data-theme="dark-glass"] h2,
+[data-theme="dark-glass"] h3,
+[data-theme="dark-glass"] h4,
+[data-theme="dark-glass"] h5,
+[data-theme="dark-glass"] h6 { font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; }
 
 .ui-icon {
   display: inline-block;
@@ -435,6 +495,13 @@ border: 1px solid var(--border);
 [data-theme="map-forward"] .btn-primary { color: oklch(100% 0 0); }
 [data-theme="map-forward"] .btn-sm { min-height: 34px; }
 
+/* Dark Glass: frosted buttons with glow */
+[data-theme="dark-glass"] .btn { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+[data-theme="dark-glass"] .btn-primary { box-shadow: 0 0 20px oklch(74% 0.14 280 / 0.25), var(--shadow-sm); }
+[data-theme="dark-glass"] .btn-primary:hover { box-shadow: 0 0 28px oklch(74% 0.14 280 / 0.4), var(--shadow-sm); }
+[data-theme="dark-glass"] .btn-secondary { background: oklch(100% 0 0 / 0.05); border: 1px solid oklch(100% 0 0 / 0.08); }
+[data-theme="dark-glass"] .btn-secondary:hover { background: oklch(100% 0 0 / 0.10); }
+
 /* ── Inputs ──────────────────────────────────────────────── */
 .input {
   width: 100%; padding: var(--space-2) var(--space-3);
@@ -451,6 +518,8 @@ border: 1px solid var(--border);
 [data-theme="anti-design"] .input { border-radius: 0; min-height: 36px; transition: border-color var(--transition-fast); }
 [data-theme="anti-design"] .input:focus { box-shadow: none; }
 [data-theme="anti-design"] .input-lg { border-radius: 0; }
+[data-theme="dark-glass"] .input { background: oklch(100% 0 0 / 0.04); border-color: oklch(100% 0 0 / 0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+[data-theme="dark-glass"] .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
 
 select.input {
   appearance: none;
@@ -518,6 +587,8 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 [data-theme="anti-design"] .modal-backdrop.open .modal { transform: translateY(0); }
 [data-theme="anti-design"] .modal-header { padding: var(--space-4) var(--space-5); }
 [data-theme="anti-design"] .modal-title { font-size: var(--text-md); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+[data-theme="dark-glass"] .modal { backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-color: oklch(100% 0 0 / 0.08); }
+[data-theme="dark-glass"] .modal-title { font-weight: 500; }
 .modal-body { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); overflow-y: auto; min-height: 0; }
 .modal-footer { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-3); padding: var(--space-4) var(--space-6); border-top: 1px solid var(--border); flex-wrap: wrap; }
 
@@ -549,6 +620,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 /* Sport: accent-glowed toasts */
 [data-theme="sport"] .toast { box-shadow: 0 4px 20px oklch(5% 0.02 140 / 0.4); }
 [data-theme="sport"] .toast-info { box-shadow: inset 0 0 0 1px oklch(88% 0.28 130 / 0.3), 0 4px 20px oklch(88% 0.28 130 / 0.15); }
+[data-theme="dark-glass"] .toast { backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); background: oklch(16% 0.016 280 / 0.6); border-color: oklch(100% 0 0 / 0.08); }
 
 /* ── Page Layout ─────────────────────────────────────────── */
 .page-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); flex-wrap: wrap; min-width: 0; }
@@ -560,6 +632,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 [data-theme="sport"] .page-title { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
 [data-theme="map-forward"] .page-title { font-weight: 600; letter-spacing: -0.01em; }
 [data-theme="map-forward"] .page-subtitle { color: var(--text-secondary); }
+[data-theme="dark-glass"] .page-title { font-weight: 500; letter-spacing: -0.015em; }
 .page-actions { display: flex; flex-direction: row-reverse; align-items: center; justify-content: flex-end; gap: var(--space-2); flex-wrap: wrap; min-width: 0; }
 
 /* ── Empty State ─────────────────────────────────────────── */
@@ -711,6 +784,7 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
   cursor: text;
 }
 [data-theme="anti-design"] .home-search-bar { border-radius: 0; padding: var(--space-3) var(--space-4); }
+[data-theme="dark-glass"] .home-search-bar { background: oklch(100% 0 0 / 0.04); border-color: oklch(100% 0 0 / 0.08); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .home-search-bar:focus-within { border-color: var(--accent); }
 .home-search-bar i { color: var(--text-muted); flex-shrink: 0; }
 .home-search-input {
@@ -966,6 +1040,8 @@ textarea.input { resize: vertical; min-height: 80px; line-height: 1.6; }
 [data-theme="anti-design"] .fab:active { transform: none; }
 [data-theme="sport"] .fab { box-shadow: 0 0 20px oklch(88% 0.28 130 / 0.35); }
 [data-theme="sport"] .fab:hover { box-shadow: 0 0 28px oklch(88% 0.28 130 / 0.5); }
+[data-theme="dark-glass"] .fab { box-shadow: 0 0 24px oklch(74% 0.14 280 / 0.3), var(--shadow-lg); }
+[data-theme="dark-glass"] .fab:hover { box-shadow: 0 0 32px oklch(74% 0.14 280 / 0.45), var(--shadow-lg); }
 
 @media (max-width: 768px) {
   .fab { display: flex; }
