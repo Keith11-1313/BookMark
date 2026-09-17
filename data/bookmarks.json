@@ -2547,5 +2547,229 @@
     "notes": "A calmer corner of the internet for saving and clustering visual inspiration — part moodboard, part discovery feed.",
     "favicon": "https://www.google.com/s2/favicons?domain=www.cosmos.so&sz=32",
     "createdAt": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "https://greenscreenmemes.com/",
+    "url": "https://greenscreenmemes.com/",
+    "title": "Green Screen Memes",
+    "category": "Assets",
+    "tags": [
+      "green-screen",
+      "memes",
+      "video-assets"
+    ],
+    "notes": "Library of downloadable green-screen meme videos, templates, and sound effects for video editing.",
+    "favicon": "https://www.google.com/s2/favicons?domain=greenscreenmemes.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://trustmrr.com/",
+    "url": "https://trustmrr.com/",
+    "title": "TrustMRR",
+    "category": "Business",
+    "tags": [
+      "saas",
+      "acquisitions",
+      "mrr"
+    ],
+    "notes": "Verified startup revenue database and SaaS acquisition marketplace with MRR rankings and businesses for sale.",
+    "favicon": "https://www.google.com/s2/favicons?domain=trustmrr.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://geometric-art.com/",
+    "url": "https://geometric-art.com/",
+    "title": "Geometric Art",
+    "category": "Design Tools",
+    "tags": [
+      "generative-art",
+      "image-effects",
+      "video-effects"
+    ],
+    "notes": "Browser-based studio that transforms photos and videos into geometric line art, with local processing and PNG or MP4 export.",
+    "favicon": "https://www.google.com/s2/favicons?domain=geometric-art.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://www.hackthebox.com/",
+    "url": "https://www.hackthebox.com/",
+    "title": "Hack The Box",
+    "category": "Security",
+    "tags": [
+      "cybersecurity-training",
+      "labs",
+      "ctf"
+    ],
+    "notes": "Hands-on cybersecurity training for individuals and teams through labs, Academy courses, capture-the-flag competitions, and workforce assessments.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.hackthebox.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://tryhackme.com/",
+    "url": "https://tryhackme.com/",
+    "title": "TryHackMe",
+    "category": "Security",
+    "tags": [
+      "cybersecurity-training",
+      "learning-paths",
+      "labs"
+    ],
+    "notes": "Gamified cybersecurity learning platform with browser-based labs and guided paths covering offensive and defensive security skills.",
+    "favicon": "https://www.google.com/s2/favicons?domain=tryhackme.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://cryptohack.org/",
+    "url": "https://cryptohack.org/",
+    "title": "CryptoHack",
+    "category": "Security",
+    "tags": [
+      "cryptography",
+      "challenges",
+      "learning"
+    ],
+    "notes": "Free platform for learning modern cryptography through interactive puzzles and challenges.",
+    "favicon": "https://www.google.com/s2/favicons?domain=cryptohack.org&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://skillbit.com/",
+    "url": "https://skillbit.com/",
+    "title": "SkillBit",
+    "category": "Security",
+    "tags": [
+      "cybersecurity-training",
+      "assessments",
+      "ctf"
+    ],
+    "notes": "Cybersecurity skills platform, formerly MetaCTF, offering hands-on exercises, skills assessments, and hosted capture-the-flag competitions.",
+    "favicon": "https://www.google.com/s2/favicons?domain=skillbit.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://www.picoctf.org/",
+    "url": "https://www.picoctf.org/",
+    "title": "picoCTF / CyLab Security Academy",
+    "category": "Security",
+    "tags": [
+      "ctf",
+      "cybersecurity-training",
+      "free"
+    ],
+    "notes": "Carnegie Mellon's free cybersecurity learning platform, now migrated to CyLab Security Academy; the site links to its new home and migration details.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.picoctf.org&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://www.cybrary.it/",
+    "url": "https://www.cybrary.it/",
+    "title": "Cybrary",
+    "category": "Security",
+    "tags": [
+      "cybersecurity-training",
+      "certifications",
+      "career-paths"
+    ],
+    "notes": "Online cybersecurity courses, virtual labs, career paths, and certification preparation for individuals and enterprise teams.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.cybrary.it&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://portswigger.net/web-security",
+    "url": "https://portswigger.net/web-security",
+    "title": "PortSwigger Web Security Academy",
+    "category": "Security",
+    "tags": [
+      "web-security",
+      "interactive-labs",
+      "free"
+    ],
+    "notes": "Free web security training from PortSwigger with regularly updated learning materials and interactive practice labs.",
+    "favicon": "https://www.google.com/s2/favicons?domain=portswigger.net&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://kc7cyber.com/",
+    "url": "https://kc7cyber.com/",
+    "title": "KC7 Cyber",
+    "category": "Security",
+    "tags": [
+      "threat-hunting",
+      "log-analysis",
+      "kql"
+    ],
+    "notes": "Free game-based cybersecurity learning platform where players investigate simulated breaches using log analysis and KQL to build security-analyst skills.",
+    "favicon": "https://www.google.com/s2/favicons?domain=kc7cyber.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://open-domains.com/",
+    "url": "https://open-domains.com/",
+    "title": "OpenDomains",
+    "category": "Developer Tools",
+    "tags": [
+      "free-subdomains",
+      "dns",
+      "domain-management"
+    ],
+    "notes": "Free subdomains with a dashboard for managing DNS records for web projects.",
+    "favicon": "https://www.google.com/s2/favicons?domain=open-domains.com&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://www.is-a.dev/",
+    "url": "https://www.is-a.dev/",
+    "title": "is-a.dev",
+    "category": "Developer Tools",
+    "tags": [
+      "free-subdomains",
+      "developers",
+      "open-source"
+    ],
+    "notes": "Free is-a.dev subdomains for developers, registered through a pull request to the project's GitHub repository.",
+    "favicon": "https://www.google.com/s2/favicons?domain=www.is-a.dev&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://js.org/",
+    "url": "https://js.org/",
+    "title": "JS.ORG",
+    "category": "Developer Tools",
+    "tags": [
+      "javascript",
+      "free-subdomains",
+      "github-pages"
+    ],
+    "notes": "Free js.org subdomains for JavaScript projects hosted on GitHub Pages, requested through a GitHub pull request.",
+    "favicon": "https://www.google.com/s2/favicons?domain=js.org&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://upset.dev/thedev.id",
+    "url": "https://upset.dev/thedev.id",
+    "title": "thedev.id",
+    "category": "Developer Tools",
+    "tags": [
+      "free-subdomains",
+      "developers",
+      "open-source"
+    ],
+    "notes": "Free thedev.id subdomains for developers, claimed by adding a record to the public GitHub repository and opening a pull request.",
+    "favicon": "https://www.google.com/s2/favicons?domain=upset.dev&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://feralui.dev/",
+    "url": "https://feralui.dev/",
+    "title": "FeralUI",
+    "category": "Libraries/Frameworks",
+    "tags": [
+      "react",
+      "animation",
+      "ui-components"
+    ],
+    "notes": "Collection of playful, physics-driven React and TypeScript UI components with interactive demos.",
+    "favicon": "https://www.google.com/s2/favicons?domain=feralui.dev&sz=32",
+    "createdAt": "2026-09-17T12:17:04"
   }
 ]
