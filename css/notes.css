@@ -13,17 +13,20 @@
 .notes-list-panel { display: flex; flex-direction: column; gap: var(--space-3); }
 
 .notes-grid {
-  columns: 2;
-  column-gap: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-content: start;
+  align-items: start;
+}
+.notes-layout.has-editor .notes-grid {
+  grid-template-columns: minmax(0, 1fr);
 }
 .notes-grid .empty-state {
-  column-span: all;
+  grid-column: 1 / -1;
 }
 .notes-grid .note-card {
-  break-inside: avoid;
-  margin-bottom: var(--space-4);
-  display: inline-block;
-  width: 100%;
+  min-width: 0;
 }
 
 .note-card {
@@ -175,7 +178,7 @@
   .notes-layout.has-editor { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  .notes-grid { columns: 1; }
+  .notes-grid { grid-template-columns: minmax(0, 1fr); }
   .note-editor-panel { min-height: 420px; }
   .notes-layout.has-editor { gap: var(--space-4); }
   .editor-toolbar { gap: var(--space-1); overflow-x: auto; flex-wrap: nowrap; }
