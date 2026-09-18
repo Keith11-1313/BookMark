@@ -5,7 +5,7 @@
 > Source files: data/bookmarks.json, data/notes.json, data/prompts.json, data/slides.json.
 > App: https://keith11-1313.github.io/BookMark/ — Summary: https://keith11-1313.github.io/BookMark/llms.txt
 
-## Bookmarks (178)
+## Bookmarks (196)
 
 ### AI (10)
 
@@ -14,11 +14,11 @@
   Tags: ai-agent, automation, workflow
 
 - [There's An AI For That](https://theresanaiforthat.com/)
-  Searchable directory of thousands of AI tools â€” search by task and compare options, plus daily deals and a newsletter.
+  Searchable directory of thousands of AI tools — search by task and compare options, plus daily deals and a newsletter.
   Tags: ai-directory, discovery, tools
 
 - [Layers](https://www.getlayers.ai/)
-  Library of AI prompts, 3D scenes, and templates â€” copy a prompt and paste it into your AI coding tool to generate a cinematic, non-generic-looking website section.
+  Library of AI prompts, 3D scenes, and templates — copy a prompt and paste it into your AI coding tool to generate a cinematic, non-generic-looking website section.
   Tags: ai-prompts, landing-page, templates
 
 - [Motion Sites](https://motionsites.ai/)
@@ -38,11 +38,11 @@
   Tags: ai-visuals, presentations, storytelling
 
 - [Buzzy](https://www.buzzy.now/)
-  One credit-based hub for the big AI video models â€” Kling, Seedance, Midjourney, MiniMax â€” plus viral-ready workflow packs.
+  One credit-based hub for the big AI video models — Kling, Seedance, Midjourney, MiniMax — plus viral-ready workflow packs.
   Tags: ai-video, generation, kling, seedance
 
 - [MiniMax Design](https://design.minimax.io/)
-  Desktop AI studio where a crew of agents turns one brief into scripts, images, video, and edits â€” free to start, Mac and Windows.
+  Desktop AI studio where a crew of agents turns one brief into scripts, images, video, and edits — free to start, Mac and Windows.
   Tags: ai-design, agents, video, image
 
 - [Clova](https://www.joinclova.com/)
@@ -71,7 +71,7 @@
   Open lyrics database with plain and synced lyrics served as clean JSON, no signup required.
   Tags: lyrics, music, json-api
 
-### Assets (24)
+### Assets (25)
 
 - [Dareful](https://dareful.com/)
   Completely free 4K & HD stock video footage (nature, aerial, travel, etc.) under a Creative Commons Attribution license.
@@ -86,7 +86,7 @@
   Tags: stock-photos, stock-video, free
 
 - [Pixabay](https://pixabay.com/)
-  Free stock photos, illustrations, vectors, videos, music, sound effects, and 3D models â€” no attribution required.
+  Free stock photos, illustrations, vectors, videos, music, sound effects, and 3D models — no attribution required.
   Tags: stock-photos, illustrations, royalty-free
 
 - [Mixkit](https://mixkit.co/)
@@ -94,7 +94,7 @@
   Tags: stock-video, sound-effects, templates
 
 - [Freesound](https://freesound.org/)
-  Searchable database of 700,000+ CC-licensed sound effects, run by Universitat Pompeu Fabra â€” credit depends on each soundâ€™s license.
+  Searchable database of 700,000+ CC-licensed sound effects, run by Universitat Pompeu Fabra — credit depends on each sound’s license.
   Tags: sound-effects, audio, creative-commons
 
 - [Zapsplat](https://www.zapsplat.com/)
@@ -106,7 +106,7 @@
   Tags: textures, design-assets, free
 
 - [Textures.com](https://www.textures.com/)
-  High-res texture packs and PBR materials for 3D and design work â€” free downloads daily, paid tiers for more.
+  High-res texture packs and PBR materials for 3D and design work — free downloads daily, paid tiers for more.
   Tags: textures, pbr-materials, 3d
 
 - [Texture Ninja](https://texture.ninja/)
@@ -114,7 +114,7 @@
   Tags: textures, cc0, photography
 
 - [Ambient CG](https://ambientcg.com/)
-  Free CC0 PBR textures and materials for CGI projects â€” metal, wood, fabric, ground, and more in high resolution.
+  Free CC0 PBR textures and materials for CGI projects — metal, wood, fabric, ground, and more in high resolution.
   Tags: pbr-materials, 3d-textures, cc0
 
 - [Fontshare](https://fontshare.com/)
@@ -122,7 +122,7 @@
   Tags: fonts, typography, free
 
 - [Lordicon](https://lordicon.com/)
-  Animated icons for interfaces â€” free hand-picked packs plus paid packs; export to Lottie, GIF, or SVG.
+  Animated icons for interfaces — free hand-picked packs plus paid packs; export to Lottie, GIF, or SVG.
   Tags: animated-icons, icons, lottie
 
 - [DesktopHut](https://www.desktophut.com/)
@@ -146,43 +146,51 @@
   Tags: icons, svg, open-source
 
 - [Storyset](https://storyset.com/)
-  Free SVG/PNG illustrations you recolor, strip layers, and animate in the browser â€” export as HTML, GIF, or MP4. Attribution required unless you buy a paid Flaticon license to skip it.
+  Free SVG/PNG illustrations you recolor, strip layers, and animate in the browser — export as HTML, GIF, or MP4. Attribution required unless you buy a paid Flaticon license to skip it.
   Tags: illustrations, svg, animation, free
 
 - [PNGimg](https://pngimg.com/)
-  Over 116,000 transparent PNGs sorted by category and letter â€” but they're CC BY-NC, so no commercial use and you must credit. Fine for personal mockups and student work.
+  Over 116,000 transparent PNGs sorted by category and letter — but they're CC BY-NC, so no commercial use and you must credit. Fine for personal mockups and student work.
   Tags: png, transparent, images, non-commercial
 
 - [MotionBGS](https://motionbgs.com/)
-  9,000+ free animated 4K wallpapers for desktop and phone â€” heavy on anime, gaming, cars, and superhero fan art. Downloads are free, but a lot is unlicensed fan art, so don't redistribute.
+  9,000+ free animated 4K wallpapers for desktop and phone — heavy on anime, gaming, cars, and superhero fan art. Downloads are free, but a lot is unlicensed fan art, so don't redistribute.
   Tags: wallpapers, animated, 4k, anime
 
 - [Servier Medical Art](https://smart.servier.com/)
-  3,000+ free medical illustrations from pharma company Servier â€” anatomy, cells, and clinical specialties for slides, papers, and posters. CC BY 4.0: free even for commercial use as long as you credit them.
+  3,000+ free medical illustrations from pharma company Servier — anatomy, cells, and clinical specialties for slides, papers, and posters. CC BY 4.0: free even for commercial use as long as you credit them.
   Tags: medical, illustrations, cc-by, free
 
 - [Kenney](https://www.kenney.nl/)
-  Thousands of free game assets â€” sprites, UI, 3D models, and audio â€” all public domain (CC0) from one creator, plus free starter kits. Paid extras: a Patreon club and an all-in-one download bundle.
+  Thousands of free game assets — sprites, UI, 3D models, and audio — all public domain (CC0) from one creator, plus free starter kits. Paid extras: a Patreon club and an all-in-one download bundle.
   Tags: game-assets, free, cc0, sprites
 
 - [SoundEffect Lab](https://soundeffect-lab.info/)
-  Thousands of free sound-effect clips from a Japanese studio, no signup needed â€” peek at the license before commercial use.
+  Thousands of free sound-effect clips from a Japanese studio, no signup needed — peek at the license before commercial use.
   Tags: sound-effects, free, download, sfx
 
-### Business (2)
+- [Green Screen Memes](https://greenscreenmemes.com/)
+  Library of downloadable green-screen meme videos, templates, and sound effects for video editing.
+  Tags: green-screen, memes, video-assets
+
+### Business (3)
 
 - [The Hustle Blower](https://thehustleblower.com/)
-  Free weekly newsletter of real side hustles and business ideas, no hype â€” subscribe with your email to unlock a top-10 ranking of the highest-earning hustles.
+  Free weekly newsletter of real side hustles and business ideas, no hype — subscribe with your email to unlock a top-10 ranking of the highest-earning hustles.
   Tags: side-hustles, newsletter, email, ideas
 
 - [Sprout](https://www.usesprout.com/)
-  AI applies to jobs for you with tailored resumes and cover letters, then tracks every response â€” plans from $19.99/month.
+  AI applies to jobs for you with tailored resumes and cover letters, then tracks every response — plans from $19.99/month.
   Tags: job-search, ai, resumes, automation
+
+- [TrustMRR](https://trustmrr.com/)
+  Verified startup revenue database and SaaS acquisition marketplace with MRR rankings and businesses for sale.
+  Tags: saas, acquisitions, mrr
 
 ### Deals (1)
 
 - [Student Samplers](https://studentsamplers.com/)
-  $20/month membership that rounds up student "test & keep" sampling programs â€” products ship to you and stay yours after a review â€” plus 48-hour early access and a free samples list. Caveat: stats are self-reported on an early-stage site.
+  $20/month membership that rounds up student "test & keep" sampling programs — products ship to you and stay yours after a review — plus 48-hour early access and a free samples list. Caveat: stats are self-reported on an early-stage site.
   Tags: student, freebies, samples, membership
 
 ### Design (10)
@@ -196,11 +204,11 @@
   Tags: 3d-design, interactive, collaborative
 
 - [Refero](https://refero.design/)
-  Gallery of real-world UI/UX screenshots for design reference â€” searchable and filterable by tag, type, and style.
+  Gallery of real-world UI/UX screenshots for design reference — searchable and filterable by tag, type, and style.
   Tags: ui-inspiration, design-reference, ux
 
 - [GetDesign](https://getdesign.md/)
-  Catalog of DESIGN.md files â€” written design-system analyses of popular websites (colors, type, spacing, components) that you drop into a project as a style reference for an AI coding agent.
+  Catalog of DESIGN.md files — written design-system analyses of popular websites (colors, type, spacing, components) that you drop into a project as a style reference for an AI coding agent.
   Tags: design-system, ai-context, style-reference
 
 - [Jitter](https://jitter.video/)
@@ -234,11 +242,11 @@
   Tags: cta, conversion, design-gallery
 
 - [Footer Design](https://www.footer.design/)
-  Gallery of website footer designs â€” browse layout, navigation, and newsletter patterns for your next site.
+  Gallery of website footer designs — browse layout, navigation, and newsletter patterns for your next site.
   Tags: footer, web-design, gallery
 
 - [Landing Love](https://www.landing.love/)
-  Showcase of animated landing pages and interactions â€” filter by animation type and swipe ideas for your next hero.
+  Showcase of animated landing pages and interactions — filter by animation type and swipe ideas for your next hero.
   Tags: landing-pages, animation, web-design
 
 - [Swissted](https://www.swissted.com/)
@@ -250,14 +258,14 @@
   Tags: microinteractions, web-design, inspiration
 
 - [Viewport UI](https://viewport-ui.design/)
-  Showcase of standout UI and web-design experiences â€” browse by vibe or flow for interface inspiration.
+  Showcase of standout UI and web-design experiences — browse by vibe or flow for interface inspiration.
   Tags: ui-inspiration, web-design, gallery
 
 - [Cosmos](https://www.cosmos.so/)
-  A calmer corner of the internet for saving and clustering visual inspiration â€” part moodboard, part discovery feed.
+  A calmer corner of the internet for saving and clustering visual inspiration — part moodboard, part discovery feed.
   Tags: moodboard, inspiration, save, community
 
-### Design Tools (10)
+### Design Tools (11)
 
 - [Flutter Tilt](https://amoshuke.github.io/flutter_tilt_book/en/v4/)
   Flutter package documentation and demos for creating tilt-based 3D card and book interactions.
@@ -292,17 +300,21 @@
   Tags: photo-effects, paper-animation, export
 
 - [Photopea](https://www.photopea.com/)
-  Free, in-browser image editor that opens and saves PSD files â€” a Photoshop clone that runs anywhere, no install, with ads.
+  Free, in-browser image editor that opens and saves PSD files — a Photoshop clone that runs anywhere, no install, with ads.
   Tags: photo-editor, browser-app, image-editing
 
 - [Mosh-Pro](https://www.moshpro.app/)
   Glitch and VJ mixer with 60+ stackable effects, audio-reactive modulators, and 4K export. Free web Lite; desktop is $49 one-time or $24/year.
   Tags: video-effects, glitch, vj, audio-reactive
 
-### Developer Tools (11)
+- [Geometric Art](https://geometric-art.com/)
+  Browser-based studio that transforms photos and videos into geometric line art, with local processing and PNG or MP4 export.
+  Tags: generative-art, image-effects, video-effects
+
+### Developer Tools (15)
 
 - [10x](https://www.10x.app/)
-  AI-powered native iOS app builder for macOS â€” describe an app and it generates SwiftUI code, an Xcode project, and a simulator preview, plus App Store submission and marketing content.
+  AI-powered native iOS app builder for macOS — describe an app and it generates SwiftUI code, an Xcode project, and a simulator preview, plus App Store submission and marketing content.
   Tags: app-builder, ios, ai
 
 - [Spec Kit](https://speckit.tech/)
@@ -310,11 +322,11 @@
   Tags: ai, spec, software-planning
 
 - [Blueprint](https://www.blueprint.io/)
-  AI hardware design tool â€” generates wiring diagrams, bills of materials, and step-by-step assembly guides for electronics/hardware projects (Arduino, Raspberry Pi, etc.) from a prompt.
+  AI hardware design tool — generates wiring diagrams, bills of materials, and step-by-step assembly guides for electronics/hardware projects (Arduino, Raspberry Pi, etc.) from a prompt.
   Tags: hardware, ai, electronics
 
 - [Open SEO](https://github.com/every-app/open-seo)
-  Open-source, self-hostable alternative to Semrush/Ahrefs â€” keyword research, rank tracking, backlinks, and site audits, pay-as-you-go via the DataForSEO API, with an MCP server and AI agent skills.
+  Open-source, self-hostable alternative to Semrush/Ahrefs — keyword research, rank tracking, backlinks, and site audits, pay-as-you-go via the DataForSEO API, with an MCP server and AI agent skills.
   Tags: seo, self-hosted, keyword-research, open-source
 
 - [Wokwi](https://wokwi.com/)
@@ -330,11 +342,11 @@
   Tags: skeleton-screens, ui-loading, dom
 
 - [Tinkered](https://app.tinkered.ai/)
-  AI hardware design in your browser â€” describe a device and get a circuit, editable schematic, C/C++ firmware, and a 3D SPICE simulation, then flash it to 1,300+ real boards. Free to use.
+  AI hardware design in your browser — describe a device and get a circuit, editable schematic, C/C++ firmware, and a 3D SPICE simulation, then flash it to 1,300+ real boards. Free to use.
   Tags: ai, hardware-design, electronics, circuit-simulator
 
 - [Pinokio](https://pinokio.co/)
-  Free open-source launcher that one-click installs and runs hundreds of AI apps locally â€” ComfyUI, LLMs, video and music generation, TTS, and more â€” with a community app store. Many apps need a capable GPU.
+  Free open-source launcher that one-click installs and runs hundreds of AI apps locally — ComfyUI, LLMs, video and music generation, TTS, and more — with a community app store. Many apps need a capable GPU.
   Tags: ai, local-ai, one-click-installer, open-source
 
 - [Lopaka](https://lopaka.app/)
@@ -342,8 +354,24 @@
   Tags: embedded, arduino, gui, codegen
 
 - [Scrolltide](https://www.scrolltide.co/)
-  Scroll-driven site prompts built for Claude, Cursor, and v0 â€” 55 templates, new drops every Friday, free plus a ~$10/month paid tier.
+  Scroll-driven site prompts built for Claude, Cursor, and v0 — 55 templates, new drops every Friday, free plus a ~$10/month paid tier.
   Tags: prompts, webdesign, animation, templates
+
+- [OpenDomains](https://open-domains.com/)
+  Free subdomains with a dashboard for managing DNS records for web projects.
+  Tags: free-subdomains, dns, domain-management
+
+- [is-a.dev](https://www.is-a.dev/)
+  Free is-a.dev subdomains for developers, registered through a pull request to the project's GitHub repository.
+  Tags: free-subdomains, developers, open-source
+
+- [JS.ORG](https://js.org/)
+  Free js.org subdomains for JavaScript projects hosted on GitHub Pages, requested through a GitHub pull request.
+  Tags: javascript, free-subdomains, github-pages
+
+- [thedev.id](https://upset.dev/thedev.id)
+  Free thedev.id subdomains for developers, claimed by adding a record to the public GitHub repository and opening a pull request.
+  Tags: free-subdomains, developers, open-source
 
 ### Documentation (5)
 
@@ -352,7 +380,7 @@
   Tags: repair-guides, electronics, teardowns
 
 - [FMHY](https://fmhy.net/)
-  Free Media Heck Yeah â€” big wiki-style index of free internet resources: streaming, downloading, gaming, reading, AI tools, and privacy. Some destinations skate copyright lines.
+  Free Media Heck Yeah — big wiki-style index of free internet resources: streaming, downloading, gaming, reading, AI tools, and privacy. Some destinations skate copyright lines.
   Tags: free-resources, media, wiki
 
 - [NameThatUI](https://namethatui.com/)
@@ -360,7 +388,7 @@
   Tags: ui-patterns, terminology, reference
 
 - [Anna's Archive](https://annas-archive.gl/)
-  Metasearch for books, papers, magazines, and comics across shadow libraries and archive.org â€” free and ad-free, but legally contentious.
+  Metasearch for books, papers, magazines, and comics across shadow libraries and archive.org — free and ad-free, but legally contentious.
   Tags: books, papers, shadow-library
 
 - [Internet Archive](https://archive.org/)
@@ -370,11 +398,11 @@
 ### Finance (2)
 
 - [Invo](https://www.invoapp.com/)
-  Social crypto-futures copy-trading app â€” browse top traders and automatically mirror their positions across 170+ futures pairs on Hyperliquid.
+  Social crypto-futures copy-trading app — browse top traders and automatically mirror their positions across 170+ futures pairs on Hyperliquid.
   Tags: crypto, copy-trading, futures
 
 - [Glint](https://glint.trade/)
-  Trading terminal for Hyperliquid perps and Polymarket predictions â€” real-time signals and smart-money tracking, backed by Polymarket.
+  Trading terminal for Hyperliquid perps and Polymarket predictions — real-time signals and smart-money tracking, backed by Polymarket.
   Tags: crypto, perpetuals, polymarket
 
 ### Games (9)
@@ -384,7 +412,7 @@
   Tags: typing, browser-game, skill
 
 - [Kuku Kube](https://kuku-kube.com/)
-  Browser-based color perception game â€” spot the one square that is a slightly different shade from the rest before the timer runs out.
+  Browser-based color perception game — spot the one square that is a slightly different shade from the rest before the timer runs out.
   Tags: color-perception, puzzle, browser-game
 
 - [Line Rider](https://www.linerider.com/)
@@ -396,11 +424,11 @@
   Tags: game-length, backlog, planning
 
 - [BuddyBoardGames](https://buddyboardgames.com/)
-  30 free multiplayer board and card games (Uno, Yahtzee, Battleship, Azul, Poker) â€” create a room, share the name, no sign-up, plays fine on phones. Ad-supported, with a bot opponent and matchmaking.
+  30 free multiplayer board and card games (Uno, Yahtzee, Battleship, Azul, Poker) — create a room, share the name, no sign-up, plays fine on phones. Ad-supported, with a bot opponent and matchmaking.
   Tags: board-games, multiplayer, browser, no-signup
 
 - [Quenq](https://quenq.com/)
-  An interactive museum of internet culture â€” 1,300+ playable Flash games, a full Windows XP simulator (Reborn XP), and browser ports of Minecraft and Angry Birds. No downloads, no paywalls, kept alive by ads.
+  An interactive museum of internet culture — 1,300+ playable Flash games, a full Windows XP simulator (Reborn XP), and browser ports of Minecraft and Angry Birds. No downloads, no paywalls, kept alive by ads.
   Tags: retro, emulators, flash-games, internet-culture
 
 - [Bored.com](https://www.bored.com/)
@@ -408,25 +436,25 @@
   Tags: classic-games, arcade, browser
 
 - [Lost Gamer](https://lostgamer.io/)
-  Shows a zoomed-in slice of a game level â€” guess which game it's from. Brutal fun for retro fans.
+  Shows a zoomed-in slice of a game level — guess which game it's from. Brutal fun for retro fans.
   Tags: quiz, retro, guessing, games
 
 - [Snooker Sim](https://snookersim.com/)
-  Full-table snooker in the browser with real physics â€” pot your way to a 147.
+  Full-table snooker in the browser with real physics — pot your way to a 147.
   Tags: snooker, physics, multiplayer, browser
 
 ### Learning (9)
 
 - [Learn Anything](https://learn-anything.xyz/)
-  Open-source topic map of learning resources â€” search a subject and get community-vetted courses, videos, and articles.
+  Open-source topic map of learning resources — search a subject and get community-vetted courses, videos, and articles.
   Tags: learning, knowledge-map, resources
 
 - [48 Laws of Power](https://www.48lawspower.com/)
-  Free one-page summaries and prefaces for all 48 of Robert Greene's laws, each a separate short blog article. Nothing interactive â€” just quick reference reading, plus an affiliate link to buy the book.
+  Free one-page summaries and prefaces for all 48 of Robert Greene's laws, each a separate short blog article. Nothing interactive — just quick reference reading, plus an affiliate link to buy the book.
   Tags: psychology, power, book-summaries, self-improvement
 
 - [Loecsen](https://www.loecsen.com/)
-  Free essentials for 50+ languages with audio, downloadable MP3s, and printable sheets â€” upgrades unlock extended content. Structured around CEFR levels (A1 to B1) with spaced repetition and speech recognition.
+  Free essentials for 50+ languages with audio, downloadable MP3s, and printable sheets — upgrades unlock extended content. Structured around CEFR levels (A1 to B1) with spaced repetition and speech recognition.
   Tags: languages, audio, travel-phrases, spaced-repetition
 
 - [Photoskop](https://www.photoskop.com/)
@@ -442,18 +470,18 @@
   Tags: study, quizzes, summaries, ai
 
 - [Electude Simulator](https://simulator.electude.com/)
-  Virtual car rig for students â€” wire up electrics, hunt faults, and learn engine logic without lifting a real hood.
+  Virtual car rig for students — wire up electrics, hunt faults, and learn engine logic without lifting a real hood.
   Tags: automotive, simulator, education
 
 - [roadmap.sh](https://roadmap.sh/)
-  Step-by-step community roadmaps for becoming a frontend, backend, AI, or DevOps engineer â€” pick a path and start climbing.
+  Step-by-step community roadmaps for becoming a frontend, backend, AI, or DevOps engineer — pick a path and start climbing.
   Tags: roadmaps, career, webdev, guides
 
 - [Class Central](https://www.classcentral.com/)
-  Search engine for online courses from universities and platforms â€” filter by free, certificate, or subject.
+  Search engine for online courses from universities and platforms — filter by free, certificate, or subject.
   Tags: courses, mooc, free, directory
 
-### Libraries/Frameworks (22)
+### Libraries/Frameworks (25)
 
 - [Componentry](https://componentry.dev/)
   Free, copy-paste library of animated React UI components (Tailwind CSS, TypeScript, Framer Motion), installable via the shadcn CLI.
@@ -468,19 +496,19 @@
   Tags: ui-components, react, tailwind
 
 - [Origin Kit](https://www.originkit.dev/)
-  Free library of animated components â€” copy the code, use in Framer, or connect via MCP â€” copy the code, use in Framer, or connect via MCP.
+  Free library of animated components — copy the code, use in Framer, or connect via MCP — copy the code, use in Framer, or connect via MCP.
   Tags: ui-components, animation, framer
 
 - [React Bits](https://www.reactbits.dev/)
-  Copy-paste animated React components â€” text effects, animated backgrounds, loaders, buttons, and more, free and open source.
+  Copy-paste animated React components — text effects, animated backgrounds, loaders, buttons, and more, free and open source.
   Tags: react, ui-components, animation
 
 - [Lenis](https://github.com/darkroomengineering/lenis)
-  Open-source smooth-scrolling library that adds buttery inertia to native scroll â€” the engine behind many award-winning sites.
+  Open-source smooth-scrolling library that adds buttery inertia to native scroll — the engine behind many award-winning sites.
   Tags: smooth-scroll, javascript, open-source
 
 - [GSAP](https://github.com/greensock/GSAP)
-  GreenSock Animation Platform â€” a battle-tested JS animation library for high-performance tweens of DOM, SVG, canvas, and WebGL, with a free core.
+  GreenSock Animation Platform — a battle-tested JS animation library for high-performance tweens of DOM, SVG, canvas, and WebGL, with a free core.
   Tags: animation, javascript, open-source
 
 - [Vanta.js](https://github.com/tengbao/vanta)
@@ -496,7 +524,7 @@
   Tags: animation, react, javascript
 
 - [Bklit](https://bklit.com/)
-  shadcn/ui-based React component library for data visualization â€” area, bar, candlestick, heatmap, sankey charts and more, with a Studio builder.
+  shadcn/ui-based React component library for data visualization — area, bar, candlestick, heatmap, sankey charts and more, with a Studio builder.
   Tags: ui-components, charts, react
 
 - [Skiper UI](https://skiper-ui.com/)
@@ -504,15 +532,15 @@
   Tags: ui-components, shadcn, next-js
 
 - [Cult UI](https://www.cult-ui.com/)
-  Copy-paste animated React components and effects â€” from the Framer community, with free and paid tiers.
+  Copy-paste animated React components and effects — from the Framer community, with free and paid tiers.
   Tags: ui-components, react, animation
 
 - [Watermelon UI](https://ui.watermelon.sh/)
-  Copy-paste React components, dashboards, and UI blocks built on Tailwind/shadcn conventions â€” grab a component or an entire dashboard.
+  Copy-paste React components, dashboards, and UI blocks built on Tailwind/shadcn conventions — grab a component or an entire dashboard.
   Tags: ui-components, shadcn, tailwind
 
 - [unlumen UI](https://ui.unlumen.com/)
-  Copy-paste React UI blocks and components styled with Tailwind â€” buttons, cards, navs, and effects for faster front-end work.
+  Copy-paste React UI blocks and components styled with Tailwind — buttons, cards, navs, and effects for faster front-end work.
   Tags: react, ui-components, tailwind
 
 - [SmoothUI](https://smoothui.dev/)
@@ -524,11 +552,11 @@
   Tags: animated-components, web-ui, templates
 
 - [Uilora](https://www.uilora.com/)
-  UI components and templates for Next.js and React Native â€” grab free starters or buy full kits.
+  UI components and templates for Next.js and React Native — grab free starters or buy full kits.
   Tags: next-js, react-native, ui-components
 
 - [termcn](https://www.termcn.dev/)
-  Terminal-style UI components for the web â€” build fake CLIs, retro TUIs, and code blocks in React.
+  Terminal-style UI components for the web — build fake CLIs, retro TUIs, and code blocks in React.
   Tags: terminal-ui, components, developer-tools
 
 - [Animate UI](https://animate-ui.com/)
@@ -536,12 +564,24 @@
   Tags: react, animated-components, shadcn
 
 - [Untitled UI](https://www.untitledui.com/)
-  Figma UI kit + React components for product work â€” free starter kit, paid unlocks the full component library.
+  Figma UI kit + React components for product work — free starter kit, paid unlocks the full component library.
   Tags: figma-kit, react, ui-components
 
 - [Uiverse](https://uiverse.io/)
-  Free, open-source library of thousands of CSS/HTML UI elements â€” copy-paste buttons, loaders, cards, inputs, and more.
+  Free, open-source library of thousands of CSS/HTML UI elements — copy-paste buttons, loaders, cards, inputs, and more.
   Tags: ui-elements, css, tailwind, open-source
+
+- [FeralUI](https://feralui.dev/)
+  Collection of playful, physics-driven React and TypeScript UI components with interactive demos.
+  Tags: react, animation, ui-components
+
+- [Radix Primitives](https://www.radix-ui.com/primitives)
+  Unstyled, accessible React primitives for building customizable component libraries and design systems.
+  Tags: react, ui-primitives, accessibility
+
+- [Base UI](https://base-ui.com/)
+  Unstyled React components for building accessible component libraries, interfaces, and web applications.
+  Tags: react, ui-components, accessibility
 
 ### Lifestyle (13)
 
@@ -558,27 +598,27 @@
   Tags: 3d-archive, cultural-heritage, design-reference
 
 - [FreeSewing](https://freesewing.eu/)
-  Open-source platform that generates made-to-measure sewing patterns from your body measurements â€” free, no login, parametric.
+  Open-source platform that generates made-to-measure sewing patterns from your body measurements — free, no login, parametric.
   Tags: sewing-patterns, open-source, bespoke
 
 - [A Little Box of Goodies](https://alittleboxofgoodies.com/)
-  Pack a one-time-payment digital care package â€” notes, photos, voice memos, drawings, song and video links, even coupons â€” then share a link your person taps open like a real box.
+  Pack a one-time-payment digital care package — notes, photos, voice memos, drawings, song and video links, even coupons — then share a link your person taps open like a real box.
   Tags: digital-care-package, gifts, long-distance, one-time-payment
 
 - [Angie](https://getangie.com/)
-  Realtime date room for long-distance couples â€” photobooth, quizzes, debate, and arcade games played together live. The photobooth is always free; paid plans add unlimited plays, and you can print strips as fridge magnets.
+  Realtime date room for long-distance couples — photobooth, quizzes, debate, and arcade games played together live. The photobooth is always free; paid plans add unlimited plays, and you can print strips as fridge magnets.
   Tags: long-distance, couples, dates, photobooth
 
 - [Little Voice Note](https://littlevoicenote.com/)
-  Record a voice memo, add up to 8 photos, and share a keepsake link that plays like a hand-crank music box â€” your person turns the handle to hear it. Free, no account.
+  Record a voice memo, add up to 8 photos, and share a keepsake link that plays like a hand-crank music box — your person turns the handle to hear it. Free, no account.
   Tags: voice-notes, music-box, keepsakes, gifts
 
 - [Sirius Love](https://siriuslove.net/)
-  Build a free romantic gift page with photos, letters, Spotify playlists, and countdowns â€” no signup or credit card to start, and you can draw on it together. Paid plans ($4.50/mo or $19 lifetime) add more storage and a PIN lock.
+  Build a free romantic gift page with photos, letters, Spotify playlists, and countdowns — no signup or credit card to start, and you can draw on it together. Paid plans ($4.50/mo or $19 lifetime) add more storage and a PIN lock.
   Tags: gifts, romantic, love-page, digital-gift
 
 - [Love Written](https://lovewritten.ca/)
-  Write a digital love letter, schedule it, and it lands in your person's inbox as a link to an interactive letter page â€” $3 CAD per letter, no account or subscription. Note: it can't be edited after you pay.
+  Write a digital love letter, schedule it, and it lands in your person's inbox as a link to an interactive letter page — $3 CAD per letter, no account or subscription. Note: it can't be edited after you pay.
   Tags: love-letters, schedule, delivery, email
 
 - [StartMyCar](https://www.startmycar.com/)
@@ -586,15 +626,15 @@
   Tags: cars, repair, community, diy
 
 - [WorldCam](https://worldcam.tv/)
-  Peek at live public webcams from 180+ countries â€” beaches, cities, wildlife â€” streaming free around the clock.
+  Peek at live public webcams from 180+ countries — beaches, cities, wildlife — streaming free around the clock.
   Tags: webcams, live, travel, world
 
 - [B98.TV](https://www.b98.tv/)
-  Stream vintage cartoons â€” Tom & Jerry, Looney Tunes, Scooby â€” free and without signup.
+  Stream vintage cartoons — Tom & Jerry, Looney Tunes, Scooby — free and without signup.
   Tags: cartoons, streaming, classic, free
 
 - [Flowers](https://flowerisblooming.com/)
-  Send a digital bouquet as a forever link or QR code â€” hand-illustrated flowers, with an app for growing your own collection.
+  Send a digital bouquet as a forever link or QR code — hand-illustrated flowers, with an app for growing your own collection.
   Tags: gifts, flowers, digital, free
 
 ### Music (10)
@@ -612,23 +652,23 @@
   Tags: royalty-free-music, free, audio
 
 - [Chosic](https://www.chosic.com/)
-  Music discovery toolkit built on the Spotify API â€” similar-songs finder, playlist generator/analyzer, genre/BPM finder â€” plus a small library of free royalty-free music downloads.
+  Music discovery toolkit built on the Spotify API — similar-songs finder, playlist generator/analyzer, genre/BPM finder — plus a small library of free royalty-free music downloads.
   Tags: music-discovery, spotify, playlist
 
 - [SpotiFLAC](https://github.com/spotbye/SpotiFLAC)
-  Open-source desktop app that fetches Spotify tracks in true lossless FLAC from Tidal, Qobuz, or Amazon Music â€” no account required.
+  Open-source desktop app that fetches Spotify tracks in true lossless FLAC from Tidal, Qobuz, or Amazon Music — no account required.
   Tags: music-downloader, lossless, spotify, open-source
 
 - [Lofi.cafe](https://www.lofi.cafe/)
-  Lofi radio streams for studying, working, or chilling â€” pick a room by vibe and it plays right in the browser. No account needed to hit play.
+  Lofi radio streams for studying, working, or chilling — pick a room by vibe and it plays right in the browser. No account needed to hit play.
   Tags: lofi, radio, focus, music
 
 - [Incompetech](https://incompetech.com/)
-  Kevin MacLeod's royalty-free music, 2,000+ tracks â€” use it free with credit, or buy a Standard License when you can't give attribution. Also home to a free graph paper and maze generator.
+  Kevin MacLeod's royalty-free music, 2,000+ tracks — use it free with credit, or buy a Standard License when you can't give attribution. Also home to a free graph paper and maze generator.
   Tags: royalty-free, music, kevin-macleod, attribution
 
 - [MusicGPT](https://musicgpt.com/)
-  Type a vibe, get a full AI-generated track â€” make songs from a text prompt in seconds.
+  Type a vibe, get a full AI-generated track — make songs from a text prompt in seconds.
   Tags: ai-music, generator, text-to-music
 
 - [X-Minus](https://x-minus.pro/)
@@ -639,14 +679,14 @@
   Learn how pop songs actually work with interactive theory lessons and Hookpad, the chord-sketching songwriting pad.
   Tags: music-theory, hookpad, interactive, songwriting
 
-### Security (6)
+### Security (14)
 
 - [OSINT4All](https://start.me/p/L1rEYQ/osint4all)
-  Start.me page packed with practical OSINT resources â€” an organized, beginner-friendly toolkit for researchers of any skill level.
+  Start.me page packed with practical OSINT resources — an organized, beginner-friendly toolkit for researchers of any skill level.
   Tags: osint, research, resource-list
 
 - [GeoSpy](https://geospy.ai/)
-  AI tool that estimates where a photo was taken â€” drop in an image and get a map location plus confidence, built for OSINT work.
+  AI tool that estimates where a photo was taken — drop in an image and get a map location plus confidence, built for OSINT work.
   Tags: image-geolocation, osint, investigation
 
 - [pwn.college](https://pwn.college/)
@@ -654,16 +694,48 @@
   Tags: cybersecurity, hacking, ctf, challenges
 
 - [Fingerprint](https://fingerprint.to/)
-  Search a username, email, or name across 700+ platforms in real time â€” results stream in as full profiles with bios, followers, and locations. Free tier is capped around 10 searches; paid plans and an API are on the way.
+  Search a username, email, or name across 700+ platforms in real time — results stream in as full profiles with bios, followers, and locations. Free tier is capped around 10 searches; paid plans and an API are on the way.
   Tags: osint, username-search, public-data, people-search
 
 - [Gray Hat Warfare](https://grayhatwarfare.com/)
-  Search engine for public AWS S3 buckets and URL-shortener links, with billions of files indexed. The free tier caps out at a few hundred results; paid plans (â‚¬25â€“60/mo) unlock unlimited results and an API.
+  Search engine for public AWS S3 buckets and URL-shortener links, with billions of files indexed. The free tier caps out at a few hundred results; paid plans (€25–60/mo) unlock unlimited results and an API.
   Tags: osint, s3-buckets, security, search-engine
 
 - [OSINT Framework](https://osintframework.com/)
-  Giant tree of open-source intelligence tools for digging up anything publicly out there â€” usernames, emails, geodata.
+  Giant tree of open-source intelligence tools for digging up anything publicly out there — usernames, emails, geodata.
   Tags: osint, investigation, tools, directory
+
+- [Hack The Box](https://www.hackthebox.com/)
+  Hands-on cybersecurity training for individuals and teams through labs, Academy courses, capture-the-flag competitions, and workforce assessments.
+  Tags: cybersecurity-training, labs, ctf
+
+- [TryHackMe](https://tryhackme.com/)
+  Gamified cybersecurity learning platform with browser-based labs and guided paths covering offensive and defensive security skills.
+  Tags: cybersecurity-training, learning-paths, labs
+
+- [CryptoHack](https://cryptohack.org/)
+  Free platform for learning modern cryptography through interactive puzzles and challenges.
+  Tags: cryptography, challenges, learning
+
+- [SkillBit](https://skillbit.com/)
+  Cybersecurity skills platform, formerly MetaCTF, offering hands-on exercises, skills assessments, and hosted capture-the-flag competitions.
+  Tags: cybersecurity-training, assessments, ctf
+
+- [picoCTF / CyLab Security Academy](https://www.picoctf.org/)
+  Carnegie Mellon's free cybersecurity learning platform, now migrated to CyLab Security Academy; the site links to its new home and migration details.
+  Tags: ctf, cybersecurity-training, free
+
+- [Cybrary](https://www.cybrary.it/)
+  Online cybersecurity courses, virtual labs, career paths, and certification preparation for individuals and enterprise teams.
+  Tags: cybersecurity-training, certifications, career-paths
+
+- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
+  Free web security training from PortSwigger with regularly updated learning materials and interactive practice labs.
+  Tags: web-security, interactive-labs, free
+
+- [KC7 Cyber](https://kc7cyber.com/)
+  Free game-based cybersecurity learning platform where players investigate simulated breaches using log analysis and KQL to build security-analyst skills.
+  Tags: threat-hunting, log-analysis, kql
 
 ### Utilities (22)
 
@@ -672,7 +744,7 @@
   Tags: self-hosting, home-server, docker, open-source
 
 - [Complete Website Downloader](https://github.com/badrshs/Complete-Website-Downloader)
-  Windows desktop app (open-source wget wrapper) that mirrors entire sites â€” HTML, CSS, JS, images, fonts â€” and rewrites links for offline browsing.
+  Windows desktop app (open-source wget wrapper) that mirrors entire sites — HTML, CSS, JS, images, fonts — and rewrites links for offline browsing.
   Tags: website-mirror, offline, windows, open-source
 
 - [VidIQ](https://vidiq.com/)
@@ -684,7 +756,7 @@
   Tags: pattern-generator, craft, hobby
 
 - [Omniget](https://github.com/tonhowtf/omniget/releases)
-  Open-source cross-platform desktop app (Tauri/Rust/Svelte) for downloading, organizing, and studying media â€” yt-dlp-based downloads from 1,800+ sites plus a PDF/EPUB reader with focus mode and spaced repetition.
+  Open-source cross-platform desktop app (Tauri/Rust/Svelte) for downloading, organizing, and studying media — yt-dlp-based downloads from 1,800+ sites plus a PDF/EPUB reader with focus mode and spaced repetition.
   Tags: media-downloader, yt-dlp, open-source
 
 - [Textlab](https://textlab.javii.tools/)
@@ -724,7 +796,7 @@
   Tags: media-downloader, no-ads, privacy
 
 - [Syncthing](https://syncthing.net/)
-  Open-source, peer-to-peer file sync between your own devices â€” no cloud, no middleman, runs on phones, desktops, and NAS.
+  Open-source, peer-to-peer file sync between your own devices — no cloud, no middleman, runs on phones, desktops, and NAS.
   Tags: file-sync, peer-to-peer, privacy
 
 - [Ninite](https://ninite.com/)
@@ -736,23 +808,23 @@
   Tags: flight-tracking, aviation, live-map, ads-b
 
 - [Toolixy](https://toolixy.online/)
-  190+ free in-browser tools across 8 categories â€” PDF, image, video, audio, text, dev, converters, and calculators â€” no signup, no watermarks, and files never leave your device.
+  190+ free in-browser tools across 8 categories — PDF, image, video, audio, text, dev, converters, and calculators — no signup, no watermarks, and files never leave your device.
   Tags: online-tools, pdf-tools, in-browser, free
 
 - [TheToolBus](https://www.thetoolbus.ai/)
-  154 free browser tools across PDF, image, converter, calculator, professional, and fun categories, plus an AI-tool directory â€” no signup, no watermark, and outputs are fine for commercial use.
+  154 free browser tools across PDF, image, converter, calculator, professional, and fun categories, plus an AI-tool directory — no signup, no watermark, and outputs are fine for commercial use.
   Tags: online-tools, ai-directory, pdf-tools, free
 
 - [Photo From Emoji](https://photofromemoji.com/)
-  Rebuilds any photo as an emoji mosaic right in your browser â€” nothing gets uploaded, no signup, no watermark.
+  Rebuilds any photo as an emoji mosaic right in your browser — nothing gets uploaded, no signup, no watermark.
   Tags: emoji, image-effects, generator, privacy
 
 - [RecCloud](https://reccloud.com/)
-  Record your screen straight from the browser and stash it in the cloud â€” nothing to install.
+  Record your screen straight from the browser and stash it in the cloud — nothing to install.
   Tags: screen-recording, video, cloud, free
 
 - [Angle Ref](https://angleref.com/)
-  Search any angle and see it drawn as a clean visual reference â€” handy for geometry and design work.
+  Search any angle and see it drawn as a clean visual reference — handy for geometry and design work.
   Tags: angles, reference, geometry
 
 ## Prompts (21)
@@ -1037,11 +1109,11 @@ Tags: ugc, product-photo, smartphone
 
 Raw smartphone photo of a person naturally holding the product from the reference image, casual framing at arm's length, slight wide-angle distortion, mixed indoor lighting, natural skin texture, stray hairs, everyday background slightly out of focus, off-center crop, subtle ISO grain, uneven white balance, unpolished candid realism, no studio look.
 
-## Notes (1)
+## Notes (5)
 
 ### Git & GitHub Tutorial
 
-Git &amp; GitHub Tutorial
+Git & GitHub Tutorial
 
 Practical reference covering setup, cloning, committing, branching, restoring files, and CI/CD with GitHub Actions.
 
@@ -1049,90 +1121,474 @@ Practical reference covering setup, cloning, committing, branching, restoring fi
 
 Create an empty repo on GitHub (skip README/gitignore if your local folder already has files, to avoid a conflict on first push). Then inside your project folder:
 
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/username/repo-name.git
-git push -u origin main
+- `git init`
+- `git add .`
+- `git commit -m "Initial commit"`
+- `git branch -M main`
+- `git remote add origin https://github.com/username/repo-name.git`
+- `git push -u origin main`
 
 Authentication note: GitHub no longer accepts your account password for HTTPS git operations. Git Credential Manager (bundled with Git for Windows) opens a browser login popup on first push and remembers you. Alternatively, generate a Personal Access Token under GitHub Settings, Developer settings, Personal access tokens, and paste it in place of your password when prompted.
 
-2. Connecting to an Existing Project (Clone &amp; Pull)
+2. Connecting to an Existing Project (Clone & Pull)
 
 To clone a repo you don't have locally yet:
 
-git clone https://github.com/username/repo-name.git
-cd repo-name
+- `git clone https://github.com/username/repo-name.git`
+- `cd repo-name`
 
 To pull the latest changes into a repo you already have:
 
-git pull origin main
+- `git pull origin main`
 
 If you already have a local folder not yet linked to the GitHub repo:
 
-git remote add origin https://github.com/username/repo-name.git
-git fetch origin
-git checkout main
+- `git remote add origin https://github.com/username/repo-name.git`
+- `git fetch origin`
+- `git checkout main`
 
-If your local folder has commits with no shared history, add --allow-unrelated-histories to the pull command.
+If your local folder has commits with no shared history, add `--allow-unrelated-histories` to the pull command.
 
 3. Committing to GitHub
 
-git status â€” see what's changed
-git add &lt;file&gt; â€” stage a specific file
-git add . â€” stage everything in the current directory
-git commit -m "message" â€” commit staged changes
-git push origin &lt;branch&gt; â€” push to GitHub
+- `git status` — see what's changed
+- `git add ` — stage a specific file
+- `git add .` — stage everything in the current directory
+- `git commit -m "message"` — commit staged changes
+- `git push origin ` — push to GitHub
 
-Commit message convention: feat: new feature, fix: bug fix, chore: maintenance/cleanup, docs: documentation only, refactor: code change that isn't a fix or feature, style: formatting only, test: adding or updating tests.
+Commit message convention: `feat:` new feature, `fix:` bug fix, `chore:` maintenance/cleanup, `docs:` documentation only, `refactor:` code change that isn't a fix or feature, `style:` formatting only, `test:` adding or updating tests.
 
 4. Branching
 
-git checkout -b branch-name â€” create and switch in one step
-git branch â€” list local branches
-git checkout branch-name â€” switch to an existing branch
-git push -u origin branch-name â€” push new branch, set upstream
+- `git checkout -b branch-name` — create and switch in one step
+- `git branch` — list local branches
+- `git checkout branch-name` — switch to an existing branch
+- `git push -u origin branch-name` — push new branch, set upstream
 
-Merge back via GitHub PR (recommended): push the branch, open a pull request into main, review the diff, then merge through the UI.
+Merge back via GitHub PR (recommended): push the branch, open a pull request into `main`, review the diff, then merge through the UI.
 
 Or merge locally:
 
-git checkout main
-git pull origin main
-git merge branch-name
-git push origin main
+- `git checkout main`
+- `git pull origin main`
+- `git merge branch-name`
+- `git push origin main`
 
 Clean up after merge:
 
-git branch -d branch-name
-git push origin --delete branch-name
+- `git branch -d branch-name`
+- `git push origin --delete branch-name`
 
 5. git restore
 
-git restore &lt;file&gt; â€” discards uncommitted edits, reverts to last commit (also undoes an uncommitted deletion)
-git restore --staged &lt;file&gt; â€” unstages a file, keeps the edits
-git restore --source=&lt;commit&gt; &lt;file&gt; â€” restores a file's contents from a specific past commit
+- `git restore ` — discards uncommitted edits, reverts to last commit (also undoes an uncommitted deletion)
+- `git restore --staged ` — unstages a file, keeps the edits
+- `git restore --source= ` — restores a file's contents from a specific past commit
 
-Only works on uncommitted changes. For already-committed/pushed changes, use git revert &lt;commit&gt; (safe for shared branches) or git reset (rewrites history, local-only commits).
+Only works on uncommitted changes. For already-committed/pushed changes, use `git revert ` (safe for shared branches) or `git reset` (rewrites history, local-only commits).
 
 Advanced: CI/CD with GitHub Actions
 
-Workflows live in .github/workflows/*.yml. Basic example â€” lint and build on every push/PR to main:
+Workflows live in `.github/workflows/*.yml`. Basic example — lint and build on every push/PR to main:
 
-on: push / pull_request, branches: [main]
-jobs.build.runs-on: ubuntu-latest
-steps: actions/checkout@v4
-steps: actions/setup-node@v4 (node-version 20)
-run: npm ci
-run: npm run lint
-run: npm run build
+- `on: push / pull_request, branches: [main]`
+- `jobs.build.runs-on: ubuntu-latest`
+- `steps: actions/checkout@v4`
+- `steps: actions/setup-node@v4 (node-version 20)`
+- `run: npm ci`
+- `run: npm run lint`
+- `run: npm run build`
 
-Secrets (API keys, DB URLs) go under repo Settings, Secrets and variables, Actions, referenced as ${{ secrets.YOUR_SECRET_NAME }} â€” never hardcoded in the YAML.
+Secrets (API keys, DB URLs) go under repo Settings, Secrets and variables, Actions, referenced as `${{ secrets.YOUR_SECRET_NAME }}` — never hardcoded in the YAML.
 
-Branch protection (Settings, Branches) can require this workflow to pass before a PR merges into main, turning CI into an actual gate.
+Branch protection (Settings, Branches) can require this workflow to pass before a PR merges into `main`, turning CI into an actual gate.
 
-Deployment: on Vercel, connecting the GitHub repo auto-deploys every push and generates preview URLs per PR â€” no deploy step needed in Actions. For other hosts, add a final job gated to main using SSH/rsync/FTP actions, with needs: build so it waits for the build job to succeed first.
+Deployment: on Vercel, connecting the GitHub repo auto-deploys every push and generates preview URLs per PR — no deploy step needed in Actions. For other hosts, add a final job gated to `main` using SSH/rsync/FTP actions, with `needs: build` so it waits for the build job to succeed first.
+
+### GitHub Tricks
+
+A quick reference for repository visualization, AI context, browser editors, GitHub URL patterns, and keyboard shortcuts. Replace `user/repository`, branch names, file paths, and pull request numbers with your own values.
+
+Repository Tools & AI Context
+
+1. GitDiagram — Visualize a repository
+
+Replace `github.com` with `gitdiagram.com` to explore a repository as an interactive architecture diagram.
+
+`https://github.com/user/repository
+https://gitdiagram.com/user/repository`
+Useful for understanding unfamiliar repositories, project structure, and relationships between modules before reading code.
+
+2. GitIngest — Convert a repository into AI context
+
+Replace `github.com` with `gitingest.com` to create a prompt-friendly text digest.
+
+`https://gitingest.com/user/repository`
+Output includes a directory tree, file contents, a summary, and copy/download options. Use file filters or target a folder when the repository is too large:
+
+`https://gitingest.com/user/repository/tree/main/src`
+CLI alternative:
+
+`pip install gitingest
+gitingest https://github.com/user/repository`
+Example prompt to accompany the digest:
+
+`Audit this project's architecture.
+
+Look for:
+- unnecessary complexity
+- duplicate code
+- inconsistent naming
+- security problems
+- bad folder organization
+- maintainability issues`
+3. DeepWiki — AI-generated repository documentation
+
+`https://deepwiki.com/user/repository`
+Useful for architecture explanations, learning unfamiliar codebases, and asking questions about a project. Documentation availability depends on repository indexing; verify generated explanations against the source.
+
+4. GitHub.dev — Edit in browser-based VS Code
+
+Replace `github.com` with `github.dev`, or press `.` while viewing a repository.
+
+`https://github.dev/user/repository`
+Useful for quick edits, code search, small commits, and reviews without cloning. This is a web editor, not a full compute environment for running builds or terminals.
+
+5. GitHub1s — Browse with a VS Code-style interface
+
+`https://github1s.com/user/repository`
+Useful for reading code, exploring repositories, and navigating large folder structures.
+
+6. GitMCP — Connect repository context to an AI assistant
+
+`https://gitmcp.io/user/repository`
+Configure this URL as a remote MCP server in a compatible assistant, such as Claude, Cursor, or Cline. GitMCP provides access to public repository documentation and code context without manually pasting everything.
+
+Native GitHub URL Tricks
+
+7. Get a raw file
+
+Replace `github.com` with `raw.githubusercontent.com` and remove `/blob/`:
+
+`https://github.com/user/repository/blob/main/file.json
+https://raw.githubusercontent.com/user/repository/main/file.json`
+Useful for downloading JSON, configuration files, scripts, and source files directly.
+
+8. Compare branches or commits
+
+`https://github.com/user/repository/compare/main...dev
+https://github.com/user/repository/compare/COMMIT1...COMMIT2`
+The three-dot comparison shows changes from the common ancestor to the second reference, rather than every difference between the two branch tips. Useful for reviewing proposed changes and investigating regressions.
+
+9. Download a pull request as a diff
+
+Append `.diff` to a pull request URL:
+
+`https://github.com/user/repository/pull/123.diff`
+Use the raw diff for focused code review. Example prompt:
+
+`Review this pull request.
+
+Look for:
+- bugs
+- regressions
+- security issues
+- unnecessary complexity`
+10. Download a pull request as a patch
+
+`https://github.com/user/repository/pull/123.patch`
+A patch includes commit information alongside code changes. After downloading and reviewing it, check whether it applies cleanly:
+
+`git apply --check changes.patch`
+Use `git apply changes.patch` to apply changes without creating commits, or `git am changes.patch` to apply a mailbox-format patch as commits.
+
+11. Link to specific code lines
+
+Append a line anchor to a GitHub file URL:
+
+- `file.ts#L20` — line 20.
+- `file.ts#L20-L35` — lines 20 through 35.
+
+Useful for reviews, documentation, bug reports, and sharing exact code.
+
+12. Create a permanent code link
+
+While viewing a file, press `y`. GitHub replaces the branch name in the URL with the exact commit SHA, pinning the link to that version instead of a moving branch.
+
+`/blob/main/src/file.ts
+/blob/COMMIT_SHA/src/file.ts`
+Combine a commit-based URL with a line anchor for stable references in documentation, tutorials, and reviews.
+
+13. View Markdown source
+
+Append `?plain=1` to a Markdown file URL to inspect its source with line numbers. Add a line anchor when needed:
+
+`README.md?plain=1
+README.md?plain=1#L20-L30`
+Folder Downloads
+
+14. Download a single directory
+
+Open the third-party tool `https://download-directory.github.io/` and paste a GitHub folder URL:
+
+`https://github.com/user/repository/tree/main/assets`
+Useful when you only need `/assets`, `/docs`, `/examples`, or `/templates` instead of the full repository.
+
+Browser Development Environments
+
+15. StackBlitz
+
+`https://stackblitz.com/github/user/repository`
+Run compatible JavaScript, TypeScript, and Node-based web projects in a browser environment. Compatibility depends on the project's scripts, dependencies, and runtime requirements.
+
+16. CodeSandbox
+
+`https://codesandbox.io/p/github/user/repository`
+Open GitHub projects for web development, demos, and reproducible environments. Sign-in, setup, or plan requirements may apply.
+
+17. Gitpod
+
+Historical repository-launch URL pattern:
+
+`https://gitpod.io/#https://github.com/user/repository`
+Used to launch cloud development environments without local setup. Check current Gitpod availability and launch instructions before relying on this legacy pattern.
+
+File History
+
+18. Git History — See how a file evolved
+
+Replace `github.com` with `github.githistory.xyz` in a file URL:
+
+`https://github.com/user/repository/blob/main/file.js
+https://github.githistory.xyz/user/repository/blob/main/file.js`
+Useful for examining when code was added, how implementations evolved, and how refactors changed a file.
+
+GitHub Keyboard Shortcuts
+
+- `.` — open the repository in github.dev.
+- `?` — show available keyboard shortcuts.
+- `y` — change the current file URL to a commit-based permalink.
+- `t` — open the repository file finder; type a filename such as `package.json`.
+- `/` — focus GitHub search.
+
+Shortcuts depend on the current page and focus; use them outside text-entry fields.
+
+Quick Tool Selection
+
+- See architecture: GitDiagram.
+- Read generated explanations: DeepWiki.
+- Prepare a code digest for AI: GitIngest.
+- Connect AI to repository context: GitMCP.
+- Browse source: GitHub1s.
+- Edit in the browser: github.dev.
+- Run a compatible web project: StackBlitz or CodeSandbox.
+- Inspect a file's evolution: Git History.
+
+Suggested Workflow for an Unfamiliar Repository
+
+- Use GitDiagram to get a visual overview.
+- Read DeepWiki explanations and check them against the source.
+- Use GitIngest to prepare only the code needed for your AI task.
+- Inspect specific files with github.dev or GitHub1s.
+- Configure GitMCP if your AI workflow needs ongoing repository context.
+
+Privacy & Security
+
+GitDiagram, GitIngest, DeepWiki, GitHub1s, GitMCP, Download Directory, StackBlitz, CodeSandbox, Gitpod, and Git History are third-party services. Availability, supported repositories, and access requirements can change.
+
+- Check requested GitHub permissions and avoid unnecessary organization-wide access.
+- For private repositories, confirm service support, authorization, retention policies, and whether sharing the code is permitted.
+- Exclude secrets before sending repository contents or diffs to external tools or AI services.
+- Never upload API keys, tokens, or secret-bearing `.env` files. Keep real secrets out of version control; use `.env.example` with placeholders.
+- Review unfamiliar code, patches, and setup scripts before applying or running them.
+
+### 6 Documents to Prepare Before Vibecoding an App
+
+6 Documents to Prepare Before Vibecoding an App
+
+Before asking an AI coding agent to build an application, define the product, architecture, user flow, design, data model, and implementation sequence first. These documents give the agent structured context instead of forcing it to make important decisions while generating code.
+
+1. Product Requirements Document (PRD)
+
+Describe exactly what the product is, why it should exist, what problem it solves, and what users should be able to do.
+
+- Product overview and purpose
+- Goals and objectives
+- Functional requirements and important features
+- Target users and expected user experience
+- Success criteria or metrics
+
+The PRD answers what should be built and why.
+
+2. Technical Requirements Document (TRD)
+
+Define the technologies and architecture that will be used to build the application.
+
+- Frontend framework and language
+- Mobile technology if applicable
+- Backend framework or runtime
+- Database
+- Cloud, hosting, and deployment platform
+- Important external services or APIs
+
+This prevents an AI agent from randomly changing technologies or creating an inconsistent stack.
+
+3. App Flow
+
+Map the user's journey through the application screen by screen. Show what happens after important clicks and actions.
+
+- Where users enter the application
+- Authentication and onboarding flows
+- Navigation between screens
+- Important actions and their results
+- Success, error, and completion states
+
+An app flow gives both the developer and the AI agent a clear understanding of how the product is supposed to behave.
+
+4. UI/UX Design Brief
+
+Define the visual system instead of allowing every generated page or component to use random styling.
+
+- Colors
+- Typography
+- Spacing
+- Components and visual patterns
+- Buttons, forms, cards, and states
+- General layout and interaction rules
+
+A consistent design brief makes AI-generated interfaces look like parts of the same product rather than unrelated screens.
+
+5. Backend Schema
+
+Plan how application data is structured and how entities relate to one another before implementing the backend.
+
+- Database tables or collections
+- Fields and data types
+- Primary and foreign keys
+- Relationships between entities
+- User ownership and permissions where needed
+
+The schema provides a source of truth for how data is organized and reduces accidental database redesigns during development.
+
+6. Implementation Plan
+
+Break development into an ordered sequence of manageable tasks that an AI coding agent can execute one step at a time.
+
+- Planning and project setup
+- Requirements and foundational architecture
+- Design implementation
+- Feature development
+- Integration and backend work
+- Testing and final validation
+
+The implementation plan is especially important for AI-assisted development because it prevents the agent from trying to build the entire application at once.
+
+Core idea
+
+Vibecoding works better when AI is treated as an implementation agent rather than the person making every product decision. Give it documented constraints and a clear plan before asking it to write large amounts of code.
+
+### Use UI Primitives Before Launching an App
+
+Use UI Primitives Before Launching an App
+
+Do not rebuild complicated interactive UI behavior from scratch when mature primitive libraries already solve it. UI primitives provide the underlying behavior for components while allowing you to control their visual design.
+
+What are UI primitives?
+
+Primitives are low-level, reusable components that handle difficult interaction logic without forcing a complete visual style onto the application.
+
+Examples include:
+
+- Dropdown menus
+- Dialogs and modals
+- Drawers
+- OTP fields
+- Popovers
+- Tabs
+- Tooltips
+- Select menus
+
+Why primitives matter
+
+A component that looks simple can require substantial logic to behave correctly. A dropdown, dialog, or drawer may need:
+
+- Keyboard navigation
+- Focus management
+- Accessibility support
+- Click-outside handling
+- Correct opening and closing behavior
+- Collision or positioning detection
+- Proper interaction states
+
+Using established primitives means this behavior has already been implemented and tested instead of being recreated for every project.
+
+1. Choose a primitive library
+
+Radix UI and Base UI are strong options, with Base UI serving as a practical default. The primitive library becomes the behavioral foundation of your components.
+
+2. Build a design system with shadcn/ui
+
+Use shadcn/ui as the layer where primitives are turned into reusable application components that follow your own visual system.
+
+- Choose your component styles
+- Define colors and theme variables
+- Standardize reusable UI patterns
+- Keep components visually consistent across the application
+
+Unlike a traditional locked component package, shadcn/ui gives you component code that becomes part of your project, making it easier to customize.
+
+3. Install components as the application needs them
+
+Add the components required by the project rather than manually recreating their interaction logic. The primitive layer handles the difficult behavior while your design system controls how they look.
+
+Optional AI skill
+
+Compatible AI coding agents can add the shadcn skill for component-specific guidance:
+
+`npx skills add https://github.com/shadcn/ui --skill shadcn`
+
+This can give an AI coding agent additional shadcn-specific guidance when working with the component system.
+
+Recommended structure
+
+`Primitive library → shadcn/ui design system → application components → screens/features`
+
+Core idea
+
+Use proven primitives for behavior and accessibility, then customize the presentation through your own design system. This produces more reliable interfaces and avoids repeatedly implementing difficult interaction logic yourself.
+
+Linked bookmarks:
+- [Radix Primitives](https://www.radix-ui.com/primitives)
+- [Base UI](https://base-ui.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+
+### Google Drive Direct Download Links
+
+Google Drive Direct Download Links
+
+A normal Google Drive share link usually opens the file in Google's preview interface. A direct-download link skips that preview and starts downloading the file when the user opens the link.
+
+How to create one
+
+- Upload the file to Google Drive.
+- Open the file's sharing settings.
+- Set access to Anyone with the link so people using the download link can access the file.
+- Copy the public Google Drive share link.
+- Open `https://direct.whyfaithe.com`.
+- Paste the Google Drive share link into the generator.
+- Copy the generated Direct download link.
+
+When this is useful
+
+- Adding downloadable files to websites.
+- Creating Download buttons without sending users to the Google Drive preview page first.
+- Sharing PDFs, images, ZIP files, resumes, press materials, and other downloadable assets.
+- Using Google Drive as simple file storage while presenting your own website interface to users.
+
+Important: The Google Drive file must have the appropriate sharing permission. If the file is private or restricted, the direct-download URL will not make it publicly accessible.
+
+Workflow: Google Drive file → public share link → direct.whyfaithe.com → generated direct-download link → website or download button.
 
 ## Slide decks (1)
 

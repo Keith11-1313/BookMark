@@ -2771,5 +2771,33 @@
     "notes": "Collection of playful, physics-driven React and TypeScript UI components with interactive demos.",
     "favicon": "https://www.google.com/s2/favicons?domain=feralui.dev&sz=32",
     "createdAt": "2026-09-17T12:17:04"
+  },
+  {
+    "id": "https://www.radix-ui.com/primitives",
+    "url": "https://www.radix-ui.com/primitives",
+    "title": "Radix Primitives",
+    "category": "Libraries/Frameworks",
+    "tags": [
+      "react",
+      "ui-primitives",
+      "accessibility"
+    ],
+    "notes": "Unstyled, accessible React primitives for building customizable component libraries and design systems.",
+    "favicon": "https://www.google.com/s2/favicons?domain=radix-ui.com&sz=32",
+    "createdAt": "2026-09-18T05:05:50Z"
+  },
+  {
+    "id": "https://base-ui.com/",
+    "url": "https://base-ui.com/",
+    "title": "Base UI",
+    "category": "Libraries/Frameworks",
+    "tags": [
+      "react",
+      "ui-components",
+      "accessibility"
+    ],
+    "notes": "Unstyled React components for building accessible component libraries, interfaces, and web applications.",
+    "favicon": "https://www.google.com/s2/favicons?domain=base-ui.com&sz=32",
+    "createdAt": "2026-09-18T05:05:50Z"
   }
 ]
