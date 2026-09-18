@@ -2799,5 +2799,19 @@
     "notes": "Unstyled React components for building accessible component libraries, interfaces, and web applications.",
     "favicon": "https://www.google.com/s2/favicons?domain=base-ui.com&sz=32",
     "createdAt": "2026-09-18T05:05:50Z"
+  },
+  {
+  "id": "https://tv.garden/",
+  "url": "https://tv.garden/",
+  "title": "TV Garden",
+  "category": "Entertainment",
+  "tags": [
+    "live-tv",
+    "iptv",
+    "global-channels"
+  ],
+  "notes": "Free browser-based directory for exploring global live TV streams by country, category, or interactive 3D globe.",
+  "favicon": "https://www.google.com/s2/favicons?domain=tv.garden&sz=32",
+  "createdAt": "2026-09-18T13:15:00"
   }
 ]
