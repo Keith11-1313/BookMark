@@ -5,9 +5,9 @@
 > Source files: data/bookmarks.json, data/notes.json, data/prompts.json, data/slides.json.
 > App: https://keith11-1313.github.io/BookMark/ — Summary: https://keith11-1313.github.io/BookMark/llms.txt
 
-## Bookmarks (196)
+## Bookmarks (202)
 
-### AI (10)
+### AI (11)
 
 - [Manus](https://manus.im/)
   General-purpose AI agent that executes tasks and automates workflows, from building websites to running research.
@@ -49,6 +49,10 @@
   Drop in your website URL and it learns your brand, then pumps out on-brand ad sets and product shots from one chat. Free to start.
   Tags: ai-design, ads, branding, product-shots
 
+- [Brag](https://github.com/latent-spaces/brag)
+  Open-source agent skill for creating short project launch videos with music, motion, and share copy. Supports Claude Code and other coding agents; the classic workflow uses Hyperframes, with a leaner brag-slim option.
+  Tags: agent-skills, launch-video, ai-video
+
 ### APIs (5)
 
 - [OpenSky Network](https://opensky-network.org/)
@@ -71,7 +75,7 @@
   Open lyrics database with plain and synced lyrics served as clean JSON, no signup required.
   Tags: lyrics, music, json-api
 
-### Assets (25)
+### Assets (26)
 
 - [Dareful](https://dareful.com/)
   Completely free 4K & HD stock video footage (nature, aerial, travel, etc.) under a Creative Commons Attribution license.
@@ -173,6 +177,10 @@
   Library of downloadable green-screen meme videos, templates, and sound effects for video editing.
   Tags: green-screen, memes, video-assets
 
+- [KayKit 3D Game Assets](https://kaylousberg.itch.io/)
+  Kay Lousberg’s collection of stylized low-poly 3D game asset packs, including characters, dungeons, platformer scenery, and city-building props. Individual packs are available separately, with free and paid options.
+  Tags: game-assets, low-poly, 3d-models
+
 ### Business (3)
 
 - [The Hustle Blower](https://thehustleblower.com/)
@@ -235,7 +243,7 @@
   Fast color palette generator and explorer for designers and developers.
   Tags: color-palette, generator, design-tool
 
-### Design Inspiration (7)
+### Design Inspiration (8)
 
 - [CTA.gallery](https://www.cta.gallery/)
   Gallery of call-to-action examples for landing pages, product sites, and conversion-focused design.
@@ -264,6 +272,10 @@
 - [Cosmos](https://www.cosmos.so/)
   A calmer corner of the internet for saving and clustering visual inspiration — part moodboard, part discovery feed.
   Tags: moodboard, inspiration, save, community
+
+- [Fonts In Use](https://fontsinuse.com/)
+  Independent archive of real-world typography, searchable by typeface, topic, and format for design research and inspiration.
+  Tags: typography, font-pairing, design-reference
 
 ### Design Tools (11)
 
@@ -394,6 +406,12 @@
 - [Internet Archive](https://archive.org/)
   Digital library of free and borrowable texts, movies, music, software, and archived web pages.
   Tags: digital-library, wayback-machine, media
+
+### Entertainment (1)
+
+- [TV Garden](https://tv.garden/)
+  Free browser-based directory for exploring global live TV streams by country, category, or interactive 3D globe.
+  Tags: live-tv, iptv, global-channels
 
 ### Finance (2)
 
@@ -737,7 +755,7 @@
   Free game-based cybersecurity learning platform where players investigate simulated breaches using log analysis and KQL to build security-analyst skills.
   Tags: threat-hunting, log-analysis, kql
 
-### Utilities (22)
+### Utilities (24)
 
 - [CasaOS](https://github.com/IceWhaleTech/CasaOS)
   Open-source "personal cloud" system that turns a home server (e.g. Raspberry Pi, NUC) into an easy Docker-app dashboard for self-hosting.
@@ -827,15 +845,23 @@
   Search any angle and see it drawn as a clean visual reference — handy for geometry and design work.
   Tags: angles, reference, geometry
 
+- [Watabou Procgen Arcana](https://watabou.github.io/)
+  A collection of browser-based procedural map generators for fantasy cities, villages, dungeons, caves, and other environments. Useful for tabletop maps and game-world planning.
+  Tags: map-generation, worldbuilding, procedural-generation
+
+- [jsfxr – Retro Sound Effect Generator](https://sfxr.me/)
+  Browser-based 8-bit game sound-effect generator with presets for jumps, pickups, laser shots, explosions, and more. Tune parameters and export WAV audio for use in games.
+  Tags: sound-effects, audio-generator, game-development
+
 ## Prompts (21)
 
-### BookMark Intake System â€” Open WebUI System Prompt
+### BookMark Intake System — Open WebUI System Prompt
 Category: Coding
 Tags: system-prompt
 
-# BookMark Intake System â€” Open WebUI System Prompt
+# BookMark Intake System — Open WebUI System Prompt
 
-You are a data intake assistant for the BookMark app â€” an open-source developer resource directory. Your job is to take raw input (URLs, code blocks, text, screenshots) and convert them into structured JSON entries ready to be pasted into the app's data files.
+You are a data intake assistant for the BookMark app — an open-source developer resource directory. Your job is to take raw input (URLs, code blocks, text, screenshots) and convert them into structured JSON entries ready to be pasted into the app's data files.
 
 ## How It Works
 
@@ -860,7 +886,7 @@ If ambiguous, ask me to clarify.
 ### Bookmark
 ```json
 {
-  "id": "<unique ID â€” see ID Generation>",
+  "id": "<unique ID — see ID Generation>",
   "url": "<full URL>",
   "title": "<site name or page title>",
   "category": "<one of the categories below>",
@@ -894,7 +920,7 @@ AI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Deve
   "description": "<one-line description of what the deck shows>",
   "category": "<one of the bookmark categories below>",
   "tags": ["<tag1>", "<tag2>"],
-  "images": ["assets/slides/<folder>/1.jpg", "â€¦"],
+  "images": ["assets/slides/<folder>/1.jpg", "…"],
   "createdAt": "<ISO 8601 timestamp>"
 }
 ```
@@ -902,9 +928,9 @@ AI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Deve
 ### Note
 ```json
 {
-  "id": "<unique ID â€” see ID Generation>",
+  "id": "<unique ID — see ID Generation>",
   "title": "<note title>",
-  "body": "<HTML content â€” use <p>, <ul>, <li>, <b>, <i>, <code> tags>",
+  "body": "<HTML content — use <p>, <ul>, <li>, <b>, <i>, <code> tags>",
   "color": "<one of: #5865f2, #23a559, #f0b232, #da373c, #00a8fc, #eb459e, #949ba4, or null>",
   "linkedBookmarks": [],
   "createdAt": "<ISO 8601 timestamp>",
@@ -915,7 +941,7 @@ AI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Deve
 ### Prompt
 ```json
 {
-  "id": "<unique ID â€” see ID Generation>",
+  "id": "<unique ID — see ID Generation>",
   "title": "<prompt name>",
   "category": "<one of: Writing, Coding, Analysis, Creative, Business, Marketing, Education, Personal, Other>",
   "body": "<the full prompt text>",
@@ -926,9 +952,9 @@ AI, Design, Design Tools, Design Inspiration, Libraries/Frameworks, Assets, Deve
 
 ## ID Generation
 
-IDs are **plain sequential numeric strings** â€” `"1"`, `"2"`, `"3"`... â€” with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `["1", "2"]`); a prefixed ID would break that reference.
+IDs are **plain sequential numeric strings** — `"1"`, `"2"`, `"3"`... — with **no type prefix**. This matches the live schema in `data/*.json` and matters for `linkedBookmarks`, which references bookmark IDs directly (e.g. `["1", "2"]`); a prefixed ID would break that reference.
 
-- Each data file keeps its own independent counter â€” `bookmarks.json`, `notes.json`, `prompts.json`, and `slides.json` all number from 1 separately
+- Each data file keeps its own independent counter — `bookmarks.json`, `notes.json`, `prompts.json`, and `slides.json` all number from 1 separately
 - Slide set IDs are **folder names** under `assets/slides/` (e.g. `font_pairings`)
 - Use the highest existing `id` in the target file, plus one, as the next ID
 - Example: if `notes.json` currently ends at `"3"`, the next note is `"4"`
@@ -943,7 +969,7 @@ Use the current date/time in ISO 8601 format: `2025-07-16T10:00:00Z`
 Always output:
 1. The **type** (bookmark / note / prompt / slides)
 2. The **target file** (e.g., `data/bookmarks.json`)
-3. The **JSON object** â€” ready to copy-paste into the array in the target file
+3. The **JSON object** — ready to copy-paste into the array in the target file
 
 Example output:
 ```
@@ -981,10 +1007,10 @@ File: data/slides.json
 ## Rules
 
 - Always use the exact field names from the schemas above
-- Always include ALL fields â€” no omissions
+- Always include ALL fields — no omissions
 - Escape special characters in JSON strings properly (newlines as `\n`, quotes as `\"`)
 - For a folder of images, add every file to the deck's `images` array in filename order
-- For notes, use semantic HTML (`<p>`, `<ul>`, `<li>`, `<b>`, `<code>`) â€” no `<div>` or `<span>`
+- For notes, use semantic HTML (`<p>`, `<ul>`, `<li>`, `<b>`, `<code>`) — no `<div>` or `<span>`
 - If a URL is a GitHub repo, try to fill in `githubMeta` with `{ "stars": <n>, "forks": <n>, "language": "<lang>" }` if known, otherwise use `null`
 - For screenshots of websites: extract the URL from the screenshot, determine the site name, categorize it
 - For screenshots of code: extract the code text, detect the language, and file it as a note instead
@@ -1593,7 +1619,7 @@ Workflow: Google Drive file → public share link → direct.whyfaithe.com → g
 ## Slide decks (1)
 
 ### Font Pairings
-Type combos that actually carry a layout â€” grab a pairing and drop it straight into your next design.
+Type combos that actually carry a layout — grab a pairing and drop it straight into your next design.
 Category: Design
 Tags: fonts, pairings, typography
 - Slide: https://keith11-1313.github.io/BookMark/assets/slides/font_pairings/1.jpg

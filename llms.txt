@@ -9,7 +9,7 @@ JSON, AI assistants and crawlers should read the data files (or llms-full.txt)
 directly instead of the HTML shell.
 
 - App: https://keith11-1313.github.io/BookMark/
-- Full content dump (178 bookmarks, 21 prompts, notes, slide decks): https://keith11-1313.github.io/BookMark/llms-full.txt
+- Full content dump (202 bookmarks, 21 prompts, notes, slide decks): https://keith11-1313.github.io/BookMark/llms-full.txt
 - Privacy Notice and Terms of Use: in-app Settings > Legal section
 - Source code (MIT): https://github.com/Keith11-1313/BookMark
 

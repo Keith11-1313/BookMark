@@ -2801,7 +2801,7 @@
     "createdAt": "2026-09-18T05:05:50Z"
   },
   {
-  "id": "https://tv.garden/",
+    "id": "https://tv.garden/",
   "url": "https://tv.garden/",
   "title": "TV Garden",
   "category": "Entertainment",
@@ -2811,7 +2811,77 @@
     "global-channels"
   ],
   "notes": "Free browser-based directory for exploring global live TV streams by country, category, or interactive 3D globe.",
-  "favicon": "https://www.google.com/s2/favicons?domain=tv.garden&sz=32",
-  "createdAt": "2026-09-18T13:15:00"
+    "favicon": "https://www.google.com/s2/favicons?domain=tv.garden&sz=32",
+    "createdAt": "2026-09-18T13:15:00"
+  },
+  {
+    "id": "https://fontsinuse.com/",
+    "url": "https://fontsinuse.com/",
+    "title": "Fonts In Use",
+    "category": "Design Inspiration",
+    "tags": [
+      "typography",
+      "font-pairing",
+      "design-reference"
+    ],
+    "notes": "Independent archive of real-world typography, searchable by typeface, topic, and format for design research and inspiration.",
+    "favicon": "https://www.google.com/s2/favicons?domain=fontsinuse.com&sz=32",
+    "createdAt": "2026-09-19T00:40:59Z"
+  },
+  {
+    "id": "https://kaylousberg.itch.io/",
+    "url": "https://kaylousberg.itch.io/",
+    "title": "KayKit 3D Game Assets",
+    "category": "Assets",
+    "tags": [
+      "game-assets",
+      "low-poly",
+      "3d-models"
+    ],
+    "notes": "Kay Lousberg’s collection of stylized low-poly 3D game asset packs, including characters, dungeons, platformer scenery, and city-building props. Individual packs are available separately, with free and paid options.",
+    "favicon": "https://www.google.com/s2/favicons?domain=kaylousberg.itch.io&sz=32",
+    "createdAt": "2026-10-19T19:49:47"
+  },
+  {
+    "id": "https://watabou.github.io/",
+    "url": "https://watabou.github.io/",
+    "title": "Watabou Procgen Arcana",
+    "category": "Utilities",
+    "tags": [
+      "map-generation",
+      "worldbuilding",
+      "procedural-generation"
+    ],
+    "notes": "A collection of browser-based procedural map generators for fantasy cities, villages, dungeons, caves, and other environments. Useful for tabletop maps and game-world planning.",
+    "favicon": "https://www.google.com/s2/favicons?domain=watabou.github.io&sz=32",
+    "createdAt": "2026-10-19T19:49:47"
+  },
+  {
+    "id": "https://sfxr.me/",
+    "url": "https://sfxr.me/",
+    "title": "jsfxr – Retro Sound Effect Generator",
+    "category": "Utilities",
+    "tags": [
+      "sound-effects",
+      "audio-generator",
+      "game-development"
+    ],
+    "notes": "Browser-based 8-bit game sound-effect generator with presets for jumps, pickups, laser shots, explosions, and more. Tune parameters and export WAV audio for use in games.",
+    "favicon": "https://www.google.com/s2/favicons?domain=sfxr.me&sz=32",
+    "createdAt": "2026-10-19T19:49:47"
+  },
+  {
+    "id": "https://github.com/latent-spaces/brag",
+    "url": "https://github.com/latent-spaces/brag",
+    "title": "Brag",
+    "category": "AI",
+    "tags": [
+      "agent-skills",
+      "launch-video",
+      "ai-video"
+    ],
+    "notes": "Open-source agent skill for creating short project launch videos with music, motion, and share copy. Supports Claude Code and other coding agents; the classic workflow uses Hyperframes, with a leaner brag-slim option.",
+    "favicon": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
+    "createdAt": "2026-10-29T16:19:55"
   }
 ]
